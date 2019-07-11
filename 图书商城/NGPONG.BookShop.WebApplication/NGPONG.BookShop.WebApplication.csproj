@@ -59,7 +59,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\buttons.css" />
     <Content Include="Css\imgareaselect-default.css" />
+    <Content Include="Css\style.css" />
     <Content Include="Images\BookCovers\9787560925110jpg" />
     <Content Include="ashx\CheckVerCode.ashx" />
     <Content Include="ashx\VerificationCode.ashx" />
@@ -1608,7 +1610,9 @@
     <Content Include="ashx\Users\AddUsersInfo.ashx" />
     <Content Include="ashx\Users\CheckUsersInfo.ashx" />
     <None Include="js\jquery-1.4.2-vsdoc.js" />
+    <Content Include="js\cropbox.js" />
     <Content Include="js\jquery-1.4.2.js" />
+    <Content Include="js\jquery-1.7.1.js" />
     <Content Include="js\jquery-ui-1.8.2.custom.min.js" />
     <Content Include="js\jquery.easyui.min.js" />
     <Content Include="js\jquery.imgareaselect.min.js" />
@@ -1764,6 +1768,7 @@
     <Content Include="SWFUpload\swfupload.swf" />
     <Content Include="SWFUpload\swfupload_fp9.swf" />
     <Content Include="test\test-01.html" />
+    <Content Include="test\test-02.html" />
     <Content Include="Web.config" />
     <Content Include="Master\CustomerSite.Master" />
   </ItemGroup>

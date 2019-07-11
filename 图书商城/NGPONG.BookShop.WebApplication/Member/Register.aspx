@@ -1,6 +1,32 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/CustomerSite.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="NGPONG.BookShop.WebApplication.Member.Register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Cunstomer_Header" runat="server">
+    <script src="../js/cropbox.js"></script>
+    <link href="../Css/style.css" rel="stylesheet" />
+    <link href="../Css/buttons.css" rel="stylesheet" />
+    <style type="text/css">
+        #backgroundDiv {
+            background-color: black;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            opacity: 0.15;
+            display: none;
+        }
+
+        #foregroundDiv {
+            background-color: white;
+            width: 700px;
+            height: 550px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -275px 0 0 -350px;
+            display: none;
+        }
+    </style>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -157,14 +183,53 @@
                     $.messager.alert('错误', '两次密码不一致，请重新确认!', 'error');
                     return false;
                 }
-                else if (isVarCodeError)
-                {
+                else if (isVarCodeError) {
                     $.messager.alert('错误', '验证码错误!', 'error');
                     return false;
                 }
 
                 $("#form")[0].submit();
             });
+
+            $("#btnShow").click(function () {
+
+                $("#backgroundDiv").fadeIn(1000).next().fadeIn(1000);
+            });
+
+            $("#btnClose").click(function () {
+
+                $("#backgroundDiv").fadeOut(1000).next().fadeOut(1000);
+            });
+
+            var options =
+            {
+                thumbBox: '.thumbBox',
+                spinner: '.spinner',
+                imgSrc: 'img/5.jpg'
+            }
+            var cropper = $('.imageBox').cropbox(options);
+            $('#upload-file').on('change', function () {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    options.imgSrc = e.target.result;
+                    cropper = $('.imageBox').cropbox(options);
+                }
+                reader.readAsDataURL(this.files[0]);
+                this.files = [];
+            })
+            $('#btnCrop').on('click', function () {
+                var img = cropper.getDataURL();
+                $('.cropped').html('');
+                $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+                $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+                $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+            })
+            $('#btnZoomIn').on('click', function () {
+                cropper.zoomIn();
+            })
+            $('#btnZoomOut').on('click', function () {
+                cropper.zoomOut();
+            })
         });
     </script>
     <style type="text/css">
@@ -193,7 +258,7 @@
                     <td width="2" bgcolor="#DDDDCC">&nbsp;</td>
                     <td>
                         <div align="center">
-                            <table height="61" cellpadding="0" cellspacing="0" style="height:332px;width:500px">
+                            <table height="61" cellpadding="0" cellspacing="0" style="height: 332px; width: 500px">
                                 <tr>
                                     <td colspan="6" class="auto-style1">
                                         <p class="STYLE2" style="text-align: center">注册新帐户方便又容易</p>
@@ -207,12 +272,12 @@
                                 <tr>
                                     <td width="24%" height="26" align="right" valign="top"><span class="iconPrompt">*</span> 密码：</td>
                                     <td valign="top" width="37%" align="left">
-                                        <input type="text" name="txtUserPwd" id="txtUserPwd" /></td>
+                                        <input type="password" name="txtUserPwd" id="txtUserPwd" /></td>
                                 </tr>
                                 <tr>
                                     <td width="24%" height="26" align="right" valign="top"><span class="iconPrompt">*</span> 确认密码：</td>
                                     <td valign="top" width="37%" align="left">
-                                        <input type="text" name="txtConfirmPwd" id="txtConfirmPwd" /></td>
+                                        <input type="password" name="txtConfirmPwd" id="txtConfirmPwd" /></td>
                                 </tr>
                                 <tr>
                                     <td width="24%" height="26" align="right" valign="top"><span class="iconPrompt">*</span> Email：</td>
@@ -240,7 +305,21 @@
                                         <input type="text" name="txtVerificationCode" id="txtVerificationCode" /></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" align="center"><img id="verCode" style="padding-left:45px;cursor:pointer" src="/ashx/VerificationCode.ashx" /></td>
+                                    <td colspan="2" align="center">
+                                        <img id="verCode" style="padding-left: 45px; cursor: pointer" src="/ashx/VerificationCode.ashx" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <a href="javascript:return false;" id="btnShow" style="color: white;font-family:'Microsoft YaHei'" class="button button-primary button-pill button-small">选择头像</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center"><br /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">
@@ -253,7 +332,6 @@
                     <td width="2" bgcolor="#DDDDCC">&nbsp;</td>
                 </tr>
             </table>
-
         </form>
 
         <table width="80%" height="3" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -262,5 +340,33 @@
                     <img src="../Images/touming.gif" width="27" height="9" /></td>
             </tr>
         </table>
+    </div>
+
+    <!--背景层-->
+    <div id="backgroundDiv">
+    </div>
+    <!--前景层-->
+    <div id="foregroundDiv">
+        <a href="javascript:return false;" id="btnClose" style="background-color:red; float: right; margin-right: 10px; margin-top: 5px;color:white;font-family:'Microsoft YaHei'" class="button button-primary button-pill button-small">返回</a>
+        <div class="container" style="position: absolute; margin-left: 40px">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+            </div>
+            <div class="action">
+                <div class="new-contentarea tc" style="width: 65px;">
+                    <a href="javascript:void(0)" class="upload-img" style="width: 65px">
+                        <label for="upload-file">选取</label>
+                    </a>
+                    <input type="file" class="" name="upload-file"
+                        id="upload-file" style="cursor:pointer" />
+                </div>
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+" style="margin-left: 5px;">
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
+                <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
+                <input type="button" id="btnUpload" class="Btnsty_peyton" value="上传" style="width: 70px; float: right;" />
+            </div>
+            <div class="cropped"></div>
+        </div>
     </div>
 </asp:Content>
