@@ -1,0 +1,184 @@
+﻿函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:01:02
+所需时间：0.001097
+速度等级：B
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:05:15
+所需时间：0.0543798
+速度等级：C
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:05:15
+所需时间：0.0013691
+速度等级：B
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:05:20
+所需时间：0.0009672
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:05:20
+所需时间：0.0010354
+速度等级：B
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:05:20
+所需时间：0.0009182
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:05:20
+所需时间：0.0009412
+速度等级：A
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:05:20
+所需时间：0.0008824
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.UpdateMemberTypeInfoDetail
+调用日期：2018/10/6 13:05:32
+所需时间：0.0114326
+速度等级：C
+SQL脚本：UPDATE MemberTypeInfo SET MTitle = @MTitle,MDiscount = @MDiscount WHERE MId = @MId
+参数值：@MTitle#普通会员 | @MDiscount#0.98 | @MId#4
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:05:32
+所需时间：0.0010053
+速度等级：B
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:05:32
+所需时间：0.0008934
+速度等级：A
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:05:32
+所需时间：0.000853
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
+调用日期：2018/10/6 13:06:26
+所需时间：0.0533841
+速度等级：C
+SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:06:26
+所需时间：0.001688
+速度等级：B
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:06:26
+所需时间：0.0011806
+速度等级：B
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:06:30
+所需时间：0.0009752
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:06:30
+所需时间：0.0010043
+速度等级：B
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:06:30
+所需时间：0.0008893
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/10/6 13:06:30
+所需时间：0.0009195
+速度等级：A
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/10/6 13:06:30
+所需时间：0.0008998
+速度等级：A
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+

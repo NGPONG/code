@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态---模拟移动硬盘盘u盘mp3练习\bin\Debug\多态---模拟移动硬盘盘u盘mp3练习.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态---模拟移动硬盘盘u盘mp3练习\bin\Debug\多态---模拟移动硬盘盘u盘mp3练习.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态---模拟移动硬盘盘u盘mp3练习\bin\Debug\多态---模拟移动硬盘盘u盘mp3练习.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态---模拟移动硬盘盘u盘mp3练习\obj\Debug\多态---模拟移动硬盘盘u盘mp3练习.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态---模拟移动硬盘盘u盘mp3练习\obj\Debug\多态---模拟移动硬盘盘u盘mp3练习.pdb

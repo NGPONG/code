@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\bin\Debug\日期选择.exe.config
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\bin\Debug\日期选择.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\bin\Debug\日期选择.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\obj\Debug\日期选择.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\obj\Debug\日期选择.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\obj\Debug\日期选择.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\obj\Debug\日期选择.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\obj\Debug\日期选择.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\日期选择\obj\Debug\日期选择.csprojResolveAssemblyReference.cache

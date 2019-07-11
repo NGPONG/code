@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\bin\Debug\递归实现资源管理器.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\bin\Debug\递归实现资源管理器.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\bin\Debug\递归实现资源管理器.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.Form1.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\递归实现资源管理器\bin\Debug\递归实现资源管理器.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\递归实现资源管理器\obj\Debug\递归实现资源管理器.pdb

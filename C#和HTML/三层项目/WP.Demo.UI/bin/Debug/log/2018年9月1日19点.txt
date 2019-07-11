@@ -1,0 +1,8 @@
+﻿函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/9/1 19:58:06
+所需时间：0.0794036
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        function Add(num1,num2)
+        {
+            this.getResult = function () 
+            {
+                return num1 + num2;
+            }
+        }
+
+        function Subtraction(num1,num2)
+        {
+            this.getResult = function ()
+            {
+                return num1 - num2;
+            }
+        }
+
+        function Multiplication(num1,num2)
+        {
+            this.getResult = function ()
+            {
+                return num1 * num2;
+            }
+        }
+
+        function Division(num1,num2)
+        {
+            this.getResult = function ()
+            {
+                return num1 / num2;
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var math = null;
+
+            $("select").attr("multiple", false);
+            $("select").attr("size", 1);
+            $("#btnResult").attr("value", "=");
+
+            $("#btnResult").click(function () {
+
+                var num1 = parseInt($("#num1").val());
+                var num2 = parseInt($("#num2").val());
+
+                var mat = $("select").val();
+                switch (mat)
+                {
+                    case "+":
+                        math = new Add(num1, num2);
+                        break;
+                    case "-":
+                        math = new Subtraction(num1, num2);
+                        break;
+                    case "*":
+                        math = new Multiplication(num1, num2);
+                        break;
+                    case "/":
+                        math = new Division(num1, num2);
+                        break;
+                    default:
+                        math = null;
+                        break;
+                }
+
+                $("#txtResult").val(math.getResult());
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="num1"/>
+    <select multiple="false" size="4">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="text" id="num2"/>
+    <input type="button" id="btnResult"/>
+    <input type="text" readonly="readonly" id="txtResult"/>
+</body>
+</html>

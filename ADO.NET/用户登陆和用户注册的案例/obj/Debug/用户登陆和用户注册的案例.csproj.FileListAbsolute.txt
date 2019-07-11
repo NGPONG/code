@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\bin\Debug\用户登陆和用户注册的案例.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\bin\Debug\用户登陆和用户注册的案例.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\bin\Debug\用户登陆和用户注册的案例.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.UserRegister.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户登陆和用户注册的案例\obj\Debug\用户登陆和用户注册的案例.pdb

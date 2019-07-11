@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\线程死锁demo\bin\Release\线程死锁demo.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\线程死锁demo\bin\Release\线程死锁demo.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\线程死锁demo\bin\Release\线程死锁demo.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\线程死锁demo\obj\Release\线程死锁demo.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\线程死锁demo\obj\Release\线程死锁demo.pdb

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("input").click(function () {
+
+                window.alert($("select").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <select size="4" multiple="multiple">
+        <option>123</option>
+        <option>123</option>
+        <option>123</option>
+        <option>123</option>
+    </select>
+    <input type="button"/>
+</body>
+</html>

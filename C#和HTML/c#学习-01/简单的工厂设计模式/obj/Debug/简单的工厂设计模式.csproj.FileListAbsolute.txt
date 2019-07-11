@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\简单的工厂设计模式\bin\Debug\简单的工厂设计模式.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\简单的工厂设计模式\bin\Debug\简单的工厂设计模式.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\简单的工厂设计模式\bin\Debug\简单的工厂设计模式.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\简单的工厂设计模式\obj\Debug\简单的工厂设计模式.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\简单的工厂设计模式\obj\Debug\简单的工厂设计模式.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\简单的工厂设计模式\bin\Debug\简单的工厂设计模式.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\简单的工厂设计模式\obj\Debug\简单的工厂设计模式.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\简单的工厂设计模式\obj\Debug\简单的工厂设计模式.pdb

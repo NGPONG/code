@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test04\bin\Debug\Test04.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test04\bin\Debug\Test04.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test04\bin\Debug\Test04.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test04\obj\Debug\Test04.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test04\obj\Debug\Test04.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\Test04\bin\Debug\Test04.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\Test04\obj\Debug\Test04.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\Test04\obj\Debug\Test04.pdb

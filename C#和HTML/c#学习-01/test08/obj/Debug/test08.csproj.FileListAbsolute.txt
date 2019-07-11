@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\test08\bin\Debug\test08.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\test08\obj\Debug\test08.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\test08\bin\Debug\test08.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\test08\bin\Debug\test08.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\test08\obj\Debug\test08.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\test08\obj\Debug\test08.pdb

@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\骑士飞行棋\bin\Debug\骑士飞行棋.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\骑士飞行棋\bin\Debug\骑士飞行棋.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\骑士飞行棋\bin\Debug\骑士飞行棋.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\骑士飞行棋\obj\Debug\骑士飞行棋.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\骑士飞行棋\obj\Debug\骑士飞行棋.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\骑士飞行棋\obj\Debug\骑士飞行棋.pdb

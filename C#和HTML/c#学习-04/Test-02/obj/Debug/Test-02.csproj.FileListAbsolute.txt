@@ -1,0 +1,10 @@
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\bin\Debug\Test-02.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\bin\Debug\Test-02.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\bin\Debug\Test-02.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test-02.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test_02.Form1.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test_02.Properties.Resources.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test-02.csproj.GenerateResource.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test-02.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test-02.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\Test-02\obj\Debug\Test-02.pdb

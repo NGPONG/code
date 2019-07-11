@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\匿名函数\bin\Debug\匿名函数.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\匿名函数\bin\Debug\匿名函数.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\匿名函数\bin\Debug\匿名函数.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\匿名函数\obj\Debug\匿名函数.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\匿名函数\obj\Debug\匿名函数.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\匿名函数\obj\Debug\匿名函数.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\匿名函数\bin\Debug\匿名函数.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\匿名函数\bin\Debug\匿名函数.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\匿名函数\bin\Debug\匿名函数.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\匿名函数\obj\Debug\匿名函数.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\匿名函数\obj\Debug\匿名函数.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\匿名函数\obj\Debug\匿名函数.pdb

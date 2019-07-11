@@ -1,0 +1,75 @@
+﻿using Microsoft.International.Converters.PinYinConverter;
+using NPOI.HSSF.UserModel;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using WP.Demo.BLL;
+
+namespace TEST
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                // 获取数据
+                TableInfoBLL objTableInfoBLL = new TableInfoBLL();
+                DataTable dtResult = objTableInfoBLL.GetData();
+
+                HSSFWorkbook workbook = new HSSFWorkbook();
+
+                HSSFSheet sheet = workbook.CreateSheet("测试工作表");
+
+                #region 创建列
+                HSSFCellStyle cellstyle_Title = workbook.CreateCellStyle();
+                cellstyle_Title.Alignment = 2;
+                HSSFFont font_Title = workbook.CreateFont();
+                font_Title.FontHeightInPoints = 13;
+                font_Title.Boldweight = 100;
+                cellstyle_Title.SetFont(font_Title); // 设置字体
+
+                HSSFRow row_Title = sheet.CreateRow(0);
+                for (int i = 0; i < dtResult.Columns.Count; i++)
+                {
+                    HSSFCell cell_Title = row_Title.CreateCell(i);
+                    cell_Title.CellStyle = cellstyle_Title;
+                    cell_Title.SetCellValue(dtResult.Columns[i].ColumnName);
+
+                    // 设置列的宽度
+                    sheet.SetColumnWidth(i, 5000);
+                } 
+                #endregion
+
+                #region 创建单元格
+                for (int i = 0; i < dtResult.Rows.Count; i++)
+                {
+                    HSSFRow row = sheet.CreateRow(i + 1);
+                    for (int j = 0; j < dtResult.Columns.Count; j++)
+                    {
+                        HSSFCell cell = row.CreateCell(j);
+                        cell.SetCellValue(dtResult.Rows[i][j].ToString());
+                    }
+                } 
+                #endregion
+
+                using (FileStream fsWrite = new FileStream(@"C:\Users\Administrator\Desktop\Test.xls", FileMode.Create, FileAccess.ReadWrite))
+                {
+                    workbook.Write(fsWrite);
+                }
+            }
+            catch 
+            {
+                
+            }
+        }
+    }
+}

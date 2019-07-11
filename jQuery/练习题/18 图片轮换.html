@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        #divContent {
+            height:300px;
+            width:400px;
+            position:absolute;
+        }
+
+        .imgContent {
+            width:400px;
+            height:300px;
+            position:absolute;
+            top:0px;
+            left:0px;
+            /*z-index:1;*/
+        }
+
+        .divNumber {
+            cursor:pointer;
+            color:white;
+            padding-left:5px;
+            padding-top:5px;
+        }
+    </style>
+
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        // 图片数组
+        var list = ['images/zg.jpg', 'images/hg.jpg', 'images/mg.jpg', 'images/rb.jpg'];
+
+        // 记录当前显示的图片
+        var imgShowNow = "";
+
+        // 记录当前移动至的下标
+        var index = 1;
+
+        // 记录定时器返回值
+        var Intervalled;
+
+        // 图片轮换函数
+        function changeImg() {
+
+            if ((index + 1) > 4)
+            {
+                index = 1;
+
+                $("#img" + 4).fadeOut(700);
+                $("#div" + 4).css("background-color", "#00EC00")
+                $("#img" + index).slideDown(700);
+                $("#div" + index).css("background-color", "#007500");
+                return;
+            }
+
+            $("#img" + index).fadeOut(700);
+            $("#div" + index).css("background-color", "#00EC00");
+            $("#img" + (index + 1)).slideDown(700);
+            $("#div" + (index + 1)).css("background-color", "#007500");
+            imgShowNow = "img" + (index + 1);
+            index++;
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 动态生成图片添加至div
+            $.each(list, function (index, value) {
+
+                // 动态生成img
+                $("<img src = \"" + list[index] + "\" class = \"imgContent\" id = \"img" + (index + 1) + "\" />").appendTo("#divContent");
+                // 默认第一张图片为显示的
+                $(".imgContent:not(#img1)").css("display", "none");
+                // 记录当前显示的图片
+                window.imgShowNow = "img1";
+
+                // 动态生成标签页
+                $("<div class = \"divNumber\" style = \"background-color:#00EC00;bottom:5px;height:25px;width:15px;position:absolute;right:" + (130 - (index + 1) * 30) + "px;z-index:100\" id=\"div" + (index + 1) + "\" >" + (index + 1) + "</div>").hover(function () { // 鼠标移进来
+
+                    // 关闭定时器
+                    clearInterval(window.Intervalled);
+                    // 初始化所有div标签颜色
+                    $(".divNumber").css("background-color", "#00EC00");
+
+                    $(this).css("background-color", "#007500"); // 深绿色
+                    if (imgShowNow === "img" + ($(this).attr("id").substr($(this).attr("id").length - 1, 1)))
+                    {
+                        return;
+                    }
+                    // 当前正在显示的图片隐藏起来
+                    $("#" + imgShowNow).fadeOut(700);
+                    // 当前移动至的标签所对应的图片显示出来
+                    $("#img" + ($(this).attr("id").substr($(this).attr("id").length - 1, 1))).slideDown(700);
+                    // 记录当前正在显示的图片
+                    window.imgShowNow = $("#img" + ($(this).attr("id").substr($(this).attr("id").length - 1, 1))).attr("id");
+
+                    // 记录至index
+                    window.index = parseInt(imgShowNow.substr(imgShowNow.length - 1, 1));
+
+                }, function () { // 鼠标移开
+
+                    //$(this).css("background-color", "#00EC00"); // 浅绿色
+                    window.Intervalled = setInterval(changeImg, 1500);
+                }).appendTo("#divContent");
+            });
+
+            // 默认开启定时器
+            window.Intervalled = setInterval(changeImg, 1500);
+
+            // 默认第一个div显示深绿色
+            $("#div1").css("background-color", "#007500");
+        });
+    </script>
+</head>
+<body>
+    <div id="divContent">
+    </div>
+</body>
+</html>

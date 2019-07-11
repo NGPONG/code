@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\bin\Debug\Socket Server.exe.config
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\bin\Debug\Socket Server.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\bin\Debug\Socket Server.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\obj\Debug\Socket Server.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\obj\Debug\Socket_Server.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\obj\Debug\Socket_Server.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\obj\Debug\Socket Server.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\obj\Debug\Socket Server.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\Socket Server\obj\Debug\Socket Server.pdb

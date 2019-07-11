@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口登记案例\bin\Debug\接口登记案例.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口登记案例\bin\Debug\接口登记案例.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口登记案例\bin\Debug\接口登记案例.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口登记案例\obj\Debug\接口登记案例.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口登记案例\obj\Debug\接口登记案例.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口登记案例\obj\Debug\接口登记案例.pdb

@@ -1,0 +1,27 @@
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\bin\Debug\GDI+ practice.exe.config
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\bin\Debug\GDI+ practice.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\bin\Debug\GDI+ practice.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\obj\Debug\GDI__practice.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\obj\Debug\GDI__practice.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\obj\Debug\GDI+ practice.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\obj\Debug\GDI+ practice.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\obj\Debug\GDI+ practice.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\bin\Debug\GDI+ practice.exe.CodeAnalysisLog.xml
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ practice\bin\Debug\GDI+ practice.exe.lastcodeanalysissucceeded
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\bin\Debug\GDI+ practice.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\bin\Debug\GDI+ practice.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\bin\Debug\GDI+ practice.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI__practice.Form1.resources
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI__practice.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\bin\Debug\GDI+ practice.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\bin\Debug\GDI+ practice.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\bin\Debug\GDI+ practice.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI__practice.Form1.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI__practice.Properties.Resources.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.csproj.GenerateResource.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ practice\obj\Debug\GDI+ practice.pdb

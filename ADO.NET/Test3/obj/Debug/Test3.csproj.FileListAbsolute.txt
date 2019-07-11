@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test3\bin\Debug\Test3.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test3\bin\Debug\Test3.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test3\bin\Debug\Test3.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test3\obj\Debug\Test3.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test3\obj\Debug\Test3.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test3\obj\Debug\Test3.pdb

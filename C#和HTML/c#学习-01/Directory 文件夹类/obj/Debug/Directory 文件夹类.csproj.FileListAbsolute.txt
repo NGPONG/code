@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Directory 文件夹类\bin\Debug\Directory 文件夹类.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Directory 文件夹类\bin\Debug\Directory 文件夹类.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Directory 文件夹类\bin\Debug\Directory 文件夹类.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Directory 文件夹类\obj\Debug\Directory 文件夹类.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Directory 文件夹类\obj\Debug\Directory 文件夹类.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Directory 文件夹类\obj\Debug\Directory 文件夹类.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\Directory 文件夹类\bin\Debug\Directory 文件夹类.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\Directory 文件夹类\obj\Debug\Directory 文件夹类.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\Directory 文件夹类\obj\Debug\Directory 文件夹类.pdb

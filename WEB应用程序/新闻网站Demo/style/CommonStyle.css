@@ -1,0 +1,300 @@
+﻿a
+{
+	font-size:12pt;
+	font-style:normal;
+	color:Black;
+}
+
+a:hover
+{
+	font-size:12pt;
+	font-style:normal;
+	color:Red;
+}
+
+.RequiredFieldStar
+{
+	font-weight:bold;
+	font-size:12pt;
+	color:Red;
+}
+
+.selectedTab
+{
+    padding: 3px;
+    color: #006699;
+    background-color: orange;
+    font-weight: bold;
+    cursor: hand;
+    border: solid 1px #5277A9;
+    
+}
+
+.tab
+{
+    padding: 3px;
+    font-weight: normal;
+    cursor: hand;
+    border: solid 1px #5277A9;
+    background-color:#6CA3DB;
+    color:#FFFFFF;    
+}
+
+.view
+{
+    border: solid 1px #5277A9;
+    padding: 2px;
+}
+
+.menuHeader
+{
+	font-weight: bold;
+	font-size: 14pt;
+	color: #FFFFFF;
+	background-color: #47729C;
+	padding: 4px;
+	border-top: solid 1px #C8C8C8;
+	border-left: solid 1px #C8C8C8;
+	border-right: solid 1px #C8C8C8;
+	text-align: left;
+}
+
+.menuContent
+{
+	border: solid 1px #C8C8C8;
+	padding: 2px;
+	line-height: 1.4em;
+	background-color: #EFEFEF;
+}
+
+.tableTitle
+{
+	font-size: 20pt; 
+	color: Red; 
+	text-align: center; 
+	font-family: 黑体;
+}
+
+.cellTitle
+{
+	font-weight: bold;
+	padding-left: 2px;
+	text-align: left;
+	font-size: 11pt;
+	color: #000066; 
+	background-color: #DEE9FA;
+	border-right: solid 1px #C8C8C8;
+	border-bottom: solid 1px #C8C8C8;
+	line-height: 1.5em;
+}
+
+.cellText
+{
+	text-align: left;
+	font-size: 11pt;
+	color: Maroon;
+	background-color: #FFFFFF;
+	border-right: solid 1px #C8C8C8;
+	border-bottom: solid 1px #C8C8C8;
+	line-height: 1.5em;
+}
+
+.printCellTitle
+{
+	text-align: left;
+	font-size: 11pt;
+	color: #000000; 
+	font-weight: bold;
+}
+
+.printCellText
+{
+	text-align: left;
+	font-size: 11pt;
+	color: #000000; 
+}
+
+.textField
+{
+	border: solid 1px #5277A9;
+}
+
+.button
+{
+	font-weight: bold;
+}
+
+.gridView
+{
+	width: 100%;
+	background-color: #F5F6FA;
+	color: Black;
+	font-size: 10pt;
+	border: solid 1px #5277A9;
+	padding: 0px;
+	margin: 0px;
+}
+
+.gridViewHeader
+{
+	background-color: #B5D0DB;
+	color: black;
+	font-weight: bold;
+	line-height: 1.8em;
+}
+
+.girdViewColumn
+{
+	border-right: solid 1px #5277A9;
+	border-bottom: solid 1px #5277A9;
+}
+
+.gridViewRow
+{
+	background-color: #F5F6FA;
+}
+
+.gridViewSelectedRow
+{
+	background-color: #B3C786;
+	color: White;
+}
+
+.gridViewRow1
+{
+	background-color: #EFEFEF;
+	color: #262DAC;
+}
+
+.gridViewRow2
+{
+	background-color: #D0ECCE;
+	color: #262DAC;
+}
+
+.gridViewPager
+{
+	font-weight: bold;
+	background-color: #F5F6FA;
+	text-align: left;
+	font-size:12pt;
+	color: Red;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.gridViewPager a
+{
+	font-weight: normal;
+	text-decoration: none;
+	font-size:11pt;
+	color: Black;
+	border: solid 1px #5377A9;
+	background-color: #EEEEEE;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.gridViewPager a:hover
+{
+	font-weight: bold;
+	text-decoration: none;
+	font-size:12pt;
+	color: White;
+	border: solid 1px #5377A9;
+	background-color: #5377A9;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.pagingNavigator
+{
+	border: solid 1px #5277A9;
+	line-height: 1.8em;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.pagingNavigatorButton
+{
+	font-size: 10pt;
+	cursor: hand;
+}
+
+.pagingNavigatorSelectedButton
+{
+	font-size: 10pt;
+	font-weight: bold;
+	color: Red;
+	background-color: #CAD9EA;
+	cursor: default;
+}
+
+.adminListDiv
+{
+	border: solid 1px #C8C8C8;
+}
+
+.adminCaptionDiv
+{
+	line-height: 1.6em;
+	text-align: center;
+	padding: 2px;
+	font-size: 16pt;
+	font-weight: bold;
+	color: Red;
+}
+
+.adminContentDiv
+{
+	text-align: center;
+	padding: 2px;
+}
+
+.adminControlDiv
+{
+	background-color: #EEEEEE;
+	padding: 2px;
+}
+
+.adminButtonDiv
+{
+	text-align: center;
+	padding: 2px;
+}
+
+.adminTable
+{
+	background-color: #E0E0E0;
+}
+
+.adminTitleCell
+{
+	padding-left: 2px;
+	text-align: left;
+	font-size: 11pt;
+	color: #000066; 
+	background-color: #EEEEEE;
+	border-right: solid 1px #C8C8C8;
+	border-bottom: solid 1px #C8C8C8;
+	line-height: 1.5em;
+}
+
+.adminTextCell
+{
+	text-align: left;
+	font-size: 11pt;
+	color: Maroon;
+	background-color: #FFFFFF;
+	border-right: solid 1px #C8C8C8;
+	border-bottom: solid 1px #C8C8C8;
+	line-height: 1.5em;
+}
+
+.mylink
+{
+    cursor: hand;
+    text-decoration: underline;
+    font-size: 10.5pt;
+    line-height: 1.5em;
+}

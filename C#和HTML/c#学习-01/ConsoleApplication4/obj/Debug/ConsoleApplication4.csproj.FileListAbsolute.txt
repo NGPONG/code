@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\ConsoleApplication4\bin\Debug\ConsoleApplication4.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\ConsoleApplication4\bin\Debug\ConsoleApplication4.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\ConsoleApplication4\bin\Debug\ConsoleApplication4.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\ConsoleApplication4\obj\Debug\ConsoleApplication4.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\ConsoleApplication4\obj\Debug\ConsoleApplication4.pdb

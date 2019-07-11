@@ -1,0 +1,62 @@
+﻿html, body
+{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+/* Reset Base Font Size */
+
+body
+{
+	font-family: Verdana, helvetica, arial, sans-serif;
+	background: #fff;
+	color: #333;
+	text-align:center;
+}
+
+div
+{
+	/*
+	border-style:solid;
+	border-color:Red;
+	border-width:2px;*/
+}
+
+.BodyDiv
+{
+	text-align:center;
+	font-family: Verdana, helvetica, arial, sans-serif;
+	background: #fff;
+	color: #333;
+	width:960px;
+	margin:0 auto;
+}
+
+.Header
+{
+	height:150px;
+	width:956px;/*暂时设置为：960px*/
+	padding:2px;
+}
+
+.LeftDiv
+{
+	width:200px;
+	border-right-style:solid;
+	border-right-color:Blue;
+	border-right-width:2px;
+	float:left;
+	height:650px;
+}
+
+.CenterDiv
+{
+	width:741px;
+	margin-left:204px;
+	border-style:solid;
+	clear:right;
+	height:650px;
+	padding:2px;
+}
+
+

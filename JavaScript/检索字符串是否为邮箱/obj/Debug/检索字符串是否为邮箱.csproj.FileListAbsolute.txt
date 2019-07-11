@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\JavaScript\检索字符串是否为邮箱\bin\检索字符串是否为邮箱.dll.config
+C:\Users\Administrator\Desktop\源码\JavaScript\检索字符串是否为邮箱\bin\检索字符串是否为邮箱.dll
+C:\Users\Administrator\Desktop\源码\JavaScript\检索字符串是否为邮箱\bin\检索字符串是否为邮箱.pdb
+C:\Users\Administrator\Desktop\源码\JavaScript\检索字符串是否为邮箱\obj\Debug\检索字符串是否为邮箱.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\JavaScript\检索字符串是否为邮箱\obj\Debug\检索字符串是否为邮箱.dll
+C:\Users\Administrator\Desktop\源码\JavaScript\检索字符串是否为邮箱\obj\Debug\检索字符串是否为邮箱.pdb

@@ -1,0 +1,1091 @@
+﻿函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:00:53
+所需时间：0.0593222
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:00:53
+所需时间：0.0012771
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:01:01
+所需时间：0.0120348
+速度等级：C
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#t02 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:13
+所需时间：0.0014544
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:01:13
+所需时间：0.0009785
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:17
+所需时间：0.0011072
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:01:17
+所需时间：0.0009859
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:01:35
+所需时间：0.0084505
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t02 | @TIsFree#0 | @THallId#2 | @TId#4
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:35
+所需时间：0.0011867
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:36
+所需时间：0.0018014
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:01:36
+所需时间：0.0009207
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishInfoDAL.GetData
+调用日期：2018/12/16 19:01:39
+所需时间：0.0016353
+速度等级：B
+SQL脚本：select a.Did,a.DTitle,b.DTitle as DTypeTitle,a.DPrice,a.DChar
+from DishInfo a
+left join DishTypeInfo b on a.DTypeId = b.DId and b.DIsDelete = 0
+where a.DIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/12/16 19:01:39
+所需时间：0.0022638
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:01:48
+所需时间：0.0083317
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t02 | @TIsFree#1 | @THallId#2 | @TId#4
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:48
+所需时间：0.0012138
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:49
+所需时间：0.0011775
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:01:49
+所需时间：0.0009166
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:01:52
+所需时间：0.0081092
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t02 | @TIsFree#0 | @THallId#2 | @TId#4
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:52
+所需时间：0.0012674
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:01:53
+所需时间：0.0011415
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:01:53
+所需时间：0.0009473
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.DeleteTableInfoDetail
+调用日期：2018/12/16 19:02:44
+所需时间：0.0086375
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsDelete = 1 WHERE TId = @TId
+参数值：@TId#2
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:02:44
+所需时间：0.0012179
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:02:46
+所需时间：0.0011351
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:02:46
+所需时间：0.0008788
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:02:51
+所需时间：0.0083289
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#t0111 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:02:54
+所需时间：0.0010546
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:02:54
+所需时间：0.0009744
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:03:00
+所需时间：0.0095611
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t02 | @TIsFree#1 | @THallId#2 | @TId#4
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:03:00
+所需时间：0.0011315
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:03:02
+所需时间：0.0011192
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:03:02
+所需时间：0.0008929
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:03:23
+所需时间：0.009685
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t0111 | @TIsFree#0 | @THallId#1 | @TId#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:03:23
+所需时间：0.001187
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:03:24
+所需时间：0.0010551
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:03:24
+所需时间：0.0008957
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:03:26
+所需时间：0.0086005
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#测试包房 | @TIsFree#0 | @THallId#1 | @TId#8
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:03:26
+所需时间：0.0011571
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:03:27
+所需时间：0.001038
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:03:27
+所需时间：0.0009925
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:20:55
+所需时间：0.0612682
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:20:55
+所需时间：0.0013855
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:20:57
+所需时间：0.0118503
+速度等级：C
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#测试包房 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:20:59
+所需时间：0.0013811
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:20:59
+所需时间：0.0009734
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:21:10
+所需时间：0.0084679
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#测试包房 | @TIsFree#0 | @THallId#1 | @TId#8
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:21:10
+所需时间：0.0011875
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:21:10
+所需时间：0.0016208
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:21:10
+所需时间：0.0013185
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:21:19
+所需时间：0.009533
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#测试包房 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:21:19
+所需时间：0.0043154
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:21:19
+所需时间：0.0009491
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:21:41
+所需时间：0.0086539
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#t0111 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:22:02
+所需时间：0.0010809
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:22:02
+所需时间：0.0009854
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:22:05
+所需时间：0.0088381
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t0111 | @TIsFree#0 | @THallId#1 | @TId#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:22:05
+所需时间：0.0012151
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:22:06
+所需时间：0.0011353
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:22:06
+所需时间：0.0008806
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:22:09
+所需时间：0.0082778
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#测试包房 | @TIsFree#0 | @THallId#1 | @TId#8
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:22:09
+所需时间：0.0011864
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:22:09
+所需时间：0.0010868
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:22:09
+所需时间：0.0009054
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:22:19
+所需时间：0.008928
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#测试包房 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:22:24
+所需时间：0.0056595
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:22:24
+所需时间：0.0021098
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:23:15
+所需时间：0.0082052
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#北京 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:23:22
+所需时间：0.0012383
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:23:22
+所需时间：0.0010722
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:23:24
+所需时间：0.0010679
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:23:24
+所需时间：0.0021874
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishInfoDAL.GetData
+调用日期：2018/12/16 19:23:29
+所需时间：0.0016312
+速度等级：B
+SQL脚本：select a.Did,a.DTitle,b.DTitle as DTypeTitle,a.DPrice,a.DChar
+from DishInfo a
+left join DishTypeInfo b on a.DTypeId = b.DId and b.DIsDelete = 0
+where a.DIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/12/16 19:23:29
+所需时间：0.0011514
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:23:31
+所需时间：0.0010661
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:23:31
+所需时间：0.0009483
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:23:35
+所需时间：0.0011448
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:23:35
+所需时间：0.0009384
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:11
+所需时间：0.0590516
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:11
+所需时间：0.001258
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:13
+所需时间：0.0034547
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:13
+所需时间：0.0023124
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:16
+所需时间：0.0011075
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:16
+所需时间：0.0010068
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:17
+所需时间：0.0010794
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:17
+所需时间：0.000969
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:27:22
+所需时间：0.013418
+速度等级：C
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#测试包房 | @TIsFree#0 | @THallId#1 | @TId#8
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:22
+所需时间：0.0011279
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:23
+所需时间：0.0010914
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:23
+所需时间：0.000875
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:27:25
+所需时间：0.0088401
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#测试包房 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:28
+所需时间：0.0010549
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoState
+调用日期：2018/12/16 19:27:39
+所需时间：0.0089942
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle
+参数值：@TTitle#t0111 | @TIsFree#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:46
+所需时间：0.0010876
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:46
+所需时间：0.0009634
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:27:48
+所需时间：0.0081756
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#t0111 | @TIsFree#0 | @THallId#1 | @TId#1
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:48
+所需时间：0.0011596
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:49
+所需时间：0.001048
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:49
+所需时间：0.0009143
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:27:51
+所需时间：0.0086613
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#测试包房 | @TIsFree#0 | @THallId#1 | @TId#8
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:51
+所需时间：0.001176
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:52
+所需时间：0.0014764
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:52
+所需时间：0.0009442
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.UpdateTableInfoDetail
+调用日期：2018/12/16 19:27:53
+所需时间：0.0088905
+速度等级：B
+SQL脚本：UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId
+参数值：@TTitle#测试包房11 | @TIsFree#0 | @THallId#1 | @TId#9
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:53
+所需时间：0.001153
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/16 19:27:54
+所需时间：0.0011875
+速度等级：B
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/16 19:27:54
+所需时间：0.0009141
+速度等级：A
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+

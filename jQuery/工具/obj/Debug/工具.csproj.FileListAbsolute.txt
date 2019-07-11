@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\jQuery\工具\bin\工具.dll.config
+C:\Users\Administrator\Desktop\源码\jQuery\工具\bin\工具.dll
+C:\Users\Administrator\Desktop\源码\jQuery\工具\bin\工具.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\工具\obj\Debug\工具.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\jQuery\工具\obj\Debug\工具.dll
+C:\Users\Administrator\Desktop\源码\jQuery\工具\obj\Debug\工具.pdb

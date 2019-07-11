@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Books>
+  <Book1>
+    <Name 标签属性名="标签属性值">水浒传</Name>
+    <Price 标签属性名="标签属性值">10块钱 </Price>
+    <Dec 标签属性名="标签属性值">无聊</Dec>
+  </Book1>
+  <Book2>
+    <Name 标签属性名="标签属性值">三国演义</Name>
+    <Price 标签属性名="标签属性值">5块钱</Price>
+    <Dec 标签属性名="标签属性值">关羽！！</Dec>
+  </Book2>
+  <new />
+</Books>

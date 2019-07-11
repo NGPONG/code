@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.js"></script>
+    <script>
+        window.onload = function () {
+
+            // 1. 我们可以把获取到的jQuery对象赋值给一个JS变量
+            // 2. 赋值jQuery对象的变量的变量名加不加 $ 都没有区别
+            // 3. 我们推荐jQuery对象赋值的变量的变量名都加上关键字 $ ，目的是为了好区分开来
+            var $variable = $("#divDemo");
+
+            var $variable = jQuery("#divDemo")
+
+            // $关键字获取jQueruy对象
+            $("#divDemo");
+
+            // jQuery关键字获取jQueruy对象
+            jQuery("#divDemo")
+
+            // 自定义的jQuery对象
+            $("<h1>我是自定义的jQuery对象噢</h1>") 
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="divDemo"></div>
+</body>
+</html>

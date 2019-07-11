@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        // 练习一：提取一个字符串中所有的电话号码
+        /*
+        var i = 1;
+        var str = "火车12306电信10000火警119哈哈";
+        var regExp = /\d+/g;
+
+        while (true)
+        {
+            var result = regExp.exec(str);
+            if (result == null)
+            {
+                break;
+            }
+            document.write("第" + i.toString() + "个结果" + result + "      ");
+            i++;
+        }
+        */
+
+        // 练习二：提取号码中的第2位数字
+        var number = "1w622223260";
+        var refExp = /\d/g;
+        var i = 0;
+
+        while (true)
+        {
+            var result = refExp.exec(number);
+            if (result == null)
+            {
+                break;
+            }
+
+            if (i == 1)
+            {
+                document.write(result);
+            }
+
+            i++
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

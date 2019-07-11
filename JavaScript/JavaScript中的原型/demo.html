@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Person() // Person类的构造函数
+        {
+            this.Age = 100;
+        }
+
+        var per = new Person(); // 调用Person类的构造函数，并创建它的对象
+
+        var perPro = per.__proto__; // 通过对象的 __proto__ 属性，获取该对象的类的原型
+
+        // 通过该类的原型，动态的注册一个该原型的新的成员，因为存在这继承关系，所以改成员在所有该类的实例下，都能够访问到
+        perPro.Title = "通过原型添加的属性哟";
+        perPro.fun = function getTitle()
+        {
+            alert(per.Title + per.Age);
+        }
+
+        per.fun(); // 调用使用该类的原型新注册的成员
+    </script>
+
+    <script>
+        function Student() // Student类的构造函数
+        {
+            this.Age = 21;
+        }
+
+        var perProType = Student.prototype; // 通过类的 prototype属性，获取该类的原型
+        
+        // 通过该类的原型，动态的注册一个该原型的新的成员，因为存在这继承关系，所以改成元在所有该类的实例下，都能够访问到
+        perProType.Name = "吴鹏";
+
+        // 调用Student类的构造函数，并创建它的对象
+        var stu = new Student();
+        // 调用Student类原本自带的成员和通过原型注册的成员
+        alert(stu.Name + stu.Age); 
+    </script>
+</body>
+</html> 

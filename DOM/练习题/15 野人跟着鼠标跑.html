@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        img {
+            position:absolute;
+            border:1px solid red;
+        }
+    </style>
+
+    <script>
+        var imgElement;
+        var index = 2;
+        window.onload = function () {
+
+            imgElement = document.getElementById("imgManWalk");
+            window.onmousemove = function (e) {
+               
+                imgElement.style.left = (e.x-imgElement.width).toString()+ "px";
+                imgElement.style.top = (e.y-imgElement.height).toString() + "px";
+            }
+
+            setInterval(manWalk, 70);
+        }
+
+        function manWalk()
+        {
+            imgElement.src = "images/walk" + index + ".png";
+            index++;
+            if (index > 7)
+            {
+                index = 1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="images/walk1.png" id="imgManWalk"/>
+</body>
+</html>

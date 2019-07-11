@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程lock\bin\Release\多线程lock.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程lock\bin\Release\多线程lock.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程lock\bin\Release\多线程lock.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程lock\obj\Release\多线程lock.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程lock\obj\Release\多线程lock.pdb

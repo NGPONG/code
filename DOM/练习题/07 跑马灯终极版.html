@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        #divDemo {
+            position: absolute;
+            width: 100px;
+            color: white;
+            background-color: blue;
+        }
+    </style>
+
+    <script>
+        var posistionNow = 0; // 记录当前的位置
+        var element = null;
+        var left = 0;
+        var direction = 1;
+
+        window.onload = function () {
+            element = document.getElementById("divDemo");
+            window.setInterval(changePosition, 15);
+        }
+
+        function changePosition()
+        {
+            posistionNow = element.offsetLeft;
+            left = posistionNow + 3 * direction;
+
+            if (left >= window.innerWidth - element.offsetWidth)
+            {
+                direction = -1;
+                element.style.left = window.innerWidth;
+                return;
+            }
+            
+            if (left < 0)
+            {
+                direction = 1;
+                element.style.left = 0 + "px";
+                return;
+            }
+
+            element.style.left = left + "px";
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <div id="divDemo">我是一个DIV</div>
+</body>
+</html>

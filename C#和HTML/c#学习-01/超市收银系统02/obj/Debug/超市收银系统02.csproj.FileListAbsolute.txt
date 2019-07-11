@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统02\bin\Debug\超市收银系统02.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统02\obj\Debug\超市收银系统02.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统02\bin\Debug\超市收银系统02.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统02\bin\Debug\超市收银系统02.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统02\obj\Debug\超市收银系统02.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统02\obj\Debug\超市收银系统02.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\超市收银系统02\bin\Debug\超市收银系统02.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\超市收银系统02\obj\Debug\超市收银系统02.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\超市收银系统02\obj\Debug\超市收银系统02.pdb

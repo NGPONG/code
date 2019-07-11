@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        window.onload = function () {
+
+            document.getElementById("btnMatchPostalCode").onclick = function () {
+
+                var matchValue = document.getElementById("txtMatch").value.toString();
+                var regExp = new RegExp("\\d{6}");// 创建正则表达式对象
+                if (regExp.test(matchValue)) // 调用正则表达式对象的test函数
+                {
+                    window.alert("是邮政编码");
+                }
+                else
+                {
+                    window.alert("不是邮政编码");
+                }
+            }
+
+            document.getElementById("btnMatchEmail").onclick = function () {
+
+                var matchValue = document.getElementById("txtMatch").value.toString();
+                var regExp = /\w+\@\w+\.\w+/; // 创建正则表达式对象
+                if (regExp.test(matchValue)) // 调用正则表达式对象的 test( ) 函数
+                {
+                    window.alert("是邮箱");
+                }
+                else
+                {
+                    window.alert("不是邮箱");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtMatch"/>
+    <input type="button" id="btnMatchPostalCode" value="匹配邮政编码"/>
+    <input type="button" id="btnMatchEmail" value="匹配邮箱"/>
+</body>
+</html>

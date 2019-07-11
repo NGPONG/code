@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\bin\Debug\分页查询的使用.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\bin\Debug\分页查询的使用.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\bin\Debug\分页查询的使用.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\obj\Debug\分页查询的使用.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\obj\Debug\分页查询的使用.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\obj\Debug\分页查询的使用.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\obj\Debug\分页查询的使用.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\obj\Debug\分页查询的使用.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\分页查询的使用\obj\Debug\分页查询的使用.pdb

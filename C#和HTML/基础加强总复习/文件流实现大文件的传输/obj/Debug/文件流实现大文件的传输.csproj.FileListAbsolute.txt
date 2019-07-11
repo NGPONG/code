@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\bin\Debug\文件流实现大文件的传输.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\bin\Debug\文件流实现大文件的传输.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\bin\Debug\文件流实现大文件的传输.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\obj\Debug\文件流实现大文件的传输.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\obj\Debug\文件流实现大文件的传输.Form1.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\obj\Debug\文件流实现大文件的传输.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\obj\Debug\文件流实现大文件的传输.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\obj\Debug\文件流实现大文件的传输.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\文件流实现大文件的传输\obj\Debug\文件流实现大文件的传输.pdb

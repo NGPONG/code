@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\out参数练习\bin\Debug\out参数练习.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\out参数练习\bin\Debug\out参数练习.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\out参数练习\bin\Debug\out参数练习.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\out参数练习\obj\Debug\out参数练习.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\out参数练习\obj\Debug\out参数练习.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\out参数练习\obj\Debug\out参数练习.pdb

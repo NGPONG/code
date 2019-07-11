@@ -1,0 +1,143 @@
+﻿namespace WP.Demo.UI
+{
+    partial class frmMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuManagerInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMemberInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTableInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDishInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOrderInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menuStrip.BackgroundImage = global::WP.Demo.UI.Properties.Resources.menuBg;
+            this.menuStrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.menuStrip.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuManagerInfo,
+            this.menuMemberInfo,
+            this.menuTableInfo,
+            this.menuDishInfo,
+            this.menuOrderInfo,
+            this.menuQuit});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1033, 40);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStripMain";
+            // 
+            // menuManagerInfo
+            // 
+            this.menuManagerInfo.Image = global::WP.Demo.UI.Properties.Resources.menuManager;
+            this.menuManagerInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuManagerInfo.Name = "menuManagerInfo";
+            this.menuManagerInfo.Size = new System.Drawing.Size(134, 36);
+            this.menuManagerInfo.Text = "管理员管理";
+            this.menuManagerInfo.Click += new System.EventHandler(this.menuManagerInfo_Click);
+            // 
+            // menuMemberInfo
+            // 
+            this.menuMemberInfo.Image = global::WP.Demo.UI.Properties.Resources.menuMember;
+            this.menuMemberInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuMemberInfo.Name = "menuMemberInfo";
+            this.menuMemberInfo.Size = new System.Drawing.Size(118, 36);
+            this.menuMemberInfo.Text = "会员管理";
+            this.menuMemberInfo.Click += new System.EventHandler(this.menuMemberInfo_Click);
+            // 
+            // menuTableInfo
+            // 
+            this.menuTableInfo.Image = global::WP.Demo.UI.Properties.Resources.menuTable;
+            this.menuTableInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuTableInfo.Name = "menuTableInfo";
+            this.menuTableInfo.Size = new System.Drawing.Size(118, 36);
+            this.menuTableInfo.Text = "餐桌管理";
+            // 
+            // menuDishInfo
+            // 
+            this.menuDishInfo.Image = global::WP.Demo.UI.Properties.Resources.menuDish;
+            this.menuDishInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuDishInfo.Name = "menuDishInfo";
+            this.menuDishInfo.Size = new System.Drawing.Size(118, 36);
+            this.menuDishInfo.Text = "菜单管理";
+            // 
+            // menuOrderInfo
+            // 
+            this.menuOrderInfo.Image = global::WP.Demo.UI.Properties.Resources.menuOrder;
+            this.menuOrderInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuOrderInfo.Name = "menuOrderInfo";
+            this.menuOrderInfo.Size = new System.Drawing.Size(118, 36);
+            this.menuOrderInfo.Text = "订单管理";
+            // 
+            // menuQuit
+            // 
+            this.menuQuit.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.menuQuit.Image = global::WP.Demo.UI.Properties.Resources.menuQuit;
+            this.menuQuit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuQuit.Name = "menuQuit";
+            this.menuQuit.Size = new System.Drawing.Size(118, 36);
+            this.menuQuit.Text = "退出系统";
+            this.menuQuit.Click += new System.EventHandler(this.menuQuit_Click);
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1033, 617);
+            this.ControlBox = false;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
+            this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "餐饮管理系统";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuManagerInfo;
+        private System.Windows.Forms.ToolStripMenuItem menuMemberInfo;
+        private System.Windows.Forms.ToolStripMenuItem menuTableInfo;
+        private System.Windows.Forms.ToolStripMenuItem menuDishInfo;
+        private System.Windows.Forms.ToolStripMenuItem menuOrderInfo;
+        private System.Windows.Forms.ToolStripMenuItem menuQuit;
+    }
+}

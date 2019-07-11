@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\jQuery\JQ动画效果\bin\JQ动画效果.dll.config
+C:\Users\Administrator\Desktop\源码\jQuery\JQ动画效果\bin\JQ动画效果.dll
+C:\Users\Administrator\Desktop\源码\jQuery\JQ动画效果\bin\JQ动画效果.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\JQ动画效果\obj\Debug\JQ动画效果.dll
+C:\Users\Administrator\Desktop\源码\jQuery\JQ动画效果\obj\Debug\JQ动画效果.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\JQ动画效果\obj\Debug\JQ动画效果.csprojResolveAssemblyReference.cache

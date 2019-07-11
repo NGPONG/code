@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.pdb

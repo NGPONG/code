@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\bin\Debug\Test.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\bin\Debug\Test.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\bin\Debug\Test.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\obj\Debug\Test.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\obj\Debug\Test.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\obj\Debug\Test.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\obj\Debug\Test.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\Test\obj\Debug\Test.pdb

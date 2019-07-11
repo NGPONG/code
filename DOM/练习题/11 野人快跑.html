@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        #savager {
+            position:absolute;
+        }
+    </style>
+
+    <script>
+        var walkIndex = 1;
+        var walkRightOrLeft = true; // true则往左，false则往右
+        var walkTopOrDown = true;// true则往下，false则往上
+        var walkRightLeftOrTopDown = true; // true则左右走，false则上下走
+        var elementIndex;
+        var elementTopHeight;
+        var indexHeightNow;
+
+        window.onload = function () {
+            var imgSavager = document.getElementById("savager");
+            setInterval(savagerWalk, 1);
+
+            // 野人走路
+            function savagerWalk(){
+                    
+                walkIndex++;
+                if (walkIndex == 8)
+                {
+                    walkIndex = 1;
+                }
+
+                imgSavager.src = "images/walk" + walkIndex + ".png"
+
+                if (walkRightLeftOrTopDown) // 野人左右走
+                {
+                    if (walkRightOrLeft) // 往右走
+                    {
+                        elementIndex = imgSavager.offsetLeft;
+                        elementIndex += 4;
+                        if (elementIndex + imgSavager.offsetWidth > window.innerWidth)
+                        {
+                            walkRightOrLeft = false;
+                            walkRightLeftOrTopDown = false;
+                            indexHeightNow = imgSavager.offsetTop;
+                            return;
+                        }
+
+                        imgSavager.style.left = elementIndex.toString() + "px";
+                    }
+                    else // 往左走
+                    {
+                        elementIndex = imgSavager.offsetLeft;
+                        elementIndex -= 4;
+                        if (elementIndex < 0)
+                        {
+                            walkRightOrLeft = true;
+                            walkRightLeftOrTopDown = false;
+                            indexHeightNow = imgSavager.offsetTop;
+                            return;
+                        }
+
+                        imgSavager.style.left = elementIndex.toString() + "px";
+                    }
+                }
+                else // 野人上下走
+                {
+
+                    if (walkTopOrDown) // 往下走
+                    {
+                        var indexNext = imgSavager.offsetTop; // 记录初始位置
+                        indexNext += 2;
+
+                        if (indexNext + imgSavager.offsetHeight > window.innerHeight)
+                        {
+                            walkTopOrDown = false;
+                            return;
+                        }
+
+                        if (indexNext > indexHeightNow + imgSavager.offsetHeight)
+                        {
+                            walkRightLeftOrTopDown = true;
+                            return;
+                        }
+
+                        imgSavager.style.top = indexNext.toString() + "px";
+                    }
+                    else // 往上走
+                    {
+                        var indexNext = imgSavager.offsetTop; // 记录初始位置
+                        indexNext -= 2;
+
+                        if (indexNext < 0)
+                        {
+                            walkTopOrDown = true;
+                            return;
+                        }
+
+                        if (indexNext + imgSavager.offsetHeight < indexHeightNow)
+                        {
+                            walkRightLeftOrTopDown = true;
+                            return;
+                        }
+
+                        imgSavager.style.top = indexNext.toString() + "px";
+                    }
+
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <img src="images/walk1.png" id="savager" />
+</body>
+</html>

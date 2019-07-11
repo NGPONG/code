@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\test\bin\Debug\test.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\test\bin\Debug\test.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\test\bin\Debug\test.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\test\obj\Debug\test.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\test\obj\Debug\test.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test\bin\Debug\test.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test\obj\Debug\test.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test\obj\Debug\test.pdb

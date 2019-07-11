@@ -1,0 +1,41 @@
+﻿
+#Layer1 {
+	    position:absolute;
+	    left:273px;
+	    top:203px;
+	    width:446px;
+	    height:263px;
+	    z-index:1;
+    }
+    #Layer2 {
+	    position:absolute;
+	    left:421px;
+	    top:328px;
+	    width:205px;
+	    height:18px;
+	    z-index:2;
+    }
+    #Layer3 {
+	    position:absolute;
+	    left:423px;
+	    top:361px;
+	    width:193px;
+	    height:19px;
+	    z-index:3;
+    }
+    #Layer5 {
+	position:absolute;
+	left:423px;
+	top:424px;
+	width:74px;
+	height:28px;
+	z-index:5;
+    }
+    #Layer6 {
+	position:absolute;
+	left:515px;
+	top:425px;
+	width:61px;
+	height:27px;
+	z-index:6;
+    }

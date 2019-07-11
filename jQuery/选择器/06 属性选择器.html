@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 获取JQ对象数组的HTML元素中，指定attribute属性有值的元素
+            $("input[id]");
+
+            // 获取JQ对象数组的HTML元素中，指定attribute属性的值等于value的元素
+            $("input[value=文本2]");
+
+            // 获取JQ对象数组的HTML元素中，指定attribute属性的值包含value的元素
+            $("input[value*=按钮]");
+
+            // 获取JQ对象数组的HTML元素中，指定attribute属性的值的开头等于value的元素
+            $("input[value^=文]");
+
+            // 获取JQ对象数组的HTML元素中，指定attribute属性的值的末尾等于value的元素
+            $("input[value$=钮1]");
+
+            // 获取多个属性选择器表达式成功筛选后返回的元素
+            $("input[type][value*=按钮][id$=mit3]");
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮1" id="btn1"/>
+    <input type="text" value="文本2" id="txt2" />
+    <input type="submit" value="提交按钮3" id="btnSubmit3" />
+</body>
+</html>

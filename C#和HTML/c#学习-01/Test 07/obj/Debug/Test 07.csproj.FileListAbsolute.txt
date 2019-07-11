@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\bin\Debug\Test 07.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\bin\Debug\Test 07.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\bin\Debug\Test 07.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\obj\Debug\Test 07.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\obj\Debug\Test_07.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\obj\Debug\Test_07.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\obj\Debug\Test 07.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\obj\Debug\Test 07.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 07\obj\Debug\Test 07.pdb

@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\创建XML文档\bin\Release\创建XML文档.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\创建XML文档\bin\Release\创建XML文档.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\创建XML文档\bin\Release\创建XML文档.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\创建XML文档\obj\Release\创建XML文档.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\创建XML文档\obj\Release\创建XML文档.pdb

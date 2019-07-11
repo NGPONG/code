@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../js/jquery/jquery-1.7.1.min.js"></script>
+    <script>
+        $(this).ready(function () {
+
+            $("#btnSubmit").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "test_ashx.ashx",
+                    data: $("#formTest").serializeArray(),
+                    success: function (data, textStatus, jqXHR) {
+
+                        window.alert(data);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="formTest">
+        用户名：<input name="txtUserName" /><br />
+        密码：<input name="txtUserPwd" /><br />
+        年龄：<input name="txtUserAge" /><br />
+        <input type="button" value="提交" id="btnSubmit"/>
+    </form>
+</body>
+</html>

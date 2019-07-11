@@ -1,0 +1,7 @@
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\obj\Debug\多线程_lock同步机制.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\obj\Debug\多线程_lock同步机制.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\bin\Debug\多线程_lock同步机制.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\bin\Debug\多线程_lock同步机制.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\bin\Debug\多线程_lock同步机制.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\obj\Debug\多线程_lock同步机制.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_lock同步机制\obj\Debug\多线程_lock同步机制.pdb

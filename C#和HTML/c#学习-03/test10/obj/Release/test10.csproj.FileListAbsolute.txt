@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test10\bin\Release\test10.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test10\bin\Release\test10.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test10\bin\Release\test10.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test10\obj\Release\test10.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test10\obj\Release\test10.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test10\obj\Release\test10.csprojResolveAssemblyReference.cache

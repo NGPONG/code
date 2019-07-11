@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        window.onload = function () {
+
+            var btnElement = document.getElementById("btnShow"); // 获取HTML标签对象
+            btnElement.onclick = function () {
+                // 为按钮标签对象注册onclick事件
+                window.alert("哈哈哈Demo");
+            }
+
+            var imgElement = document.getElementById("img");
+            imgElement.onmouseover = function () {
+
+                btnElement.click(); // 当鼠标移动至图片的时候，调用我们刚刚为按钮标签对象注册的点击事件，并执行点击事件的函数
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btnShow"/>
+    <img src="http://localhost:31460/images/bird1.png" id="img"/>
+</body>
+</html>

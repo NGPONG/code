@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中使用事务\bin\Debug\ADO.NET中使用事务.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中使用事务\bin\Debug\ADO.NET中使用事务.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中使用事务\obj\Debug\ADO.NET中使用事务.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中使用事务\obj\Debug\ADO.NET中使用事务.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中使用事务\obj\Debug\ADO.NET中使用事务.pdb

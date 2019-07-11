@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串练习1\bin\Debug\字符串练习1.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串练习1\bin\Debug\字符串练习1.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串练习1\bin\Debug\字符串练习1.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串练习1\obj\Debug\字符串练习1.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串练习1\obj\Debug\字符串练习1.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串练习1\obj\Debug\字符串练习1.pdb
+C:\Users\Administrator\Desktop\源码\ConsoleApplication2\字符串练习1\bin\Debug\字符串练习1.exe.config
+C:\Users\Administrator\Desktop\源码\ConsoleApplication2\字符串练习1\obj\Debug\字符串练习1.exe
+C:\Users\Administrator\Desktop\源码\ConsoleApplication2\字符串练习1\obj\Debug\字符串练习1.pdb

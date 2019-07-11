@@ -1,0 +1,17 @@
+C:\Users\OrBit\Desktop\源码\图书商城\NGPONG.BookShop.Common\bin\Debug\NGPONG.BookShop.Common.dll
+C:\Users\OrBit\Desktop\源码\图书商城\NGPONG.BookShop.Common\bin\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\OrBit\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csprojResolveAssemblyReference.cache
+C:\Users\OrBit\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.dll
+C:\Users\OrBit\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.Common\bin\Debug\NGPONG.BookShop.Common.dll
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.Common\bin\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.dll
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\bin\Debug\NGPONG.BookShop.Common.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\bin\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.pdb

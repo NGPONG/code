@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.pdb
+C:\Users\向娟\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.exe.config
+C:\Users\向娟\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.exe
+C:\Users\向娟\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏 面向过程.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\吴鹏的学习作业\bin\Debug\吴鹏的学习作业.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\吴鹏的学习作业\obj\Debug\吴鹏的学习作业.pdb

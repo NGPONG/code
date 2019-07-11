@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\DataTable中的一些使用\bin\Debug\DataTable中的一些使用.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\DataTable中的一些使用\bin\Debug\DataTable中的一些使用.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\DataTable中的一些使用\bin\Debug\DataTable中的一些使用.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\DataTable中的一些使用\obj\Debug\DataTable中的一些使用.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\DataTable中的一些使用\obj\Debug\DataTable中的一些使用.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\DataTable中的一些使用\obj\Debug\DataTable中的一些使用.pdb

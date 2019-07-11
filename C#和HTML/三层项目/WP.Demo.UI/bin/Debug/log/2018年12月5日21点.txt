@@ -1,0 +1,119 @@
+﻿函数名称：WP.Demo.DAL.MemberInfoDAL.GetData
+调用日期：2018/12/5 21:30:53
+所需时间：0.0919554
+速度等级：C
+SQL脚本：SELECT a.Mid,a.MName,b.MTitle as MTypeName,a.MPhone,a.MMoney FROM MemberInfo a
+LEFT JOIN MemberTypeInfo b on a.MTypeId = b.mid AND b.MIsDelete != 1
+WHERE a.MIsDelete != 1
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.MemberTypeInfoDAL.GetData
+调用日期：2018/12/5 21:30:53
+所需时间：0.0014986
+速度等级：B
+SQL脚本：select MId,MTitle,MDiscount from  MemberTypeInfo where MIsDelete = 0 ORDER BY MDiscount
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishInfoDAL.GetData
+调用日期：2018/12/5 21:32:06
+所需时间：0.0622724
+速度等级：C
+SQL脚本：select a.Did,a.DTitle,b.DTitle as DTypeTitle,a.DPrice,a.DChar
+from DishInfo a
+left join DishTypeInfo b on a.DTypeId = b.DId and b.DIsDelete = 0
+where a.DIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/12/5 21:32:06
+所需时间：0.0014154
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/5 21:57:21
+所需时间：0.0707219
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '是'else '否' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/5 21:57:21
+所需时间：0.0013965
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/5 21:57:39
+所需时间：0.0600325
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '是'else '否' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/5 21:57:44
+所需时间：0.0038903
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/5 21:58:13
+所需时间：0.0615887
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '是'else '否' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/5 21:58:15
+所需时间：0.0013988
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2018/12/5 21:59:10
+所需时间：0.0832652
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '是'else '否' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/12/5 21:59:12
+所需时间：0.0021016
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+

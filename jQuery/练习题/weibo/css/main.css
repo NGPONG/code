@@ -1,0 +1,98 @@
+﻿body {
+    margin: 0px;
+    background: url('../img/wrapBg.jpg') no-repeat #EBF1F1;
+}
+
+#logo {
+    margin: 30px 0 0 300px;
+}
+
+#myBody {
+    width: 590px;
+    height: 200px;
+    border: 1px solid #000;
+}
+
+#myBdLeft {
+    width: 590px;
+    height: 100%;
+    background: #fff;
+    float: left;
+}
+
+#talkBox {
+    text-align: left;
+    margin: 0 0 0 25px;
+}
+
+#msgTxt {
+    width: 540px;
+    height: 80px;
+    overflow: hidden;
+    font-family: Tahoma, Arial;
+    font-size: 14px;
+    border: 1px solid gray;
+}
+
+#talkBox h2 {
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    font: normal normal normal 18px/29px 'MicroSoft YaHei', SimHei;
+}
+
+#funBox {
+    width: 540px;
+}
+
+    #funBox a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+.creatNew, .atSome, .insertFace, .uploadPic, .uploadVideo {
+    background-position: -170px -33px;
+    display: inline-block;
+    height: 16px;
+    padding-left: 18px;
+}
+
+.countTxt {
+    color: #999;
+    float: right;
+    line-height: 33px;
+    margin: 0 15px 0 0;
+}
+
+    .countTxt em {
+        font-family: Georgia, Tahoma, Arial;
+        font-size: 26px;
+        position: relative;
+        top: -5px;
+        vertical-align: middle;
+    }
+
+.sendBtn {
+    float: right;
+    margin: 0 20px 0 0;
+    padding: 0px;
+    background: url(../img/bg1.png) -117px -165px no-repeat;
+    line-height: 33px;
+    margin-left: 14px;
+    height: 30px;
+    width: 112px;
+    border: 0px;
+    cursor: pointer;
+}
+
+#btnCloFri {
+    cursor: pointer;
+}
+
+#myBdRight {
+    background: #CCEBF4;
+    width: 210px;
+    height: 100%;
+    float: right;
+}

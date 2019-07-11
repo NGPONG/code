@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+
+        // 定义一个函数
+        function showID()
+        {
+            window.alert(this.id);
+        }
+
+        // 定义一个类
+        function Person()
+        {
+            this.id = 30;
+            this.showIdFormObject = function () {
+
+                window.alert(this.id);
+            }
+        }
+    </script>
+        
+    <script>
+        var id = 10;
+        showID(); // window对象调用的函数，所以输出注册在window中的id变量：10
+
+        var per = new Person();
+        per.showIdFormObject(); // Person对象调用的函数，所以输出注册在Person类中的id：30
+    </script>
+</head>
+<body>
+
+</body>
+</html>

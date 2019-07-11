@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        var elements = null;
+        var indexNow = 0;
+
+        window.onload = function () {
+            elements = document.getElementsByClassName("imgStar");
+            setInterval(changeStar, 150);
+        }
+
+        function changeStar()
+        {
+            elements[indexNow].src = "images/star1.png";
+            indexNow++;
+            var temp = indexNow;
+
+            if (indexNow > elements.length-1)
+            {
+                indexNow = 0;
+            }
+
+            elements[indexNow].src = "images/star2.png";
+        }
+    </script>
+</head>
+<body>
+    <img src="images/star2.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar"/>
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+    <img src="images/star1.png" class="imgStar" />
+</body>
+</html>

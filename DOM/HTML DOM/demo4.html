@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        #imgDemo {
+            position:absolute;
+            top:500px;
+            left:500px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var imgDemo = document.getElementById("imgDemo");
+            window.alert(imgDemo.height); // 获取HTML标签对象的高度
+            window.alert(imgDemo.width); // 获取HTML标签对象的宽度
+            
+        }
+
+    </script>
+</head>
+<body>
+    <img src="http://localhost:31460/images/star1.png" id="imgDemo"/>
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\bin\Debug\练习题 26.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\bin\Debug\练习题 26.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\bin\Debug\练习题 26.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\obj\Debug\练习题 26.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\obj\Debug\练习题_26.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\obj\Debug\练习题_26.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\obj\Debug\练习题 26.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\obj\Debug\练习题 26.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 26\obj\Debug\练习题 26.pdb

@@ -1,0 +1,14 @@
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\bin\Debug\TEST-01.exe.config
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\bin\Debug\TEST-01.exe
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\bin\Debug\TEST-01.pdb
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.exe
+C:\Users\Administrator\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\bin\Debug\TEST-01.exe.config
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\bin\Debug\TEST-01.exe
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\bin\Debug\TEST-01.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.exe
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-01\obj\Debug\TEST-01.csprojAssemblyReference.cache

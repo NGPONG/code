@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\bin\Debug\用户输错密码3次，账号锁定一分钟.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\bin\Debug\用户输错密码3次，账号锁定一分钟.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\bin\Debug\用户输错密码3次，账号锁定一分钟.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\obj\Debug\用户输错密码3次，账号锁定一分钟.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\obj\Debug\用户输错密码3次_账号锁定一分钟.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\obj\Debug\用户输错密码3次_账号锁定一分钟.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\obj\Debug\用户输错密码3次，账号锁定一分钟.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\obj\Debug\用户输错密码3次，账号锁定一分钟.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\用户输错密码3次，账号锁定一分钟\obj\Debug\用户输错密码3次，账号锁定一分钟.pdb

@@ -1,0 +1,4 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\11\bin\Debug\11.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\11\obj\Debug\11.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\11\obj\Debug\_11.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\11\obj\Debug\11.csproj.GenerateResource.Cache

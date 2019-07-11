@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\bin\Debug\数据导入.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\bin\Debug\数据导入.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\bin\Debug\数据导入.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\obj\Debug\数据导入.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\obj\Debug\数据导入.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\obj\Debug\数据导入.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\obj\Debug\数据导入.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\obj\Debug\数据导入.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\数据导入\obj\Debug\数据导入.pdb

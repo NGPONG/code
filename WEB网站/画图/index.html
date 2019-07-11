@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script>
+
+        var i = 0;
+
+        function changeValue() {
+
+            var element = document.getElementById("change");
+            element.innerText = parseInt(element.innerText) + 1;
+        }
+
+        window.onload = function () {
+
+            setInterval(changeValue, 400);
+
+            window.document.getElementById("VerificationCode").onclick = function () {
+
+                this.src = "/VerificationCode.ashx?d=" + new Date().getMilliseconds();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1 id="change">1</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <h1>哈哈哈</h1>
+    <img src="/VerificationCode.ashx" id="VerificationCode" />
+</body>
+</html>

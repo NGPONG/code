@@ -1,0 +1,168 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SQLite;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WP.Demo.Common
+{
+    public static class SQLiteHelper
+    {
+        /// <summary>
+        ///  SQLite连接字符串
+        /// </summary>
+        public static string SqliteConnectionCharacter = ConfigurationManager.ConnectionStrings["sqlStr"].ConnectionString;
+        /// <summary>
+        ///  执行非查询sql语句
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="parms">参数</param>
+        /// <returns>受影响的行数</returns>
+        public static int ExecuteNonQuery(string sql, params SQLiteParameter[] parms)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.SqliteConnectionCharacter))
+                {
+                    connection.Open();
+
+                    using (SQLiteCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length <= 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  执行查询语句并返回一行一列的结果
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="parms">参数</param>
+        /// <returns>一行一列的结果</returns>
+        public static object ExecuteScalar(string sql, params SQLiteParameter[] parms)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.SqliteConnectionCharacter))
+                {
+                    connection.Open();
+
+                    using (SQLiteCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length > 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+                        return cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  获取SQLiteDataReader
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="parms">参数</param>
+        /// <returns>SQLiteDataReader</returns>
+        public static SQLiteDataReader ExecuteReader(string sql, params SQLiteParameter[] parms)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.SqliteConnectionCharacter))
+                {
+                    connection.Open();
+
+                    using (SQLiteCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length > 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+
+                        SQLiteDataReader reader = cmd.ExecuteReader();
+                        return reader;
+                    }
+                }
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  获取查询结果集
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="parms">参数</param>
+        /// <returns>查询结果</returns>
+        public static DataTable GetDataTable(string sql, params SQLiteParameter[] parms)
+        {
+            try
+            {
+                DataTable resultTable = new DataTable();
+
+                using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.SqliteConnectionCharacter))
+                {
+                    connection.Open();
+
+                    using (SQLiteCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length > 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+                        using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                        {
+                            adapter.Fill(resultTable);
+                        }
+                    }
+                }
+                return resultTable;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+    }
+}

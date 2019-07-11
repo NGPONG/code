@@ -1,0 +1,10 @@
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.Form1.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.Properties.Resources.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.csproj.GenerateResource.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\bin\Debug\WinForm跨线程访问.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\bin\Debug\WinForm跨线程访问.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\bin\Debug\WinForm跨线程访问.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\WinForm跨线程访问\obj\Debug\WinForm跨线程访问.pdb

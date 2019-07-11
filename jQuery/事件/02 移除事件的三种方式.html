@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        window.onload = function () {
+
+            // 移除jQuery对象所绑定的所有事件类型
+            // jQuery对象.unbind ()
+            $("#btnShow").unbind();
+
+            // 移除jQuery对象我们所指定的事件类型
+            // jQuery对象.unbind ( "事件类型名" )
+            $("#btnShow").unbind("click");
+
+            // 移除jQuery对象事件类型所绑定的事件处理函数
+            // jQuery对象.unbind( "事件类型名" , 函数名 )
+            $("#btnShow").unbind("click", showSomething);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮哟" id="btnShow"/>
+</body>
+</html>

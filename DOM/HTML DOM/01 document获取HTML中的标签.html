@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <input type="button" id="btnShow1" value="初始值" />
+    <input type="button" class="btnShow2" value="初始值2"/>
+    <input type="button" name="btnShow3" value="初始值3"/>
+    <input type="button" value="初始值4"/>
+    <script>
+        var element1 = document.getElementById("btnShow1"); // 通过ID属性来获取指定的元素
+        window.alert(element1.value);
+
+        var elements1 = document.getElementsByClassName("btnShow2"); // 通过Class属性来获取指定的元素的数组
+        window.alert(elements1[0].value);
+
+        var elements2 = document.getElementsByName("btnShow3"); // 通过Name属性来获取指定的元素的数组
+        window.alert(elements2[0].value);
+
+        var elements3 = document.getElementsByTagName("input"); // 通过标签名来获取指定的元素的数组
+        window.alert(elements3[3].value);
+
+    </script>
+
+</body>
+</html>

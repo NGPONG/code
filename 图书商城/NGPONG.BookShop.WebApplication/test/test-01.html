@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../Css/imgareaselect-default.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.imgareaselect.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#selectbanner').imgAreaSelect({
+                selectionColor: 'blue',
+
+                selectionOpacity: 0.2,
+                onSelectEnd: preview,
+                handles: true
+            });
+        });
+
+        //选择结束以后调用该方法
+        function preview(img, selection) {
+
+            $('#selectbanner').data('x', selection.x1);
+
+            $('#selectbanner').data('y', selection.y1);
+
+            $('#selectbanner').data('w', selection.width);
+
+            $('#selectbanner').data('h', selection.height);
+
+        }
+    </script>
+</head>
+<body>
+    <img src="../Images/11111.jpg" id="selectbanner" />
+</body>
+</html>

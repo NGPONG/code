@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托语法\bin\Release\委托语法.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托语法\bin\Release\委托语法.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托语法\bin\Release\委托语法.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托语法\obj\Release\委托语法.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托语法\obj\Release\委托语法.pdb

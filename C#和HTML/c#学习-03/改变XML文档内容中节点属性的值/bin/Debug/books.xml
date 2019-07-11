@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Books>
+  <Book1>
+    <Name Narture="水水水水">水浒传</Name>
+    <Price Narture="101010">10块钱 </Price>
+    <Dec Narture="好无聊呀">无聊</Dec>
+  </Book1>
+  <Book2>
+    <Name Narture="啊实打实大苏打！" Count="100000">三国演义</Name>
+    <Price Narture="55555">5块钱</Price>
+    <Dec Narture="我爱关羽！">关羽！！</Dec>
+  </Book2>
+</Books>

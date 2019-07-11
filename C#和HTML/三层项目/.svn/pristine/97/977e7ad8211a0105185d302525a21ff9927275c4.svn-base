@@ -1,0 +1,315 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WP.Demo.Common;
+using WP.Demo.Model;
+
+namespace WP.Demo.DAL
+{
+    public class TableInfoDAL
+    {
+        /// <summary>
+        ///  获取数据
+        /// </summary>
+        /// <returns>序列化后的字节数组</returns>
+        public List<byte[]> GetData()
+        {
+            // 开启计时
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // 错误信息
+            string errMessage = string.Empty;
+            // 函数名称 
+            string methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+
+            StringBuilder sql = new StringBuilder();
+            sql.AppendLine("select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' ");
+            sql.AppendLine("from TableInfo t");
+            sql.AppendLine("left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0");
+            sql.AppendLine("where t.TIsDelete = 0");
+            sql.AppendLine("order by HTitle");
+
+            try
+            {
+                DataTable dtTemp = SQLiteHelper.GetDataTable(sql.ToString());
+                // 接受数据的数据模型类的集合
+                List<TableInfoModel_GetData> listGetDataModel = new List<TableInfoModel_GetData>();
+                for (int i = 0; i < dtTemp.Rows.Count; i++)
+                {
+                    listGetDataModel.Add(new TableInfoModel_GetData()
+                    {
+                        TId = Convert.ToString(dtTemp.Rows[i]["TId"]),
+                        TTitle = Convert.ToString(dtTemp.Rows[i]["TTitle"]),
+                        THallName = Convert.ToString(dtTemp.Rows[i]["THallName"]),
+                        TIsFree = Convert.ToString(dtTemp.Rows[i]["TIsFree"])
+                    });
+                }
+                List<byte[]> listSerializeBuff = SerializableObject.SerializeObject<TableInfoModel_GetData>(listGetDataModel);
+
+                return listSerializeBuff;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                sw.Stop();
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql.ToString(), null, errMessage);
+            }
+        }
+        /// <summary>
+        ///  检查是否存在相同的菜品
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public List<byte[]> CheckHaveSameTableTitle(TableInfoModel model)
+        {
+            // 开启计时
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // 错误信息
+            string errMessage = string.Empty;
+            // 函数名称
+            string methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+
+            string TTitle = model.TTitle;
+
+            SQLiteParameter[] parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@TTitle",TTitle)
+                };
+
+            string sql = "SELECT 1 FROM TableInfo WHERE TTitle = @TTitle AND TIsDelete = 0";
+            try
+            {
+                string resultStr = Convert.ToString(SQLiteHelper.ExecuteScalar(sql, parms));
+
+                // 接受数据的数据模型类的集合
+                List<TableInfoModel_CheckHaveSameTableTitle> listCheckHaveSameTableTitle = new List<TableInfoModel_CheckHaveSameTableTitle>();
+                listCheckHaveSameTableTitle.Add(new TableInfoModel_CheckHaveSameTableTitle()
+                {
+                    CharacterResult = resultStr
+                });
+
+                List<byte[]> listSerializeBuff = SerializableObject.SerializeObject<TableInfoModel_CheckHaveSameTableTitle>(listCheckHaveSameTableTitle);
+
+                return listSerializeBuff;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                sw.Stop();
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  添加数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int AddTableInfoDetail(TableInfoModel model)
+        {
+            // 开启计时
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // 错误信息
+            string errMessage = string.Empty;
+            // 函数名称
+            string methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+
+            string TTitle = model.TTitle;
+            string THallId = model.THallId;
+            string TIsFree = model.TIsFree;
+
+            SQLiteParameter[] parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@TTitle",TTitle),
+                    new SQLiteParameter("@THallId",THallId),
+                    new SQLiteParameter("@TIsFree",TIsFree)
+                };
+
+            string sql = "insert into TableInfo(TTitle,THallId,TIsFree,TIsDelete) values(@TTitle,@THallId,@TIsFree,0)";
+
+            try
+            {
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                sw.Stop();
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  修改数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int UpdateTableInfoDetail(TableInfoModel model)
+        {
+            // 开启计时
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // 错误信息
+            string errMessage = string.Empty;
+            // 函数名称
+            string methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+
+            string TTitle = model.TTitle;
+            string TIsFree = model.TIsFree;
+            string THallId = model.THallId;
+            string TId = model.TId;
+
+            SQLiteParameter[] parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@TTitle",TTitle),
+                    new SQLiteParameter("@TIsFree",TIsFree),
+                    new SQLiteParameter("@THallId",THallId),
+                    new SQLiteParameter("@TId",TId)
+                };
+
+            string sql = "UPDATE TableInfo SET TTitle = @TTitle,TIsFree = @TIsFree,THallId = @THallId WHERE TId = @TId";
+
+            try
+            {
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                sw.Stop();
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  修改使用状态
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int UpdateTableInfoState(TableInfoModel model)
+        {
+            // 开启计时
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // 错误信息
+            string errMessage = string.Empty;
+            // 函数名称
+            string methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+
+            string TTitle = model.TTitle;
+            string TIsFree = model.TIsFree;
+
+            SQLiteParameter[] parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@TTitle",TTitle),
+                    new SQLiteParameter("@TIsFree",TIsFree)
+                };
+
+            string sql = "UPDATE TableInfo SET TIsFree = @TIsFree WHERE TTitle = @TTitle";
+
+            try
+            {
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                sw.Stop();
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  删除数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int DeleteTableInfoDetail(TableInfoModel model)
+        {
+            // 开启计时
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // 错误信息
+            string errMessage = string.Empty;
+            // 函数名称
+            string methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+
+            string TId = model.TId;
+
+            SQLiteParameter[] parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@TId",TId)
+                };
+
+            string sql = "UPDATE TableInfo SET TIsDelete = 1 WHERE TId = @TId";
+
+            try
+            {
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                sw.Stop();
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+
+    }
+}

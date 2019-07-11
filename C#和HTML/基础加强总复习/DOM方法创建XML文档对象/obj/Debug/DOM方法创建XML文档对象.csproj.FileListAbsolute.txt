@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\DOM方法创建XML文档对象\bin\Debug\DOM方法创建XML文档对象.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\DOM方法创建XML文档对象\bin\Debug\DOM方法创建XML文档对象.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\DOM方法创建XML文档对象\bin\Debug\DOM方法创建XML文档对象.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\DOM方法创建XML文档对象\obj\Debug\DOM方法创建XML文档对象.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\DOM方法创建XML文档对象\obj\Debug\DOM方法创建XML文档对象.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\DOM方法创建XML文档对象\obj\Debug\DOM方法创建XML文档对象.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\DOM方法创建XML文档对象\bin\Debug\DOM方法创建XML文档对象.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\DOM方法创建XML文档对象\obj\Debug\DOM方法创建XML文档对象.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\DOM方法创建XML文档对象\obj\Debug\DOM方法创建XML文档对象.pdb

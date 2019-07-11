@@ -1,0 +1,26 @@
+﻿函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2019/3/26 21:21:11
+所需时间：0.1651917
+速度等级：C
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.TableInfoDAL.GetData
+调用日期：2019/3/26 21:45:11
+所需时间：3.159785
+速度等级：D
+SQL脚本：select t.Tid,t.TTitle,h.HTitle as THallName,case when TIsFree = 1 then '使用中' else '空闲' end as 'TIsFree' 
+from TableInfo t
+left join HallInfo h on t.THallId = h.HId and h.HIsDelete = 0
+where t.TIsDelete = 0
+order by HTitle
+
+参数值：
+错误信息：
+

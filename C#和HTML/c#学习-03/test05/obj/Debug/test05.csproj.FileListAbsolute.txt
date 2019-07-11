@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test05\bin\Debug\test05.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\bin\Debug\test05.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\bin\Debug\test05.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\bin\Debug\test05.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\obj\Debug\test05.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\obj\Debug\test05.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\obj\Debug\test05.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\obj\Debug\test05.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test05\obj\Debug\test05.pdb

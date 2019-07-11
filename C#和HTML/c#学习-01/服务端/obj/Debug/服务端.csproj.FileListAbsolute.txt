@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\bin\Debug\服务端.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\bin\Debug\服务端.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\bin\Debug\服务端.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\obj\Debug\服务端.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\obj\Debug\服务端.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\obj\Debug\服务端.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\obj\Debug\服务端.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\obj\Debug\服务端.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\服务端\obj\Debug\服务端.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\服务端\bin\Debug\服务端.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\服务端\obj\Debug\服务端.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\服务端\obj\Debug\服务端.pdb

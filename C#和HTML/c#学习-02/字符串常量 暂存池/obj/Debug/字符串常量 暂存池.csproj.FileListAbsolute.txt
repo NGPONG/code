@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串常量 暂存池\bin\Debug\字符串常量 暂存池.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串常量 暂存池\bin\Debug\字符串常量 暂存池.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串常量 暂存池\bin\Debug\字符串常量 暂存池.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串常量 暂存池\obj\Debug\字符串常量 暂存池.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串常量 暂存池\obj\Debug\字符串常量 暂存池.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\字符串常量 暂存池\obj\Debug\字符串常量 暂存池.pdb

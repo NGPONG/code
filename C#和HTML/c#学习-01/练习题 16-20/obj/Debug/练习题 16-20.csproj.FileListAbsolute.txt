@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 16-20\bin\Debug\练习题 16-20.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 16-20\bin\Debug\练习题 16-20.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 16-20\bin\Debug\练习题 16-20.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 16-20\obj\Debug\练习题 16-20.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 16-20\obj\Debug\练习题 16-20.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 16-20\obj\Debug\练习题 16-20.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ConsoleApplication1\练习题 16-20\bin\Debug\练习题 16-20.exe.config
+C:\Users\Administrator\Desktop\源码\ConsoleApplication1\练习题 16-20\obj\Debug\练习题 16-20.exe
+C:\Users\Administrator\Desktop\源码\ConsoleApplication1\练习题 16-20\obj\Debug\练习题 16-20.pdb

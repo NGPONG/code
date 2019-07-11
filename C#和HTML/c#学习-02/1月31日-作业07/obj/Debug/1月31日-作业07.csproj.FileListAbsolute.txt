@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业07\bin\Debug\1月31日-作业07.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业07\bin\Debug\1月31日-作业07.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业07\bin\Debug\1月31日-作业07.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业07\obj\Debug\1月31日-作业07.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业07\obj\Debug\1月31日-作业07.pdb
+C:\Users\Administrator\Desktop\源码\ConsoleApplication2\1月31日-作业07\bin\Debug\1月31日-作业07.exe.config
+C:\Users\Administrator\Desktop\源码\ConsoleApplication2\1月31日-作业07\obj\Debug\1月31日-作业07.exe
+C:\Users\Administrator\Desktop\源码\ConsoleApplication2\1月31日-作业07\obj\Debug\1月31日-作业07.pdb

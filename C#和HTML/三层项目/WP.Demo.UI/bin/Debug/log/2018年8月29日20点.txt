@@ -1,0 +1,48 @@
+﻿函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/29 20:42:12
+所需时间：0.1099737
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#pengqi1997428
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/29 20:44:13
+所需时间：0.0451078
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#pengqi1997428
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
+调用日期：2018/8/29 20:44:54
+所需时间：0.0719998
+速度等级：C
+SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.CheckHaveSameUserName
+调用日期：2018/8/29 20:45:05
+所需时间：0.0039557
+速度等级：B
+SQL脚本：SELECT 1 FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.AddManagerInfoDetail
+调用日期：2018/8/29 20:45:05
+所需时间：0.0098217
+速度等级：B
+SQL脚本：insert into ManagerInfo(MName,MPwd,MType) values(@MName,@MPwd,@MType)
+参数值：@MName#admin | @MPwd#21232F297A57A5A743894A0E4A801FC3 | @MType#0
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
+调用日期：2018/8/29 20:45:05
+所需时间：0.0009874
+速度等级：A
+SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
+参数值：
+错误信息：
+

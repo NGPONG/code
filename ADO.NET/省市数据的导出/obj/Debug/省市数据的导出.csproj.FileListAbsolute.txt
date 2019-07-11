@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市数据的导出\bin\Debug\省市数据的导出.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市数据的导出\bin\Debug\省市数据的导出.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市数据的导出\bin\Debug\省市数据的导出.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市数据的导出\obj\Debug\省市数据的导出.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市数据的导出\obj\Debug\省市数据的导出.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市数据的导出\obj\Debug\省市数据的导出.pdb

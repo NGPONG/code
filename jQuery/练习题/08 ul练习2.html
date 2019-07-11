@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("li").hover(function () {
+
+                $(this).css("background-color", "red").prevAll().css("background-color", "blue").end().nextAll().css("background-color", "yellow");
+            }, function () {
+
+                $("li").css("background-color", "white");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>北京</li>
+        <li>上海</li>
+        <li>深圳</li>
+        <li>广州</li>
+        <li>哈尔滨</li>
+        <li>黑龙江</li>
+    </ul>
+</body>
+</html>

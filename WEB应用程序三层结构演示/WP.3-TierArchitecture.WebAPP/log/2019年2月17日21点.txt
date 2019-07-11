@@ -1,0 +1,24 @@
+﻿函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/2/17 21:58:14
+所需时间：15.5199034
+速度等级：F
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/2/17 21:58:43
+所需时间：4.7941721
+速度等级：D
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/2/17 21:59:02
+所需时间：1.2625918
+速度等级：D
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+

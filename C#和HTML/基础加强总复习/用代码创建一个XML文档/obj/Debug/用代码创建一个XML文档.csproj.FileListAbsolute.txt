@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\用代码创建一个XML文档\bin\Debug\用代码创建一个XML文档.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\用代码创建一个XML文档\bin\Debug\用代码创建一个XML文档.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\用代码创建一个XML文档\bin\Debug\用代码创建一个XML文档.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\用代码创建一个XML文档\obj\Debug\用代码创建一个XML文档.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\用代码创建一个XML文档\obj\Debug\用代码创建一个XML文档.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\用代码创建一个XML文档\obj\Debug\用代码创建一个XML文档.pdb

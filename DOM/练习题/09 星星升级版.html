@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        var mouseNext = 0; // 记录下一次鼠标X轴坐标
+        var mouseLast = 0; // 记录上一次的鼠标X轴坐标
+        var imgHeight = 0;
+        var indexClick = 0;
+
+        window.onload = function () {
+            var elements = document.getElementsByTagName("img");
+            imgHeight = parseInt(document.getElementById("0").height);
+
+            for (var i = 0; i < elements.length; i++)
+            {
+                //鼠标移动事件
+                elements[i].onmouseover = function (event) {
+
+                    mouseNext = event.clientX;
+                    if (mouseNext > mouseLast || mouseNext == mouseLast)
+                    {
+                        var index = parseInt(this.id);
+                        for (var n = 0; n < index + 1; n++)
+                        {
+                            elements[n].src = "images/star2.png";
+                        }
+                    }// End of if
+                    else if (mouseNext < mouseLast)
+                    {
+                        var index = parseInt(this.id);
+                        for (var z = index + 1; z < elements.length; z++)
+                        {
+                            elements[z].src = "images/star1.png";
+                        }
+                    }// End of else if
+
+                    mouseLast = mouseNext;
+                }// End of Event onmouseover
+
+                //点击事件
+                elements[i].onclick = function (event) {
+                    
+                    indexClick = parseInt(this.id);
+                    for (var i = 0; i < indexClick+1; i++)
+                    {
+                        elements[i].src = "images/star2.png";
+                    }
+                }
+
+                //鼠标离开事件
+                elements[i].onmouseleave = function (event) {
+
+                    if (event.clientY > imgHeight)
+                    {
+                        for (var i = 0; i < indexClick+1; i++) {
+                            elements[i].src = "images/star2.png";
+                        }
+                        
+                        for (var z = indexClick + 1; z < elements.length; z++)
+                        {
+                            elements[z].src = "images/star1.png";
+                        }
+                    }
+                }
+            }// End of For
+        }
+    </script>
+</head>
+<body>
+    <img src="images/star1.png" id="0" />
+    <img src="images/star1.png" id="1" />
+    <img src="images/star1.png" id="2" />
+    <img src="images/star1.png" id="3" />
+    <img src="images/star1.png" id="4" />
+</body>
+</html>

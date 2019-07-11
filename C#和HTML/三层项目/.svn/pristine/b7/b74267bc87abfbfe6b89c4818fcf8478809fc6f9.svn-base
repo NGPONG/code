@@ -1,0 +1,152 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WP.Demo.BLL;
+
+namespace WP.Demo.UI
+{
+    public delegate void DelInitializeFrmDishInfoData(object sender, EventArgs e);
+    public partial class frmDishInfo : Form
+    {
+        private static frmDishInfo _frmSingle = null; // 存储单例窗体的对象
+
+        private DishTypeInfoBLL objDishTypeInfoBLL = new DishTypeInfoBLL();
+        private DishInfoBLL objDishInfoBLL = new DishInfoBLL();
+
+        // 保存在本地的数据表
+        private DataTable dtResult = null;
+        // 刷新控件的一个委托
+        DelInitializeFrmDishInfoData del;
+        /// <summary>
+        ///  私有构造函数，构造单例
+        /// </summary>
+        private frmDishInfo()
+        {
+            InitializeComponent();
+        }
+        /// <summary>
+        ///  获取单例对象
+        /// </summary>
+        /// <returns></returns>
+        public static frmDishInfo GetSingleObject()
+        {
+            try
+            {
+                if (_frmSingle == null)
+                {
+                    _frmSingle = new frmDishInfo();
+                }
+                return _frmSingle;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmDishInfo_Load(object sender, EventArgs e)
+        {
+              try
+            {
+                // 初始化表格
+                this.InitializeDataGridView();
+                // 初始化下拉框
+                this.InitializeComboBox();
+                this.del = new DelInitializeFrmDishInfoData(this.frmDishInfo_Load);
+            }
+            catch (Exception objException)
+            {
+                MessageBox.Show(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  初始化下拉框
+        /// </summary>
+        private void InitializeComboBox()
+        {
+            try
+            {
+                DataTable dtResult = objDishTypeInfoBLL.GetData();
+                DataRow drTemp = dtResult.NewRow();
+                drTemp["DId"] = string.Empty;
+                drTemp["DTitle"] = string.Empty;
+                dtResult.Rows.InsertAt(drTemp, 0);
+
+                // 查询下拉框
+                this.ddlTypeSearch.DataSource = dtResult;
+                this.ddlTypeSearch.DisplayMember = "DTitle";
+                this.ddlTypeSearch.ValueMember = "DId";
+                this.ddlTypeSearch.SelectedValue = string.Empty;
+
+                // 添加、修改下拉框
+                this.ddlTypeAdd.DataSource = dtResult;
+                this.ddlTypeAdd.DisplayMember = "DTitle";
+                this.ddlTypeAdd.ValueMember = "DId";
+                this.ddlTypeAdd.SelectedValue = string.Empty;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  初始化表格
+        /// </summary>
+        private void InitializeDataGridView()
+        {
+            try
+            {
+                // 设置DataGridView是否自动生成绑定的数据源所具有的列
+                this.dgvList.AutoGenerateColumns = false;
+                // 加载数据源
+                this.OnDataGridViewDataBusinese();
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  获取表格数据
+        /// </summary>
+        private void OnDataGridViewDataBusinese()
+        {
+            try
+            {
+                this.dtResult = this.objDishInfoBLL.GetData();
+                this.dgvList.DataSource = this.dtResult;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+
+    }
+}

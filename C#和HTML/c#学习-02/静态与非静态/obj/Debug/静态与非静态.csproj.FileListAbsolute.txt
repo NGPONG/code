@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\静态与非静态\bin\Debug\静态与非静态.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\静态与非静态\bin\Debug\静态与非静态.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\静态与非静态\bin\Debug\静态与非静态.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\静态与非静态\obj\Debug\静态与非静态.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\静态与非静态\obj\Debug\静态与非静态.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\静态与非静态\obj\Debug\静态与非静态.pdb

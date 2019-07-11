@@ -1,0 +1,7 @@
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\bin\Debug\多线程_async.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\bin\Debug\多线程_async.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\bin\Debug\多线程_async.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\obj\Debug\多线程_async.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\obj\Debug\多线程_async.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\obj\Debug\多线程_async.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_async\obj\Debug\多线程_async.pdb

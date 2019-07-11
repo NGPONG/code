@@ -1,0 +1,13 @@
+C:\Users\Administrator\Desktop\源码\jQuery\Demo\bin\Demo.dll.config
+C:\Users\Administrator\Desktop\源码\jQuery\Demo\bin\Demo.dll
+C:\Users\Administrator\Desktop\源码\jQuery\Demo\bin\Demo.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\jQuery\Demo\obj\Debug\Demo.dll
+C:\Users\Administrator\Desktop\源码\jQuery\Demo\obj\Debug\Demo.pdb
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\bin\Demo.dll.config
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\bin\Demo.dll
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\bin\Demo.pdb
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\obj\Debug\Demo.dll
+C:\Users\NGPONG\Desktop\源码\jQuery\Demo\obj\Debug\Demo.pdb

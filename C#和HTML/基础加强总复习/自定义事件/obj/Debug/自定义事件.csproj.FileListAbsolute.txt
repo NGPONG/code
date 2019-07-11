@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\自定义事件\bin\Debug\自定义事件.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\自定义事件\bin\Debug\自定义事件.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\自定义事件\bin\Debug\自定义事件.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\自定义事件\obj\Debug\自定义事件.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\自定义事件\obj\Debug\自定义事件.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\自定义事件\obj\Debug\自定义事件.pdb

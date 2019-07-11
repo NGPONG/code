@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WP.Demo.Common
+{
+    public static class DataGridViewDefaultExtra
+    {
+        /// <summary>
+        ///  修正选中行
+        /// </summary>
+        /// <param name="dgvList"></param>
+        /// <param name="columnName"></param>
+        /// <param name="amendmentValue"></param>
+        public static void AmendmentSelectedRow(DataGridView dgvList, string columnName,string amendmentValue) 
+        {
+            for (int i = 0; i < dgvList.Rows.Count; i++)
+            {
+                if (dgvList.Rows[i].Cells[columnName].Value.ToString().Equals(amendmentValue))
+                {
+                    dgvList.Rows[i].Selected = true;
+                }
+            }
+        }
+    }
+}

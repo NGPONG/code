@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\文件的读写 FileStream\bin\Debug\文件的读写 FileStream.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\文件的读写 FileStream\obj\Debug\文件的读写 FileStream.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\文件的读写 FileStream\bin\Debug\文件的读写 FileStream.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\文件的读写 FileStream\bin\Debug\文件的读写 FileStream.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\文件的读写 FileStream\obj\Debug\文件的读写 FileStream.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\文件的读写 FileStream\obj\Debug\文件的读写 FileStream.pdb

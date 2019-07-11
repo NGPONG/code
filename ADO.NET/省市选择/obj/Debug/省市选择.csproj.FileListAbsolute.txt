@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\bin\Debug\省市选择.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\bin\Debug\省市选择.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\bin\Debug\省市选择.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\obj\Debug\省市选择.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\obj\Debug\省市选择.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\obj\Debug\省市选择.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\obj\Debug\省市选择.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\obj\Debug\省市选择.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\省市选择\obj\Debug\省市选择.pdb

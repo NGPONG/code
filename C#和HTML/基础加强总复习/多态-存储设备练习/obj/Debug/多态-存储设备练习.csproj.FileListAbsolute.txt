@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\多态-存储设备练习\bin\Debug\多态-存储设备练习.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\多态-存储设备练习\bin\Debug\多态-存储设备练习.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\多态-存储设备练习\bin\Debug\多态-存储设备练习.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\多态-存储设备练习\obj\Debug\多态-存储设备练习.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\多态-存储设备练习\obj\Debug\多态-存储设备练习.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\多态-存储设备练习\obj\Debug\多态-存储设备练习.pdb

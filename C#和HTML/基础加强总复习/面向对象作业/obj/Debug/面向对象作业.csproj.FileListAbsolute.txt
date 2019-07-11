@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\面向对象作业\bin\Debug\面向对象作业.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\面向对象作业\bin\Debug\面向对象作业.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\面向对象作业\bin\Debug\面向对象作业.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\面向对象作业\obj\Debug\面向对象作业.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\面向对象作业\obj\Debug\面向对象作业.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\面向对象作业\obj\Debug\面向对象作业.pdb

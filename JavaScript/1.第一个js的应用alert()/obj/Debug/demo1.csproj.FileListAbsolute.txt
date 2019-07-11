@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\JavaScript\1.第一个js的应用alert()\bin\1.第一个js的应用alert().dll.config
+C:\Users\Administrator\Desktop\源码\JavaScript\1.第一个js的应用alert()\bin\1.第一个js的应用alert().dll
+C:\Users\Administrator\Desktop\源码\JavaScript\1.第一个js的应用alert()\bin\1.第一个js的应用alert().pdb
+C:\Users\Administrator\Desktop\源码\JavaScript\1.第一个js的应用alert()\obj\Debug\demo1.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\JavaScript\1.第一个js的应用alert()\obj\Debug\1.第一个js的应用alert().dll
+C:\Users\Administrator\Desktop\源码\JavaScript\1.第一个js的应用alert()\obj\Debug\1.第一个js的应用alert().pdb

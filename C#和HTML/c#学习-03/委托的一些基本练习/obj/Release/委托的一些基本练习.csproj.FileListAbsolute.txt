@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托的一些基本练习\bin\Release\委托的一些基本练习.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托的一些基本练习\bin\Release\委托的一些基本练习.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托的一些基本练习\bin\Release\委托的一些基本练习.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托的一些基本练习\obj\Release\委托的一些基本练习.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托的一些基本练习\obj\Release\委托的一些基本练习.pdb

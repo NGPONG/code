@@ -1,0 +1,9 @@
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\bin\Debug\TEST-02.exe.config
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\bin\Debug\TEST-02.exe
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\bin\Debug\TEST-02.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\obj\Debug\TEST_02.Properties.Resources.resources
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\obj\Debug\TEST-02.csproj.GenerateResource.cache
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\obj\Debug\TEST-02.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\obj\Debug\TEST-02.exe
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\obj\Debug\TEST-02.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-02\obj\Debug\TEST-02.csprojAssemblyReference.cache

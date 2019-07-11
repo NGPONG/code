@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WP.Demo.Common
+{
+    public static class SerializableObject
+    {
+        /// <summary>
+        ///  序列化
+        /// </summary>
+        /// <typeparam name="T">自定义类型</typeparam>
+        /// <param name="obj">需要序列化的类</param>
+        /// <returns>序列化后的字节数组</returns>
+        public static byte[] SerializeObject<T>(T obj) 
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bfSerialize = new BinaryFormatter();
+                bfSerialize.Serialize(ms, obj);
+                return ms.GetBuffer();
+            }
+            catch (Exception objException) 
+            {
+                if (objException.InnerException != null) 
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  反序列化
+        /// </summary>
+        /// <typeparam name="T">自定义类型</typeparam>
+        /// <param name="buff">序列化后的字节数组</param>
+        /// <returns>反序列化后的类的List集合</returns>
+        public static List<T> DeserializeObject<T>(byte[] buff) 
+        {
+            try
+            {
+                List<T> listReturn = new List<T>();
+                MemoryStream ms = new MemoryStream(buff);
+                ms.Position = 0;
+                BinaryFormatter bf = new BinaryFormatter();
+                object obj = bf.Deserialize(ms);
+                T t = (T)obj;
+                listReturn.Add(t);
+                return listReturn;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+    }
+}

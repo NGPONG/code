@@ -1,0 +1,201 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "第一个网站", "http://localhost:20236", "{15C08475-0C1C-4449-95EE-5EDD9D931B11}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_20236"
+		Debug.AspNetCompiler.PhysicalPath = "第一个网站\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_20236\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_20236"
+		Release.AspNetCompiler.PhysicalPath = "第一个网站\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_20236\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "第一个网站\"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "模板文件的读取与写入", "http://localhost:31178", "{8B5CCDE2-76D1-4872-A35B-D7F16D221D3A}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_31178"
+		Debug.AspNetCompiler.PhysicalPath = "模板文件的读取与写入\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_31178\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_31178"
+		Release.AspNetCompiler.PhysicalPath = "模板文件的读取与写入\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_31178\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "模板文件的读取与写入\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "自增计算", "http://localhost:10159", "{08C0AF82-485B-4E7D-B5D9-D1A3CE6111D3}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_10159"
+		Debug.AspNetCompiler.PhysicalPath = "自增计算\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_10159\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_10159"
+		Release.AspNetCompiler.PhysicalPath = "自增计算\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_10159\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "自增计算\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "读取数据库列表", "http://localhost:14709", "{B2B7C1B0-D888-4AF0-AB86-9F71F892AB0F}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_14709"
+		Debug.AspNetCompiler.PhysicalPath = "读取数据库列表\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14709\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_14709"
+		Release.AspNetCompiler.PhysicalPath = "读取数据库列表\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14709\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "读取数据库列表\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TEST", "http://localhost:1446", "{D5415EBC-C0FB-4F5D-AE02-E4FEC5177FFF}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1446"
+		Debug.AspNetCompiler.PhysicalPath = "TEST\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1446\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1446"
+		Release.AspNetCompiler.PhysicalPath = "TEST\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1446\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "TEST\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "文件上传", "http://localhost:6355", "{4067ECE5-4C1D-4F35-BD45-C3B74F8A3A2B}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_6355"
+		Debug.AspNetCompiler.PhysicalPath = "文件上传\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6355\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_6355"
+		Release.AspNetCompiler.PhysicalPath = "文件上传\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6355\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "文件上传\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "画图", "http://localhost:2035", "{6DD038F9-597B-436A-9062-F1D3D1922E61}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2035"
+		Debug.AspNetCompiler.PhysicalPath = "画图\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2035\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2035"
+		Release.AspNetCompiler.PhysicalPath = "画图\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2035\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "画图\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15C08475-0C1C-4449-95EE-5EDD9D931B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C08475-0C1C-4449-95EE-5EDD9D931B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C08475-0C1C-4449-95EE-5EDD9D931B11}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C08475-0C1C-4449-95EE-5EDD9D931B11}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8B5CCDE2-76D1-4872-A35B-D7F16D221D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5CCDE2-76D1-4872-A35B-D7F16D221D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5CCDE2-76D1-4872-A35B-D7F16D221D3A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5CCDE2-76D1-4872-A35B-D7F16D221D3A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{08C0AF82-485B-4E7D-B5D9-D1A3CE6111D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C0AF82-485B-4E7D-B5D9-D1A3CE6111D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C0AF82-485B-4E7D-B5D9-D1A3CE6111D3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C0AF82-485B-4E7D-B5D9-D1A3CE6111D3}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B2B7C1B0-D888-4AF0-AB86-9F71F892AB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B7C1B0-D888-4AF0-AB86-9F71F892AB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B7C1B0-D888-4AF0-AB86-9F71F892AB0F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B7C1B0-D888-4AF0-AB86-9F71F892AB0F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D5415EBC-C0FB-4F5D-AE02-E4FEC5177FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5415EBC-C0FB-4F5D-AE02-E4FEC5177FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5415EBC-C0FB-4F5D-AE02-E4FEC5177FFF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5415EBC-C0FB-4F5D-AE02-E4FEC5177FFF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4067ECE5-4C1D-4F35-BD45-C3B74F8A3A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4067ECE5-4C1D-4F35-BD45-C3B74F8A3A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4067ECE5-4C1D-4F35-BD45-C3B74F8A3A2B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4067ECE5-4C1D-4F35-BD45-C3B74F8A3A2B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6DD038F9-597B-436A-9062-F1D3D1922E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD038F9-597B-436A-9062-F1D3D1922E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD038F9-597B-436A-9062-F1D3D1922E61}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD038F9-597B-436A-9062-F1D3D1922E61}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {644DA560-FF51-4F35-B162-6C6BBF8D097D}
+	EndGlobalSection
+EndGlobal

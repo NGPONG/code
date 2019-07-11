@@ -1,0 +1,384 @@
+﻿函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:15:15
+所需时间：0.052656
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:15:25
+所需时间：0.0036762
+速度等级：B
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#湖南菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:15:25
+所需时间：0.0101255
+速度等级：C
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#湖南菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:15:25
+所需时间：0.0009764
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:15:30
+所需时间：0.0082775
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#6
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:15:31
+所需时间：0.0008998
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:15:53
+所需时间：0.0765669
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:15:59
+所需时间：0.0036974
+速度等级：B
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#湖北菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:15:59
+所需时间：0.0095593
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#湖北菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:15:59
+所需时间：0.0010002
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:16:03
+所需时间：0.0076886
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#1
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:16:03
+所需时间：0.0010541
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:16:27
+所需时间：0.0537027
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:16:30
+所需时间：0.0037168
+速度等级：B
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#asdasd
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:16:30
+所需时间：0.0095708
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#asdasd
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:16:30
+所需时间：0.0012741
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:16:34
+所需时间：0.0077934
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#2
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:16:34
+所需时间：0.0009509
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:16:38
+所需时间：0.0009179
+速度等级：A
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#asdasd
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:16:40
+所需时间：0.0007805
+速度等级：A
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#asdasdqwe
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:16:40
+所需时间：0.0073455
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#asdasdqwe
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:16:40
+所需时间：0.0009151
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:18:41
+所需时间：0.053007
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:18:45
+所需时间：0.0037183
+速度等级：B
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#哈哈哈
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:18:46
+所需时间：0.0089607
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#哈哈哈
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:18:46
+所需时间：0.0010618
+速度等级：B
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:18:58
+所需时间：0.0691031
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:19:01
+所需时间：0.0036874
+速度等级：B
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#傻逼
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:19:01
+所需时间：0.0098278
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#傻逼
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:19:01
+所需时间：0.000992
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:19:04
+所需时间：0.0084232
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#11
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:19:04
+所需时间：0.0009514
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:19:08
+所需时间：0.0084686
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#10
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:19:08
+所需时间：0.0009026
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:19:10
+所需时间：0.0075806
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#9
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:19:10
+所需时间：0.0009325
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.DeleteDishTypeInfoDetail
+调用日期：2018/10/14 15:19:41
+所需时间：0.0077523
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DIsDelete = '1' WHERE DId = @DId
+参数值：@DId#8
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:19:41
+所需时间：0.0009136
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:19:46
+所需时间：0.0008037
+速度等级：A
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#粤菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:19:46
+所需时间：0.0076587
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#粤菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:19:46
+所需时间：0.0009302
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:20:08
+所需时间：0.0533001
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:20:12
+所需时间：0.0037978
+速度等级：B
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#粤菜
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.CheckHaveSameDishTitle
+调用日期：2018/10/14 15:20:28
+所需时间：0.0008293
+速度等级：A
+SQL脚本：SELECT 1 FROM DishTypeInfo WHERE DTitle = @DTitle AND DIsDelete = 0
+参数值：@DTitle#测试菜品
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.AddDishTypeInfoDetail
+调用日期：2018/10/14 15:20:28
+所需时间：0.0087213
+速度等级：B
+SQL脚本：insert into DishTypeInfo(DTitle,DIsDelete) values(@DTitle, '0')
+参数值：@DTitle#测试菜品
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:20:28
+所需时间：0.0009831
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.UpdateDishTypeInfoDetail
+调用日期：2018/10/14 15:20:33
+所需时间：0.0078537
+速度等级：B
+SQL脚本：UPDATE DishTypeInfo SET DTitle = @DTitle WHERE DId = @DId
+参数值：@DTitle#测试菜品 asd | @DId#13
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 15:20:33
+所需时间：0.0009424
+速度等级：A
+SQL脚本：select DId,DTitle from DishTypeInfo where DIsDelete = 0
+参数值：
+错误信息：
+

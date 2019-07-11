@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test02\bin\Debug\test02.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test02\bin\Debug\test02.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test02\bin\Debug\test02.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test02\obj\Debug\test02.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test02\obj\Debug\test02.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\test02\obj\Debug\test02.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test02\bin\Debug\test02.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test02\bin\Debug\test02.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test02\bin\Debug\test02.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test02\obj\Debug\test02.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test02\obj\Debug\test02.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test02\obj\Debug\test02.pdb

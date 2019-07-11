@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMasterPage.master.cs" Inherits="母版页的使用.MyMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <th class="auto-style2">用户ID</th>
+                    <th class="auto-style2">用户名称</th>
+                    <th class="auto-style2">用户年龄</th>
+                    <th class="auto-style3">用户地址</th>
+                    <th class="auto-style2">用户工作</th>
+                </tr>
+                <!--我在这里需要嵌入WebForm的代码！-->
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder_Body" runat="server">
+                </asp:ContentPlaceHolder>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
+
+
+

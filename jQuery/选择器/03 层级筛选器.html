@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // jQuery对象.next( SelectorExpr )：获取一个JQ对象后面的同级元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#divDemo").next(".pDemo");
+
+            // jQuery对象.nextAll( SelectorExpr )：获取JQ对象后面的所有同级元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#divDemo").nextAll(".pDemo");
+
+            // jQuery对象.prev( SelectorExpr )：获取一个JQ对象前面的同级元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#divDemo").prev();
+
+            // jQuery对象.prevAll( SelectorExpr )：获取JQ对象前面的所有同级元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#divDemo").prevAll();
+
+            // jQuery对象.siblings( SelectorExpr )：获取JQ对象的所有同级元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#divDemo").siblings("div");
+
+            // jQuery对象.parent( SelectorExpr )：获取JQ对象的直接父元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#aDemo").parent();
+
+            // jQuery对象.parents( SelectorExpr )：获取所有包含着JQ对象的父元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#aDemo").parents("body");
+
+            // jQuery对象.children( SelectorExpr )：获取一个JQ对象的直接子元素，并返回匹配结果的JQ对象
+            // SelectorExpr：用于把匹配返回结果再进行一次过滤的选择器表达式，不写则代表无特定的过滤条件
+            $("#divDemo").children();
+        });
+    </script>
+</head>
+<body>
+    <a></a>
+    <div class="hahha"></div>
+    <div id="divDemo">
+        <p>
+            <a id="aDemo">
+            </a>
+        </p>
+    </div>
+    <p class="pDemo">asd</p>
+    <div></div>
+    <p class="pDemo">qwe</p>
+</body>
+</html>

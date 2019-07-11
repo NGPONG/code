@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        var width = 1000;
+        var height = 1000;
+
+        $(document).ready(function () {
+
+            for (var i = 0; i < 50; i++)
+            {
+                $("<div></div>").css("position", "absolute")
+                                            .css("border", "1px solid red")
+                                            .css("top", 0 + 10 * i)
+                                            .css("left", 0 + 10 * i)
+                                            .css("height", height - 20 * i)
+                                            .css("width", width - 20 * i)
+                                            .appendTo("body");
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

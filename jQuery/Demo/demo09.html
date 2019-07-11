@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("input[id=btnShow]").click(function () {
+
+                $("input[type=checkbox]").prop("selected");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" value="选择1"/>
+    <input type="checkbox" value="选择2"/>
+    <input type="checkbox" value="选择3"/>
+    <input type="checkbox" value="选择4"/>
+    <input type="checkbox" value="选择5"/>
+    <input type="button" value="按钮" id="btnShow">
+</body>
+</html>

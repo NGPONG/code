@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(book_list.css );
+bady{
+    
+    }
+.anniu{font-size:12px;background:#C0FFC0;border:SeaGreen 1px solid;height:16px;width:57px;color:Black; }
+dl,dd,dt,ul,li{
+    list-style-type:none;
+    }
+.main_booklist{
+    border:#d2e4df solid 10px;
+	width:760px;
+	padding:15px;
+	font-size: 13px;
+	line-height:30px;
+        
+	
+	}
+.main_booklist a:link,a:hover{
+    color:#198f6f;
+	font-size:12px;
+	text-decoration:none;
+    }
+.main_booklist a:visited{
+    color:#82a79c;
+	font-size:12px;
+	text-decoration:none;
+    }
+	
+.main_booklist li{
+    padding-left:10px;
+	margin-left:-10px;
+	color:#333;
+	height:30px;
+	
+    }
+ .title_ul1{
+    font-weight:bold;
+    letter-spacing:5px;
+	height:10px;
+
+	height:30px;
+	text-decoration:none;
+	margin-left:0;
+    }
+  .title_booklist0{
+    float:left;
+    width:35%;
+	}	
+  .title_booklist1{
+    float:left;
+	width:20%;
+
+	}
+  .title_booklist2{
+    float:left;
+	margin-left;
+	width:20%;
+
+	}
+  .title_booklist3{
+    float:left;
+	width:15%;
+	
+	}
+  .title_booklist4{
+    float:left;
+	width:10%;
+
+	}
+ .title_ul2{
+    height:10px;
+	height:30px;
+	background-color:#ebefee;
+	text-decoration:none;
+	margin-left:0;
+   }
+ .title_ul3{
+    height:30px;
+	text-decoration:none;
+	margin-left:0;
+
+   }
+   
+  .title_li2 li{
+    float:left;
+   }
+.ipt1{
+    margin-bottom:10px;
+	padding-bottom:5px;
+	height:30px;
+	border-bottom:#CCC solid 1px;
+	text-align: center;
+}
+.ipt2{
+    margin-top:10px;
+	padding-top:5px;
+	height:30px;
+	border-top:#CCC solid 1px;
+    }

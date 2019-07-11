@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlAdapter\bin\Debug\SqlAdapter.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlAdapter\bin\Debug\SqlAdapter.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlAdapter\bin\Debug\SqlAdapter.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlAdapter\obj\Debug\SqlAdapter.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlAdapter\obj\Debug\SqlAdapter.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlAdapter\obj\Debug\SqlAdapter.pdb

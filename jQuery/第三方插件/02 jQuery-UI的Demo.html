@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="scripts/jquery-ui-1.8.20/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <script src="scripts/jquery/jquery-1.7.1.min.js"></script>
+    <script src="scripts/jquery-ui-1.8.20/ui/minified/jquery-ui.min.js"></script>
+    <style type="text/css">
+        #uiDemo {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #uiDemo li {
+            margin: 3px 3px 3px 0;
+            padding: 1px;
+            float: left;
+            width: 100px;
+            height: 90px;
+            font-size: 4em;
+            text-align: center;
+            }
+    </style>
+            
+    <script>
+        $(document).ready(function () {
+
+            $("#uiDemo").sortable();
+            $("#uiDemo").disableSelection();
+        });
+    </script>
+</head>
+<body>
+    <ul id="uiDemo">
+        <li class="ui-state-default">哈</li>
+        <li class="ui-state-default">哈</li>
+        <li class="ui-state-default">我</li>
+        <li class="ui-state-default">是</li>
+        <li class="ui-state-default">傻</li>
+        <li class="ui-state-default">逼</li>
+    </ul>
+</body>
+</html>

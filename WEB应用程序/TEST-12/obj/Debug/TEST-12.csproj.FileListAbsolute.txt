@@ -1,0 +1,6 @@
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-12\bin\Debug\TEST-12.exe.config
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-12\bin\Debug\TEST-12.exe
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-12\bin\Debug\TEST-12.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-12\obj\Debug\TEST-12.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-12\obj\Debug\TEST-12.exe
+C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-12\obj\Debug\TEST-12.pdb

@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏面向对象03\bin\Debug\吴鹏面向对象03.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏面向对象03\bin\Debug\吴鹏面向对象03.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏面向对象03\bin\Debug\吴鹏面向对象03.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏面向对象03\obj\Debug\吴鹏面向对象03.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏面向对象03\obj\Debug\吴鹏面向对象03.pdb

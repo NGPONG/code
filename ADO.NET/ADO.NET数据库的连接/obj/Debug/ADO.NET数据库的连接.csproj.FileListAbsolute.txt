@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET数据库的连接\bin\Debug\ADO.NET数据库的连接.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET数据库的连接\bin\Debug\ADO.NET数据库的连接.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET数据库的连接\bin\Debug\ADO.NET数据库的连接.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET数据库的连接\obj\Debug\ADO.NET数据库的连接.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET数据库的连接\obj\Debug\ADO.NET数据库的连接.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET数据库的连接\obj\Debug\ADO.NET数据库的连接.pdb

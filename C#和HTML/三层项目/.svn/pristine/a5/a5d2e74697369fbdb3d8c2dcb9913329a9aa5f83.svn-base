@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEST
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //string methodName = "DEMOMETHOD";
+            //string sprid = "A";
+            //string sql = "123";
+
+            //SQLiteParameter[] parms = new SQLiteParameter[]{
+            //    new SQLiteParameter("@name","123"),
+            //    new SQLiteParameter("@method","demo")
+            //};
+            //string str = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName;
+            //string str2 = new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+            //// 如果不存在则创建文件夹
+            //if(! Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"log")))
+            //{
+            //    Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"log"));
+            //}
+
+            //string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log") + "\\" + DateTime.Now.ToLongDateString() + DateTime.Now.Hour.ToString() + "点.txt";
+
+            //using (StreamWriter writer = new StreamWriter(filePath , true, Encoding.UTF8)) 
+            //{
+            //    writer.Write("函数名称：" + methodName + "\r\n");
+            //    writer.Write("调用日期：" + DateTime.Now.ToString()+"\r\n");
+            //    writer.Write("速度等级："+sprid+"\r\n");
+            //    writer.Write("SQL脚本：" + sql + "\r\n");
+            //}
+
+            //Stopwatch sp = new Stopwatch();
+            //sp.Start();
+            //sp.Stop();
+            //sp.Elapsed.TotalSeconds;
+
+
+            decimal b;
+            string a = "qweqwe";
+            bool result = decimal.TryParse(a, out b);
+
+            Console.ReadLine();
+        }
+    }
+}

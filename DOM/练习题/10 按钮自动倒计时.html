@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+
+        var time = 5;
+        
+        window.onload = function () {
+
+            alert("123");
+            var btnShow = document.getElementById("btnShow");
+            intervalled = setInterval(changeBtnText, 1000);
+        }
+
+        function changeBtnText() {
+            time--;
+            btnShow.value = time + "秒后才能使用！";
+            if (time == 0)
+            {
+                btnShow.disabled = false;
+                clearInterval(intervalled);
+            }
+        }
+
+        window.alert("demo");
+    </script>
+</head>
+<body>
+    <input  type="button" value="5秒后才能使用！" disabled ="disabled" id="btnShow"/>
+</body>
+</html>

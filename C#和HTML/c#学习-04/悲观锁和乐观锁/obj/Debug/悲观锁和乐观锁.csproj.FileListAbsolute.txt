@@ -1,0 +1,7 @@
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\bin\Debug\悲观锁和乐观锁.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\bin\Debug\悲观锁和乐观锁.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\bin\Debug\悲观锁和乐观锁.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\obj\Debug\悲观锁和乐观锁.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\obj\Debug\悲观锁和乐观锁.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\obj\Debug\悲观锁和乐观锁.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\悲观锁和乐观锁\obj\Debug\悲观锁和乐观锁.csprojAssemblyReference.cache

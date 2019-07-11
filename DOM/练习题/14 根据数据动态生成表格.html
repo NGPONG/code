@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        window.onload = function () {
+            var beforeColor;
+
+            var jsonList =
+                [
+                    { id: '1', country: '中国', capital: '北京' },
+                    { id: '2', country: '美国', capital: '华盛顿' },
+                    { id: '3', country: '日本', capital: '东京' },
+                    { id: '4', country: '韩国', capital: '首尔' }
+                ];
+
+            for (var i = 0; i < jsonList.length; i++)
+            {
+                var trElement = document.createElement("tr");
+
+                trElement.onmouseover = function () {
+
+                    beforeColor = this.style.backgroundColor;
+                    this.style.backgroundColor = "yellow";
+                }
+
+                trElement.onmouseout = function () {
+
+                    this.style.backgroundColor = beforeColor;
+                }
+
+                trElement.id = jsonList[i].id;
+                // 判断id的值
+                if (parseInt(trElement.id) % 2 == 0 && parseInt(trElement.id) != 0)
+                {
+                    trElement.style.backgroundColor = "red";
+                }
+                else if (parseInt(trElement.id) != 0)
+                {
+                    trElement.style.backgroundColor = "green";
+                }
+                else
+                {
+                    trElement.style.backgroundColor = "blue";
+                }
+
+                // 初始化td标签
+                var tdIdElement = document.createElement("td");
+                tdIdElement.innerText = jsonList[i].id;
+                var tdCountryElement = document.createElement("td");
+                tdCountryElement.innerText = jsonList[i].country;
+                var tdCapitalElement = document.createElement("td");
+                tdCapitalElement.innerText = jsonList[i].capital;
+                
+                // 行tr标签添加单元格td标签
+                trElement.appendChild(tdIdElement);
+                trElement.appendChild(tdCountryElement);
+                trElement.appendChild(tdCapitalElement);
+
+                var tableElement = document.getElementById("tableDemo");
+                tableElement.appendChild(trElement);
+            }
+        }
+    </script>
+</head>
+<body>
+    <table border="1px" cellspacing="2px" id="tableDemo">
+        <tr>
+            <th>ID</th>
+            <th>Country</th>
+            <th>Capital</th>
+        </tr>
+    </table>
+</body>
+</html>

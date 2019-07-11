@@ -1,0 +1,40 @@
+﻿函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/2/18 22:56:08
+所需时间：0.0674863
+速度等级：C
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.AddDetail
+调用日期：2019/2/18 22:56:45
+所需时间：0.1141538
+速度等级：C
+SQL脚本：insert into SalesLT.Customer(Title,FirstName,MiddleName,LastName,CompanyName,EmailAddress,Phone,PasswordHash,ModifiedDate,PasswordSalt) values(@strGender,@strFirstName,@strMiddleName,@strLastName,@strCompanyName,@strMailAddress,@strPhone,'test',GETDATE(),'test')
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/2/18 22:58:11
+所需时间：0.0504475
+速度等级：C
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.AddDetail
+调用日期：2019/2/18 22:58:38
+所需时间：0.0437618
+速度等级：C
+SQL脚本：insert into SalesLT.Customer(Title,FirstName,MiddleName,LastName,CompanyName,EmailAddress,Phone,PasswordHash,ModifiedDate,PasswordSalt) values(@Gender,@FirstName,@MiddleName,@LastName,@CompanyName,@MailAddress,@Phone,'test',GETDATE(),'test')
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/2/18 22:58:38
+所需时间：0.007148
+速度等级：B
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+

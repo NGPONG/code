@@ -1,0 +1,9 @@
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\bin\Release\WP.3-TierArchitecture.DAL.dll
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\bin\Release\WP.3-TierArchitecture.DAL.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\bin\Release\WP.3-TierArchitecture.Common.dll
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\bin\Release\WP.3-TierArchitecture.Common.pdb
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\obj\Release\WP.3-TierArchitecture.DAL.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\obj\Release\WP.3-TierArchitecture.DAL.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\obj\Release\WP.3-TierArchitecture.DAL.csproj.CopyComplete
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\obj\Release\WP.3-TierArchitecture.DAL.dll
+C:\Users\NGPONG\Desktop\源码\WEB应用程序三层结构演示\WP.3-TierArchitecture.DAL\obj\Release\WP.3-TierArchitecture.DAL.pdb

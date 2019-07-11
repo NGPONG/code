@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WP.Demo.Common;
+using WP.Demo.DAL;
+using WP.Demo.Model;
+
+namespace WP.Demo.BLL
+{
+    public class MemberInfoBLL
+    {
+        private MemberInfoDAL objClient = new MemberInfoDAL();
+
+        /// <summary>
+        ///  获取数据
+        /// </summary>
+        /// <returns>反序列化后的LIST集合</returns>
+        public DataTable GetData()
+        {
+            try
+            {
+                List<byte[]> listSerializeBuff = this.objClient.GetData();
+                List<MemberInfoModel_GetData> listResult = SerializableObject.DeserializeObject<MemberInfoModel_GetData>(listSerializeBuff);
+                DataTable dtResult = ConvertWP.ToDataTable<MemberInfoModel_GetData>(listResult);
+                return dtResult;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+    }
+}

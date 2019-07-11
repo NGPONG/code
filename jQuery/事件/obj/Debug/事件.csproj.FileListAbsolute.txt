@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\jQuery\事件\bin\事件.dll.config
+C:\Users\Administrator\Desktop\源码\jQuery\事件\bin\事件.dll
+C:\Users\Administrator\Desktop\源码\jQuery\事件\bin\事件.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\事件\obj\Debug\事件.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\jQuery\事件\obj\Debug\事件.dll
+C:\Users\Administrator\Desktop\源码\jQuery\事件\obj\Debug\事件.pdb

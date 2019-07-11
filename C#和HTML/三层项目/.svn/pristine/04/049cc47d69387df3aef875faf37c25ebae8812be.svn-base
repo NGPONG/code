@@ -1,0 +1,277 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WP.Demo.Common;
+using WP.Demo.Model;
+
+namespace WP.Demo.DAL
+{
+    public class ManagerInfoDAL
+    {
+        string errMessage;
+        string methodName;
+        Stopwatch sw;
+        SQLiteParameter[] parms;
+        string sql = string.Empty;
+        /// <summary>
+        ///  获取数据
+        /// </summary>
+        /// <returns>序列化后的字节数组</returns>
+        public List<byte[]> GetData() 
+        {
+            try
+            {
+                // 错误信息
+                errMessage = string.Empty;
+                // 函数名称
+                methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+                // 开启计时
+                sw = new Stopwatch();
+                sw.Start();
+
+                sql = "select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo";
+                DataTable dtTemp = SQLiteHelper.GetDataTable(sql);
+                // 接受数据的数据模型类的集合
+                List<GetDataModel> listManagerInfoModel = new List<GetDataModel>();
+                for (int i = 0; i < dtTemp.Rows.Count; i++)
+                {
+                    listManagerInfoModel.Add(new GetDataModel()
+                    {
+                        MId = Convert.ToInt32(dtTemp.Rows[i]["MId"]),
+                        MName = Convert.ToString(dtTemp.Rows[i]["MName"]),
+                        MType = Convert.ToString(dtTemp.Rows[i]["MType"])
+                    });
+                }
+
+                List<byte[]> listSerializeBuff = SerializableObject.SerializeObject<GetDataModel>(listManagerInfoModel);
+
+                sw.Stop();
+
+                return listSerializeBuff;
+            }
+            catch (Exception objException) 
+            {
+                if (objException.InnerException != null) 
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  删除明细
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int DeleteManagerInfoDetail(ManagerInfoModel model) 
+        {
+            try
+            {
+                // 错误信息
+                errMessage = string.Empty;
+                // 函数名称
+                methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+                // 开启计时
+                sw = new Stopwatch();
+                sw.Start();
+
+                string MId = model.MId.ToString();
+
+                parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@MId",MId)
+                };
+
+                sql = "DELETE FROM ManagerInfo WHERE MId = @MId";
+
+                sw.Stop();
+
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  添加数据
+        /// </summary>
+        /// <param name="MName">用户名</param>
+        /// <param name="MPwd">密码</param>
+        /// <param name="MType">类型</param>
+        /// <returns>受影响的行数</returns>
+        public int AddManagerInfoDetail(ManagerInfoModel model) 
+        {
+            try
+            {
+                // 错误信息
+                errMessage = string.Empty;
+                // 函数名称
+                methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+                // 开启计时
+                sw = new Stopwatch();
+                sw.Start();
+
+                string MName = model.MName;
+                string MPwd = model.MPwd;
+                string MType = model.MType;
+
+                parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@MName",MName),
+                    new SQLiteParameter("@MPwd",MD5Encryption.GetEncryptionCharacter( MPwd)),
+                    new SQLiteParameter("@MType",MType)
+                };
+
+                sql = "insert into ManagerInfo(MName,MPwd,MType) values(@MName,@MPwd,@MType)";
+
+                sw.Stop();
+
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  修改数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int UpdateManagerInfoDetail(ManagerInfoModel model) 
+        {
+            try
+            {
+                // 错误信息
+                errMessage = string.Empty;
+                // 函数名称
+                methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+                // 开启计时
+                sw = new Stopwatch();
+                sw.Start();
+
+                string MName = model.MName;
+                string MPwd = model.MPwd;
+                string MType = model.MType;
+                string MId = model.MId.ToString();
+
+                parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@MName",MName),
+                    new SQLiteParameter("@MPwd",MD5Encryption.GetEncryptionCharacter( MPwd)),
+                    new SQLiteParameter("@MType",MType),
+                    new SQLiteParameter("@MId",MId)
+                };
+
+                sql = "UPDATE ManagerInfo SET MName = @MName,MPwd = @MPwd,MType = @MType WHERE MId = @MId";
+
+                sw.Stop();
+
+                return SQLiteHelper.ExecuteNonQuery(sql, parms);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally
+            {
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+        /// <summary>
+        ///  检查是否存在相同的用户名
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public List<byte[]> CheckHaveSameUserName(ManagerInfoModel model) 
+        {
+            try
+            {
+                // 错误信息
+                errMessage = string.Empty;
+                // 函数名称
+                methodName = System.Reflection.MethodBase.GetCurrentMethod().ReflectedType.FullName + "." + new System.Diagnostics.StackTrace().GetFrame(0).GetMethod().Name;
+                // 开启计时
+                sw = new Stopwatch();
+                sw.Start();
+
+                string MName = model.MName;
+
+                parms = new SQLiteParameter[]{
+                    new SQLiteParameter("@MName",MName)
+                };
+
+                sql = "SELECT 1 FROM ManagerInfo WHERE MName = @MName";
+
+                sw.Stop();
+
+                string resultStr = Convert.ToString(SQLiteHelper.ExecuteScalar(sql, parms));
+
+                // 接受数据的数据模型类的集合
+                List<CheckHaveSameUserNameModel> listCheckHaveSameUserNameModel = new List<CheckHaveSameUserNameModel>();
+                listCheckHaveSameUserNameModel.Add(new CheckHaveSameUserNameModel()
+                {
+                    CharacterResult = resultStr
+                });
+
+                List<byte[]> listSerializeBuff = SerializableObject.SerializeObject<CheckHaveSameUserNameModel>(listCheckHaveSameUserNameModel);
+
+                sw.Stop();
+
+                return listSerializeBuff;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    errMessage = objException.InnerException.Message;
+                    throw new Exception(objException.InnerException.Message);
+                }
+                errMessage = objException.Message;
+                throw new Exception(objException.Message);
+            }
+            finally 
+            {
+                // 写日志
+                RecordText.Write(sw.Elapsed.TotalSeconds, methodName, sql, parms, errMessage);
+            }
+        }
+    }
+}

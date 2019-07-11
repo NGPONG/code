@@ -1,0 +1,15 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\读取XML文档\bin\Debug\读取XML文档.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\读取XML文档\bin\Debug\读取XML文档.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\读取XML文档\bin\Debug\读取XML文档.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\读取XML文档\obj\Debug\读取XML文档.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\读取XML文档\obj\Debug\读取XML文档.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication3\读取XML文档\obj\Debug\读取XML文档.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\读取XML文档\bin\Debug\读取XML文档.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\读取XML文档\obj\Debug\读取XML文档.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication3\读取XML文档\obj\Debug\读取XML文档.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档\bin\Debug\读取XML文档.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档\bin\Debug\读取XML文档.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档\bin\Debug\读取XML文档.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档\obj\Debug\读取XML文档.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档\obj\Debug\读取XML文档.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档\obj\Debug\读取XML文档.pdb

@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\bin\Debug\客户端.exe.config
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\bin\Debug\客户端.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\bin\Debug\客户端.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\obj\Debug\客户端.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\obj\Debug\客户端.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\obj\Debug\客户端.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\obj\Debug\客户端.exe
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\obj\Debug\客户端.pdb
+C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\客户端\obj\Debug\客户端.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication1\客户端\bin\Debug\客户端.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication1\客户端\obj\Debug\客户端.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\ConsoleApplication1\客户端\obj\Debug\客户端.pdb

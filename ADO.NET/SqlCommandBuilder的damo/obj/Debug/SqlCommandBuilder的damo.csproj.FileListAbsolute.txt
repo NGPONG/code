@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\bin\Debug\SqlCommandBuilder的damo.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\bin\Debug\SqlCommandBuilder的damo.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\bin\Debug\SqlCommandBuilder的damo.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\obj\Debug\SqlCommandBuilder的damo.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\obj\Debug\SqlCommandBuilder的damo.Form1.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\obj\Debug\SqlCommandBuilder的damo.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\obj\Debug\SqlCommandBuilder的damo.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\obj\Debug\SqlCommandBuilder的damo.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\SqlCommandBuilder的damo\obj\Debug\SqlCommandBuilder的damo.pdb

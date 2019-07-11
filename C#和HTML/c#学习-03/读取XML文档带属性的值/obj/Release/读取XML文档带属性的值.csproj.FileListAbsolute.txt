@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档带属性的值\bin\Release\读取XML文档带属性的值.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档带属性的值\bin\Release\读取XML文档带属性的值.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档带属性的值\bin\Release\读取XML文档带属性的值.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档带属性的值\obj\Release\读取XML文档带属性的值.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\读取XML文档带属性的值\obj\Release\读取XML文档带属性的值.pdb

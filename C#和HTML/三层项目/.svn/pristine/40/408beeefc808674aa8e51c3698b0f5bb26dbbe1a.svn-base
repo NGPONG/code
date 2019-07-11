@@ -1,0 +1,116 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WP.Demo.BLL;
+
+namespace WP.Demo.UI
+{
+    public partial class frmMemberTypeInfo : Form
+    {
+        public MemberTypeInfoBLL objMemberTypeInfoBLL = new MemberTypeInfoBLL();
+
+        public static frmMemberTypeInfo _frmSingle = null; // 存储单例窗体的对象
+        /// <summary>
+        ///  私有构造函数，构造单例
+        /// </summary>
+        public frmMemberTypeInfo()
+        {
+            InitializeComponent();
+        }
+        /// <summary>
+        ///  获取单例对象
+        /// </summary>
+        /// <returns></returns>
+        public static frmMemberTypeInfo GetSingleObject()
+        {
+            try
+            {
+                if (_frmSingle == null)
+                {
+                    _frmSingle = new frmMemberTypeInfo();
+                }
+                return _frmSingle;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMemberTypeInfo_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.InitializeDataGridView();
+            }
+            catch (Exception objException)
+            {
+                MessageBox.Show(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  初始化表格
+        /// </summary>
+        private void InitializeDataGridView()
+        {
+            try
+            {
+                // 设置DataGridView是否自动生成绑定的数据源所具有的列
+                this.dgvList.AutoGenerateColumns = false;
+                // 加载数据源
+                this.OnDataGridViewDataBusinese();
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  获取表格数据
+        /// </summary>
+        private void OnDataGridViewDataBusinese()
+        {
+            try
+            {
+                DataTable dtResult = this.objMemberTypeInfoBLL.GetData();
+                this.dgvList.DataSource = dtResult;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  双击指定行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+    }
+}

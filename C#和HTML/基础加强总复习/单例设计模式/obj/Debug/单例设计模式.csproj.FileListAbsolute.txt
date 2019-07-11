@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\bin\Debug\单例设计模式.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\bin\Debug\单例设计模式.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\bin\Debug\单例设计模式.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.Form1.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.Form2.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\单例设计模式\obj\Debug\单例设计模式.pdb

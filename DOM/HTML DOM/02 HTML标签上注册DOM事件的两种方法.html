@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+
+    <input type="button" id="btnShowDemo" value="点击按钮" onclick="alert(this.value)"/>  <!--点击按钮显示当前元素的value-->
+
+    <input type="button" id="btnShowTime" value="显示时间" onclick="alert(Date())"/>  <!--点击按钮显示时间-->
+
+    <input type="button" id="btn" value="点击改变我的值"/>
+
+    <script>
+        document.getElementById("btn").onclick = function () {
+            // 因为我们通过document来获取了指定标签，并且在指定标签上注册了事件
+            // 所以 this 代表的是我们通过document所获得指定标签
+            this.value = "我给改变了哟";
+        }
+    </script>
+
+    <script>
+        // 当浏览器被点击，会触发此事件
+        window.onclick = function () {
+            alert("在window对象上注册的点击事件");
+        }
+
+        // 当所有节点及节点的内容加载完成后，会触发此事件
+        window.onload = function () {
+            alert("在window对象上注册的浏览器加载事件");
+        }
+    </script>
+</body>
+</html>

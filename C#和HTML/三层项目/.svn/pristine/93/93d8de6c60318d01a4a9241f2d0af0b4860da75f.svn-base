@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WP.Demo.BLL;
+using WP.Demo.Common;
+using WP.Demo.Model;
+
+namespace WP.Demo.UI
+{
+    public partial class frmLogin : Form
+    {
+        private ManagerInfoBLL objManagerInfoBLL = new ManagerInfoBLL();
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
+        /// <summary>
+        ///  退出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("确定要关闭该系统吗？", "提示", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception objException)
+            {
+                MessageBox.Show(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  登陆
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strName = ConvertWP.ToTrimString(this.txtName.Text);
+                if (string.IsNullOrEmpty(strName)) 
+                {
+                    throw new Exception("请输入用户名");
+                }
+                string strPwd = ConvertWP.ToTrimString(this.txtPwd.Text);
+                if (string.IsNullOrEmpty(strPwd)) 
+                {
+                    throw new Exception("请输入密码");
+                }
+
+                if (!this.objManagerInfoBLL.GetUserPassWord(new ManagerInfoModel() { MName = strName }, MD5Encryption.GetEncryptionCharacter(strPwd)))
+                {
+                    MessageBox.Show("用户名或密码错误！请检查");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("登陆成功！");
+                    this.Visible = false;
+                }
+            }
+            catch (Exception objException) 
+            {
+                MessageBox.Show(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  密码按键
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtPwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter) 
+                {
+                    this.btnLogin_Click(null, null);
+                }
+            }
+            catch (Exception objException) 
+            {
+                throw new Exception(objException.Message);
+            }
+        }
+    }
+}

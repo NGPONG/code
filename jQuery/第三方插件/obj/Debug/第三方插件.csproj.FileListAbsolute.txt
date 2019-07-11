@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\jQuery\第三方插件\bin\第三方插件.dll.config
+C:\Users\Administrator\Desktop\源码\jQuery\第三方插件\bin\第三方插件.dll
+C:\Users\Administrator\Desktop\源码\jQuery\第三方插件\bin\第三方插件.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\第三方插件\obj\Debug\第三方插件.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\jQuery\第三方插件\obj\Debug\第三方插件.dll
+C:\Users\Administrator\Desktop\源码\jQuery\第三方插件\obj\Debug\第三方插件.pdb

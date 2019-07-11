@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\提取页面中的所有图片\bin\Debug\提取页面中的所有图片.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\提取页面中的所有图片\bin\Debug\提取页面中的所有图片.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\提取页面中的所有图片\bin\Debug\提取页面中的所有图片.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\提取页面中的所有图片\obj\Debug\提取页面中的所有图片.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\提取页面中的所有图片\obj\Debug\提取页面中的所有图片.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\提取页面中的所有图片\obj\Debug\提取页面中的所有图片.pdb

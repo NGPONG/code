@@ -1,0 +1,27 @@
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe.config
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\bin\Debug\GDI+ 验证码.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\obj\Debug\GDI__验证码.Form1.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\obj\Debug\GDI__验证码.Properties.Resources.resources
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\obj\Debug\GDI+ 验证码.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\obj\Debug\GDI+ 验证码.exe
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\obj\Debug\GDI+ 验证码.pdb
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe.CodeAnalysisLog.xml
+C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe.lastcodeanalysissucceeded
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\bin\Debug\GDI+ 验证码.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI__验证码.Form1.resources
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI__验证码.Properties.Resources.resources
+C:\Users\Administrator\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.csproj.GenerateResource.Cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe.config
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\bin\Debug\GDI+ 验证码.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\bin\Debug\GDI+ 验证码.pdb
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI__验证码.Form1.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI__验证码.Properties.Resources.resources
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.csproj.GenerateResource.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.exe
+C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\GDI+ 验证码\obj\Debug\GDI+ 验证码.pdb

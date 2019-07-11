@@ -1,0 +1,24 @@
+﻿函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 14:36:55
+所需时间：0.0869163
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 14:52:25
+所需时间：0.0524071
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.DishTypeInfoDAL.GetData
+调用日期：2018/10/14 14:53:06
+所需时间：0.0545739
+速度等级：C
+SQL脚本：select DId,DTitle from DishTypeInfo
+参数值：
+错误信息：
+

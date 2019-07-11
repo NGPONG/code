@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WP.Demo.Common;
+using WP.Demo.DAL;
+using WP.Demo.Model;
+
+namespace WP.Demo.BLL
+{
+    public class ManagerInfoBLL
+    {
+        private ManagerInfoDAL objClient = new ManagerInfoDAL();
+
+        /// <summary>
+        ///  获取数据
+        /// </summary>
+        /// <returns>反序列化后的LIST集合</returns>
+        public List<ManagerInfoModel> GetData() 
+        {
+            try
+            {
+                List<byte[]> listSerializeBuff = this.objClient.GetData();
+                List<ManagerInfoModel> listResult = SerializableObject.DeserializeObject<ManagerInfoModel>(listSerializeBuff);
+                return listResult;
+            }
+            catch (Exception objException) 
+            {
+                if (objException.InnerException != null) 
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  添加数据
+        /// </summary>
+        /// <param name="MName">用户名</param>
+        /// <param name="MPwd">密码</param>
+        /// <param name="MType">类型</param>
+        /// <returns>受影响的行数</returns>
+        public int AddManagerInfoDetail(ManagerInfoModel model) 
+        {
+            try
+            {
+                return this.objClient.AddManagerInfoDetail(model);
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  检查是否存在相同的用户名
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool CheckHaveSameUserName(ManagerInfoModel model) 
+        {
+            try
+            {
+                string result = this.objClient.CheckHaveSameUserName(model);
+                return result.Equals("TRUE") ? true : false;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+    }
+}

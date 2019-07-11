@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\源码\jQuery\练习题\bin\练习题.dll.config
+C:\Users\Administrator\Desktop\源码\jQuery\练习题\bin\练习题.dll
+C:\Users\Administrator\Desktop\源码\jQuery\练习题\bin\练习题.pdb
+C:\Users\Administrator\Desktop\源码\jQuery\练习题\obj\Debug\练习题.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\jQuery\练习题\obj\Debug\练习题.dll
+C:\Users\Administrator\Desktop\源码\jQuery\练习题\obj\Debug\练习题.pdb
+C:\Users\NGPONG\Desktop\源码\jQuery\练习题\bin\练习题.dll.config
+C:\Users\NGPONG\Desktop\源码\jQuery\练习题\bin\练习题.dll
+C:\Users\NGPONG\Desktop\源码\jQuery\练习题\bin\练习题.pdb
+C:\Users\NGPONG\Desktop\源码\jQuery\练习题\obj\Debug\练习题.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\源码\jQuery\练习题\obj\Debug\练习题.dll
+C:\Users\NGPONG\Desktop\源码\jQuery\练习题\obj\Debug\练习题.pdb

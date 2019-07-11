@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用触发器\bin\Debug\ADO.NET中调用触发器.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用触发器\bin\Debug\ADO.NET中调用触发器.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用触发器\obj\Debug\ADO.NET中调用触发器.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用触发器\obj\Debug\ADO.NET中调用触发器.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用触发器\obj\Debug\ADO.NET中调用触发器.pdb

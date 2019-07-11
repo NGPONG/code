@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Order>
+	<CustomerName>吴鹏</CustomerName>
+	<CustomerNumber>04233136</CustomerNumber>
+	<Items>
+		<OrderItem Name="书籍" Count="10" />
+		<OrderItem Name="电脑" Count="20" />
+		<OrderItem Name="手机" Count="30" />
+    <OrderItem2 Name ="我是第二个Item" Count="100"></OrderItem2>
+    <OrderItem2 Name ="我是第二个Item" Count="100"></OrderItem2>
+    <OrderItem2 Name ="我是第二个Item" Count="100"></OrderItem2>
+	</Items>
+</Order>

@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\File类\bin\Debug\File类.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\File类\bin\Debug\File类.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\File类\bin\Debug\File类.pdb
+C:\Users\Administrator\Desktop\源码\基础加强总复习\File类\obj\Debug\File类.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\基础加强总复习\File类\obj\Debug\File类.exe
+C:\Users\Administrator\Desktop\源码\基础加强总复习\File类\obj\Debug\File类.pdb
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\File类\bin\Debug\File类.exe.config
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\File类\obj\Debug\File类.exe
+C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\File类\obj\Debug\File类.pdb

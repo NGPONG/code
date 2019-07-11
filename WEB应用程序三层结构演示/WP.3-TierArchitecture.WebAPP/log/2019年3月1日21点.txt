@@ -1,0 +1,80 @@
+﻿函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:01:33
+所需时间：14.6570393
+速度等级：F
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:02:10
+所需时间：14.560357
+速度等级：F
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:02:46
+所需时间：0.0996597
+速度等级：C
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:07:01
+所需时间：0.0093864
+速度等级：B
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:07:08
+所需时间：0.00063
+速度等级：A
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:07:11
+所需时间：0.0007043
+速度等级：A
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:13:21
+所需时间：0.0043274
+速度等级：B
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:13:44
+所需时间：0.0008313
+速度等级：A
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.DeleteDetail
+调用日期：2019/3/1 21:14:53
+所需时间：0.0581721
+速度等级：C
+SQL脚本：delete from SalesLT.Customer where customerid = @ID
+参数值：
+错误信息：
+
+函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
+调用日期：2019/3/1 21:14:53
+所需时间：0.0007304
+速度等级：A
+SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
+参数值：
+错误信息：
+

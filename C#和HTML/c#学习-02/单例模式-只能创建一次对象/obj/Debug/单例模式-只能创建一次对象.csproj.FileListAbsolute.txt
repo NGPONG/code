@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\bin\Debug\单例模式-只能创建一次对象.exe.config
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\bin\Debug\单例模式-只能创建一次对象.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\bin\Debug\单例模式-只能创建一次对象.pdb
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式-只能创建一次对象.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式_只能创建一次对象.Form1.resources
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式_只能创建一次对象.Form2.resources
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式_只能创建一次对象.Properties.Resources.resources
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式-只能创建一次对象.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式-只能创建一次对象.exe
+C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\单例模式-只能创建一次对象\obj\Debug\单例模式-只能创建一次对象.pdb

@@ -1,0 +1,24 @@
+﻿函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/11/17 13:06:23
+所需时间：0.0961429
+速度等级：C
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.UpdateHallInfoDetail
+调用日期：2018/11/17 13:06:37
+所需时间：0.0119921
+速度等级：C
+SQL脚本：UPDATE HallInfo SET HTitle = @HTitle WHERE HId = @HId
+参数值：@HTitle#测试厅11 | @HId#6
+错误信息：
+
+函数名称：WP.Demo.DAL.HallInfoDAL.GetData
+调用日期：2018/11/17 13:06:37
+所需时间：0.0013004
+速度等级：B
+SQL脚本：select HId,HTitle from HallInfo where HIsDelete = 0
+参数值：
+错误信息：
+

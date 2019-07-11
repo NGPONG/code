@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // jQuery对象.css( "CSS属性名"，"CSS属性值" )：设置jQuery对象的CSS样式属性
+            $("p").css("color", "red");
+
+            // jQuery对象.css( "CSS属性名" )：获取jQuery对象的CSS样式属性的值
+            var pElelemtnColor = $("p").css("color");
+
+            // jQuery对象.css( CSS键值对集合 )：一次性设置jQuery对象的多个CSS样式属性
+            $("p").css(
+                {
+                    "color": "yellow",
+                    "background-color": "blue",
+                    "font-size": "30px"
+                });
+        });
+    </script>
+</head>
+<body>
+    <p>我是一个P标签哟</p>
+</body>
+</html>

@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\源码\ADO.NET\配置文件\bin\Debug\配置文件.exe.config
+C:\Users\Administrator\Desktop\源码\ADO.NET\配置文件\bin\Debug\配置文件.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\配置文件\bin\Debug\配置文件.pdb
+C:\Users\Administrator\Desktop\源码\ADO.NET\配置文件\obj\Debug\配置文件.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\源码\ADO.NET\配置文件\obj\Debug\配置文件.exe
+C:\Users\Administrator\Desktop\源码\ADO.NET\配置文件\obj\Debug\配置文件.pdb

@@ -1,0 +1,2 @@
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口小复习\bin\Debug\接口小复习.exe.config
+C:\Users\Administrator\Desktop\源码\基础加强总复习\接口小复习\obj\Debug\接口小复习.csprojResolveAssemblyReference.cache

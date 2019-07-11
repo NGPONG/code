@@ -1,0 +1,56 @@
+﻿函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:05:04
+所需时间：0.046303
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:05:29
+所需时间：0.0449911
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:05:42
+所需时间：0.0436827
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:07:49
+所需时间：0.0470447
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:08:05
+所需时间：0.0438643
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:08:21
+所需时间：0.0446497
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
+函数名称：WP.Demo.DAL.ManagerInfoDAL.GetUserPassWord
+调用日期：2018/8/30 21:08:39
+所需时间：0.0437522
+速度等级：C
+SQL脚本：SELECT MPwd FROM ManagerInfo WHERE MName = @MName
+参数值：@MName#admin
+错误信息：
+
