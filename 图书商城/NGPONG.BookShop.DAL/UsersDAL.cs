@@ -22,6 +22,17 @@ namespace NGPONG.BookShop.DAL
             return SqlHelper.ExecuteScalar("select 1 from users where LoginId = @LoginId", parms) == null ? false : true;
         }
 
+        public static bool CheckUserInfoLogin(Users model)
+        {
+            SqlParameter[] parms =
+{
+                new SqlParameter("@LoginId",model.LoginId),
+                new SqlParameter("@LoginPwd",model.LoginPwd)
+            };
+
+            return SqlHelper.ExecuteScalar("select 1 from users where LoginId = @LoginId and LoginPwd = @LoginPwd", parms) == null ? false : true;
+        }
+
         public static int AddkUserInfo(Users model)
         {
             SqlParameter[] parms =

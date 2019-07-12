@@ -7,7 +7,7 @@ C:\Users\OrBit\Desktop\源码\图书商城\NGPONG.BookShop.TEST\obj\Debug\NGPONG
 C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\bin\Debug\NGPONG.BookShop.TEST.exe.config
 C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\bin\Debug\NGPONG.BookShop.TEST.exe
 C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\bin\Debug\NGPONG.BookShop.TEST.pdb
-C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\obj\Debug\NGPONG.BookShop.TEST.csprojAssemblyReference.cache
 C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\obj\Debug\NGPONG.BookShop.TEST.csproj.CoreCompileInputs.cache
 C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\obj\Debug\NGPONG.BookShop.TEST.exe
 C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\obj\Debug\NGPONG.BookShop.TEST.pdb
+C:\Users\NGPONG\Desktop\源码\图书商城\NGPONG.BookShop.TEST\obj\Debug\NGPONG.BookShop.TEST.csprojAssemblyReference.cache

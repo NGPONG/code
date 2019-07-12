@@ -15,6 +15,11 @@ namespace NGPONG.BookShop.BLL
             return UsersDAL.CheckUserInfoExists(model);
         }
 
+        public bool CheckUserInfoLogin(Users model)
+        {
+            return UsersDAL.CheckUserInfoLogin(model);
+        }
+
         public int AddkUserInfo(Users model)
         {
             return UsersDAL.AddkUserInfo(model);
