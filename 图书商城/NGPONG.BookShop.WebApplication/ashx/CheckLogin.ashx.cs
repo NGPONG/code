@@ -16,7 +16,7 @@ namespace NGPONG.BookShop.WebApplication.ashx
         {
             context.Response.ContentType = "text/plain";
 
-            context.Response.Write("");
+            CheckUserLogin(context);
         }
 
         public void CheckUserLogin(HttpContext context)
@@ -27,8 +27,10 @@ namespace NGPONG.BookShop.WebApplication.ashx
             // Model
             Model.Users usersModel = new Model.Users() { LoginId = userName, LoginPwd = userPwd };
 
+            BLL.UsersService usersService = new BLL.UsersService();
+            List<Model.Users> userInfo = usersService.GetUserInfo(usersModel);
             // 用户名和密码正确
-            if ((new BookShop.BLL.UsersService()).CheckUserInfoLogin(usersModel))
+            if (userInfo.Count > 0)
             {
                 // 写入Session
                 context.Session["UserInfo"] = usersModel;
@@ -42,12 +44,6 @@ namespace NGPONG.BookShop.WebApplication.ashx
                     // UserPwd
                     context.Response.Cookies["cp2"].Value = userPwd;
                     context.Response.Cookies["cp2"].Expires = DateTime.Now.AddDays(2);
-                }
-
-                string redirectUrl = context.Request.QueryString["redirectUrl"];
-                if (!string.IsNullOrEmpty(redirectUrl))
-                {
-
                 }
             }
             else

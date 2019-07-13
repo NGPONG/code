@@ -9,19 +9,52 @@ namespace NGPONG.BookShop.WebApplication.Member
 {
     public partial class Login : System.Web.UI.Page
     {
-        /// <summary>
-        /// 错误消息
-        /// </summary>
-        public string ErrorMessage { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (IsCookieEffective())
             {
-                
+                BLL.UsersService usersService = new BLL.UsersService();
+
+                Model.Users users = new Model.Users() { LoginId = Request.Cookies["cp1"].Value, LoginPwd = Request.Cookies["cp2"].Value };
+                var userInfo = usersService.GetUserInfo(users);
+
+                // Cookie是有效的，直接跳转
+                if (userInfo.Count > 0)
+                {
+                    // 重新写入Session
+                    base.Session["UserInfo"] = users;
+
+                    /*
+                    验证当前页面是否是需要重返上一个页面的
+                    如果有需要是会带有RedirectUrl的参数的
+                    */
+
+                    // 如果不是的话，并且用户已经有Cookie了并且是有效的，则跳转到主页
+                    if (string.IsNullOrEmpty(base.Request.QueryString["RedirectUrl"]))
+                    {
+                        base.Response.Redirect("/Member/Default.aspx");
+                    }
+                    else
+                    {
+                        base.Response.Redirect(base.Request.QueryString["RedirectUrl"]?.ToString());
+                    }
+                }
             }
         }
 
-
+        protected bool IsCookieEffective()
+        {
+            bool flag = false;
+            // 如果用户存在Cookie，则判断Cookie是否为有效用户名和密码，如果是的话直接返回上一个页面
+            if (Request.Cookies["cp1"] != null && Request.Cookies["cp2"] != null)
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+            }
+            return flag;
+        }
     }
 }

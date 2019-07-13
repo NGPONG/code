@@ -62,6 +62,7 @@
     <Content Include="Css\buttons.css" />
     <Content Include="Css\imgareaselect-default.css" />
     <Content Include="Css\style.css" />
+    <Content Include="Global.asax" />
     <Content Include="Images\BookCovers\9787560925110jpg" />
     <Content Include="ashx\CheckVerCode.ashx" />
     <Content Include="ashx\VerificationCode.ashx" />
@@ -1732,8 +1733,10 @@
     <Content Include="js\ui\minified\jquery.ui.sortable.min.js" />
     <Content Include="js\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="js\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Member\Default.aspx" />
     <Content Include="Member\Login.aspx" />
     <Content Include="Member\Register.aspx" />
+    <Content Include="Member\Test.aspx" />
     <Content Include="My97DatePicker\calendar.js" />
     <Content Include="My97DatePicker\config.js" />
     <Content Include="My97DatePicker\lang\en.js" />
@@ -1789,12 +1792,25 @@
     <Compile Include="ashx\Users\CheckUsersInfo.ashx.cs">
       <DependentUpon>CheckUsersInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Master\CustomerSite.Master.cs">
       <DependentUpon>CustomerSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Master\CustomerSite.Master.designer.cs">
       <DependentUpon>CustomerSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Member\CheckMemberSession.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1809,6 +1825,13 @@
     </Compile>
     <Compile Include="Member\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ashx\VerificationCode.ashx.cs">

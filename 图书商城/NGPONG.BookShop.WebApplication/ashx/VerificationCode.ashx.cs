@@ -40,9 +40,9 @@ namespace NGPONG.BookShop.WebApplication.ashx
             int x_Font = 0;
             int y_Font = 2;
 
-            string Vchar = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,p" +
-        ",q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,P,P,Q" +
-        ",R,S,T,U,V,W,X,Y,Z";
+            string Vchar = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,p" +
+                           ",q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,P,P,Q" +
+                           ",R,S,T,U,V,W,X,Y,Z";
 
             string[] VcArray = Vchar.Split(new Char[] { ',' });
 
@@ -70,7 +70,7 @@ namespace NGPONG.BookShop.WebApplication.ashx
 
                 if (stream.Length > 0)
                 {
-                    context.Session["RegisterVerCode"] = strVerCode;
+                    context.Session["RegisterVerCode"] = strVerCode.ToLower();
                     context.Response.ContentType = "image/png";
                     context.Response.BinaryWrite(stream.ToArray());
                 }

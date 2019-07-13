@@ -19,18 +19,34 @@
 
                 $.ajax({
                     type: "post",
-                    url: "/ashx/Users/CheckLogin.ashx",
+                    url: "/ashx/CheckLogin.ashx",
                     async: true,
-                    dataType: "json",
+                    dataType: "text",
                     data: $("#form").serializeArray(),
                     success: function (data, textStatus, jqXHR) {
 
-                        if (data != "") {
+                        // Success
+                        if (data == "") {
+
+                            // 验证是否有需要跳转的URL，如果没有则默认跳转到首页
+                            var redirectUrl = $("#RedirectUrl").val();
+                            if (redirectUrl != "") {
+
+                                window.location.href = redirectUrl;
+                            }
+                            else {
+
+                                window.location.href = "/Member/Default.aspx";
+                            }
+                        }
+                        else {
 
                             window.alert(data);
                         }
                     }
                 });
+
+                return false;
             });
 
             $("#imgRegister").click(function () {
@@ -42,7 +58,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Cunstomer_Body" runat="server">
-    <input type="hidden" id="errorMessage" value="<%=base.ErrorMessage %>" />
+    <input type="hidden" id="RedirectUrl" value="<%=base.Request.QueryString["RedirectUrl"] == null ? "":base.Request.QueryString["RedirectUrl"] %>" />
     <table width="60%" height="22" border="0" align="center" cellpadding="0" cellspacing="0" runat="server" id="tblfirst">
         <tr>
             <td width="10">

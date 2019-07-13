@@ -15,7 +15,7 @@ namespace NGPONG.BookShop.WebApplication.ashx
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            string verCode = context.Request.Form["VerCode"];
+            string verCode = context.Request.Form["VerCode"].ToLower();
 
             // Session已过期
             if (context.Session["RegisterVerCode"] == null)

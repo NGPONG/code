@@ -1,13 +1,37 @@
-﻿<!DOCTYPE html>
+﻿
 <html>
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="../js/jquery-1.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#btn").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/CheckLogin.ashx",
+                    async: true,
+                    dataType: "text",
+                    data: "txtName=1231dasdasd&txtPwd=kissyou199",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (data != "") {
+
+                            window.alert(data);
+                        }
+                        else {
+                            window.alert("success");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <form method="post" action="test-04.html">
-        <input type="text" name="txtName" />
-        <input type="submit" name="提交" />
-    </form>
+    <input type="text" name="txtName" />
+    <input type="button" name="提交" id="btn" />
 </body>
 </html>

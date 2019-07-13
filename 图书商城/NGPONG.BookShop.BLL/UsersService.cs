@@ -20,6 +20,11 @@ namespace NGPONG.BookShop.BLL
             return UsersDAL.CheckUserInfoLogin(model);
         }
 
+        public List<Users> GetUserInfo(Users model)
+        {
+            return UsersDAL.GetUserInfo(model);
+        }
+
         public int AddkUserInfo(Users model)
         {
             return UsersDAL.AddkUserInfo(model);

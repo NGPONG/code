@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace NGPONG.BookShop.Common.Unitis
 {
@@ -25,6 +26,11 @@ namespace NGPONG.BookShop.Common.Unitis
                 sb.Append(b.ToString("x2"));
             }
             return sb.ToString();
+        }
+
+        public static void RedirectLogin()
+        {
+            HttpContext.Current.Response.Redirect($"/Member/Login.aspx?RedirectUrl={HttpContext.Current.Request.Url.ToString()}");
         }
     }
 }

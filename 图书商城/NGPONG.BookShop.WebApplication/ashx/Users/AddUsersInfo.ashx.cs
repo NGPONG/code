@@ -1,4 +1,5 @@
 ﻿using NGPONG.BookShop.BLL;
+using NGPONG.BookShop.Common.Unitis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace NGPONG.BookShop.WebApplication.ashx
         {
             context.Response.ContentType = "text/plain";
 
-            Model.Users usersModel = new Model.Users() { LoginId = context.Request.Form["txtUserId"], LoginPwd = context.Request.Form["txtUserPwd"], Mail = context.Request.Form["txtEmail"], Phone = context.Request.Form["txtPhone"], Name = context.Request.Form["txtUserName"], Address = context.Request.Form["txtAddress"] };
+            Model.Users usersModel = new Model.Users() { LoginId = context.Request.Form["txtUserId"], LoginPwd = WebCommon.GetMd5String(context.Request.Form["txtUserPwd"]), Mail = context.Request.Form["txtEmail"], Phone = context.Request.Form["txtPhone"], Name = context.Request.Form["txtUserName"], Address = context.Request.Form["txtAddress"] };
 
             UsersService service = new UsersService();
             service.AddkUserInfo(usersModel);
