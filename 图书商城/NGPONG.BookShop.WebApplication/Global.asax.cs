@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Linq;
 using System.Web.Security;
 using System.Web.SessionState;
 
@@ -22,8 +24,7 @@ namespace NGPONG.BookShop.WebApplication
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext context = (sender as HttpApplication).Context;
-            Uri url = context.Request.UrlReferrer;
+
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

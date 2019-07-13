@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace NGPONG.BookShop.WebApplication.ashx
 {
@@ -21,6 +22,12 @@ namespace NGPONG.BookShop.WebApplication.ashx
 
             UsersService service = new UsersService();
             service.AddkUserInfo(usersModel);
+
+            context.Response.Write((new JavaScriptSerializer()).Serialize(new
+            {
+                isSuccess = "true",
+                url = @"\Member\Login.aspx"
+            }));
         }
 
         public bool IsReusable

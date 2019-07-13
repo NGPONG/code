@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" method="post" action="test-03.aspx">
+    <form id="form1" method="post" action="test-05.aspx">
         <input type="text" name="txtName" />
         <input type="submit" name="提交" />
     </form>

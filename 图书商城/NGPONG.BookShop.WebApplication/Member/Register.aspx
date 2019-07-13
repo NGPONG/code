@@ -188,7 +188,26 @@
                     return false;
                 }
 
-                $("#form")[0].submit();
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/Users/AddUsersInfo.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: $("#form").serializeArray(),
+                    success: function (data, textStatus, jqXHR) {
+
+                        // Success
+                        if (data.isSuccess == "true") {
+
+                            window.alert('注册成功!');
+                            window.location.href = data.url;
+                        }
+                        else {
+
+                            $.messager.alert('错误', '注册失败!', 'error');
+                        }
+                    }
+                });
             });
 
             $("#btnShow").click(function () {
@@ -251,7 +270,7 @@
         </table>
 
         <!--注册表单-->
-        <form method="post" action="/ashx/Users/AddUsersInfo.ashx" enctype="application/x-www-form-urlencoded" id="form">
+        <form method="post" enctype="application/x-www-form-urlencoded" id="form">
 
             <table width="80%" height="22" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
