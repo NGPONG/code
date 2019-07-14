@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-01", "Test-01\Test-01.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-02", "Test-02\Test-02.csproj", "{8F7A3E4E-071C-4B6A-8E53-A510318BD366}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "邮件发送", "邮件发送\邮件发送.csproj", "{22102B46-9772-45E3-91A5-5DCE2DAB7D81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{8F7A3E4E-071C-4B6A-8E53-A510318BD366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F7A3E4E-071C-4B6A-8E53-A510318BD366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F7A3E4E-071C-4B6A-8E53-A510318BD366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22102B46-9772-45E3-91A5-5DCE2DAB7D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22102B46-9772-45E3-91A5-5DCE2DAB7D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22102B46-9772-45E3-91A5-5DCE2DAB7D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22102B46-9772-45E3-91A5-5DCE2DAB7D81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
