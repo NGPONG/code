@@ -1,0 +1,7 @@
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\bin\Debug\多线程_Task.exe.config
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\bin\Debug\多线程_Task.exe
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\bin\Debug\多线程_Task.pdb
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\obj\Debug\多线程_Task.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\obj\Debug\多线程_Task.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\obj\Debug\多线程_Task.exe
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task\obj\Debug\多线程_Task.pdb

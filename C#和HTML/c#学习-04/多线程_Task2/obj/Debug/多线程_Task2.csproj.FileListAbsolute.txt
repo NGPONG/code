@@ -1,0 +1,10 @@
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\bin\Debug\多线程_Task2.exe.config
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\bin\Debug\多线程_Task2.exe
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\bin\Debug\多线程_Task2.pdb
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.Form1.resources
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.Properties.Resources.resources
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.csproj.GenerateResource.cache
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.exe
+C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\多线程_Task2\obj\Debug\多线程_Task2.pdb
