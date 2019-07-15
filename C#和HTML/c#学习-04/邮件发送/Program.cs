@@ -21,7 +21,7 @@ namespace 邮件发送
         {
             MailMessage mail = new MailMessage();
             // 设置邮件寄件人和收件人
-            mail.From = new MailAddress("pengpeng1997428@gmail.com", "NGPONG");
+            mail.From = new MailAddress("pengpeng1997428@163.com", "NGPONG");
             mail.To.Add("1917648573@qq.com");
             // 设置邮件标题
             mail.SubjectEncoding = Encoding.UTF8;
@@ -34,11 +34,11 @@ namespace 邮件发送
             mail.Priority = MailPriority.High;
 
             SmtpClient smtpService = new SmtpClient();
-            smtpService.Host = "smtp.gmail.com";
-            smtpService.Port = 587;
+            smtpService.Host = "smtp.163.com";
+            smtpService.Port = 25;
             // 设置登录信息
             smtpService.UseDefaultCredentials = false;
-            smtpService.Credentials = new NetworkCredential("pengpeng1997428@gmail.com", "pengqi1997.0428");
+            smtpService.Credentials = new NetworkCredential("pengpeng1997428@163.com", "pengqi1997428");
             // 指定发送方式
             smtpService.DeliveryMethod = SmtpDeliveryMethod.Network;
             // 启用SSL加密连接

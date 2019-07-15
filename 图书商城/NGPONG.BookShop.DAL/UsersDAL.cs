@@ -33,7 +33,7 @@ namespace NGPONG.BookShop.DAL
             return SqlHelper.GetDataList<Users>("select * from users where LoginId = @LoginId and LoginPwd = @LoginPwd", parms);
         }
 
-        public static bool CheckUserInfoLogin(Users model)
+        public static int ChangekUserPwd(Users model)
         {
             SqlParameter[] parms =
             {
@@ -41,7 +41,18 @@ namespace NGPONG.BookShop.DAL
                 new SqlParameter("@LoginPwd",model.LoginPwd)
             };
 
-            return SqlHelper.ExecuteScalar("select 1 from users where LoginId = @LoginId and LoginPwd = @LoginPwd", parms) == null ? false : true;
+            return SqlHelper.ExecuteNonQuery("update Users set LoginPwd = @LoginPwd where LoginId = @LoginId", parms);
+        }
+
+        public static bool CheckUserInfoEmail(Users model)
+        {
+            SqlParameter[] parms =
+            {
+                new SqlParameter("@LoginId",model.LoginId),
+                new SqlParameter("@Mail",model.Mail)
+            };
+
+            return SqlHelper.ExecuteScalar("select 1 from users where LoginId = @LoginId and Mail = @Mail", parms) == null ? false : true;
         }
 
         public static int AddkUserInfo(Users model)

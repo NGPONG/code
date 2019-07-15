@@ -17,9 +17,12 @@ namespace NGPONG.BookShop.BLL
 
         public bool CheckUserInfoLogin(Users model)
         {
-            return UsersDAL.CheckUserInfoLogin(model);
+            return UsersDAL.CheckUserInfoEmail(model);
         }
-
+        public bool CheckUserInfoEmail(Users model)
+        {
+            return UsersDAL.CheckUserInfoEmail(model);
+        }
         public List<Users> GetUserInfo(Users model)
         {
             return UsersDAL.GetUserInfo(model);
@@ -28,6 +31,10 @@ namespace NGPONG.BookShop.BLL
         public int AddkUserInfo(Users model)
         {
             return UsersDAL.AddkUserInfo(model);
+        }
+        public int ChangekUserPwd(Users model)
+        {
+            return UsersDAL.ChangekUserPwd(model);
         }
     }
 }

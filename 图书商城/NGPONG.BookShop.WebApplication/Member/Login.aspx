@@ -103,6 +103,7 @@
                         <div>
                             <input type="image" src="/Images/az-login-gold-3d.gif" id="imgLogin" />
                             <input type="image" src="/Images/az-newuser-gold-3d.gif" id="imgRegister" />
+                            <a href="/Member/FindPwd.aspx">忘记密码</a> 
                         </div>
                         <div>
                             <div align="center">

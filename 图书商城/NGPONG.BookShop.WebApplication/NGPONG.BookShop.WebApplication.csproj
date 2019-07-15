@@ -71,6 +71,8 @@
     <Content Include="ashx\CheckVerCode.ashx" />
     <Content Include="ashx\VerificationCode.ashx" />
     <Content Include="ashx\CheckLogin.ashx" />
+    <Content Include="ashx\FindPwd.ashx" />
+    <Content Include="ashx\ChangePwd.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1737,7 +1739,9 @@
     <Content Include="js\ui\minified\jquery.ui.sortable.min.js" />
     <Content Include="js\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="js\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Member\ChangeUserPwd.aspx" />
     <Content Include="Member\Default.aspx" />
+    <Content Include="Member\FindPwd.aspx" />
     <Content Include="Member\Login.aspx" />
     <Content Include="Member\Register.aspx" />
     <Content Include="Member\Test.aspx" />
@@ -1785,11 +1789,17 @@
     <Content Include="Master\CustomerSite.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ashx\ChangePwd.ashx.cs">
+      <DependentUpon>ChangePwd.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\CheckLogin.ashx.cs">
       <DependentUpon>CheckLogin.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\CheckVerCode.ashx.cs">
       <DependentUpon>CheckVerCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\FindPwd.ashx.cs">
+      <DependentUpon>FindPwd.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\Users\AddUsersInfo.ashx.cs">
       <DependentUpon>AddUsersInfo.ashx</DependentUpon>
@@ -1807,6 +1817,13 @@
     <Compile Include="Master\CustomerSite.Master.designer.cs">
       <DependentUpon>CustomerSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="Member\ChangeUserPwd.aspx.cs">
+      <DependentUpon>ChangeUserPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\ChangeUserPwd.aspx.designer.cs">
+      <DependentUpon>ChangeUserPwd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Member\CheckMemberSession.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1816,6 +1833,13 @@
     </Compile>
     <Compile Include="Member\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\FindPwd.aspx.cs">
+      <DependentUpon>FindPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\FindPwd.aspx.designer.cs">
+      <DependentUpon>FindPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

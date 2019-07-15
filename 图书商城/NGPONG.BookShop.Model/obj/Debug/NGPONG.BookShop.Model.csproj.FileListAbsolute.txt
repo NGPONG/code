@@ -18,3 +18,11 @@ C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.B
 C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.csproj.CopyComplete
 C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.dll
 C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\bin\Debug\NGPONG.BookShop.Model.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\bin\Debug\NGPONG.BookShop.Model.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.csproj.CopyComplete
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Model\obj\Debug\NGPONG.BookShop.Model.pdb

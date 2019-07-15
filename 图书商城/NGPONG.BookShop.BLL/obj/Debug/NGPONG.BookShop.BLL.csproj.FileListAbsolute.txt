@@ -35,3 +35,16 @@ C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.Boo
 C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.csproj.CopyComplete
 C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.dll
 C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.BLL.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.BLL.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.DAL.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.Model.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.Common.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.DAL.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.Model.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\bin\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.csproj.CopyComplete
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.dll
+C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.BLL\obj\Debug\NGPONG.BookShop.BLL.pdb

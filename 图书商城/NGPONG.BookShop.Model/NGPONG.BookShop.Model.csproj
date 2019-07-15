@@ -54,6 +54,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="EmailInfo.cs" />
     <Compile Include="OrderBook.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
