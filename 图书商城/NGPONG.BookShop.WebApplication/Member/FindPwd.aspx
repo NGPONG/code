@@ -40,6 +40,6 @@
     <table>
         <tr><td>用户名</td><td><input type="text" id="txtName" /></td></tr>
           <tr><td>邮箱</td><td><input type="text" id="txtMail" /></td></tr>
-          <tr><td colspan="2"><input type="button" value="找回密码" id="btnFindPwd" /></td></tr>
+          <tr><td colspan="2"><input type="button" value="找回密码" id="btnFindPwd" /></td></tr> 
     </table>
 </asp:Content>

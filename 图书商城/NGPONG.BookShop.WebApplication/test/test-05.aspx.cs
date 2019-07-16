@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NGPONG.BookShop.BLL;
+using NGPONG.BookShop.Common.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,7 @@ namespace NGPONG.BookShop.WebApplication.test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Uri url = Request.UrlReferrer;
+            UsersService.SendEmail("123", "123", "123");
         }
     }
 }

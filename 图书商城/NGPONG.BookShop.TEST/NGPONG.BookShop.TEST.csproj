@@ -48,6 +48,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGPONG.BookShop.DAL\NGPONG.BookShop.DAL.csproj">
+      <Project>{a3cb481c-90c2-49e5-a2ff-4e6854a68bdd}</Project>
+      <Name>NGPONG.BookShop.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

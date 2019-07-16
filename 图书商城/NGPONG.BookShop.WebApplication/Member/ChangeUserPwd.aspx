@@ -13,7 +13,7 @@
                 var PwdConfirm = $("#txtPwdConfirm").val();
                 if (PwdNew != PwdConfirm) {
 
-                    window.alert("密码不一致，请重新输入");
+                    window.alert("两次密码不一致，请重新输入");
                     return;
                 }
 
@@ -29,7 +29,7 @@
 
                             if (data.isSuccess == "false") {
 
-                                window.alert("密码修改失败！");
+                                window.alert(data.Message);
                             }
                             else {
 
@@ -57,13 +57,13 @@
         <tr>
             <td>新密码</td>
             <td>
-                <input type="text" id="txtPwdNew" />
+                <input type="password" id="txtPwdNew" />
             </td>
         </tr>
         <tr>
             <td>确认密码</td>
             <td>
-                <input type="text" id="txtPwdConfirm" />
+                <input type="password" id="txtPwdConfirm" />
             </td>
         </tr>
         <tr>

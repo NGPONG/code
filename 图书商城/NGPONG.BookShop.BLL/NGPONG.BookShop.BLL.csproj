@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingService.cs" />
     <Compile Include="UsersService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NGPONG.BookShop.Common\NGPONG.BookShop.Common.csproj">
+      <Project>{02fa7498-25ed-44d4-a71a-120eab13b24c}</Project>
+      <Name>NGPONG.BookShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NGPONG.BookShop.DAL\NGPONG.BookShop.DAL.csproj">
       <Project>{a3cb481c-90c2-49e5-a2ff-4e6854a68bdd}</Project>
       <Name>NGPONG.BookShop.DAL</Name>

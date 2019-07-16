@@ -92,7 +92,8 @@ namespace NGPONG.BookShop.Common.Helper
                         {
                             cmd.Parameters.AddRange(parms);
                         }
-                        return cmd.ExecuteScalar();
+                        object objReturn = cmd.ExecuteScalar();
+                        return objReturn == null ? string.Empty : objReturn;
                     }
                 }
             }

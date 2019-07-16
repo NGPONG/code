@@ -59,6 +59,7 @@
     <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="SysFun.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="UserState.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NGPONG.BookShop.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,7 +49,7 @@ namespace NGPONG.BookShop.WebApplication.ashx
                 emailContent.AppendLine("</body>");
                 emailContent.AppendLine("</html>");
 
-                Common.Helper.EmailHelper.SendEmail(userEmail, emailContent.ToString(), "密码修改");
+                UsersService.SendEmail(userEmail, emailContent.ToString(), "密码修改");
 
                 context.Response.Write((new JavaScriptSerializer()).Serialize(new
                 {

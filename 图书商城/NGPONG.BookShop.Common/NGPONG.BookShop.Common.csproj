@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\EmailHelper.cs" />
+    <Compile Include="Helper\CacheHelper.cs" />
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\SqlHelper.cs" />

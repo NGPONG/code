@@ -23,12 +23,14 @@ namespace NGPONG.BookShop.WebApplication.ashx
                 context.Response.Write((new JavaScriptSerializer()).Serialize(new
                 {
                     isSuccess = "false",
-                    Message = "请重新修改密码，已超时!"
+                    Message = "数据已过期!请重新修改密码"
                 }));
             }
 
             Model.EmailInfo emailInfoModel = new JavaScriptSerializer().Deserialize(emailInfo, typeof(Model.EmailInfo)) as Model.EmailInfo;
-            if (emailInfoModel.userGuid == (HttpRuntime.Cache[$"{emailInfoModel.userName}EmailInfo"] as dynamic).userGuid && emailInfoModel.userName == (HttpRuntime.Cache[$"{emailInfoModel.userName}EmailInfo"] as dynamic).userName)
+
+            dynamic exp = HttpRuntime.Cache[$"{emailInfoModel.userName}EmailInfo"] as dynamic;
+            if (emailInfoModel.userGuid == exp.userGuid && emailInfoModel.userName == exp.userName)
             {
                 // 匹配成功
                 HttpRuntime.Cache.Remove($"{emailInfoModel.userName}EmailInfo");
@@ -49,7 +51,8 @@ namespace NGPONG.BookShop.WebApplication.ashx
             {
                 context.Response.Write((new JavaScriptSerializer()).Serialize(new
                 {
-                    isSuccess = "false"
+                    isSuccess = "false",
+                    Message = "验证出错，请重新获取邮件在尝试"
                 }));
             }
         }

@@ -10,19 +10,9 @@ namespace NGPONG.BookShop.TEST
 {
     class Program
     {
-        public string Band { get; set; }
         static void Main(string[] args)
         {
-            Program program = new Program();
-            program.Band = "123";
-            PropertyInfo info = program.GetType().GetProperty("Band");
-            info.SetValue(program, "123123");
+            new DAL.SettingDAL().GetSettingValue("123");
         }
-    }
-
-    public class Person 
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
     }
 }
