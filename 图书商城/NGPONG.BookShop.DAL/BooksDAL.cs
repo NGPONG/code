@@ -12,18 +12,17 @@ namespace NGPONG.BookShop.DAL
 {
     public class BooksDAL
     {
-        public List<Book> GetBooksList(PageBar pageBar)
+        public List<Book> GetBooksList(int currentPage)
         {
             SqlParameter[] parms =
             {
-                new SqlParameter("@PageSize",pageBar.PageSize),
-                new SqlParameter("@CurrentPage",pageBar.CurrentPage)
+                new SqlParameter("@CurrentPage",currentPage)
             };
 
             StringBuilder sql = new StringBuilder();
             sql.AppendLine("select Temp.* from");
-            sql.AppendLine("(select *,ROW_NUMBER() over(order by Id) as num from Books) as Temp");
-            sql.AppendLine("where Temp.num between ((@CurrentPage-1) * @PageSize +1) and (@PageSize*@CurrentPage)");
+            sql.AppendLine("(select cast(count(1) over() / 7.0 as decimal) as PageSize,ROW_NUMBER() over(order by Id) as num,* from Books) as Temp");
+            sql.AppendLine("where Temp.num between ((@CurrentPage-1) * 7 +1) and (7 * @CurrentPage)");
 
             return SqlHelper.GetDataList<Book>(sql.ToString(), parms);
         }

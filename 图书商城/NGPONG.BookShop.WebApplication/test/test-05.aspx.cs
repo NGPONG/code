@@ -15,7 +15,7 @@ namespace NGPONG.BookShop.WebApplication.test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Book> list = new BooksService().GetBooksList(new PageBar() { CurrentPage = 1, PageSize = 10 });
+            //List<Book> list = new BooksService().GetBooksList(new PageBar() { CurrentPage = 1, PageSize = 10 });
         }
     }
 }

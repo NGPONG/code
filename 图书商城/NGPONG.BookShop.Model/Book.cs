@@ -22,6 +22,7 @@ namespace BookShop.Model
         public string TOC { get; set; }
         public string Category { get; set; }
         public string Clicks { get; set; }
-	}
+        public string PageSize { get; set; }
+    }
 }
 

@@ -11,9 +11,9 @@ namespace NGPONG.BookShop.BLL
 {
     public class BooksService
     {
-        public List<Book> GetBooksList(PageBar pageBar)
+        public List<Book> GetBooksList(int currentPage)
         {
-            return new BooksDAL().GetBooksList(pageBar);
+            return new BooksDAL().GetBooksList(currentPage);
         }
     }
 }

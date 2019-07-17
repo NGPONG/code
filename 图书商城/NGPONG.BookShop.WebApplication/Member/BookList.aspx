@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/CustomerSite.Master" AutoEventWireup="true" CodeBehind="BookList.aspx.cs" Inherits="NGPONG.BookShop.WebApplication.Member.BookList" %>
 
+<%@ Import Namespace="NGPONG.BookShop.Common.Unitis" %>
+<%@ Import Namespace="NGPONG.BookShop.Common.Helper" %>
+<%@ Import Namespace="NGPONG.BookShop.BLL" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Cunstomer_Header" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Cunstomer_Body" runat="server">
@@ -22,11 +26,11 @@
                         <td align="left">
                             <span style="font-size: 12px; line-height: 20px"><%#Eval("Author") %></span>
                             <br />
-                            <span style="font-size: 12px; line-height: 20px"><%#Eval("ContentDescription").ToString() %></span>
+                            <span style="font-size: 12px; line-height: 20px"><%#WebCommon.CropString(Eval("ContentDescription").ToString(), Convert.ToInt32(new SettingService().GetSettingValue("setting_CropCount")==""?"0":new SettingService().GetSettingValue("setting_CropCount"))) %></span>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" colspan="2"><span style="font-weight: bold; font-size: 13px; line-height: 20px"><%#Eval("UnitPrice","{0:0.00}") %></span> 
+                        <td align="right" colspan="2"><span style="font-weight: bold; font-size: 13px; line-height: 20px"><%#Eval("UnitPrice","{0:0.00}") %></span>
                         </td>
                     </tr>
                 </tbody>
@@ -36,4 +40,5 @@
             <hr />
         </SeparatorTemplate>
     </asp:Repeater>
+    <%=PageBarHelper.GetPageBar(base._currentPage,base._pageSize) %>
 </asp:Content>

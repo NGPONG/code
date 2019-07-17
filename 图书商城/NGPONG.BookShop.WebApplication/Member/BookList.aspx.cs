@@ -12,20 +12,35 @@ namespace NGPONG.BookShop.WebApplication.Member
 {
     public partial class BookList : System.Web.UI.Page
     {
+        protected int _pageSize = 0;
+        protected int _currentPage = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.BookListRepeater.DataSource = this.GetBookList();
+            // first time
+            if (string.IsNullOrEmpty(Context.Request.QueryString["PaginalNumber"]))
+            {
+                this._currentPage = 1;
+            }
+            else
+            {
+                if (!int.TryParse(Context.Request.QueryString["PaginalNumber"].ToString(), out this._currentPage))
+                {
+                    Response.Redirect("\\Html\\Error.html");
+                }
+            }
+
+            var bookList = this.GetBookList();
+            this._pageSize = Convert.ToInt32(string.IsNullOrEmpty(bookList[0].PageSize) ? "0" : bookList[0].PageSize);
+
+            this.BookListRepeater.DataSource = bookList;
             this.BookListRepeater.DataBind();
         }
-
+        
         protected List<Book> GetBookList()
         {
-            PageBar pageBar = new PageBar();
-            pageBar.CurrentPage = Convert.ToInt32(base.Request.QueryString["CurrentPage"]);
-            pageBar.PageSize = Convert.ToInt32(base.Request.QueryString["PageSize"]);
-
             BooksService service = new BooksService();
-            return service.GetBooksList(pageBar);
+            return service.GetBooksList(this._currentPage);
         }
     }
 }

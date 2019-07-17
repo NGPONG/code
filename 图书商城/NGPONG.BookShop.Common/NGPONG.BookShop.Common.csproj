@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Helper\CacheHelper.cs" />
     <Compile Include="Helper\ImageHelper.cs" />
+    <Compile Include="Helper\PageBarHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
     <Compile Include="Unitis\WebCommon.cs" />

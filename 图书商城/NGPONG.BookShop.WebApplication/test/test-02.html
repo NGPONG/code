@@ -1,113 +1,549 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../Css/style.css" rel="stylesheet" />
-    <link href="../Css/buttons.css" rel="stylesheet" />
-    <style type="text/css">
-        #backgroundDiv {
-            background-color: black;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0px;
-            left: 0px;
-            opacity: 0.15;
-            display: none;
-        }
+﻿
 
-        #foregroundDiv {
-            background-color: white;
-            width: 700px;
-            height: 550px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -275px 0 0 -350px;
-            display: none;
-        }
-    </style>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link href="../Css/themes/icon.css" rel="stylesheet" />
+    <link href="../Css/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.easyui.min.js"></script>
+
+
 </head>
 
 <body>
-    <!--背景层-->
-    <div id="backgroundDiv">
-    </div>
-    <!--前景层-->
-    <div id="foregroundDiv">
-        <a href="javascript:return false;" id="btnClose" style="background-color:red;float:right;margin-right:10px;margin-top:5px;" class="button button-primary button-pill button-small">返回</a>
-        <div class="container" style="position:absolute;margin-left:40px">
-            <div class="imageBox">
-                <div class="thumbBox"></div>
-                <div class="spinner" style="display: none">Loading...</div>
-            </div>
-            <div class="action">
-                <div class="new-contentarea tc" style="width:65px">
-                    <a href="javascript:void(0)" class="upload-img" style="width:65px">
-                        <label for="upload-file">选取</label>
-                    </a>
-                    <input type="file" class="" name="upload-file"
-                           id="upload-file" />
+    <center>
 
-                </div>
-                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+" style="margin-left:5px;">
-                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-">
-                <input type="button" id="btnCrop" class="Btnsty_peyton" value="裁切">
-                <input type="button" id="btnUpload" class="Btnsty_peyton" value="上传" style="width:70px;float:right;" />
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a>
+                </span>
             </div>
-            <div class="cropped"></div>
         </div>
-    </div>
-    <a href="javascript:return false;" id="btnShow" class="button button-primary button-pill button-small">选择头像</a>
 
-    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/cropbox.js"></script>
-    <script type="text/javascript">
-        $(window).load(function () {
 
-            $("#btnShow").click(function () {
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="../images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-                $("#backgroundDiv").fadeIn(1000).next().fadeIn(1000);
-            });
 
-            $("#btnClose").click(function () {
+        <div id="main_box">
 
-                $("#backgroundDiv").fadeOut(1000).next().fadeOut(1000);
-            });
 
-            var options =
-            {
-                thumbBox: '.thumbBox',
-                spinner: '.spinner',
-                imgSrc: 'img/5.jpg'
-            }
-            var cropper = $('.imageBox').cropbox(options);
-            $('#upload-file').on('change', function () {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    options.imgSrc = e.target.result;
-                    cropper = $('.imageBox').cropbox(options);
-                }
-                reader.readAsDataURL(this.files[0]);
-                this.files = [];
-            })
-            $('#btnCrop').on('click', function () {
-                var img = cropper.getDataURL();
-                $('.cropped').html('');
-                $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
-                $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
-                $('.cropped').append('<img src="' + img + '" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
-            })
-            $('#btnZoomIn').on('click', function () {
-                cropper.zoomIn();
-            })
-            $('#btnZoomOut').on('click', function () {
-                cropper.zoomOut();
-            })
-        });
-    </script>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4939">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="C++ Primer中文版(第6版）（一本久负盛名的C++经典教程）" hspace="4" src="/Images/BookCovers/9787115145543.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4939" target="_blank" name="link_prd_name">
+                                C++ Primer中文版(第6版）（一本久负盛名的C++经典教程）
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）Stanley B. Lippman Barbara E. Moo Josée LaJoie   著，李师贤  等译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书是久负盛名的C++经典教程，其内容是C++大师Stanley B. Lippman丰富的实践经验和C++标准委员会原负责人Josée Lajoie对C++标准深入理解的完美结合，已经帮助全球无数程序员学会了C++。本版对前一版进行了彻底的修订，内容经过了重新组织，更加入了C++先驱Barbara E.Moo在C++教学方面的真知灼见。既显著改善了可读性，又充分体现了C++语言的最新进展和当前的业界最佳实践。书中不但新增大量教学辅助内容，用于强调重要的知识点，提醒常见的错误，推荐优秀的编程实践，给出使用提示，还包含大量来自实战的示例和习题。<br>　　对C++基本概念和技术全面而且权威的阐述，对现代C++编程风格的强调，使本书成为C++初学者的最佳指南；对于中高级程序员，本书也是不可或缺的参考书。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">99.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4942">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="C# Primer 习题解答（第5版）" hspace="4" src="/Images/BookCovers/9787115155108.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4942" target="_blank" name="link_prd_name">
+                                C# Primer 习题解答（第5版）
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">蒋爱军，李师贤，梅晓勇  著</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">C++ Primer(第4版)是C++大师Stanley B. Lippman丰富的实践经验和C++标准委员会原负责人Josée Lajoie对C++标准深入理解的完美结合，更加入了C++先驱Barbara E. Moo在C++教学方面的真知灼见，是初学者的最佳C++指南，而且对于中高级程序员，也是不可或缺的参考书。本书正是这部久负盛名的C++经典教程的配套习题解答。书中提供了C++ Primer(第4版)中所有习题的参考答案。<br>　　本书对使用C++ Primer(第4版)学习C++程序设计语言的读者是非常理想的参考书。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">45.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4943">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="Effective C# 中文版改善C#程序的55种方法" hspace="4" src="/Images/BookCovers/978711515888.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4943" target="_blank" name="link_prd_name">
+                                Effective C# 中文版改善C#程序的55种方法
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（中）瓦格纳  著，李建忠  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书围绕一些关于C#和.NET的重要主题，包括C#语言元素、.NET资源管理、使用C#表达设计、创建二进制组件和使用框架等，讲述了最常见的50个问题的解决方案，为程序员提供了改善C#和.NET程序的方法。本书通过将每个条款构建在之前的条款之上，并合理地利用之前的条款，来让读者最大限度地学习书中的内容，为其在不同情况下使用最佳构造提供指导。<br>　　本书适合各层次的C#程序员阅读，同时可以推荐给高校教师（尤其是软件学院教授C#/.NET课程的老师），作为C#双语教学的参考书。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">120.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4944">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="C程序设计语言（第3版·新版）" hspace="4" src="/Images/BookCovers/9787111128069.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4944" target="_blank" name="link_prd_name">
+                                C程序设计语言（第3版·新版）
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）克尼汉，（美）里奇 著，徐宝文，李志 译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书是由C语言的设计者Brian W.Kernighan和Dennis M.Ritchie编写的一部介绍标准C语言及其程序设计方法的权威性经典著作。全面、系统地讲述了C语言的各个特性及程序设计的基本方法，包括基本概念，类型和表达式、控制流、函数与程序结构、指针与数组、结构、输入与输出、UNIX系统接口、标准库等内容。本书的讲述深入浅出，配合典型例证，通俗易懂，实用性强，适合作为大专院校计算机专业或非计算机专业的C语言教材，也可以作为从事计算机相关软硬件开发的技术人员的参考书。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">33.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4945">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="C++Primer Plus（第五版）中文版" hspace="4" src="/Images/BookCovers/9787115134165.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4945" target="_blank" name="link_prd_name">
+                                C++Primer Plus（第五版）中文版
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">[美]普拉塔（Prata,S.）  著，孙建春，韦强  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">C++是在C语言基础上开发的一种集面向对象编程、通用编程和传统的过程化编程于一体的编程语言，是C语言的超集。本书是根据2003年的ISO/ANSI C++标准编写的，通过大量短小精悍的程序详细而全面地阐述了C++的基本概念和技术。<br>　　全书分17章和10个附录，分别介绍了C++程序的运行方式、基本数据类型、复合数据类型、循环和关系表达式、分支语句和逻辑操作符、函数重载和函数模板、内存模型和名称空间、类的设计和使用、多态、虚函数、动态内存分配、继承、代码重用、友元、异常处理技术、string类和标准模板库、输入/输出等内容。<br>　　本书针对C++初学者，从C语言基础知识开始介绍，然后在此基础上详细阐述C++新增的特性，因此不要求读者有较多C语言方面的背景知识。本书可作为高等院校C++课程的教材，也可供初学者自学C++时使用。<br><br>作者简介：<br>    Stephen Prata在加州肯特菲尔得的马林学院教授天文、物理和计算机科学。他毕业于加州理工学院，在加州大学伯克利分校获得博士学位。Stephen本人或他人合作编写的图书有十多本。他撰写的the Waite Group's New C Primer Plus一书获得了计算机出版联合会1990年度最佳“How-to”计算机图书奖；他撰写的The Waite Group's C++Primer Plus一书获得了计算机出版联合会1991年度最佳“How-to”计算机图书奖的提名。<br></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">72.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4946">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="框架设计（第2版）：CLR Via C#" hspace="4" src="/Images/BookCovers/9787302140160.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4946" target="_blank" name="link_prd_name">
+                                框架设计（第2版）：CLR Via C#
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）瑞奇特（Richter,J.）  著，周靖，张杰良  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">作为深受编程人员爱戴和尊敬的编程专家，微软.NET开发团队的顾问，本书作者Jeffrey Richter针对开发各种应用程序（如Web Form、Windows Form和Web服务、Microsoft SQL Server解决方案、控制台应用程序、NT Service）的开发人员，深入揭示了公共语言运行库（CLR）和.NET Framework.，演示了如何将这些知识应用到实际开发。全书分5部分，共24章。第Ⅰ部分讲述CLR基础，第Ⅱ部分介绍类型的使用，第Ⅲ部分说明类型的设计，第Ⅳ部分介绍基本类型，第Ⅴ部分讲述CLR实用特性。 <br>    通过本书的阅读，读者可以掌握CLR精髓，轻松、高效地创建高性能应用程序。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">68.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4947">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="C++程序设计教程（第二版）" hspace="4" src="/Images/BookCovers/9787302114642.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4947" target="_blank" name="link_prd_name">
+                                C++程序设计教程（第二版）
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">钱能  著</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书是《C++程序设计教程》的第二版。然而从指导思想、内容结构、写作特点等方面，都以全新的面貌呈现于读者。全书全部重新执笔，代码全部重写，涵盖了基本C++编程方法的全部技术特征。<br>    本书以C++标准为蓝本，从过程化编程的基本描述，到对象化编程的方法展开，乃至高级编程的实质揭示，形成一条自然流畅的主线，通俗易懂，形象风趣。本书在内容结构上自成体系，并以独特的描述手法，辐射到计算机专业其他诸课程，体系严谨，结构独特。<br>    作者在长期的教学、科研实践以及ACM大学生程序设计竞赛培训工作中，总结出了许多难能可贵的教学经验，能使读者快捷而准确地找到编程技术要领，洞穿C++内部实现要害，直击抽象编程本质。<br>    与本书配套，《C++课程设计指导》、《C++程序设计习题及解答》、《C++程序设计教程详解》和《C++程序设计教程精粹》也将陆续面世。除此之外，还配有C++程序设计教程课件和源代码供读者下载。<br>    本书适用于大学计算机程序设计教学，也适合于立志自学成才的读者，帮助他们从零开始走向高级程序员。本书也旨在引导读者从欣赏C++入门的初级精彩到享受C++经典名作的内在精彩，因而，也是一本软件工作者不可多得的案头参考书。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">39.5000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4948">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="深度探索 C++ 对象模型" hspace="4" src="/Images/BookCovers/9787560924182.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4948" target="_blank" name="link_prd_name">
+                                深度探索 C++ 对象模型
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）Stanley B. Lippman  著，侯捷  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书重点：探索“对象导向程序所支持的C++对象模型”下的程序行为。对于“对象导向性质之基础实现技术”以及“各种性质背后的隐含利益交换”提供一个清楚的认识。检验由程序变形所带来的效率冲击。提供丰富的程序范例、图片，以及对象导向观念和底层对象模型之间的效率测量。<br>&nbsp;&nbsp;&nbsp;&nbsp;C++成山似海的书籍堆中，这一本不是婴幼儿奶粉，也不是较大婴儿奶粉，它是成人专用的低脂高钙特殊奶粉。<br>&nbsp;&nbsp;&nbsp;&nbsp;对于C++底层机制感兴趣的读者，这本书会给你“漫卷诗书喜欲狂”的感觉。<br>&nbsp;&nbsp;&nbsp;&nbsp;了解C++ Object Model，是学习Component Object Model的最短路线。<br>&nbsp;&nbsp;&nbsp;&nbsp;如果你是一位C++程序员，渴望对于底层知识获得一个完整的了解，那么Inside The C++ Object Model正适合你。<br>&nbsp;&nbsp;&nbsp;&nbsp;关于作者：Stanley Lippman目前是华特迪斯尼主题动画公司（Walt Disney Feature Animation）的主要软件工程师。他曾经在AT&T贝尔实验室领导cfront 3.0和2.1版的编译器开发小组。他也是贝尔实验室中由Bjame Stroustrup所领导的Foundation专案组中的一员，负责对象模型并研究C++程序开发环境。Stan著有极为成功的C++ Primer一书，也发表过许多C++方面的论文。Stan最近刚从C++ Report的编辑位置上“退隐”，他曾在那个位置上做了4年。他的C++论述遍及全球。<br>&nbsp;&nbsp;&nbsp;&nbsp;关于译者：侯捷，海峡两岸著名的电脑技术自由作家，对于技术的钻研和发表，有独特的品性与坚持。作品涵盖著、译、评三方面，散见于各种刊特、媒体、网站论坛，深受读者喜爱和尊敬。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">54.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4949">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="Expert C# 2005 Business Objects中文版（第二版）" hspace="4" src="/Images/BookCovers/9787121038181.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4949" target="_blank" name="link_prd_name">
+                                Expert C# 2005 Business Objects中文版（第二版）
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）霍特卡  著，王鑫  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书描述了怎样应用面向对象的概念来进行.NET应用程序的架构、设计和开发。作者将重点放在了面向业务的对象，即业务对象和怎样在包括Web和客户机/服务器结构的不同分布式环境中来实现它们。本书使用了大量的.NET技术，面向对象的设计与编程思想，以及分布式架构。本书的前半部分叙述了如何在.NET环境创建这个框架来支持面向对象的应用程序开发的流程，后半部分应用这个框架创建了一个带有几个不同接口的示例应用程序，本书适合C#应用开发人员阅读。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">79.8000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4950">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="Visual C# 2005从入门到精通" hspace="4" src="/Images/BookCovers/9787302131007.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4950" target="_blank" name="link_prd_name">
+                                Visual C# 2005从入门到精通
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（英）夏普  著，周靖  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">Microsoft Visual C#功能强大、使用简单。本书全面介绍了如何利用Visual Studio2005和NET Framework来进行C#编程。作者将C#的各种特性娓娓道来，以范例导航的方式，通过大量的练习引导读者逐步构建Windows窗体应用程序，访问MicrosoftSQL Server数据库，开发ASP.NETWeb应用程序以及创建并使用Web服务。<br>    全书共6部分，28章，结构清晰、叙述清楚。所有练习均在Visual Studio2005简体中文版上进行过演练。无论是刚开始接触面向对象编程的新手，还是打算转移到C#的有经验的C、C++或者Java程序员，都可以从本书中汲取到新的知识。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">49.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4951">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="Beginning C# Objects中文版——概念到代码" hspace="4" src="/Images/BookCovers/9787121024931.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4951" target="_blank" name="link_prd_name">
+                                Beginning C# Objects中文版——概念到代码
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）芭可，（美）帕尔默  著，韩磊，戴飞  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书关注的是软件对象：什么是软件对象、为什么它们如此神奇而直白以及如何正确使用对象去构建一个软件应用。这也是一本关于C#的书，但它并非一本“C#大全”，而是一份对该语言的温文但全面的介绍，还特别强调了如何把对象模型转换到功能完备的C#应用程序。本书分三部分，结合C#深入浅出地阐述面向对象理论的基本内容，即从对象基本概念到对象建模，到C#代码的整个学习过程。为了完善本书，我们还写了标题为“下一步”的最后章节，它给出一些建议，让你在读完本书后，懂得如何继续自己的面向对象发现之旅。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">68.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4952">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="Visual C++2005入门经典" hspace="4" src="/Images/BookCovers/9787302142713.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4952" target="_blank" name="link_prd_name">
+                                Visual C++2005入门经典
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）霍顿  著，李颂华，康会光  译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书系编程语言先驱者Ivor Horton的经典之作，是学习C++编程最畅销的图书品种之一，不仅涵盖了Visual C++ .NET编程知识，还全面介绍了标准C++语言和.NET C++/CLI。本书延续了Ivor Horton讲解编程语言的独特方法，从中读者可心学会Visual C++ 2005的基础知识，并全面掌握在MFC和Windows Forms中访问数据源的技术。此外，本书各章后面的习题将有助于读者温故而知新，并尽快成为C++高效程序员。<br>    本书学习目标：学习如何使用Visual C++2005编程；Visual C++ 2005的新增功能；程序调试的基础知识和技术；构建程序GUI；如何构建Microsoft Windows应用程序；脱离复杂的Windows GUI编程知识，深入理解C++细节知识。<br>    本书读者对象：本书适用于想学习如何为Microsoft Windows OS编写C++程序的初学者，学习本书无需任何编程基础。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">118.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4953">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="数据结构题集(C语言版)" hspace="4" src="/Images/BookCovers/9787302033141.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4953" target="_blank" name="link_prd_name">
+                                数据结构题集(C语言版)
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">严蔚敏 吴伟民 编著</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书与清华大学出版社出版的《数据结构》（Ｃ语言版）一书配套。主要内容有：习题与学习指导、实习题和部分习题的提示或答案，另有一个附录，即“数据结构算法演示（类Ｃ描述语言３．１中文版）使用手册”。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">16.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4954">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="C#设计模式——开发大师系列" hspace="4" src="/Images/BookCovers/9787508334929.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4954" target="_blank" name="link_prd_name">
+                                C#设计模式——开发大师系列
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）麦斯科 著，颜炯 译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书是第一部关于C#和.NET设计模式的权威指导著作，为基于C#语言和Microsoft &reg; .NET框架的开发人员学习设计模式和应用设计模式提供了一个完整全面的理论框架和大量的详细应用实例。本书内容覆盖了所有23个经典的“四人小组”设计模式，具体包括：适配器，外观，合成，桥接，单件，观察者，中介者，代理，职责链，享元，生成器，工厂方法，抽象工厂，原型，备忘录，模板方法，状态，策略，命令，解释器，装饰，迭代器，以及访问者等模式。本书提供了大量的C#代码，解释说明了在.NET框架下如何应用上述设计模式。读者在阅读本书之后，将会对关于C#语言和Microsoft &reg; .NET框架的设计模式的整体概念、基本原理、内部实现有一个清晰的认识，并可以将设计模式应用于基于C#语言和.NET框架的面向对象软件开发实践当中。本书还提供了丰富的附录资源，有兴趣的读者可以通过利用这些资源进一步增强对设计模式的理解。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">42.0000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">
+                            <a href="/BookDetail.aspx?BookId=4955">
+                                <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="超越C++标准库Boost库导论" hspace="4" src="/Images/BookCovers/9787302149118.jpg" width="95">
+                            </a>
+                        </td>
+                        <td style="font-size: small; color: red" width="650">
+                            <a class="booktitle" id="link_prd_name" href="/BookDetail.aspx?BookId=4955" target="_blank" name="link_prd_name">
+                                超越C++标准库Boost库导论
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span style="font-size: 12px; line-height: 20px">（美）卡尔森（Kalsson，B.）　著，张杰良　译</span>
+                            <br />
+                            <span style="font-size: 12px; line-height: 20px">本书是市面上第一本专门讨论Boost库的著作。书中首先概括性地简介了Boost的所有58个库，然后全面深入地阐述了12个十分有用的Boost库，展示了它们如何与C++标准库配合以及如何扩展C++标准库。<br>　　本书不仅介绍了Boost库的功能、使用方法及注意事项，而且还深入讨论了Boost库的设计理念、解决问题的思想和技巧以及待处理的问题。因此，本书是一本了解Boost库并探索其机理的实用手册。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="2">
+                            <span style="font-weight: bold; font-size: 13px; line-height: 20px">39.8000</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="numPages">
+                <table>
+                    <tr>
+                        <td style="background-color: azure">1</td>
+                        <td><a href="index.aspx?PaginalNumber=2">2</a></td>
+                        <td><a href="index.aspx?PaginalNumber=3">3</a></td>
+                        <td><a href="index.aspx?PaginalNumber=4">4</a></td>
+                        <td><a href="index.aspx?PaginalNumber=5">5</a></td>
+                        <td><a href="index.aspx?PaginalNumber=6">6</a></td>
+                        <td><a href="index.aspx?PaginalNumber=7">7</a></td>
+                        <td>   ...   </td>
+                        <td><a href="index.aspx?PaginalNumber=73">73</a></td>
+                    <tr>
+                </table>
+            </div>
+
+
+
+        </div>
+        <div id="footer">
+            <table border="0" width="100%" class="categories1">
+                <tr>
+                    <td align="center">
+                        <ul>
+                            <li><a href='#'>关于我们王府井书店</li>
+                            <li><a href="#">书店营业时间：9：30-21：00 </a> </li>
+                            <li> <a href="#" ; target=_blank;><img src="/images/logo123x40.jpg" width="123" height="40" border="0"></a> <a href="#" ; target=_blank;><img border="0" src="/Images/kaixin.jpg"></a> </li>
+                            <li>&nbsp;<span lang="zh-cn"><a title="京ICP备08001692号" href="http://www.miibeian.gov.cn">京ICP备08987373号</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </center>
 </body>
 
 </html>
