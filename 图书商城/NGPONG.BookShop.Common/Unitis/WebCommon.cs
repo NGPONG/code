@@ -32,5 +32,10 @@ namespace NGPONG.BookShop.Common.Unitis
         {
             HttpContext.Current.Response.Redirect($"/Member/Login.aspx?RedirectUrl={HttpContext.Current.Request.Url.ToString()}");
         }
+
+        public static void CropString(string strCrop)
+        {
+
+        }
     }
 }

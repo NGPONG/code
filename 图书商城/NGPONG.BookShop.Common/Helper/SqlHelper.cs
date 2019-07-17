@@ -182,7 +182,7 @@ namespace NGPONG.BookShop.Common.Helper
                     Type t_Type = t.GetType();
                     for (int j = 0; j < resultTable.Columns.Count; j++)
                     {
-                        t_Type.GetProperty(resultTable.Columns[j].ColumnName).SetValue(t, resultTable.Rows[i][j].ToString());
+                        t_Type.GetProperty(resultTable.Columns[j].ColumnName)?.SetValue(t, resultTable.Rows[i][j].ToString());
                     }
                     t_List.Add(t);
                 }

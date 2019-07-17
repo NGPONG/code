@@ -11,6 +11,7 @@ namespace NGPONG.BookShop.Common.Helper
 {
     public static class CacheHelper
     {
+        // 锁实例
         private static object objLock = new object();
 
         public static object Get(string key)

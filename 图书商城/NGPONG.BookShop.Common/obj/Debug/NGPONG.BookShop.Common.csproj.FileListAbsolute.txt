@@ -25,3 +25,4 @@ C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPON
 C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csproj.CopyComplete
 C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.dll
 C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.pdb
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.Common\obj\Debug\NGPONG.BookShop.Common.csprojAssemblyReference.cache

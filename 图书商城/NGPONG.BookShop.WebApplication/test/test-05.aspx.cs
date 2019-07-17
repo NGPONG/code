@@ -1,5 +1,7 @@
-﻿using NGPONG.BookShop.BLL;
+﻿using BookShop.Model;
+using NGPONG.BookShop.BLL;
 using NGPONG.BookShop.Common.Helper;
+using NGPONG.BookShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,7 @@ namespace NGPONG.BookShop.WebApplication.test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UsersService.SendEmail("123", "123", "123");
+            List<Book> list = new BooksService().GetBooksList(new PageBar() { CurrentPage = 1, PageSize = 10 });
         }
     }
 }

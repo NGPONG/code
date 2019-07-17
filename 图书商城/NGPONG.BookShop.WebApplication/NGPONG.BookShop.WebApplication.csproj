@@ -1739,6 +1739,7 @@
     <Content Include="js\ui\minified\jquery.ui.sortable.min.js" />
     <Content Include="js\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="js\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Member\BookList.aspx" />
     <Content Include="Member\ChangeUserPwd.aspx" />
     <Content Include="Member\Default.aspx" />
     <Content Include="Member\FindPwd.aspx" />
@@ -1816,6 +1817,13 @@
     </Compile>
     <Compile Include="Master\CustomerSite.Master.designer.cs">
       <DependentUpon>CustomerSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Member\BookList.aspx.cs">
+      <DependentUpon>BookList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\BookList.aspx.designer.cs">
+      <DependentUpon>BookList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\ChangeUserPwd.aspx.cs">
       <DependentUpon>ChangeUserPwd.aspx</DependentUpon>

@@ -38,13 +38,6 @@ namespace NGPONG.BookShop.BLL
         {
             return UsersDAL.ChangekUserPwd(model);
         }
-        /// <summary>
-        /// 发送邮件
-        /// </summary>
-        /// <param name="receiveUserEmail"></param>
-        /// <param name="sendContent"></param>
-        /// <param name="sendSubject"></param>
-        /// <param name="isBodyHtml"></param>
         public static void SendEmail(string receiveUserEmail, string sendContent, string sendSubject, bool isBodyHtml = true)
         {
             SettingService settingService = new SettingService();
