@@ -26,5 +26,10 @@ namespace NGPONG.BookShop.DAL
 
             return SqlHelper.GetDataList<Book>(sql.ToString(), parms);
         }
+
+        public List<Book> GetAllBooksList()
+        {
+            return SqlHelper.GetDataList<Book>("select * from books");
+        }
     }
 }

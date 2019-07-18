@@ -4,3 +4,10 @@ C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\关于集合的线程不安
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.csproj.CoreCompileInputs.cache
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.exe
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\bin\Debug\关于集合的线程不安全性.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\bin\Debug\关于集合的线程不安全性.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\bin\Debug\关于集合的线程不安全性.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\关于集合的线程不安全性\obj\Debug\关于集合的线程不安全性.pdb

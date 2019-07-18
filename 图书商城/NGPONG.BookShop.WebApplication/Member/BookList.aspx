@@ -13,12 +13,12 @@
                 <tbody>
                     <tr>
                         <td rowspan="2">
-                            <a href="<%#Eval("Id","/BookDetail.aspx?BookId={0}") %>">
+                            <a href="<%#"/BookDetail_"+Eval("ISBN").ToString()+"_"+Convert.ToDateTime(Eval("PublishDate")).Year.ToString()+".aspx" %>">
                                 <img id="ctl00_cphContent_dl_Books_ctl01_imgBook" style="cursor: hand" height="121" alt="<%#Eval("Title") %>" hspace="4" src="<%#Eval("ISBN","/Images/BookCovers/{0}.jpg") %>" width="95">
                             </a>
                         </td>
                         <td style="font-size: small; color: red" width="650">
-                            <a class="booktitle" id="link_prd_name" href="<%#Eval("Id","/BookDetail.aspx?BookId={0}") %>" target="_blank" name="link_prd_name"><%#Eval("Title") %>
+                            <a class="booktitle" id="link_prd_name" href="<%#"/BookDetail_"+Eval("ISBN").ToString()+"_"+Convert.ToDateTime(Eval("PublishDate")).Year.ToString()+".aspx" %>" target="_blank" name="link_prd_name"><%#Eval("Title") %>
                             </a>
                         </td>
                     </tr>

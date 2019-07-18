@@ -1,0 +1,7 @@
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\bin\Debug\多线程_异步委托.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\bin\Debug\多线程_异步委托.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\bin\Debug\多线程_异步委托.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\obj\Debug\多线程_异步委托.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\obj\Debug\多线程_异步委托.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\obj\Debug\多线程_异步委托.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_异步委托\obj\Debug\多线程_异步委托.pdb

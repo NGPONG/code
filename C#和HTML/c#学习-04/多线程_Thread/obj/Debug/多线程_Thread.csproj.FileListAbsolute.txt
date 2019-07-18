@@ -5,3 +5,10 @@ C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.csproj.CoreCompileInputs.cache
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.exe
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\bin\Debug\多线程_Thread.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\bin\Debug\多线程_Thread.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\bin\Debug\多线程_Thread.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\多线程_Thread\obj\Debug\多线程_Thread.pdb

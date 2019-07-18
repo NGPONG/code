@@ -1,0 +1,7 @@
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\bin\Debug\索引器.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\bin\Debug\索引器.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\bin\Debug\索引器.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\obj\Debug\索引器.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\obj\Debug\索引器.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\obj\Debug\索引器.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\索引器\obj\Debug\索引器.pdb

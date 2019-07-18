@@ -5,3 +5,10 @@ C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\strack和queue\obj\Debug\st
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.csproj.CoreCompileInputs.cache
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.exe
 C:\Users\NGPONG\Desktop\源码\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\bin\Debug\strack和queue.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\bin\Debug\strack和queue.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\bin\Debug\strack和queue.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\strack和queue\obj\Debug\strack和queue.pdb
