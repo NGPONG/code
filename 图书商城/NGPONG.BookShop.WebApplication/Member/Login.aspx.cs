@@ -1,7 +1,10 @@
-﻿using System;
+﻿using NGPONG.BookShop.BLL;
+using NGPONG.BookShop.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,6 +14,10 @@ namespace NGPONG.BookShop.WebApplication.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string flag = new Articel_WordsService().CheckReplace("123");
+
+
+            /* 针对用户在需要校验Session的页面中，如果Session过期了则跳转回登陆页面，这时候就看用户是否还保有Cookie，如果有的话再直接跳转回最开始的页面 */
             if (IsCookieEffective())
             {
                 BLL.UsersService usersService = new BLL.UsersService();
@@ -22,7 +29,7 @@ namespace NGPONG.BookShop.WebApplication.Member
                 if (userInfo.Count > 0)
                 {
                     // 重新写入Session
-                    base.Session["UserInfo"] = users;
+                    base.Session["UserInfo"] = userInfo[0];
 
                     /*
                     验证当前页面是否是需要重返上一个页面的

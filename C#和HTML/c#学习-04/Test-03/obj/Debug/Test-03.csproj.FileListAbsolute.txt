@@ -1,0 +1,7 @@
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\bin\Debug\Test-03.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\bin\Debug\Test-03.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\bin\Debug\Test-03.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\obj\Debug\Test-03.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\obj\Debug\Test-03.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\obj\Debug\Test-03.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\Test-03\obj\Debug\Test-03.pdb

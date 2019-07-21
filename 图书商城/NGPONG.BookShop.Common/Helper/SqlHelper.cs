@@ -15,7 +15,8 @@ namespace NGPONG.BookShop.Common.Helper
         /// <summary>
         ///  SQLite连接字符串
         /// </summary>
-        public static string SqlConnectionCharacter = ConfigurationManager.ConnectionStrings["sqlConnectionStr"].ConnectionString;
+        //public static string SqlConnectionCharacter = ConfigurationManager.ConnectionStrings["sqlConnectionStr"].ConnectionString;
+        public static string SqlConnectionCharacter = "server =.;uid=sa;pwd=kissyou199;database=book_shop3";
         /// <summary>
         ///  执行非查询sql语句
         /// </summary>

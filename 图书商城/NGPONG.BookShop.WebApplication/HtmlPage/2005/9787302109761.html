@@ -9,31 +9,162 @@
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script>
+        // 载入回复
+        function loadData() {
+
+            $.ajax({
+                type: "post",
+                url: "/ashx/BooksInfo/BookComment.ashx",
+                async: true,
+                dataType: "json",
+                data: "BookId=5374&Action=Select",
+                success: function (data, textStatus, jqXHR) {
+
+                    if (data.IsSuccess == true) {
+
+                        // 拼接数据
+                        var htmlData = spliceData(data.Info);
+                        $(htmlData).appendTo($("#commentList"));
+                        // 注册事件
+                        registerReceiveClick();
+                    }
+                    else {
+
+                        if (data.Status == "302") {
+
+                            if (data.Message != "") {
+
+                                window.alert(data.Message);
+                            }
+                            window.location.href = data.RedirectUrl;
+                        }
+                        else if (data.Status == "500") {
+
+                            window.alert(data.Message);
+                        }
+                    }
+                }
+            });
+        }
+        // 拼接回复数据
+        function spliceData(data) {
+
+            var htmlDataReturn = "";
+
+            for (var i = 0; i < data.length; i++) {
+
+                var bookComment = data[i];
+                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+
+                // 该条评论是否存在回复信息
+                if (bookComment.CommentReceives != null) {
+
+                    CommentReceive = bookComment.CommentReceives;
+                    htmlDataReturn += "<ul>";
+                    for (var j = 0; j < CommentReceive.length; j++) {
+
+                        var commentReceiveItem = CommentReceive[j];
+                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                    }
+                    htmlDataReturn += "</ul>";
+                }
+            }
+
+            return htmlDataReturn
+        }
+        // 注册回复的点击事件
+        function registerReceiveClick() {
+
+            $(".ReceiveComment").click(function () {
+
+                $("#txtContent").attr("placeholder", "回复 " + $(this).prev().prev().text().replace(/[\[\]]/g, "")).focus();
+                $("#btnAdd").attr("Action", "Receive").attr("CommentId", $(this).attr("id"));
+            });
+        }
+    </script>
     <style type="text/css">
-
-        .itcast_comments {
-            width: 620px;
-            color: #333;
-            font: normal 12px/24px Helvetica, Tahoma, Arial, sans-serif;
-            font-size: 14px;
-        }
-
-        .reply_btn {
-            font-size: 14px;
-            background: #cc0000;
-            padding: 8px 15px;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font: "Microsoft YaHei";
-            font-weight: bold;
-        }
-
-        .reply_box {
-            border: 1px solid #CCC;
-            font-size: 14px;
-        }
     </style>
+    <script>
+        $(document).ready(function () {
+
+            loadData();
+
+            $("#btnCancel").click(function () {
+
+                $("#txtContent").attr("placeholder", "有什么感想?来说说!!");
+            });
+
+            $("#btnAdd").click(function () {
+
+                var action = $(this).attr("Action");
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/BooksInfo/BookComment.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "BookId=5374" + (action == "Receive" ? "&CommentId=" + $(this).attr("CommentId") : "") + "&Action=" + action + "&txtContent=" + $("#txtContent").val(),
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (data.IsSuccess == true) {
+
+                            window.alert(data.Message);
+                            // 清空数据
+                            $("#txtContent").val("");
+                            // 拼接数据
+                            if (action == "Receive") {
+
+                                var commentReceiveItem = data.Info[0];
+                                var htmlData = "";
+                                htmlData += "<ul>";
+                                htmlData += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                                htmlData += "</ul>";
+                                $("#" + $("#btnAdd").attr("CommentId")).parent().append($(htmlData));
+
+                                // init Data
+                                $("#txtContent").attr("placeholder", "有什么感想?来说说!!");
+                                $("#btnAdd").attr("Action", "Add");
+                                $("#btnAdd").removeAttr("CommentId");
+                            }
+                            else {
+
+                                var htmlData = spliceData(data.Info);
+                                $(htmlData).appendTo($("#commentList"));
+
+                                // 注册事件
+                                registerReceiveClick();
+                            }
+                        }
+                        else {
+
+                            if (data.Status == "302") {
+
+                                if (data.Message != "") {
+
+                                    window.alert(data.Message);
+                                }
+                                window.location.href = data.RedirectUrl;
+                            }
+                            else if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                            else if (data.Status == "501") {
+
+                                // init
+                                $("#txtContent").val("");
+                                $("#txtContent").attr("placeholder", "有什么感想?来说说!!");
+                                $("#btnAdd").attr("Action", "Add");
+                                $("#btnAdd").removeAttr("CommentId");
+
+                                window.alert(data.Message);
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <center>
@@ -68,8 +199,11 @@
     <hr />
     <ul id="commentList" class="itcast_comments">
     </ul>
-    <textarea id="txtContent" rows="20" cols="100" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
-    <input type="button" value="发布评论" id="btnAdd" class="reply_btn" /><span id="txtMsg" style="font-size:14px;color:red"></span>
+    <a name="linkContent"></a>
+    <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
+    <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
+    <input type="button" value="取消回复" id="btnCancel" class="reply_btn" />
+    <span id="txtMsg" style="font-size:14px;color:red"></span>
     <div id="footer">
         <table border="0" width="100%" class="categories1">
             <tr>

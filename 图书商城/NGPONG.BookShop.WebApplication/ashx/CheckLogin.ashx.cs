@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.SessionState;
 
 namespace NGPONG.BookShop.WebApplication.ashx
@@ -15,12 +16,13 @@ namespace NGPONG.BookShop.WebApplication.ashx
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-
             CheckUserLogin(context);
         }
 
         public void CheckUserLogin(HttpContext context)
         {
+            var jsonSerializer = new JavaScriptSerializer();
+
             string userName = context.Request.Form["txtName"];
             string userPwd = BookShop.Common.Unitis.WebCommon.GetMd5String(context.Request.Form["txtPwd"]);
 
@@ -33,7 +35,7 @@ namespace NGPONG.BookShop.WebApplication.ashx
             if (userInfo.Count > 0)
             {
                 // 写入Session
-                context.Session["UserInfo"] = usersModel;
+                context.Session["UserInfo"] = userInfo[0];
 
                 // 写入Cookie
                 if ((context.Request.Form["cbAutoLogin"] == "on" ? true : false))
@@ -45,10 +47,21 @@ namespace NGPONG.BookShop.WebApplication.ashx
                     context.Response.Cookies["cp2"].Value = userPwd;
                     context.Response.Cookies["cp2"].Expires = DateTime.Now.AddDays(2);
                 }
+
+
+                context.Response.Write(jsonSerializer.Serialize(new
+                {
+                    IsSuccess = true,
+                    RedirectUrl = context.Request.Form["RedirectUrl"] ?? "/Member/Default.aspx"
+                }));
             }
             else
             {
-                context.Response.Write("用户名或密码错误！");
+                context.Response.Write(jsonSerializer.Serialize(new
+                {
+                    IsSuccess = false,
+                    Message = "用户名或密码错误!"
+                }));
             }
         }
 

@@ -21,27 +21,18 @@
                     type: "post",
                     url: "/ashx/CheckLogin.ashx",
                     async: true,
-                    dataType: "text",
+                    dataType: "json",
                     data: $("#form").serializeArray(),
                     success: function (data, textStatus, jqXHR) {
 
                         // Success
-                        if (data == "") {
+                        if (data.IsSuccess == false) {
 
-                            // 验证是否有需要跳转的URL，如果没有则默认跳转到首页
-                            var redirectUrl = $("#RedirectUrl").val();
-                            if (redirectUrl != "") {
-
-                                window.location.href = redirectUrl;
-                            }
-                            else {
-
-                                window.location.href = "/Member/Default.aspx";
-                            }
+                            window.alert(data.Message);
                         }
                         else {
 
-                            window.alert(data);
+                            window.location.href = data.RedirectUrl;
                         }
                     }
                 });
@@ -58,7 +49,6 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Cunstomer_Body" runat="server">
-    <input type="hidden" id="RedirectUrl" value="<%=base.Request.QueryString["RedirectUrl"] == null ? "":base.Request.QueryString["RedirectUrl"] %>" />
     <table width="60%" height="22" border="0" align="center" cellpadding="0" cellspacing="0" runat="server" id="tblfirst">
         <tr>
             <td width="10">
@@ -68,7 +58,8 @@
                 <img src="/Images/az-tan-top-right-round-corner.gif" width="10" height="28" /></td>
         </tr>
     </table>
-    <form id="form" method="post" action="../ashx/CheckUserLogin.ashx">
+    <form id="form" method="post" action="/ashx/CheckLogin.ashx">
+        <input type="hidden" id="RedirectUrl" name="RedirectUrl" value="<%=base.Request.QueryString["RedirectUrl"] == null ? "":base.Request.QueryString["RedirectUrl"] %>" />
         <table width="60%" height="22" border="0" align="center" cellpadding="0" cellspacing="0" runat="server" id="tblsecend">
             <tr>
                 <td bgcolor="#DDDDCC" style="width: 2px">&nbsp;</td>

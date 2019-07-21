@@ -1,10 +1,12 @@
-﻿using System;
+﻿using NGPONG.BookShop.DAL;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace NGPONG.BookShop.TEST
 {
@@ -12,7 +14,9 @@ namespace NGPONG.BookShop.TEST
     {
         static void Main(string[] args)
         {
-            new DAL.SettingDAL().GetSettingValue("123");
+            var list = new CommentDAL().GetBookComments("4946");
+            var jsonSerializer = new JavaScriptSerializer();
+            string str = jsonSerializer.Serialize(list);
         }
     }
 }

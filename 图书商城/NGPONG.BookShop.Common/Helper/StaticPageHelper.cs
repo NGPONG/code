@@ -37,7 +37,7 @@ namespace NGPONG.BookShop.Common.Helper
             }
 
             string htmlPage = sb_htmlPage.ToString().Replace("$title", bookModel.Title).Replace("$author", bookModel.Author).Replace("$unitprice", Convert.ToDecimal(bookModel.UnitPrice).ToString("F2")).Replace("$isbn", bookModel.ISBN).Replace("$content", bookModel.ContentDescription).Replace("$bookId", bookModel.Id.ToString());
-            using (StreamWriter htmlWriter = new StreamWriter(dirPath + $"{bookModel.ISBN}.html", true))
+            using (StreamWriter htmlWriter = new StreamWriter(dirPath + $"{bookModel.ISBN}.html"))
             {
                 htmlWriter.Write(htmlPage);
             }
