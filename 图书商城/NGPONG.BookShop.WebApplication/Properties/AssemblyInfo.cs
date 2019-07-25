@@ -13,6 +13,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: InternalsVisibleTo("NGPONG.BookShop.BLL")]
+[assembly: InternalsVisibleTo("NGPONG.BookShop.DAL")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
 // 对 COM 组件不可见。如果需要

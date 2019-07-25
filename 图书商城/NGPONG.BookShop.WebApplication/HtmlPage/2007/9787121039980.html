@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5706\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>轻量级J2EE企业应用实战——Struts+Spring+Hibernate整合开发（含光盘1张）</td></tr>
         <tr><td>作者</td><td>李刚  著</td></tr>
-        <tr><td>单价</td><td>65.00</td></tr>
+        <tr><td>单价</td><td>65.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787121039980.jpg" /></td></tr>
         <tr><td>简介</td><td>本书所介绍的内容是作者多年J2EE开发经验的总结，内容涉及三个开源框架：Struts、Hibernate和Spring，还介绍了Tomcat和Jetty两个开源Web服务器的详细用法，以及J2EE应用的几种常用架构。<br>　　本书不仅仅是一本J2EE入门图书，还详尽而细致地介绍了JSP各个方面，包括JSP 2.0的规范、Struts的各种用法、Hibernate的详细用法，以及Spring的基本用法。书中所介绍的轻量级J2EE应用，是目前最流行、最规范的J2EE架构，分层极为清晰，各层之间以松耦合的方法组织在一起。书的最后配备了两个实例，均采用了贫血模式的架构设计，以便于读者更快地进入J2EE应用开发。而第8章所介绍的其他架构模式则可作为读者对架构有更好把握后的提高部分。本书配套光盘包括各章内容所用的代码，以及整个应用所需要的开源类库等相关项目文件。<br>　　本书适用于有较好的Java编程基础，有初步的J2EE编程基础的读者。本书既可以作为J2EE初学者的入门书籍，也可作为J2EE应用开发者的提高指导。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

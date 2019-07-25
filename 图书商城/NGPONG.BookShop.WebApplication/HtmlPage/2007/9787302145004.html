@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5328\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>.NET安全编程（C#/VB.NET）</td></tr>
         <tr><td>作者</td><td>（美）弗里曼（Freeman，A.），（美）琼斯（Jones，A.）　著，靳京　译</td></tr>
-        <tr><td>单价</td><td>79.00</td></tr>
+        <tr><td>单价</td><td>79.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787302145004.jpg" /></td></tr>
         <tr><td>简介</td><td>.NET Framework是Microsoft最新推出的一个开发平台。在设计和开发安全应用程序方面，无论是对客户还是对Web应用程序及服务而言，它都具有丰富的功能。安全要求是应用程序RFP的一部分，但是对不熟悉安全要求的.NET开发人员来说，问题就不仅仅是载入合适的命名空间和类型那么简单了，他们还需要为指定的解决方案选择正确的安全体系结构，并且要知道使用.NET的哪一项功能来实现它。<br>　　在本书中，经验丰富的开发人员Adam Freeman和Allen Jones不仅通俗易懂地全面介绍了.NET的安全功能和API，而且还清晰地阐述了开发人员必须理解的关键概念和常用设计类型，从而帮助开发人员构建一个能在危机四伏的网络世界里生存的应用程序。<br>　　作者首先介绍了安全的基本功能，其中包括资源、秘密、标识的使用、信任、身份验证和控制访问的授权。还介绍了两个特别有用的.NET功能：程序集和应用程序域。本书很多章节都会在典型的软件开发项目的不同阶段中使用它们，从而发现每个阶段的弱点并采取相应措施避免受到攻击。<br>　　　本书在后续章节中系统介绍了.NET安全的功能，其中包括运行库支持、证据、代码标识、权限、代码访问安全性（CAS）、基于角色的安全性等。在介绍了ASP.NET和COM+组件服务的章节之后，本书还特意留出了一部分章节来介绍.NET对加密的支持。并专门用一章阐述了如何使用Windows事件日志服务来检查Windows的安全事件。<br>　　　本书还包括了.NET类库中所有与安全相关的主要命名空间的API快速参考。<br>　　　考虑到负责设计和编写安全应用程序的开发人员，本书特意使用代码和通俗易懂的图形和表格来清楚地说明了丰富的指南和参考。如果用户想在编程领域快速取得进展，那么本书确实是一本不可多得的实用书籍。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5417\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>Microsoft Windows程序设计(Visual Basic.NET语言描述)</td></tr>
         <tr><td>作者</td><td>（美）Charles Petzold 著，章立民 译</td></tr>
-        <tr><td>单价</td><td>118.00</td></tr>
+        <tr><td>单价</td><td>118.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787560931425.jpg" /></td></tr>
         <tr><td>简介</td><td>Charles Petzold是全球最权威且知名的Windows程序设计专家，他将其最畅销Programming Microsoft Windows with C#一书加以改写，使之能完全适用于Visual Basic.NET的开发人员。这位畅销书的作家示范了如何使用Visual Basic.NET将Windows Forms的功能发挥到极致（Windows Forms是新一代的Windows程序设计类库）。您将学习如何使用Visual Basic的.NET版本替Windows应用程序建立动态的用户界面与图形化输出。通过丰富的用户端应用程序范例清楚示范了最常用的技术与不为人知的技巧，有了本书，您能真正深入到Visual Basic.NET的核心领域。<br>    本书内容：<br>   ·控制台本身<br>   ·Windows Forms<br>   ·基本结构<br>   ·文本输出练习<br>   ·直线、曲线与区域填充<br>   ·驾驭键盘<br>   ·页面与转换<br>   ·操纵鼠标<br>   ·文本与字体<br>   ·计时器与时间<br>   ·图像与位图<br>   ·按钮、标签与滚动条<br>   ·贝塞尔曲线与其他样条<br>   ·菜单<br>   ·路径、区域与裁剪<br>   ·对话框<br>   ·笔刷与画笔<br>   ·编辑、列表与数值微调<br>   ·字体的乐趣<br>   ·工具栏与状态栏<br>   ·打印<br>   ·树视图与列表视图<br>   ·图元文件<br>   ·剪贴与拖放</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

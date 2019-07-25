@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5082\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>More Exceptional C++中文版</td></tr>
         <tr><td>作者</td><td>（美）Herb Sutter 著，於春景 译</td></tr>
-        <tr><td>单价</td><td>39.80</td></tr>
+        <tr><td>单价</td><td>39.80</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/756092771.jpg" /></td></tr>
         <tr><td>简介</td><td>More Exceptional C++是广受赞誉是Exceptional C++的续篇，它采用了行之有效的“提问/解答”的组织形式，提供了用C++解决现实世界问题的成功策略。根据多年程序开发的实践经验、Herb Sutter向C++程序员提供了久经考验的程序设计技术和行之有效的解决方案，这些技术和方案对设计从小型工程到企业级应用的现代软件系统大有裨益。<br>   围绕着40个编程难题， More Exceptional C++引导你深刻理解成功的C++软件设计和开发中至关重要的原则和议题。本续篇包括一些新的主题，强化了泛型程序设计、内存管理、C++标准库的使用等内容，并涵盖了traits和predicates这样的重要技术。本书还就使用标准容器和算法时应该牢记的准则和要点进行了分析——其它资料很少深入涉及这一主题。<br>    读者可以在本书中找到以下重要问题的解决方案：使用std::map和std::set时会遇到哪些陷阱？如何安全地避免这些陷阱？何种predicates可以安全地和STL一起使用？何种不行？为什么？想通过“与模板协同工作的类型”的能力改变模板自身的行为吗？有什么现有的技术可以写出这种威力强大的通用模板代码？何时应该优化你的代码？如何优化？为什么花哨的优化会（而且的确会）让我们陷入麻烦？如何你是在撰写多线程安全代码，这些问题的某些答案会如何变化？异常安全问题会影响到类的设计吗？或者，它可以只是作为事后的改进手段来使用吗？在结合使用不同供应商提供的基于继承的程序库时，如何避免连体双婴问题？如何安全地使用auto-ptr？如何运用常见的设计模式来改装它，使之消除常见缺陷？可以将auto-ptr用作类的成员吗？在这样做之前，你应该了解些什么？<br>    还有，现代C++中最常见的问题之一：到底在何时使用名字空间？如何使用？<br>    More Exceptional C++是真正的程序员的必读之物，在向你展示如何用C++撰写优质代码的同时，它为你提供了对语言彻底而实用的理解。<br></td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

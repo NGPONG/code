@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5526\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>网页制作高手HTML+CSS网页设计与布局（附光盘）</td></tr>
         <tr><td>作者</td><td>文渊阁工作室 编著</td></tr>
-        <tr><td>单价</td><td>48.00</td></tr>
+        <tr><td>单价</td><td>48.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787115158642.jpg" /></td></tr>
         <tr><td>简介</td><td>本书以浅显的语言和详细的步骤介绍了在Dreamweaver中，如何运用HTML及CSS程序代码来制作网页，使网页制作更加得心应手。 <br>　　全书共包括5篇14章和3个附录，第1篇HTML基础篇为第1章至第4章，分别介绍了Dreamweaver的安装与基本操作方法和HTML基础知识、文本、图片、超级链接的设置属性。第2篇HTML进阶篇为第5章至第8章，分别介绍了如何利用HTML制作表格、框架、层和表单；第3篇CSS基础篇为第9章至第11章，分别介绍了CSS基础及Dreamweaver操作，以及如何利用CSS进行文本样式设计和背景、超级链接与鼠标指针的设计。第4篇为第12章至第14章，分别介绍了如何利用CSS进行方框样式、网页定位、列表样式及滤镜效果的制作。第5篇为附录篇，包括3个附录，分别是HTML标签速查表、CSS属性速查表和课后练习答案。 <br>　　本书适合从事网页制作、美工设计、网站开发、网页编程等行业的人员阅读参考，也可作为高等院校相关专业和社会各类相关专业培训班的教学用书。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

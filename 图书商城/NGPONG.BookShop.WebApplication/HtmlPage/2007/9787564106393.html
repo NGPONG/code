@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5798\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>超越java：探讨程序语言的未来</td></tr>
         <tr><td>作者</td><td>（美）泰特（Tate，B.A.）　著，OReilly Taiwan公司　编译</td></tr>
-        <tr><td>单价</td><td>29.00</td></tr>
+        <tr><td>单价</td><td>29.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787564106393.jpg" /></td></tr>
         <tr><td>简介</td><td>Java的存在时间已经超过10年了，在这段时间里它的成就非凡，彻底改变了我们写软件的方法和想法。但是Java已显老态，该是时候让我们想想未来接班人是谁了。<br>　　在《超越Java》一书中，Bruce Tate公正而诚实地分析Java的成就，以及为何Java是如此强大的工具。他告诉我们Java如何带领计算机编程领域向前迈进，同时也讲述在哪些方面Java会阻碍我们，在哪些方面Java对我们要做的事而言并不够灵活，在哪些地方因为政治力量而使用Java只会导致复杂度的提升。<br>　　作者研究了其他的语言和框架，提出了一些很难的问题：这些语言擅长什么？不擅长什么？其中有没有Java的接班人？它们能够像Java一样主导软件领域吗？未来的工具应该是什么样子？会像J2EE或者Ruby on Rails？说不定更激进，就像Continuation server？Bruce Tate除了与我们分享他自己的观察结果，也访问并概括了许多开放源代码Java和Ruby社区的领导人的看法。<br>　　不管你是否同意Tate的结论，你都会发现这本书相当激励人心。不管你继续使用Java还是改用其他技术，这本书都可以帮助你思考写程序的方式、怎样提高生产力、什么东西会阻挠你。这本书可以帮助你开妈认清Java以外的世界，接班人就要出现了。<br><br>　　作者简介：Bruce A.Tate是一位泛舟者、越野车骑士、父亲、作家及Java程序员，住在德克萨斯州的奥斯汀。他写了5本书，包括获得Jolt奖的《轻快的Java》（O'Reilly出版）以及热卖的《Bitter Java》（Manning出版）。他有17年的工作经验，包括在IBM工作、两次失败的创业以及开办了自己的叫做J2Life，LLC的独立顾问公司。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

@@ -17,26 +17,15 @@ namespace NGPONG.BookShop.WebApplication.ashx.BooksInfo
         {
             context.Response.ContentType = "text/plain";
 
-            // 判断用户是否离线
-            if (context.Session["UserInfo"] == null)
-            {
-                context.Response.Write(jsonSerializer.Serialize(new
-                {
-                    IsSuccess = false,
-                    Message = (context.Request.Cookies["cp1"] != null && context.Request.Cookies["cp2"] != null) ? string.Empty : "用户名已过期，请重新登录",
-                    Status = "302",
-                    RedirectUrl = $"/Member/Login.aspx?RedirectUrl={context.Request.UrlReferrer.ToString()}"
-                }));
-
-                context.Response.End();
-            }
-
             if (context.Request.Form["Action"] == "Select")
             {
                 LoadComment(context);
             }
             else
             {
+                // 检查用户在线状态
+                CheckUserLogin(context);
+
                 string msg = new Articel_WordsService().CheckReplace(context.Server.HtmlEncode(context.Request["txtContent"]));
 
                 bool isMod;
@@ -62,7 +51,22 @@ namespace NGPONG.BookShop.WebApplication.ashx.BooksInfo
                 }
             }
         }
+        private void CheckUserLogin(HttpContext context)
+        {
+            // 判断用户是否离线
+            if (context.Session["UserInfo"] == null)
+            {
+                context.Response.Write(jsonSerializer.Serialize(new
+                {
+                    IsSuccess = false,
+                    Message = (context.Request.Cookies["cp1"] != null && context.Request.Cookies["cp2"] != null) ? string.Empty : "用户名已过期，请重新登录",
+                    Status = "302",
+                    RedirectUrl = $"/Member/Login.aspx?RedirectUrl={context.Request.UrlReferrer.ToString()}"
+                }));
 
+                context.Response.End();
+            }
+        }
         private void LoadComment(HttpContext context)
         {
             string bookId = context.Request["BookId"];
@@ -75,11 +79,13 @@ namespace NGPONG.BookShop.WebApplication.ashx.BooksInfo
             for (int i = 0; i < bookComments.Count; i++)
             {
                 bookComments[i].CreateDateTime = WebCommon.ConvertCommentCreateDate(Convert.ToDateTime(bookComments[i].CreateDateTime));
+                bookComments[i].Msg = context.Server.HtmlEncode(bookComments[i].Msg);
                 if (bookComments[i].CommentReceives != null)
                 {
                     for (int j = 0; j < bookComments[i].CommentReceives.Count; j++)
                     {
                         bookComments[i].CommentReceives[j].CreateDateTime = WebCommon.ConvertCommentCreateDate(Convert.ToDateTime(bookComments[i].CommentReceives[j].CreateDateTime));
+                        bookComments[i].CommentReceives[j].Msg = context.Server.HtmlEncode(bookComments[i].CommentReceives[j].Msg);
                     }
                 }
             }
@@ -142,7 +148,7 @@ namespace NGPONG.BookShop.WebApplication.ashx.BooksInfo
 
             var bookCommentReceive = new Model.BookCommentReceive()
             {
-                CommentId = context.Request["CommentId"].Replace("'",string.Empty),
+                CommentId = context.Request["CommentId"].Replace("'", string.Empty),
                 Msg = msg,
                 UserId = userInfo.LoginId,
                 CreateDateTime = DateTime.Now.ToString()
@@ -178,7 +184,7 @@ namespace NGPONG.BookShop.WebApplication.ashx.BooksInfo
                 }));
             }
         }
-        public void CheckWords(HttpContext context,string msg, out bool flag)
+        public void CheckWords(HttpContext context, string msg, out bool flag)
         {
             flag = false;
 

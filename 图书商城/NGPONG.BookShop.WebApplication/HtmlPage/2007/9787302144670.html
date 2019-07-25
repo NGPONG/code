@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5845\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>VISUAL STUDIO HACKS:100个业界最尖端的技巧和工具</td></tr>
         <tr><td>作者</td><td>（美）艾弗里　著，朱剑平　译</td></tr>
-        <tr><td>单价</td><td>59.00</td></tr>
+        <tr><td>单价</td><td>59.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787302144670.jpg" /></td></tr>
         <tr><td>简介</td><td>无论从哪个平台上说，Visual Studio都是最好的集成开发环境，有了它，NET开发工作将变得极其容易。Visual Studio之所以如此诱人是因为用户只需花短短几个小时就可以熟悉它的用法，并获得惊人的工作效能。尽管如此，还是有许多鲜为人知的特性潜伏在它的表面之下，用户自己不太容易发现它们。<br>　　本书中包含了100个来自Visual Studio专家的技巧与工具，向你展示如何把这个已经强大无比的IDE带向全新的高度。每花一分钟时间阅读这些hack，就能节省数小时的研究时间。在本书中，将学到如下内容：<br>　　·如何控制项目与解决方案，包括程序集引用、项目引用。学习如何对项目与解决方案文件进行剖析。<br>　　·掌握Visual Studio编辑器——从关剪贴板到代码重构，用户将学会如何让编辑器为自己做更多的工作。<br>　　·如何通过宏、插件与Tweak自定义从键盘快捷键到工具栏的各个项目，扩展并增强Visual Studio。<br>　　·掌握Visual Studio的调试器，学习调试脚本代码与SQL的方法，使用用户观察器扩展调试器功能，并深入了解断点。<br>　　·探索能集成到Visual Studio中的新信息源，包括Google搜索结果与其他联机信息资源。<br>　　·通过应用单元测试编写更健壮的代码，从而更容易地创建文档，并能过博客与代码段知识库与他人共享代码。<br>　　本书是为从初学者到经验丰富的NET开发人员编写的。书中有大量实用的、独创的点子与技巧可供用户立即使用。不论用户是想掌握诸如调试器与代码编辑器这样的核心功能，还是希望以其他开发人员想都不敢想的方法扩展Visual Studio，本书都将助你心想事成。<br>　　适用于所有版本的Visual Studio。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5141\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>JSP设计（第三版）/O’Reilly Java系列</td></tr>
         <tr><td>作者</td><td>（美）鲍格斯坦（Bergsten，H.） 著，林琪，朱涛江 译</td></tr>
-        <tr><td>单价</td><td>79.00</td></tr>
+        <tr><td>单价</td><td>79.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787508322735.jpg" /></td></tr>
         <tr><td>简介</td><td>自1999处JSP 1.0发布以来，JavaServer Pages（JSP）可谓掀起了一场风暴，其追随者蜂拥而至。JSP为企业Java开发人员提供了一个开发动态Web网站和Web应用的灵活工具。随着JSP标准标记库（JSTL）的引入，JSP规范第一版中略显粗糙的方面也有了大幅改进，JSP 2.0则将此技术又推向了一个新的高度。<br>    《JSP设计（第三版）》得到了充分的修订和更新，以涵盖JSP 2.0和JSTL 1.1规范。其中详细介绍了JSP 2.0中新增的表达式语言（EL）、JSTL 1.1标记库和新的函数库、支持定制标记库开发（而无须Java代码）的新标记文件格式、简化的Java标记库API、在JSP XML语法方面所做出的改进等等。不仅如此，在此还详尽地描述了Apache Tomcat服务器的建立、JSP和JSTL语法和特征、错误处理和调试、鉴别和个人化、数据库访问、XML处理和国际化等诸多内容。<br>    希望学习JSP的专业人士可以划归为两大阵营，而这本书也充分认识到这两大阵营存在着不同的需求：网页设计人员感兴趣的是如何在Web页面中使用JSP元素，而程序员则更希望了解JSP API，以及如何将JSP有效地用做企业应用的一部分。如果你身为网页设计人员，那么会从本书第二部分的实用Web应用示例中获益匪浅。如果你是一个程序员，则会对第三部分详细介绍的高级主题倍加推崇，例如如何使用流行的Apache Struts MVC（模型-视图-控制器）框架将Servlet和JavaBeans组件与JSP集成，以及如何使用JSP API开发定制标记库，在此还提供了一些实际示例，开发你自己的标记库时可以将这些示例作为起点。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

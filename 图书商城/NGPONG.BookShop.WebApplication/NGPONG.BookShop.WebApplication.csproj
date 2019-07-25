@@ -42,6 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.DynamicData.Design" />
@@ -701,6 +704,64 @@
     <Content Include="Css\imgareaselect-default.css" />
     <Content Include="Css\style.css" />
     <Content Include="Css\tableStyle.css" />
+    <Content Include="Css\themes\base\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Css\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Css\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Css\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Css\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Css\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Css\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Css\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Css\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Css\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Css\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Css\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Css\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Css\themes\base\jquery.ui.all.css" />
+    <Content Include="Css\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Css\themes\base\jquery.ui.base.css" />
+    <Content Include="Css\themes\base\jquery.ui.button.css" />
+    <Content Include="Css\themes\base\jquery.ui.core.css" />
+    <Content Include="Css\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Css\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Css\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Css\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Css\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Css\themes\base\jquery.ui.slider.css" />
+    <Content Include="Css\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Css\themes\base\jquery.ui.theme.css" />
+    <Content Include="Css\themes\ui-lightness\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Css\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Css\themes\ui-lightness\jquery-ui-1.8.2.custom.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.accordion.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.all.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.autocomplete.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.base.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.button.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.core.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.datepicker.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.dialog.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.progressbar.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.resizable.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.selectable.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.slider.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.tabs.css" />
+    <Content Include="Css\themes\ui-lightness\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\BookCovers\9787560925110jpg" />
     <Content Include="ashx\CheckVerCode.ashx" />
@@ -714,6 +775,9 @@
     <Content Include="ckeditor\_samples\adobeair\run.bat" />
     <Content Include="ckeditor\_samples\adobeair\run.sh" />
     <Content Include="ckeditor\_samples\assets\output_for_flash.fla" />
+    <Content Include="ProcessShorpingCart.ashx" />
+    <Content Include="ashx\ProcessShoppingCart.ashx" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2456,6 +2520,9 @@
     <Compile Include="ashx\FindPwd.ashx.cs">
       <DependentUpon>FindPwd.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\ProcessShoppingCart.ashx.cs">
+      <DependentUpon>ProcessShoppingCart.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\Users\AddUsersInfo.ashx.cs">
       <DependentUpon>AddUsersInfo.ashx</DependentUpon>
     </Compile>
@@ -2523,6 +2590,9 @@
     </Compile>
     <Compile Include="Member\Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessShorpingCart.ashx.cs">
+      <DependentUpon>ProcessShorpingCart.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ashx\VerificationCode.ashx.cs">

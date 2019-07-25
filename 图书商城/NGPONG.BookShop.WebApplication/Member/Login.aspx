@@ -32,6 +32,10 @@
                         }
                         else {
 
+                            if (data.RedirectUrl == "") {
+
+                                data.RedirectUrl = "/Member/Default.aspx";
+                            }
                             window.location.href = data.RedirectUrl;
                         }
                     }

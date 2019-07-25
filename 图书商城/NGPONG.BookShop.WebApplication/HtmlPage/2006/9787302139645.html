@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5785\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>Jakarta Commons Cookbook 中文版</td></tr>
         <tr><td>作者</td><td>（美）奥布莱恩　著，乔健　等译</td></tr>
-        <tr><td>单价</td><td>45.00</td></tr>
+        <tr><td>单价</td><td>45.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787302139645.jpg" /></td></tr>
         <tr><td>简介</td><td>Java一直承诺向开发人员提供可重用、模块化和可移植的特性。开发者无需从头构建，而是可以对已有的框架和组件进行扩展，或按需定制。一个典型的例子就是万维网联盟（W3C）定义的DOM接口。应用程序开发人员很少会去编写自己的XML解析器，但他们常常编写自己的组件，而这些组件的功能在一些自由软件库中已经实现了，只是开发者们不知道这些开源组件的存在罢了。本书采用O'Reilly Cookbook系列丛书所惯用的“问题－求解”模式，概述了可供使用的软件库，从而为开发者提供使用这些工具的桥梁。这里仅列出部分本书所涵盖的Commons项目和组件：<br>　　●对核心Java语言的扩展，包括字符串和日期操作、字符串编码和参数验证<br>　　●对XML的支持，从解析、生成文档到使用搜索引擎索引XML文档所需的 XPath<br>　　●模板化框架，它使你能超越JSP的基本功能，不仅Web页面，甚至XML 文件或者电子邮件都能够进行模板化<br>　　●使用FTP、SMTP、POP、NNTP，特别是HTTP和WebDAV等功能所需的工具<br>　　●使用函子进行编程的新方法，包括使用Predicate、Closure、Transforme r和Functor替换控制结构，如for和while<br>　　●新的Collection和Collection工具，包括LRU Map、predicated collection、适用于Java 1.4的typed collection、filtering iterator和 set操作<br>　　●对JavaBean的扩展，从bean到map的转换至序列化bean为XML字符串<br>　　●提供对矩阵、复数、线性回归支持的新数学工具库<br>　　●对Jakarta Commons组件和Maven、Ant协同使用的指导<br>　　●日志和编码<br>　　仅仅了解一两个有用的工具类是不够的，你必须能意识到其他的可能性，并对所选技术的背景有所了解。如果您希望摆脱令人手忙脚乱的编程方法并熟练掌握Java语言，本书正是您所需要的工具。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

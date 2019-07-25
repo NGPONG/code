@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"4970\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>Effective C++ Third Edition ：改善程序技术与设计思维的55个有效做法（英文版）</td></tr>
         <tr><td>作者</td><td>（美）玛雅尔斯（Meyers,S.)  著</td></tr>
-        <tr><td>单价</td><td>45.00</td></tr>
+        <tr><td>单价</td><td>45.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/7121008270.jpg" /></td></tr>
         <tr><td>简介</td><td>有人说C++程序员可以分成两类，读过Effective C++的和没读过的。然而世界顶级C++大师Scott Meyers成名之作的第三版的确这样深入。或许有点夸张了，但无论如何，当您拥有这本书之后，就获得了迅速提升自己C++功力的一个契机。<br>    在国际上﹐本书所引起的反响之大﹐波及整个计算器技术出版领域﹐余音至今未绝。几乎在所有C++书籍的推荐名单上﹐本书都会位于前三名。作者高超的技术把握力﹐独特的视角﹑诙谐轻松的写作风格﹑独具匠心的内容组织﹐都受到极大的推崇和仿效。甚至连本书简洁明快的命名风格﹐也有着一种特殊的号召力﹐我可以轻易列举出一大堆类似名字﹐比如Meyers本人的More Effective C++和Effective STL﹐Don Box的EffectiveCOM﹐Stan Lippman主编的Efficient C++系列﹐Herb Sutter的Exceptional C++等等。要知道﹐这可不是出版社的有意安排﹐而且上面这些作者﹐同样是各自领域里的绝顶大师﹐决非人云亦云﹑欺世盗名之辈。这种奇特的现象﹐只能解释为人们对这本书衷心的赞美和推崇。<br>    这本书不是读完一遍就可以束之高阁的快餐读物，也不是能够立刻解决手边问题的参考手册，而是需要您去反复阅读体会，极力融入自己思想之中，融入自己每一次敲击键盘的动作之中。C++是真正程序员的语言，背后有着精深的思想与无以伦比的表达能力，这使得它具有类似宗教般的魅力。希望这本书能够帮助您跨越C++的重重险阻，领略高处才有的壮美，做一个成功而快乐的C++程序员。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

@@ -62,3 +62,7 @@ C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\obj\Deb
 C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\obj\Debug\NGPONG.BookShop.WebApplication.pdb
 C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\obj\Debug\NGPONG.BookShop.WebApplication.Properties.Resources.resources
 C:\Users\NGPONG\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\obj\Debug\NGPONG.BookShop.WebApplication.csproj.GenerateResource.cache
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\obj\Debug\NGPONG.BookShop.WebApplication.Properties.Resources.resources
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\obj\Debug\NGPONG.BookShop.WebApplication.csproj.GenerateResource.cache
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\bin\Newtonsoft.Json.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.WebApplication\bin\Newtonsoft.Json.xml

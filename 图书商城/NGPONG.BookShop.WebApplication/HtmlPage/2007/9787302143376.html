@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5511\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>XML　HACKS:100个业界最尖端的技巧和工具</td></tr>
         <tr><td>作者</td><td>（美）菲茨杰拉德　著，靳京，徐亚莉　译</td></tr>
-        <tr><td>单价</td><td>59.00</td></tr>
+        <tr><td>单价</td><td>59.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787302143376.jpg" /></td></tr>
         <tr><td>简介</td><td>本书适用于那些喜欢收集各种免费或低成本工具和技术、使用XML作为标准来实际解决问题的人们。本书希望能满足各种读者的需要：无论是刚刚开始学习XML还是已经非常熟悉的读者。即使是专家也能够在书中的hack中发现解决其关注难题的新方法，例如Rick Jelliffe有关使用SGML将Wiki转换为XML的hack［Hack＃94］。由于本书覆盖了许多领域，因而不管用户使用XML到哪种程度都可以满足自己的某种需要。<br>　　本书的任务就是为读者在使用XML进行或常见或不常见的开发时提供一个良好开端。尽管本书为读者提供了初级、中级和高级hack，但并未囊括使用XML能够做的所有事情，而是着眼于主流，即XML领域内的核心任务。这些任务可快速完成，并且通常使用可下载的、开源软件或者提供免费试用版的软件。<br>　　本书分为七章，下面简要描述第一章的内容：<br>　　第1章：查看XML文档<br>　　本章包含一系列介绍性的hack，包括对XML文档的外观是什么样子、如何在浏览器中显示XML文档、如何使用CSS设计XML文档，以及如何使用命令行的Java应用程序处理XML的概述。<br>　　第2章：创建XML文档<br>　　教会读者如何使用各种编辑器编辑XML，使用的编辑器包括Vim、Emacs、<oXygen/>、及Microsoft Office　2003应用程序。其中还包括教会读者如何使用xmlspy将一个纯文本文件转换为XML，如何将CSV翻译为XML，以及如何使用HTML　Tidy将HTML转换为XHTML。<br>　　第3章：转换XML文档<br>　　研究了使用XSLT和其他工具将XML转换为CSV，将iTunes库（plist）文件转换为HTML，使用grept和sed转换XML文档，以及使用XSLT生成SVG的各种方法。<br>　　第4章：XML词汇<br>　　帮助读者了解命名空间和RDDL，描述了如何以FOAF形式使用常规XML词汇和架构，如XHTML、DocBook、RDDL和RDF。<br>　　第5章：使用模式语言定义XML词汇<br>　　本章介绍使用DTD、XML　Schem、RELAX NG和Schematron生成合法的XML。还阐明了如何从实例生成模式，如何从模式生成实例，以及如何将一种模式语言转换为另一种模式语言。<br>　　第6章：RSS与Atom<br>　　教会读者如何使用新闻阅读器预订RSS提要，如何创建RSS0.91、RSS1.0、RSS2.0和Atom文档，如何使用Movable Type模板从Google查询生成RSS。<br>　　第7章：XML高级Hack<br>　　教会读者如何在一个Ant流水线中执行XML任务，如何使用Cocoon，以及如何使用DOM、SAX、Genx和C＃的System.Xml命名空间工具处理XML文档。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

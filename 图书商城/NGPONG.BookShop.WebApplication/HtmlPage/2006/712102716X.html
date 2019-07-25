@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5326\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>.NET精简框架程序设计:C#版</td></tr>
         <tr><td>作者</td><td>（美）姚（Yao，Y.），（美）杜朗（Durant，D.）著，刘新军，盛泉，李辛鹤  译</td></tr>
-        <tr><td>单价</td><td>80.00</td></tr>
+        <tr><td>单价</td><td>80.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/712102716X.jpg" /></td></tr>
         <tr><td>简介</td><td>20年前，当Windows刚诞生的时候(Windows 1．01)，Paul Yao和David Durant的著作《Windows程序员指南》帮助许多程序员克服了面对Windows平台带来的困难，带领第一批程序员从MS-DOS的世界跨入Windows开发的殿堂。当．NET精简框架刚诞生的时候，二位专家又经过多年潜心跟踪与研究，并与．NET精简框架开发团队紧密合作，推出了《．NET精简框架编程》，带领广大Windows程序员从成熟的桌面开发转入潜力无限的移动及嵌入式设备开发。 <br>    本书涵盖了．NET精简框架开发的方方面面，如语言基础、用户界面、数据管理、创建图形输出等。书中详细地描述了编程的具体方法，使没有． NET精简框架开发经验甚至没有Windows开发经验的程序员轻松上手。更难能可贵的是，书中还深入阐述了这些方法后面的来龙去脉及分析比较，使读者不仅Know How，而且Know why。 <br>    本书的另一个显著特点是提供了大量的示例代码，以或大或小的例子形象展示了各种方法的应用场景和技巧。<br>    可以说，不论你是刚入门的初学者还是经验丰富的高手，《.NET精简框架程序设计——C#版》都是你权威的指南和参考手册。<br>    作者简介：<br>    Paul Yao是Paul Yao公司的总裁。Paul Yao是给软件工程师提供基于Microsoft Windows软件技术的教育和咨询服务的公司。他已经编写了七本关于Windows编程的书籍。包括与David Durant共同编写的关于Windows编程这个专题的第一本书Programmer's Guide to Windows（Sybex，1987）。Paul还是MSDN的主要编辑之一，定期为Windows CE和Pocket Pc开发者撰写文章。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

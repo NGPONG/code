@@ -15,6 +15,17 @@ body {
     text-decoration: none
 }
 
+.buy_now {
+    background: #e92324;
+    color: #969696;
+    font-size: 15px;
+    border: 1px solid #d5d5d5;
+    font-weight: 700;
+    font-family: "microsoft yahei","Î¢ÈíÑÅºÚ";
+    padding: 10px 40px;
+    border-radius: 5px;
+}
+
 .headmain {
     clear: both;
     PADDING-RIGHT: 0px;

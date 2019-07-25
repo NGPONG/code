@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5827\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>JavaScript权威指南(第五版)</td></tr>
         <tr><td>作者</td><td>（美）费拉纳提　著，李强　等译</td></tr>
-        <tr><td>单价</td><td>109.00</td></tr>
+        <tr><td>单价</td><td>109.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787111216322.jpg" /></td></tr>
         <tr><td>简介</td><td>《JavaScript权威指南第4版》中文版出版至今已有三年多的时间。这本《JaVaScript权威指南》连续印刷5次，销售数十万册，成为很多JavaScript学习者的必备宝典。由于其封面上是一只“爪哇犀牛”（封面上印上动物是原书出版公司O'Reilly一贯的风格），读者亲切地称其为“犀牛书”。<br>　　随着Ajax和Web 2.0技术的提出和流行，JavaScript再度受到广大技术人员的重视。但却没有一本从全新视角和层次来介绍JavaScript的参考书。《JavaScript高级程序设计》的出版填补了市场的空白，吸引了众多读者的目光，并且也获得相当不错的销售。而当时，《JavaScript权威指南》原书还处在改版之中。现在，《JaVascript权威指南第5版》虽然姗姗来迟，但必定会给众多期待本书的读者带来如沐春风的感觉。<br>　　第5版针对Ajax和Web 2.0技术进行了全新的改版。和上一版相比，更新的内容较多，总体上接近整个篇幅的1／2，而这也正是本书姗姗来迟的原因之一。具体来说，第5版在以下部分有所更新：<br>　　第一部分关于函数的一章（第8章）进行了扩展，特别强调了嵌套的函数和闭包。新增了自定义类、名字空间、脚本化Java、嵌入JavaScript等内容。 <br>　　第二部分最大的改变是增加了如下的大量新内容。包括第19章“cookie和客户端持久性”，第20章“脚本化HTTP”，第21章“JavaScipt和XML”，第22章“脚本化客户端图形”，第23章“脚本化Java Applets和Flash电影”。<br>　　第三部分几乎没有太大变化。而第四部分增加了对DOM API的介绍。<br>　　总体上分为“基础知识点介绍”和“参考指南”两部分，这是本书的一大特色。从之前版本受欢迎的程度来看，这种结构得到了读者相当大的认可，满足了他们学习基础知识和参考查阅难点的双重需要。而这也是其他同类图书所不及的。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5840\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>Java 5.0 Tiger　程序高手秘笈</td></tr>
         <tr><td>作者</td><td>（美）麦克劳夫林（Mclaughlin.B），（美）弗拉纳根（Flanagan,D.）  著</td></tr>
-        <tr><td>单价</td><td>28.00</td></tr>
+        <tr><td>单价</td><td>28.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787564101206.jpg" /></td></tr>
         <tr><td>简介</td><td>代号为 “Tiger”的下一个 Java 版本，不只是个小改动版。在语言核心中有超过 100 项以上的变动，同时有大量的对 library 与 API 所做的加强，让开发者取得许多新的功能、工具与技术。但在如此多的变化下，应该从何处开始着手？也许可以从既长又无趣的语言规范说明书开始看起；或等待最少 500 页的概念与理论巨著出版；甚至还可以直接把玩新的 JDK 看看能够有什么发现；或者借由《Java 5.0 Tiger：程序高手秘笈》来做个彻底研究。<br>    这本书由 Java 界的畅销作家 Brett McLaughlin 与 David Flanagan 合著，实事求是、直中要害的指引跳过了学院派的枯燥而切入 Tiger 的核心。读者会在第一章的结束前掌握语言中许多重要的新功能，并且在前 20 页就会发现自己沉浸于程序代码中。通过 50 个以上的范例程序，读者会有完整且实用的 generic 论述、学习到 boxing 与 unboxing是 如何影响类别转换、认识 vararg 的威力、了解如何撰写 enumerated 类型与 annotation，精通 Java的 新的格式化 method 以及 for/in 循环，甚至对 JVM 的并发运作性质有深刻的体认。<br>    在阅读过程中，读者会认识到：<br>    · generic ，包括了类型安全的 collection 与自行定义 generic 的 class 。<br>    · Enumerated 类型与值，以及与 public static final 常量间的关系。<br>    · Tiger 在 primitive 类型与 wrapper 类型间的 autoboxing 与 auto-unboxing 转换。<br>    · 可变参数（vararg），包括了自定义 vararg 的 method 。<br>    · Tiger 对编译器检查 annotation提供 的大量支持。<br>    · for/in 循环。<br>    · 新的 format() 与 printf() 格式化method 。<br>    · 在 Tiger 中的并发运作性质，包括了 lock、scheduling timer、thread中未捕获的 exception ，以及新的 Callable interface 。</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

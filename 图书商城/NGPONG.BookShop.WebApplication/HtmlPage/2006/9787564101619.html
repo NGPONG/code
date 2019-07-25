@@ -6,9 +6,11 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
 
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
     <link href="/Css/tableStyle.css" rel="stylesheet" />
     <link href="/Css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script>
         // 载入回复
         function loadData() {
@@ -55,7 +57,7 @@
             for (var i = 0; i < data.length; i++) {
 
                 var bookComment = data[i];
-                htmlDataReturn += "<li><span>[" + bookComment.UserName + "]：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
 
                 // 该条评论是否存在回复信息
                 if (bookComment.CommentReceives != null) {
@@ -65,7 +67,7 @@
                     for (var j = 0; j < CommentReceive.length; j++) {
 
                         var commentReceiveItem = CommentReceive[j];
-                        htmlDataReturn += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
                     }
                     htmlDataReturn += "</ul>";
                 }
@@ -89,6 +91,41 @@
         $(document).ready(function () {
 
             loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5817\",\"qty\":1}",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
 
             $("#btnCancel").click(function () {
 
@@ -192,13 +229,12 @@
     <table>
         <tr><td>书名</td><td>JavaServer Faces交互式网站界面设计</td></tr>
         <tr><td>作者</td><td>（美）伯格斯腾（Bergsten,H.）  著，O’Reilly Taiwan公司  编译</td></tr>
-        <tr><td>单价</td><td>65.00</td></tr>
+        <tr><td>单价</td><td>65.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
         <tr><td>封面</td><td><img src="/Images/BookCovers/9787564101619.jpg" /></td></tr>
         <tr><td>简介</td><td>“为什么Web UI做不到像一般GUI那样的效果？”、“为什么不能像写GUI程序那样来写网站应用系统？”、“为何依照MVC原则设计出来的系统，前台网页里仍然含有条件判断与循环等不应该出现的东西？”。如果这些是你曾遇到的问题，现在这些问题有一个共同的解决方案：JavaServer Faces（JSF）。<br>    JSF是Sun宣称Java将朝向“容易开发”（Easy Development）发展的第一个成果。JSF使得MVC设计模式得以被更彻底贯彻，让不同专长的人才可以更容易合作，让应用系统开发团队的日子更好过些。正如其名称的暗示，JSF是打造网站门面的技术。使用JSF的优点是显而易见的，对于网页美工人员而言，将程序组件嵌入网页就像增加普通HTML标记一样容易；对于后台系统的程序员而言，用不着再顾虑HTTP的交互细节，而可以使用传统GUI程序的设计模式（事件驱动模型）来设计网站应用系统。更棒的是，JSF开创了一大片可供开发工具厂商挥洒的空间，在不久的将来，或许设计Web UI就像设计Swing GUI一样，用鼠标拖拉几个组件并设定组件的一些属性就可以弄出一个动人的网站系统门面。<br>    本书作者Hans Bergsten是参与JSF规范制定工作的专家之一，他以一个具体的范例，逐步引导读者学习如何使用JSF开发网站应用系统，并解释JSF如何解决最常见的开发难题。使用JSF组件制作网页的美工人员并不需要这本书，因为在网页里使用JSF组件的语法简单到不行；但是对于设计JSF组件给美工人员使用的Java程序员，本书不可不读。<br>    本书涵盖的主题如下：<br>    ●JSF的软件环境与开发环境<br>    ●国际化<br>    ●Structs与JSF的集成，以及如何从Structs转换到JSF<br>    ●控制网页导览<br>    ●表格数据的操作<br>    ●组件的创建与绘制<br>    ●验证输入数据的正确性<br>    ●处理用户触发的事件<br>    ●开发自己的绘制器、组件以及view handler<br>    ●完整的JSF规范参考资料</td></tr>
     </table>
     <hr />
-    <ul id="commentList" class="itcast_comments">
-    </ul>
+    <ul id="commentList" class="itcast_comments"></ul>
     <a name="linkContent"></a>
     <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
     <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
@@ -217,6 +253,9 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>
