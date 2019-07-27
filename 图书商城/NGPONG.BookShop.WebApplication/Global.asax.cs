@@ -31,7 +31,7 @@ namespace NGPONG.BookShop.WebApplication
             string url = Request.AppRelativeCurrentExecutionFilePath;
 
             Match match;
-            match = Regex.Match(url, @"~/Member/BookList_([a-zA-Z0-9_-]).aspx");
+            match = Regex.Match(url, @"~/Member/BookList_([a-zA-Z0-9_-]+).aspx");
             if (match.Success)
             {
                 Context.RewritePath("~/Member/BookList.aspx?PaginalNumber=" + match.Groups[1].Value);

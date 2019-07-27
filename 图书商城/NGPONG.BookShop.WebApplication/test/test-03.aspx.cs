@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,11 +13,9 @@ namespace NGPONG.BookShop.WebApplication.test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                // 为了解决在进行一次submit后，刷新当前页面表单元素还会重复提交的问题
-                Response.Redirect(Request.Url.ToString());
-            }
+            //[{"bookid":"1","Msg":"hahah"},{"bookid":"2","Msg":"NGPONG"}]
+            this.Repeater1.DataSource = JsonConvert.DeserializeObject<JArray>("[{\"bookid\":\"1\",\"Msg\":\"hahah\"},{\"bookid\":\"2\",\"Msg\":\"NGPONG\"}]");
+            this.Repeater1.DataBind();
         }
     }
 }

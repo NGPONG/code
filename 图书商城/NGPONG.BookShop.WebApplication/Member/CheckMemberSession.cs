@@ -6,7 +6,7 @@ using System.Web.SessionState;
 
 namespace NGPONG.BookShop.WebApplication.Member
 {
-    public class CheckMemberSession : System.Web.UI.Page, IRequiresSessionState
+    public class CheckMemberSession : System.Web.UI.Page
     {
         private bool _isRedirect;
 

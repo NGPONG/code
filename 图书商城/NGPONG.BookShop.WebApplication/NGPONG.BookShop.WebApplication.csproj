@@ -775,6 +775,7 @@
     <Content Include="ckeditor\_samples\adobeair\run.bat" />
     <Content Include="ckeditor\_samples\adobeair\run.sh" />
     <Content Include="ckeditor\_samples\assets\output_for_flash.fla" />
+    <Content Include="Member\ShoppingCart.aspx" />
     <Content Include="ProcessShorpingCart.ashx" />
     <Content Include="ashx\ProcessShoppingCart.ashx" />
     <None Include="packages.config" />
@@ -2583,6 +2584,13 @@
     </Compile>
     <Compile Include="Member\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

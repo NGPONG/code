@@ -99,7 +99,7 @@
                     url: "/ashx/ProcessShoppingCart.ashx",
                     async: true,
                     dataType: "json",
-                    data: "productInfo={\"bookId\":\"4990\",\"qty\":1}",
+                    data: "productInfo={\"bookId\":\"4990\",\"qty\":1}&Action=Add",
                     success: function (data, textStatus, jqXHR) {
 
                         if (!data.IsSuccess) {
@@ -255,7 +255,7 @@
         </table>
     </div>
     <div id="showResult" style="display:none">
-        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/Member/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
     </div>
 </body>
 </html>

@@ -15,7 +15,10 @@ namespace NGPONG.BookShop.BLL
         {
             return new BooksDAL().GetBooksList(currentPage);
         }
-
+        public List<Book> GetBooksList(string bookIds)
+        {
+            return new BooksDAL().GetBooksList(bookIds);
+        }
         public List<Book> GetAllBooksList()
         {
             return new BooksDAL().GetAllBooksList();

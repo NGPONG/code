@@ -155,8 +155,7 @@ namespace NGPONG.BookShop.Common.Helper
         {
             try
             {
-                DataTable resultTable = new DataTable();
-
+                List<T> t_List = new List<T>();
                 using (SqlConnection connection = new SqlConnection(SqlHelper.SqlConnectionCharacter))
                 {
                     connection.Open();
@@ -169,25 +168,23 @@ namespace NGPONG.BookShop.Common.Helper
                         {
                             cmd.Parameters.AddRange(parms);
                         }
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            adapter.Fill(resultTable);
+                            while (reader.Read())
+                            {
+                                T t = new T();
+                                Type t_Type = t.GetType();
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    var typeProperty = t_Type.GetProperty(reader.GetName(i));
+                                    typeProperty?.SetValue(t, Convert.ChangeType(reader.GetValue(i), typeProperty.PropertyType));
+                                }
+                                t_List.Add(t);
+                            }
                         }
                     }
                 }
-                
-                List<T> t_List = new List<T>();
-                for (int i = 0; i < resultTable.Rows.Count; i++)
-                {
-                    T t = new T();
-                    Type t_Type = t.GetType();
-                    for (int j = 0; j < resultTable.Columns.Count; j++)
-                    {
-                        t_Type.GetProperty(resultTable.Columns[j].ColumnName)?.SetValue(t, resultTable.Rows[i][j].ToString());
-                    }
-                    t_List.Add(t);
-                }
-
                 return t_List;
             }
             catch (Exception objException)
@@ -199,6 +196,46 @@ namespace NGPONG.BookShop.Common.Helper
                 throw new Exception(objException.Message);
             }
         }
+        /// <summary>
+        ///  获取查询结果集
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="parms">参数</param>
+        /// <returns>查询结果</returns>
+        public static DataTable GetDataTable(string sql, params SqlParameter[] parms)
+        {
+            try
+            {
+                DataTable dtResult = new DataTable();
+                using (SqlConnection connection = new SqlConnection(SqlHelper.SqlConnectionCharacter))
+                {
+                    connection.Open();
 
+                    using (SqlCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length > 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dtResult);
+                        }
+                    }
+                }
+                return dtResult;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
     }
 }

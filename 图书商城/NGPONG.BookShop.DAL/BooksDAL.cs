@@ -27,6 +27,16 @@ namespace NGPONG.BookShop.DAL
             return SqlHelper.GetDataList<Book>(sql.ToString(), parms);
         }
 
+        public List<Book> GetBoosDataTable(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Book> GetBooksList(string bookIds)
+        {
+            return SqlHelper.GetDataList<Book>($"select * from books where id in ({bookIds})");
+        }
+
         public List<Book> GetAllBooksList()
         {
             return SqlHelper.GetDataList<Book>("select * from books");

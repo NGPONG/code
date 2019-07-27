@@ -39,74 +39,204 @@ namespace NGPONG.BookShop.WebApplication.ashx
                 context.Response.End();
             }
 
-            /*
-               离线状态：把此次所提交的购物车内容继续存放到Cookie返回给Client
-               在线状态：把此次所提交的内容加所提交的Cookie所存放的购物车内容扔进数据库，并且清空Cookie所存放的购物车内容
-            */
-            if (context.Session["UserInfo"] != null)
+            string action = context.Request.Form["Action"];
+
+            // 添加：手动点击添加至购物车或通过在购物车页面上的+-号进行添加
+            if (action == "Add")
             {
-                // 如果有Cookie提交上来，证明用户之前是在未登录状态下添加的购物车信息
-                if (cookieRequestExpando != null)
+                /*
+                   离线状态：把此次所提交的购物车内容继续存放到Cookie返回给Client
+                   在线状态：把此次所提交的内容加所提交的Cookie所存放的购物车内容扔进数据库，并且清空Cookie所存放的购物车内容
+                */
+                if (context.Session["UserInfo"] != null)
                 {
-                    ProcessCartCookieExpando(cookieRequestExpando, productInfo);
-
-                    CartService cartService = new CartService();
-
-                    // 添加信息
-                    foreach (var jToken in cookieRequestExpando)
+                    // 如果有Cookie提交上来，证明用户之前是在未登录状态下添加的购物车信息
+                    if (cookieRequestExpando != null)
                     {
-                        dynamic obj = new
+                        // 先把本次POST过来的数据加入到Cookie Cart集合中
+                        ProcessCartCookieExpando(cookieRequestExpando, productInfo);
+
+                        CartService cartService = new CartService();
+
+                        // 添加信息
+                        foreach (var jToken in cookieRequestExpando)
+                        {
+                            dynamic obj = new
+                            {
+                                UserId = (context.Session["UserInfo"] as Model.Users).Id,
+                                BookId = jToken.Value<string>("bookId"),
+                                Count = jToken.Value<int>("qty")
+                            };
+                            cartService.AddCart(obj);
+                        }
+
+                        // 清除Cookie
+                        HttpCookie cookie = new HttpCookie("shoppingCart");
+                        cookie.Expires = DateTime.Now.AddDays(-1);
+                        context.Response.Cookies.Add(cookie);
+                    }
+                    else
+                    {
+                        CartService cartService = new CartService();
+
+                        // 添加信息
+                        cartService.AddCart(new
                         {
                             UserId = (context.Session["UserInfo"] as Model.Users).Id,
-                            BookId = jToken.Value<string>("bookId"),
-                            Count = jToken.Value<int>("qty")
-                        };
-                        cartService.AddCart(obj);
+                            BookId = Convert.ToString(productInfo["bookId"]),
+                            Count = Convert.ToInt32(productInfo["qty"])
+                        });
                     }
-
-                    // 清除Cookie
-                    HttpCookie cookie = new HttpCookie("shoppingCart");
-                    cookie.Expires = DateTime.Now.AddDays(-1);
-                    context.Response.Cookies.Add(cookie);
                 }
                 else
                 {
-                    CartService cartService = new CartService();
-
-                    // 添加信息
-                    cartService.AddCart(new
+                    HttpCookie cookie;
+                    if (cookieRequestExpando != null)
                     {
-                        UserId = (context.Session["UserInfo"] as Model.Users).LoginId,
-                        BookId = productInfo["bookId"],
-                        Count = productInfo["qty"]
-                    });
+                        // 先把本次POST过来的数据加入到Cookie Cart集合中
+                        ProcessCartCookieExpando(cookieRequestExpando, productInfo);
+
+                        cookie = new HttpCookie("shoppingCart", JsonConvert.SerializeObject(cookieRequestExpando));
+                        cookie.Expires = DateTime.Now.AddDays(7);
+                    }
+                    else
+                    {
+                        cookie = new HttpCookie("shoppingCart", JsonConvert.SerializeObject(new object[] { productInfo }));
+                        cookie.Expires = DateTime.Now.AddDays(7);
+                    }
+
+                    context.Response.Cookies.Add(cookie);
                 }
+
+                context.Response.Write(JsonDynamic.ToJson(new
+                {
+                    IsSuccess = true,
+                    Message = "商品已成功添加至购物车当中!",
+                    Status = "200"
+                }));
+            }
+            else if (action == "Delete")
+            {
+                if (context.Session["UserInfo"] != null)
+                {
+                    if (cookieRequestExpando != null)
+                    {
+                        // 添加信息
+                        foreach (var jToken in cookieRequestExpando)
+                        {
+                            dynamic obj = new
+                            {
+                                UserId = (context.Session["UserInfo"] as Model.Users).Id,
+                                BookId = jToken.Value<string>("bookId"),
+                                Count = jToken.Value<int>("qty")
+                            };
+                            new CartService().AddCart(obj);
+                        }
+
+                        // 清除Cookie
+                        HttpCookie cookie = new HttpCookie("shoppingCart");
+                        cookie.Expires = DateTime.Now.AddDays(-1);
+                        context.Response.Cookies.Add(cookie);
+                    }
+
+                    new CartService().DeleteCart((context.Session["UserInfo"] as Model.Users).Id, productInfo["bookId"].ToString());
+                }
+                else
+                {
+                    var query = cookieRequestExpando.Where(x => x["bookId"].ToString() == productInfo["bookId"].ToString());
+                    if (query.Count() == 0)
+                    {
+                        context.Response.Write(JsonDynamic.ToJson(new
+                        {
+                            IsSuccess = false,
+                            Message = "提交信息错误!",
+                            Status = "500"
+                        }));
+                        context.Response.End();
+                    }
+                    else
+                    {
+                        cookieRequestExpando.Remove(query.First());
+
+                        // 防止继续写入空数据
+                        if (cookieRequestExpando.Count == 0)
+                        {
+                            // 清除Cookie
+                            HttpCookie cookie = new HttpCookie("shoppingCart");
+                            cookie.Expires = DateTime.Now.AddDays(-1);
+                            context.Response.Cookies.Add(cookie);
+                        }
+                        else
+                        {
+                            // 重新写入Cookie
+                            HttpCookie cookie = new HttpCookie("shoppingCart", JsonConvert.SerializeObject(cookieRequestExpando));
+                            cookie.Expires = DateTime.Now.AddDays(7);
+                            context.Response.Cookies.Add(cookie);
+                        }
+                    }
+                }
+
+                context.Response.Write(JsonDynamic.ToJson(new
+                {
+                    IsSuccess = true,
+                    Message = "删除成功!",
+                    Status = "200"
+                }));
+            }
+            else if (action == "Update")
+            {
+                if (context.Session["UserInfo"] != null)
+                {
+                    if (cookieRequestExpando != null)
+                    {
+                        // 添加信息
+                        foreach (var jToken in cookieRequestExpando)
+                        {
+                            dynamic obj = new
+                            {
+                                UserId = (context.Session["UserInfo"] as Model.Users).Id,
+                                BookId = jToken.Value<string>("bookId"),
+                                Count = jToken.Value<int>("qty")
+                            };
+                            new CartService().AddCart(obj);
+                        }
+
+                        // 清除Cookie
+                        HttpCookie cookie = new HttpCookie("shoppingCart");
+                        cookie.Expires = DateTime.Now.AddDays(-1);
+                        context.Response.Cookies.Add(cookie);
+                    }
+
+                    new CartService().UpdateCart((context.Session["UserInfo"] as Model.Users).Id, productInfo["bookId"].ToString(), Convert.ToInt32(productInfo["qty"]));
+                }
+                else
+                {
+                    // 更新数量
+                    var activeBookInfo = cookieRequestExpando.Where(x => x["bookId"].ToString() == productInfo["bookId"].ToString()).First()["qty"] = productInfo["qty"].ToString();
+
+                    // 重新写入Cookie
+                    HttpCookie cookie = new HttpCookie("shoppingCart", JsonConvert.SerializeObject(cookieRequestExpando));
+                    cookie.Expires = DateTime.Now.AddDays(7);
+                    context.Response.Cookies.Add(cookie);
+                }
+
+                context.Response.Write(JsonDynamic.ToJson(new
+                {
+                    IsSuccess = true,
+                    Message = "修改成功!",
+                    Status = "200"
+                }));
             }
             else
             {
-                HttpCookie cookie;
-                if (cookieRequestExpando != null)
+                context.Response.Write(JsonDynamic.ToJson(new
                 {
-                    ProcessCartCookieExpando(cookieRequestExpando, productInfo);
-
-                    cookie = new HttpCookie("shoppingCart", JsonConvert.SerializeObject(cookieRequestExpando));
-                    cookie.Expires = DateTime.Now.AddDays(7);
-                }
-                else
-                {
-                    cookie = new HttpCookie("shoppingCart", JsonConvert.SerializeObject(new object[] { productInfo }));
-                    cookie.Expires = DateTime.Now.AddDays(7);
-                }
-
-                context.Response.Cookies.Add(cookie);
+                    IsSuccess = false,
+                    Message = "提交信息错误!",
+                    Status = "500"
+                }));
+                context.Response.End();
             }
-
-            context.Response.Write(JsonDynamic.ToJson(new
-            {
-                IsSuccess = true,
-                Message = "商品已成功添加至购物车当中!",
-                Status = "200"
-            }));
         }
         public void ProcessCartCookieExpando(JArray cookieRequestExpando,JObject productInfo)
         {

@@ -4,13 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
-    <form id="form1" method="post" action="test-05.aspx">
-        <input type="text" name="txtName" />
-        <input type="submit" name="提交" />
-    </form>
+    <table>
+        <tr>
+            <td>bookid</td>
+            <td>Msg</td>
+        </tr>
+        <asp:Repeater ID="Repeater1" runat="server">
+            <ItemTemplate>
+                <tr>
+                    <td><%#Eval("bookid") %></td>
+                    <td><%#Eval("Msg") %></td>
+                </tr>
+            </ItemTemplate>
+        </asp:Repeater>
+    </table>
 </body>
 </html>
