@@ -19,6 +19,35 @@
 
                 beforeChangeValueTemp = parseInt($(this).val());
             });
+
+            $("#btnConfirm").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/CheckUserLogin.ashx",
+                    async: false,
+                    dataType: "json",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "302") {
+
+                                window.alert(data.Message);
+                                window.location = data.RedirectUrl;
+                            }
+                        }
+                        else {
+
+                            window.location = data.RedirectUrl;
+                        }
+                    }
+                });
+
+                return;
+                var str = "123";
+                window.location.reload(true);
+            });
         });
         function toDecimal(x) {
             var f = Math.round(x * 100) / 100;
@@ -238,7 +267,7 @@
                     </a>
                     <%if (!base.IsNoneCart) %>
                     <%{ %>
-                    <a href="OrderConfirm.aspx">
+                    <a href="#" id="btnConfirm">
                         <img src="/Images/balance.gif" border="0" />
                     </a>
                     <%} %>

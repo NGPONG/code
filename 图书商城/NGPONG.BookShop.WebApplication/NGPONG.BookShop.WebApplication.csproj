@@ -775,9 +775,11 @@
     <Content Include="ckeditor\_samples\adobeair\run.bat" />
     <Content Include="ckeditor\_samples\adobeair\run.sh" />
     <Content Include="ckeditor\_samples\assets\output_for_flash.fla" />
+    <Content Include="Member\OrderConfirm.aspx" />
     <Content Include="Member\ShoppingCart.aspx" />
     <Content Include="ProcessShorpingCart.ashx" />
     <Content Include="ashx\ProcessShoppingCart.ashx" />
+    <Content Include="ashx\CheckUserLogin.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2515,6 +2517,9 @@
     <Compile Include="ashx\CheckLogin.ashx.cs">
       <DependentUpon>CheckLogin.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\CheckUserLogin.ashx.cs">
+      <DependentUpon>CheckUserLogin.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\CheckVerCode.ashx.cs">
       <DependentUpon>CheckVerCode.ashx</DependentUpon>
     </Compile>
@@ -2577,6 +2582,13 @@
     </Compile>
     <Compile Include="Member\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\OrderConfirm.aspx.cs">
+      <DependentUpon>OrderConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\OrderConfirm.aspx.designer.cs">
+      <DependentUpon>OrderConfirm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
