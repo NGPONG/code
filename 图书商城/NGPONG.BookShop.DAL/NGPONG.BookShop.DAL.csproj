@@ -45,6 +45,7 @@
     <Compile Include="BooksDAL.cs" />
     <Compile Include="CartDAL.cs" />
     <Compile Include="CommentDAL.cs" />
+    <Compile Include="OrderDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingDAL.cs" />
     <Compile Include="UsersDAL.cs" />

@@ -1,0 +1,11 @@
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\bin\Release\NGPONG.BookShop.DAL.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\bin\Release\NGPONG.BookShop.DAL.pdb
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\bin\Release\NGPONG.BookShop.Common.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\bin\Release\NGPONG.BookShop.Model.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\bin\Release\NGPONG.BookShop.Common.pdb
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\bin\Release\NGPONG.BookShop.Model.pdb
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\obj\Release\NGPONG.BookShop.DAL.csprojAssemblyReference.cache
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\obj\Release\NGPONG.BookShop.DAL.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\obj\Release\NGPONG.BookShop.DAL.csproj.CopyComplete
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\obj\Release\NGPONG.BookShop.DAL.dll
+C:\Users\acer\Desktop\code\图书商城\NGPONG.BookShop.DAL\obj\Release\NGPONG.BookShop.DAL.pdb

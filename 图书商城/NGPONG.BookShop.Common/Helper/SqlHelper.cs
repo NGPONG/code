@@ -16,7 +16,7 @@ namespace NGPONG.BookShop.Common.Helper
         ///  SQLite连接字符串
         /// </summary>
         //public static string SqlConnectionCharacter = ConfigurationManager.ConnectionStrings["sqlConnectionStr"].ConnectionString;
-        public static string SqlConnectionCharacter = "server =.;uid=sa;pwd=kissyou199;database=book_shop3";
+        private static string SqlConnectionCharacter = "server =.;uid=sa;pwd=kissyou199;database=book_shop3";
         /// <summary>
         ///  执行非查询sql语句
         /// </summary>
@@ -88,6 +88,37 @@ namespace NGPONG.BookShop.Common.Helper
                     using (SqlCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length > 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+                        object objReturn = cmd.ExecuteScalar();
+                        return objReturn == null ? string.Empty : objReturn;
+                    }
+                }
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        public static object ExecuteScalarProc(string sql, params SqlParameter[] parms)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(SqlHelper.SqlConnectionCharacter))
+                {
+                    connection.Open();
+
+                    using (SqlCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
                         // 如果有参数
                         if (parms.Length > 0)
                         {
@@ -214,6 +245,48 @@ namespace NGPONG.BookShop.Common.Helper
                     using (SqlCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandText = sql;
+                        // 如果有参数
+                        if (parms.Length > 0)
+                        {
+                            cmd.Parameters.AddRange(parms);
+                        }
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dtResult);
+                        }
+                    }
+                }
+                return dtResult;
+            }
+            catch (Exception objException)
+            {
+                if (objException.InnerException != null)
+                {
+                    throw new Exception(objException.InnerException.Message);
+                }
+                throw new Exception(objException.Message);
+            }
+        }
+        /// <summary>
+        ///  获取查询结果集
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="parms">参数</param>
+        /// <returns>查询结果</returns>
+        public static DataTable GetDataTablProc(string sql, params SqlParameter[] parms)
+        {
+            try
+            {
+                DataTable dtResult = new DataTable();
+                using (SqlConnection connection = new SqlConnection(SqlHelper.SqlConnectionCharacter))
+                {
+                    connection.Open();
+
+                    using (SqlCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
                         // 如果有参数
                         if (parms.Length > 0)
                         {

@@ -2508,6 +2508,7 @@
     <Compile Include="AdminManager\CreateStaticPage.aspx.designer.cs">
       <DependentUpon>CreateStaticPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AliPay\Pay.cs" />
     <Compile Include="ashx\BooksInfo\BookComment.ashx.cs">
       <DependentUpon>BookComment.ashx</DependentUpon>
     </Compile>
@@ -2650,6 +2651,7 @@
     <Folder Include="ewebeditor\sharefile\media\" />
     <Folder Include="ewebeditor\sharefile\other\" />
     <Folder Include="Images\inc\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NGPONG.BookShop.BLL\NGPONG.BookShop.BLL.csproj">

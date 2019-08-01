@@ -12,6 +12,7 @@ namespace Test_03
         {
             Console.WriteLine("123123");
             Console.ReadKey();
+
         }
     }
     public class Stat
