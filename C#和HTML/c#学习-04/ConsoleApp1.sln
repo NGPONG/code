@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型委托", "泛型委�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-03", "Test-03\Test-03.csproj", "{45DF6861-BC39-4F0A-B8C9-4E9BE6F803DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单工厂", "简单工厂\简单工厂.csproj", "{9E61999A-9561-4A0C-B9BF-53980E4F7CBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "工厂方法", "工厂方法\工厂方法.csproj", "{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +121,14 @@ Global
 		{45DF6861-BC39-4F0A-B8C9-4E9BE6F803DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45DF6861-BC39-4F0A-B8C9-4E9BE6F803DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45DF6861-BC39-4F0A-B8C9-4E9BE6F803DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E61999A-9561-4A0C-B9BF-53980E4F7CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E61999A-9561-4A0C-B9BF-53980E4F7CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E61999A-9561-4A0C-B9BF-53980E4F7CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E61999A-9561-4A0C-B9BF-53980E4F7CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
