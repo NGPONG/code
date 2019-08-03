@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单工厂", "简单工�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "工厂方法", "工厂方法\工厂方法.csproj", "{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "抽象工厂", "抽象工厂\抽象工厂.csproj", "{9A71144F-3CDE-408D-B212-68CFE116CE10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9688B2AB-AFFA-41E1-B59C-67D3300C03C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A71144F-3CDE-408D-B212-68CFE116CE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A71144F-3CDE-408D-B212-68CFE116CE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A71144F-3CDE-408D-B212-68CFE116CE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A71144F-3CDE-408D-B212-68CFE116CE10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
