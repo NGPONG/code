@@ -18,6 +18,7 @@ namespace Test_01
                 new PersonType(){ PersonTypeId = 3,PersonTypeName="黑种人" }
             };
 
+
             List<Student> students = new List<Student>()
             {
                 new Student(){ StudentId=1, StudentName="张三", PersonTypeId=1 },
@@ -34,6 +35,7 @@ namespace Test_01
 
             Func<int> Func = () => 10;
             Expression<Func<Student,bool>> Expression = (Student stu) =>  stu.PersonTypeId==1;
+
         }
     }
 
