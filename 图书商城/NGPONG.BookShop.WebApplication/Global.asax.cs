@@ -25,8 +25,7 @@ namespace NGPONG.BookShop.WebApplication
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            // URL重写
-
+            #region URL重写
             // 获取当前请求资源的虚拟路径，并且以"~"作为开头，如：~/Member/Booklist_1.aspx
             string url = Request.AppRelativeCurrentExecutionFilePath;
 
@@ -35,13 +34,16 @@ namespace NGPONG.BookShop.WebApplication
             if (match.Success)
             {
                 Context.RewritePath("~/Member/BookList.aspx?PaginalNumber=" + match.Groups[1].Value);
+                return;
             }
 
             match = Regex.Match(url, @"~/BookDetail_([a-zA-Z0-9_-]+)_([0-9]+).aspx");
             if (match.Success)
             {
                 Context.RewritePath($"~/HtmlPage/{match.Groups[2].Value}/{match.Groups[1].Value}.html");
-            }
+                return;
+            } 
+            #endregion
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

@@ -32,8 +32,6 @@ namespace Test_02
 
             Person per = new Person();
             Student student = new Student();
-
-            IQueryable<T>
         }
 
     }
