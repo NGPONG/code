@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ninject.Activation;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,13 @@ namespace Test_05
     {
         static void Main(string[] args)
         {
+            InterTest1 interTest1 = new Student();
+            interTest1.TestMethod1();
+            InterTest2 interTest2 = new Student();
+            interTest2.TestMethod1();
+
+            ArrayList arrayList = new ArrayList();
+            IQueryable<string>
             List<Student> children = new List<Student>()
             {
                 new Student(){ Name="NGPONG",Age = 18 },
@@ -38,11 +47,31 @@ namespace Test_05
         }
     }
 
-    public class Student
+    public class Student: InterTest1
     {
         public string Name { get; set; }
         public int Age { get; set; }
         public string Sex { get; set; }
         public string Address { get; set; }
+
+        void InterTest1.TestMethod1()
+        {
+            Console.WriteLine("I'am InterTest1");
+        }
+
+        void InterTest2.TestMethod1()
+        {
+            Console.WriteLine("I'am InterTest2");
+        }
+    }
+
+    public interface InterTest1 : InterTest2
+    {
+        void TestMethod1();
+    }
+
+    public interface InterTest2
+    {
+        void TestMethod1();
     }
 }
