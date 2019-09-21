@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +19,9 @@ namespace Test_05
             interTest2.TestMethod1();
 
             ArrayList arrayList = new ArrayList();
-            IQueryable<string>
+
+
+
             List<Student> children = new List<Student>()
             {
                 new Student(){ Name="NGPONG",Age = 18 },
@@ -27,6 +30,7 @@ namespace Test_05
                 new Student(){ Name="明珠",Age = 30 },
                 new Student(){ Name="深圳啊",Age = 100 }
             };
+
 
             var query = Enumerable
                         .Where<Student>(children, stu =>
@@ -44,6 +48,20 @@ namespace Test_05
             }
 
             Console.ReadLine();
+        }
+    }
+
+    public class TestClass : IQueryable
+    {
+        public Expression Expression => throw new NotImplementedException();
+
+        public Type ElementType => throw new NotImplementedException();
+
+        public IQueryProvider Provider => throw new NotImplementedException();
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 
