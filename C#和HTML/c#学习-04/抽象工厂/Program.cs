@@ -24,6 +24,8 @@ namespace 抽象工厂
             dog.Gender();
 
             Console.ReadLine();
+
+            
         }
     }
 }
