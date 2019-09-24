@@ -24,6 +24,8 @@ namespace Test_06
             }
 
             Console.ReadLine();
+
+            var querable = new TestClass();
         }
     }
 
