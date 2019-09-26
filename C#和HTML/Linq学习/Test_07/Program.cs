@@ -29,6 +29,8 @@ namespace Test_07
             }
 
             Console.ReadLine();
+
+            query.Concat()
         }
     }
 
