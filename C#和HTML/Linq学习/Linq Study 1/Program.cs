@@ -55,29 +55,26 @@ namespace Linq_Study_1
             #endregion
 
 
-
+            #region start
             //var query_Exp = from c in customers
             //            select c.City;
-            //var query_Fun = customers.Select(x => x.City);
+            //var query_Fun = customers.Select(x => x.City); 
+            #endregion
 
-            //// 筛选在北京且名称以‘小’开头的顾客
+            #region 筛选在北京且名称以‘小’开头的顾客
             //var query_Exp = from c in customers
             //                where c.City == "北京" && c.Name.StartsWith("小")
             //                select c;
 
-            //var query_Fun = customers.Where(c => c.City == "北京" && c.Name.StartsWith("小"));
+            //var query_Fun = customers.Where(c => c.City == "北京" && c.Name.StartsWith("小")); 
+            #endregion
 
-
-            // 把集合中的CustomerID都+1 并且查询出来
-            var query_Exp = from c in customers
-                            let cTemp = c.CustomerID + 1
-                            where cTemp > 3
-                            select cTemp;
-
-            foreach (var item in query_Exp)
-            {
-                Console.WriteLine(item.ToString());
-            }
+            #region 把集合中的CustomerID都+1 并且查询出来
+            //var query_Exp = from c in customers
+            //                let cTemp = c.CustomerID + 1
+            //                where cTemp > 3
+            //                select cTemp; 
+            #endregion
 
             Console.ReadLine();
         }
