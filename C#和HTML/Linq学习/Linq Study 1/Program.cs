@@ -48,9 +48,9 @@ namespace Linq_Study_1
         static void Main(string[] args)
         {
             #region Init Sequence
-            InitCustomer();
-            InitOrder();
             InitDetail();
+            InitOrder();
+            InitCustomer();
             InitProduct();
             #endregion
 
@@ -75,6 +75,17 @@ namespace Linq_Study_1
             //                where cTemp > 3
             //                select cTemp; 
             #endregion
+
+            var query_Exp = from c in customers
+                            let o = 1
+                            where c.CustomerID > 6
+                            select o; 
+
+
+            var query_Exp1 = from c in customers
+                             from o in orders
+                             select new { c.Name, o.OrderID };
+
 
             Console.ReadLine();
         }
