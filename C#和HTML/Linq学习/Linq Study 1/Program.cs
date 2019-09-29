@@ -77,18 +77,52 @@ namespace Linq_Study_1
             //                select cTemp; 
             #endregion
 
+            #region 把字符串集合中的句子都以空格分割出来，并都转换成小写打印出来
+            //string[] strings =
+            //{
+            //"A penny saved is a penny earned.",
+            //"The early bird catches the worm.",
+            //"The pen is mightier than the sword."
+            //};
 
-            // 针对一个数据源的内部如果存在成员的类型也是一个数据序列的类型的时候，可使用复合from来把这个数据序列作为数据源引入到当前Linq查询表达式当中
+            //var query = from sentenct in strings
+            //            let words = sentenct.Split(' ')
+            //            from word in words
+            //            let wordProcess = word.ToLower()
+            //            select wordProcess; 
+            #endregion
+
+            #region 为字符串中的每个字符进行排序
+            //string str = "qwertyuiopasdfghjklzxcvbnm123456789";
+
+            //var query_Exp = from s in str.ToCharArray()
+            //                orderby s ascending
+            //                let sProcess = s.ToString().ToUpper()
+            //                select sProcess;
+
+            //var query_Fun = str.ToCharArray().Select(x => x.ToString().ToUpper()).OrderBy(x => x);
+            //var query_Fun2 = str.ToCharArray().Select(x => x.ToString().ToUpper()).OrderByDescending(x => x);
+            #endregion
+
+            #region 把字符串集合都按照每个元素的首字母进行分组，筛选出分组结果大于2的元素，并且每个筛选结果元素的末尾要加上 分组成功 的样式
+            //string[] words = { "apples", "blueberries", "oranges", "bananas", "apricots" };
+
+            //var query_Exp = from w in words
+            //                group w by w[0] into g
+            //                where g.Count() > 1
+            //                select (from gProc in g
+            //                        select gProc + $" 分组成功，这个是{g.Key.ToString()}组");
+
+            //var query_Func = words.GroupBy(x => x[0])
+            //                      .Where(g => g.Count() > 1)
+            //                      .Select(x => x
+            //                      .Select(y => y + $"分组成功，这个是{x.Key.ToString()}组"));
+            #endregion
+
             var query_Exp = from c in customers
-                            from o in c.Orders
-                            from d in o.Details
-                            select new
-                            {
-                                d.DetailID,
-                                d.ProductID,
-                                d.UnitPrice,
-                                o.OrderID
-                            };
+                           select c into cContinue
+                           from o in cContinue.Orders
+                           select o.OrderID;
 
             Console.ReadLine();
         }
