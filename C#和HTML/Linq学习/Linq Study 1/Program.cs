@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,7 @@ namespace Linq_Study_1
         public static List<Customer> customers = new List<Customer>();
         public static List<Order> orders = new List<Order>();
         public static List<Detail> details = new List<Detail>();
-        public static List<Product> products = new List<Product>(); 
+        public static List<Product> products = new List<Product>();
         #endregion
         static void Main(string[] args)
         {
@@ -76,16 +77,18 @@ namespace Linq_Study_1
             //                select cTemp; 
             #endregion
 
+
+            // 针对一个数据源的内部如果存在成员的类型也是一个数据序列的类型的时候，可使用复合from来把这个数据序列作为数据源引入到当前Linq查询表达式当中
             var query_Exp = from c in customers
-                            let o = 1
-                            where c.CustomerID > 6
-                            select o; 
-
-
-            var query_Exp1 = from c in customers
-                             from o in orders
-                             select new { c.Name, o.OrderID };
-
+                            from o in c.Orders
+                            from d in o.Details
+                            select new
+                            {
+                                d.DetailID,
+                                d.ProductID,
+                                d.UnitPrice,
+                                o.OrderID
+                            };
 
             Console.ReadLine();
         }
