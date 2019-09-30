@@ -119,24 +119,43 @@ namespace Linq_Study_1
             //                      .Select(y => y + $"分组成功，这个是{x.Key.ToString()}组"));
             #endregion
 
-            var query_Exp = from p in products
-                            join d in details on p.ProductID equals d.ProductID
-                            select new { ProductName = p.ProductName, DetailId = d.DetailID };
+            #region 查询出顾客名称其所在的城市，还有这个顾客所下的订单的总金额还有这个订单所包含的商品
+            //var query_Exp = from c in customers
+            //                from o in c.Orders
+            //                from d in o.Details
+            //                join p in products on d.ProductID equals p.ProductID
+            //                select new
+            //                {
+            //                    Name = c.Name,
+            //                    City = c.City,
+            //                    Money = d.Quantity * d.UnitPrice,
+            //                    ProductName = p.ProductName
+            //                };
 
-            foreach (var item in query_Exp)
-            {
-                Console.WriteLine($"ProductName = {item.ProductName}     DetailId = {item.DetailId}");
-            }
+            //var query_Fun = customers.SelectMany(c => c.Orders, (c, o) => new { Name = c.Name, City = c.City, Details = o.Details })
+            //                      .SelectMany(oc => oc.Details, (oc, details) => new { Name = oc.Name, City = oc.City, Money = details.Quantity * details.UnitPrice, ProductID = details.ProductID })
+            //                      .Join(products, ocd => ocd.ProductID, p => p.ProductID, (ocd, p) => new { Name = ocd.Name, City = ocd.City, Money = ocd.Money, ProductName = p.ProductName }); 
+            #endregion
 
-            var query_Exp2 = from p in products
-                             from d in details
-                             where p.ProductID == d.ProductID
-                             select new { ProductName = p.ProductName, DetailId = d.DetailID };
+            // 标准的 join into 查询
+            var query_Exp_Default = from p in products
+                                    join d in details on p.ProductID equals d.ProductID into dGroup
+                                    select dGroup;
 
-            foreach (var item in query_Exp2)
-            {
-                Console.WriteLine($"ProductName = {item.ProductName}     DetailId = {item.DetailId}");
-            }
+            var query_Fun_Default = products.GroupJoin( details,
+                                                        p => p.ProductID,
+                                                        d => d.ProductID,
+                                                        (p, dGroup) => dGroup);
+
+            // 左连接形式的 join into 查询
+            var query_Exp_left = from p in products
+                                 join d in details on p.ProductID equals d.ProductID into dGroup
+                                 select dGroup.DefaultIfEmpty();
+
+            var query_Fun_left = products.GroupJoin(details,
+                                                    p => p.ProductID,
+                                                    d => d.ProductID,
+                                                    (p, dGroup) => dGroup.DefaultIfEmpty());
 
             Console.ReadLine();
         }
@@ -212,7 +231,7 @@ namespace Linq_Study_1
             products.Add(new Product() { ProductID = 2, ProductName = "apple" });
             products.Add(new Product() { ProductID = 3, ProductName = "xiaomi" });
             products.Add(new Product() { ProductID = 4, ProductName = "huawei" });
-            products.Add(new Product() { ProductID = 5, ProductName = "lenovo" });
+            products.Add(new Product() { ProductID = 123, ProductName = "lenovo" });
         }
     }
 }

@@ -20,20 +20,21 @@ namespace Linq_Study_2
             Pet whiskers = new Pet { Name = "Whiskers", Owner = charlotte };
             Pet bluemoon = new Pet { Name = "Blue Moon", Owner = terry };
             Pet daisy = new Pet { Name = "Daisy", Owner = magnus };
+            Pet heitan = new Pet { Name = "HeiTan", Owner = null };
 
-            // Create two lists.
             List<Person> people = new List<Person> { magnus, terry, charlotte, arlene };
-            List<Pet> pets = new List<Pet> { barley, boots, whiskers, bluemoon, daisy };
+            List<Pet> pets = new List<Pet> { barley, boots, whiskers, bluemoon, daisy,heitan };
 
-            // Create a list where each element is an anonymous type
-            // that contains the person's first name and a collection of 
-            // pets that are owned by them.
+
             var query = from person in people
                         join pet in pets on person equals pet.Owner into gj
                         select gj;
 
+            var query2 = from person in people
+                         from pet in pets
+                         where person == pet.Owner
+                         select person;
 
-            Console.ReadLine();
         }
     }
     class Person
