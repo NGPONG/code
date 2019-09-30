@@ -119,10 +119,24 @@ namespace Linq_Study_1
             //                      .Select(y => y + $"分组成功，这个是{x.Key.ToString()}组"));
             #endregion
 
-            var query_Exp = from c in customers
-                           select c into cContinue
-                           from o in cContinue.Orders
-                           select o.OrderID;
+            var query_Exp = from p in products
+                            join d in details on p.ProductID equals d.ProductID
+                            select new { ProductName = p.ProductName, DetailId = d.DetailID };
+
+            foreach (var item in query_Exp)
+            {
+                Console.WriteLine($"ProductName = {item.ProductName}     DetailId = {item.DetailId}");
+            }
+
+            var query_Exp2 = from p in products
+                             from d in details
+                             where p.ProductID == d.ProductID
+                             select new { ProductName = p.ProductName, DetailId = d.DetailID };
+
+            foreach (var item in query_Exp2)
+            {
+                Console.WriteLine($"ProductName = {item.ProductName}     DetailId = {item.DetailId}");
+            }
 
             Console.ReadLine();
         }
