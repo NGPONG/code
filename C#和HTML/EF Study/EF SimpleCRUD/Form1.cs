@@ -83,6 +83,7 @@ namespace EF_SimpleCRUD
         {
             using (EFDemoEntities db = new EFDemoEntities())
             {
+                db.Database.CreateIfNotExists();
                 var query = from c in db.CustomerSet
                             where c.CustomerId == 4
                             select c.CustomerName;

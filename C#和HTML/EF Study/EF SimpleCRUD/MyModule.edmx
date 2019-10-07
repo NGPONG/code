@@ -27,7 +27,7 @@
     </Key>
     <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" Nullable="false" />
-    <Property Name="OrderName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderName" Type="nvarchar" Nullable="false" MaxLength="32" />
   </EntityType>
   <Association Name="FK_CustomerOrder">
     <End Role="CustomerSet" Type="EFDemoModel.Store.CustomerSet" Multiplicity="1" />
@@ -61,7 +61,7 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CustomerSet" Relationship="Self.FK_CustomerOrder" FromRole="Order" ToRole="CustomerSet" />
-          <Property Name="OrderName" Type="String" Nullable="false" />
+          <Property Name="OrderName" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
         </EntityType>
         <Association Name="FK_CustomerOrder">
           <End Role="CustomerSet" Type="Self.CustomerSet" Multiplicity="1" />

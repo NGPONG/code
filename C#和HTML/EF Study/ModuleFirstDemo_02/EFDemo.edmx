@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EFDemo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFDemoStoreContainer">
+    <EntitySet Name="ClassInfo" EntityType="EFDemo.Store.ClassInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Student" EntityType="EFDemo.Store.Student" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ClassInfo_Student" Association="EFDemo.Store.ClassInfo_Student">
+      <End Role="ClassInfo" EntitySet="ClassInfo" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ClassInfo">
+    <Key>
+      <PropertyRef Name="ClassInfoId" />
+    </Key>
+    <Property Name="ClassInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" Nullable="true" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentName" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="StudentAge" Type="int" Nullable="true" />
+    <Property Name="ClassInfoId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ClassInfo_Student">
+    <End Role="ClassInfo" Type="EFDemo.Store.ClassInfo" Multiplicity="1" />
+    <End Role="Student" Type="EFDemo.Store.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassInfo">
+        <PropertyRef Name="ClassInfoId" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="ClassInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EFDemo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EFDemoContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClassInfo" EntityType="EFDemo.ClassInfo" />
+          <EntitySet Name="Student" EntityType="EFDemo.Student" />
+          <AssociationSet Name="ClassInfo_Student" Association="EFDemo.ClassInfo_Student">
+            <End Role="ClassInfo" EntitySet="ClassInfo" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ClassInfo">
+          <Key>
+            <PropertyRef Name="ClassInfoId" />
+          </Key>
+          <Property Name="ClassInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" Nullable="true" MaxLength="64" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="EFDemo.ClassInfo_Student" FromRole="ClassInfo" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="64" Unicode="true" Nullable="true" />
+          <Property Name="StudentAge" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="ClassInfo" Relationship="EFDemo.ClassInfo_Student" FromRole="Student" ToRole="ClassInfo" />
+          <Property Name="ClassInfoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ClassInfo_Student">
+          <End Type="EFDemo.ClassInfo" Role="ClassInfo" Multiplicity="1" />
+          <End Type="EFDemo.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassInfo">
+              <PropertyRef Name="ClassInfoId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ClassInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFDemoStoreContainer" CdmEntityContainer="EFDemoContainer">
+    <EntitySetMapping Name="ClassInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(EFDemo.ClassInfo)">
+        <MappingFragment StoreEntitySet="ClassInfo">
+          <ScalarProperty Name="ClassInfoId" ColumnName="ClassInfoId" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="IsTypeOf(EFDemo.Student)">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentAge" ColumnName="StudentAge" />
+          <ScalarProperty Name="ClassInfoId" ColumnName="ClassInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
