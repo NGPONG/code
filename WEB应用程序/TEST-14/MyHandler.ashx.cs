@@ -14,7 +14,8 @@ namespace TEST_14
 
         public void ProcessRequest(HttpContext context)
         {
-            System.Web.Caching.Cache cache = HttpContext.Current.Cache;
+            Test.Nums++;
+            context.Response.Write(Test.Nums.ToString());
         }
 
         public bool IsReusable

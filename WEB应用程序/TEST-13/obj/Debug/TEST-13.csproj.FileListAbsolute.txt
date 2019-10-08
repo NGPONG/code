@@ -5,3 +5,10 @@ C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-13\obj\Debug\TEST-13.csproj.
 C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-13\obj\Debug\TEST-13.exe
 C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-13\obj\Debug\TEST-13.pdb
 C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-13\obj\Debug\TEST-13.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\bin\Debug\TEST-13.exe.config
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\bin\Debug\TEST-13.exe
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\bin\Debug\TEST-13.pdb
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\obj\Debug\TEST-13.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\obj\Debug\TEST-13.csproj.CoreCompileInputs.cache
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\obj\Debug\TEST-13.exe
+C:\Users\NGPONG\Desktop\code\WEB应用程序\TEST-13\obj\Debug\TEST-13.pdb

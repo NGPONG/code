@@ -16,7 +16,16 @@ namespace WebForm学习_01
 
         protected void btnShow_Click(object sender, EventArgs e)
         {
-
+            string str;
+            if (HttpContext.Current.Items["Something"] == null)
+            {
+                HttpContext.Current.Items["Something"] = "Items Test";
+                str = "Items Test";
+            }
+            else
+            {
+                str = HttpContext.Current.Items["Something"].ToString();
+            }
         }
     }
 }
