@@ -11,10 +11,10 @@ namespace ModuleFirstDemo_01
         static void Main(string[] args)
         {
             MyModuleContainer db = new MyModuleContainer();
+            var local = db.CustomerSet.Local;
             var query = (from c in db.CustomerSet
                         where c.CustomerId == 2
                         select c).FirstOrDefault();
-            var quer2 = db.CustomerSet.Find(2);
 
             MyModuleContainer db2 = new MyModuleContainer();
             var quer3 = db2.CustomerSet.Find(2);

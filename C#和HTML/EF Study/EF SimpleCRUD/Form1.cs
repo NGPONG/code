@@ -28,9 +28,10 @@ namespace EF_SimpleCRUD
                 // 直接操作EF针对模型所缓存的实体集进行添加数据
                 CustomerSet customer = new CustomerSet()
                 {
-                    CustomerName = "EF 数据添加测试1",
+                    CustomerName = "EF 数据添加测试2",
                     CustomerAddress = "深圳龙华"
                 };
+                var local = db.CustomerSet.Local;
                 db.CustomerSet.Add(customer);
                 db.SaveChanges();
 

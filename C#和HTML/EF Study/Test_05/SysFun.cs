@@ -7,16 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_04
+namespace Test_05
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class SysFun
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-    
-        public virtual CustomerSet CustomerSet { get; set; }
+        public int NodeId { get; set; }
+        public string DisplayName { get; set; }
+        public string NodeURL { get; set; }
+        public int DisplayOrder { get; set; }
+        public int ParentNodeId { get; set; }
     }
 }

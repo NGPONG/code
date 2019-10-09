@@ -12,11 +12,11 @@ namespace Test_04
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class BookComment
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-    
-        public virtual CustomerSet CustomerSet { get; set; }
+        public int Id { get; set; }
+        public string Msg { get; set; }
+        public System.DateTime CreateDateTime { get; set; }
+        public int BookId { get; set; }
     }
 }

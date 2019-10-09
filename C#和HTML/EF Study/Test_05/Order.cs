@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_04
+namespace Test_05
 {
     using System;
     using System.Collections.Generic;

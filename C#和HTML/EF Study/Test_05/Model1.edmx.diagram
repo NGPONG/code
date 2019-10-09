@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="35d2959ebc8040f7828932b042001739" Name="Diagram1">
+        <EntityTypeShape EntityType="book_shop3Model.ActionGroup" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.ActionInfo" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Articel_Words" Width="1.5" PointX="7.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.BookComment" Width="1.5" PointX="9.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Books" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Cart" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Categories" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.CheckEmail" Width="1.5" PointX="11.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.CustomerSet" Width="1.5" PointX="7.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Department" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.keyWordsRank" Width="1.5" PointX="12.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Order" Width="1.5" PointX="10" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.OrderBook" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Orders" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Publishers" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.R_UserInfo_ActionInfo" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Role" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.SearchDetails" Width="1.5" PointX="12.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Settings" Width="1.5" PointX="12.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.SysFun" Width="1.5" PointX="9.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Test" Width="1.5" PointX="11.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.UserInfo" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.Users" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.UserStates" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="book_shop3Model.VidoFile" Width="1.5" PointX="13.75" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="book_shop3Model.FK_R_UserInfo_ActionInfoActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_Book_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_Books_Publishers" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_Cart_Books" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_OrderBook_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_Cart_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_CustomerOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_OrderBook_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_UserInfoR_UserInfo_ActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.FK_Users_UserStates" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.ActionGroupActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.RoleActionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.RoleActionInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.RoleDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="book_shop3Model.UserInfoRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

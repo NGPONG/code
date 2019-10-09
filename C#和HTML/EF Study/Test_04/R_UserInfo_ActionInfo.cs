@@ -12,11 +12,15 @@ namespace Test_04
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class R_UserInfo_ActionInfo
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
+        public int ID { get; set; }
+        public short IsPass { get; set; }
+        public int ActionInfoID { get; set; }
+        public int UserInfoID { get; set; }
+        public int ActionInfo_ID { get; set; }
     
-        public virtual CustomerSet CustomerSet { get; set; }
+        public virtual ActionInfo ActionInfo { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

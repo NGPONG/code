@@ -13,6 +13,7 @@ namespace CodeFirstDemo_01
             using (MyModule db = new MyModule())
             {
                 db.Database.CreateIfNotExists();
+                var local = db.Class.Local;
             }
         }
     }

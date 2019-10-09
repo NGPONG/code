@@ -12,11 +12,12 @@ namespace Test_04
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class VidoFile
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-    
-        public virtual CustomerSet CustomerSet { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string FivPath { get; set; }
+        public string Status { get; set; }
+        public string FileExt { get; set; }
     }
 }

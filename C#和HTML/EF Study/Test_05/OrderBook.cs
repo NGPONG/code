@@ -7,16 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_04
+namespace Test_05
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class OrderBook
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
+        public int Id { get; set; }
+        public string OrderID { get; set; }
+        public int BookID { get; set; }
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
     
-        public virtual CustomerSet CustomerSet { get; set; }
+        public virtual Books Books { get; set; }
+        public virtual Orders Orders { get; set; }
     }
 }

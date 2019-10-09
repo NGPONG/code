@@ -7,16 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_04
+namespace Test_05
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Articel_Words
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-    
-        public virtual CustomerSet CustomerSet { get; set; }
+        public int Id { get; set; }
+        public string WordPattern { get; set; }
+        public bool IsForbid { get; set; }
+        public bool IsMod { get; set; }
+        public string ReplaceWord { get; set; }
     }
 }

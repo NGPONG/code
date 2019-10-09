@@ -13,10 +13,12 @@ namespace Test_04
         {
             using (EFDemoEntities1 db = new EFDemoEntities1())
             {
+                var local = db.CustomerSet.Local;
                 CustomerSet query = (from c in db.CustomerSet
                                      where c.CustomerId == 4
                                      select c).FirstOrDefault();
                 query.CustomerAddress = "123123";
+                query.CustomerName = "6";
                 var attach1 = db.CustomerSet.Attach(query);
                 EntityState entityState = db.Entry(attach1).State;
                 attach1.CustomerAddress = string.Empty;

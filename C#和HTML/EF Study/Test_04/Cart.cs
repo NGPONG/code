@@ -12,11 +12,14 @@ namespace Test_04
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Cart
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int BookId { get; set; }
+        public int Count { get; set; }
     
-        public virtual CustomerSet CustomerSet { get; set; }
+        public virtual Books Books { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

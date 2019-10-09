@@ -7,16 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_04
+namespace Test_05
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class SearchDetails
     {
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
-    
-        public virtual CustomerSet CustomerSet { get; set; }
+        public System.Guid Id { get; set; }
+        public string KeyWords { get; set; }
+        public Nullable<System.DateTime> SearchDateTime { get; set; }
     }
 }
