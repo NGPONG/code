@@ -4,44 +4,44 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EFDemoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="EFDemoModelStoreContainer">
-    <EntitySet Name="CustomerSet" EntityType="EFDemoModel.Store.CustomerSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Order" EntityType="EFDemoModel.Store.Order" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_CustomerOrder" Association="EFDemoModel.Store.FK_CustomerOrder">
-      <End Role="CustomerSet" EntitySet="CustomerSet" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="CustomerSet">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-    </Key>
-    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CustomerAddress" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Order">
-    <Key>
-      <PropertyRef Name="OrderId" />
-    </Key>
-    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerId" Type="int" Nullable="false" />
-    <Property Name="OrderName" Type="nvarchar" Nullable="false" MaxLength="32" />
-  </EntityType>
-  <Association Name="FK_CustomerOrder">
-    <End Role="CustomerSet" Type="EFDemoModel.Store.CustomerSet" Multiplicity="1" />
-    <End Role="Order" Type="EFDemoModel.Store.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CustomerSet">
-        <PropertyRef Name="CustomerId" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="EFDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomerSet">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="CustomerAddress" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="OrderName" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_CustomerOrder">
+          <End Role="CustomerSet" Type="Self.CustomerSet" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerSet">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EFDemoModelStoreContainer">
+          <EntitySet Name="CustomerSet" EntityType="Self.CustomerSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomerOrder" Association="Self.FK_CustomerOrder">
+            <End Role="CustomerSet" EntitySet="CustomerSet" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EFDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -51,7 +51,7 @@
           </Key>
           <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
-          <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_CustomerOrder" FromRole="CustomerSet" ToRole="Order" />
         </EntityType>
         <EntityType Name="Order">
@@ -61,7 +61,7 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CustomerSet" Relationship="Self.FK_CustomerOrder" FromRole="Order" ToRole="CustomerSet" />
-          <Property Name="OrderName" Type="String" MaxLength="32" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="OrderName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="true" />
         </EntityType>
         <Association Name="FK_CustomerOrder">
           <End Role="CustomerSet" Type="Self.CustomerSet" Multiplicity="1" />

@@ -42,7 +42,22 @@ namespace CodeFirstDemo_02
                 }
                 #endregion
 
+                db.Configuration.LazyLoadingEnabled = true;
 
+                var orderLocal = db.Order.Local;
+                var productLocal = db.Product.Local;
+
+                var query = from o in db.Order.Include("Products")
+                            where o.OrderId > 2
+                            select o;
+                
+                foreach (var item in query)
+                {
+                    foreach (var p in item.Products)
+                    {
+
+                    }
+                }
 
                 Console.ReadKey(true);
             }

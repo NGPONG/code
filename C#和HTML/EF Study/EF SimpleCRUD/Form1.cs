@@ -97,16 +97,13 @@ namespace EF_SimpleCRUD
         {
             using (EFDemoEntities db = new EFDemoEntities())
             {
-                //db.Configuration.ValidateOnSaveEnabled = false;
+                // db.Configuration.ValidateOnSaveEnabled = false;
                 CustomerSet customer = new CustomerSet()
                 {
-                    CustomerId = 4,
-                    CustomerName = "123123123",
-                    CustomerAddress = "qeqweqwe"
+                    CustomerId = 9
                 };
                 CustomerSet customer1 = db.CustomerSet.Attach(customer);
-                db.Entry(customer1).State = EntityState.Added;
-                //customer1.CustomerName = "123123123";
+                customer1.CustomerName = "qwdqwdqwdqwdqwdqwdasdasd";
                 //customer1.CustomerAddress = "123123123dqwd";
                 db.SaveChanges();
             }
