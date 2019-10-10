@@ -50,8 +50,8 @@
             <PropertyRef Name="CustomerId" />
           </Key>
           <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
           <NavigationProperty Name="Order" Relationship="Self.FK_CustomerOrder" FromRole="CustomerSet" ToRole="Order" />
         </EntityType>
         <EntityType Name="Order">
@@ -61,7 +61,7 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CustomerSet" Relationship="Self.FK_CustomerOrder" FromRole="Order" ToRole="CustomerSet" />
-          <Property Name="OrderName" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="OrderName" Type="String" MaxLength="32" Unicode="true" FixedLength="false" Nullable="true" />
         </EntityType>
         <Association Name="FK_CustomerOrder">
           <End Role="CustomerSet" Type="Self.CustomerSet" Multiplicity="1" />

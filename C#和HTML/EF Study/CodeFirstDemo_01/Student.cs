@@ -16,6 +16,6 @@ namespace CodeFirstDemo_01
         public string StudentName { get; set; }
         [Required]
         public int StudentAge { get; set; }
-        public virtual Class Class { get; set; }
+        public virtual Class Class { get; set; }    
     }
 }
