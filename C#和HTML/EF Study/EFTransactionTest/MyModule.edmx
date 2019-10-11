@@ -2,7 +2,7 @@
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
-    <!-- SSDL content -->
+    <!-- SSDL content 存储层-->
     <edmx:StorageModels>
       <Schema Namespace="EFDemo2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
@@ -56,7 +56,7 @@
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
-    <!-- CSDL content -->
+    <!-- CSDL content 概念层-->
     <edmx:ConceptualModels>
       <Schema Namespace="EFDemo2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__MigrationHistory">
@@ -112,7 +112,7 @@
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
-    <!-- C-S mapping content -->
+    <!-- C-S mapping content 对应层/映射层-->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EFDemo2ModelStoreContainer" CdmEntityContainer="EFDemo2Entities">
@@ -168,3 +168,6 @@
     <Diagrams></Diagrams>
   </Designer>
 </edmx:Edmx>
+
+
+
