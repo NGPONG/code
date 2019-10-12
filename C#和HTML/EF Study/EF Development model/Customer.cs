@@ -1,4 +1,4 @@
-namespace Test_05
+namespace EF_Development_model
 {
     using System;
     using System.Collections.Generic;
@@ -6,21 +6,21 @@ namespace Test_05
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Categories
+    [Table("Customer")]
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categories()
+        public Customer()
         {
-            Books = new HashSet<Books>();
+            Order = new HashSet<Order>();
         }
 
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
 
-        [Required]
-        [StringLength(200)]
-        public string Name { get; set; }
+        [StringLength(64)]
+        public string CustomerName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Books> Books { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

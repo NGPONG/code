@@ -1,4 +1,4 @@
-namespace Test_05
+namespace Test_06
 {
     using System;
     using System.Collections.Generic;
@@ -6,21 +6,21 @@ namespace Test_05
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Categories
+    [Table("ClassInfo")]
+    public partial class ClassInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categories()
+        public ClassInfo()
         {
-            Books = new HashSet<Books>();
+            Student = new HashSet<Student>();
         }
 
-        public int Id { get; set; }
+        public int ClassInfoId { get; set; }
 
-        [Required]
-        [StringLength(200)]
-        public string Name { get; set; }
+        [StringLength(64)]
+        public string ClassName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Books> Books { get; set; }
+        public virtual ICollection<Student> Student { get; set; }
     }
 }

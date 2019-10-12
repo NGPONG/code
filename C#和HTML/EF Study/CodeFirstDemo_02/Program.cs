@@ -17,6 +17,7 @@ namespace CodeFirstDemo_02
                 {
                     db.Database.Create();
 
+
                     List<Order> orders = new List<Order>()
                     {
                         new Order(){ OrderName = "NGPONG CodeFirstTest1", CreateDate = DateTime.Now },

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{713F472F-6748-4D2F-86DF-F759B4331FBB}</ProjectGuid>
+    <ProjectGuid>{0A0810BD-F860-47D3-A9B3-9166C896D011}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Test_03</RootNamespace>
-    <AssemblyName>Test_03</AssemblyName>
+    <RootNamespace>Test_07</RootNamespace>
+    <AssemblyName>Test_07</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,8 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categories.cs" />
-    <Compile Include="MyModule.cs" />
+    <Compile Include="CustomerSet.cs" />
+    <Compile Include="Model1.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

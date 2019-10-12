@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{01DA6C57-AC04-4A7D-A641-980E290A20CD}</ProjectGuid>
+    <ProjectGuid>{24F64477-817E-4375-AAAA-32A82F7B03A4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Test_05</RootNamespace>
-    <AssemblyName>Test_05</AssemblyName>
+    <RootNamespace>EF_Development_model</RootNamespace>
+    <AssemblyName>EF Development model</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,130 +53,166 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionGroup.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="ActionInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Articel_Words.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="BookComment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Books.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Cart.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Categories.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="CheckEmail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeFirstModule.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>ModuleFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomerSet.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseFirstModule.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseFirstModule.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseFirstModule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseFirstModule.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseFirstModule.edmx</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="GetT1Value_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="keyWordsRank.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
+    <Compile Include="ModuleFirstModule.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>ModuleFirstModule.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs">
+    <Compile Include="ModuleFirstModule.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModuleFirstModule.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="ModuleFirstModule.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>ModuleFirstModule.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model2.cs" />
     <Compile Include="Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModuleFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderBook.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Orders.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publishers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="R_UserInfo_ActionInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="SearchDetails.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="SysFun.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="UserStates.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
     <Compile Include="VidoFile.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DataBaseFirstModule.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="DataBaseFirstModule.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataBaseFirstModule.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="DataBaseFirstModule.edmx.diagram">
+      <DependentUpon>DataBaseFirstModule.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="ModuleFirstModule.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModuleFirstModule.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModuleFirstModule.edmx.diagram">
+      <DependentUpon>ModuleFirstModule.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="DataBaseFirstModule.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseFirstModule.edmx</DependentUpon>
+      <LastGenOutput>DataBaseFirstModule.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBaseFirstModule.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseFirstModule.edmx</DependentUpon>
+      <LastGenOutput>DataBaseFirstModule.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModuleFirstModule.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModuleFirstModule.Context.cs</LastGenOutput>
+      <DependentUpon>ModuleFirstModule.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModuleFirstModule.edmx.sql" />
+    <Content Include="ModuleFirstModule.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModuleFirstModule.cs</LastGenOutput>
+      <DependentUpon>ModuleFirstModule.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
