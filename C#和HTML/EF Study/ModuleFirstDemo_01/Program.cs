@@ -18,6 +18,7 @@ namespace ModuleFirstDemo_01
 
             MyModuleContainer db2 = new MyModuleContainer();
             var quer3 = db2.CustomerSet.Find(2);
+
         }
     }
 }

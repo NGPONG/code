@@ -48,10 +48,11 @@ namespace EF_SimpleCRUD
                 // 把实体的实例添加到EF所缓存的实体集当中，并且标记其状态为添加
                 CustomerSet customer2 = new CustomerSet()
                 {
-                    CustomerName = "EF 数据添加测试5",
+                    CustomerName = "EF 数据添加测试12",
                     CustomerAddress = "深圳龙华"
                 };
                 db.CustomerSet.Attach(customer2);
+                db.Entry<CustomerSet>(customer2).State = EntityState.Added;
                 db.SaveChanges();
             }
         }
@@ -76,6 +77,15 @@ namespace EF_SimpleCRUD
                     CustomerId = 5
                 };
                 db.Entry(customer2).State = EntityState.Deleted;
+                db.SaveChanges();
+
+
+                var customer3 = new CustomerSet()
+                {
+                    CustomerId = 5
+                };
+                db.CustomerSet.Attach(customer3);
+                db.CustomerSet.Remove(customer3);
                 db.SaveChanges();
             }
         }
