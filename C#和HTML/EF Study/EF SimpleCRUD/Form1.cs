@@ -97,14 +97,14 @@ namespace EF_SimpleCRUD
         {
             using (EFDemoEntities db = new EFDemoEntities())
             {
-                // db.Configuration.ValidateOnSaveEnabled = false;
+                // 取消EF对于实体完整性的检查
+                db.Configuration.ValidateOnSaveEnabled = false;
                 CustomerSet customer = new CustomerSet()
                 {
                     CustomerId = 9
                 };
                 CustomerSet customer1 = db.CustomerSet.Attach(customer);
-                customer1.CustomerName = "qwdqwdqwdqwdqwdqwdasdasd";
-                //customer1.CustomerAddress = "123123123dqwd";
+                customer1.CustomerName = "Update CustomerName";
                 db.SaveChanges();
             }
         }
