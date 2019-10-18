@@ -42,14 +42,14 @@ namespace CodeFirstDemo_02
                 }
                 #endregion
 
-                db.Configuration.LazyLoadingEnabled = true;
+                db.Configuration.LazyLoadingEnabled = false;
 
                 var orderLocal = db.Order.Local;
                 var productLocal = db.Product.Local;
 
                 var query = from o in db.Order.Include("Products")
-                            where o.OrderId > 2
-                            select o;
+                             where o.OrderId > 2
+                             select o;
                 
                 foreach (var item in query)
                 {

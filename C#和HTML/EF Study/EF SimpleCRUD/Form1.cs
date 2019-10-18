@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 
 namespace EF_SimpleCRUD
 {
@@ -109,12 +110,23 @@ namespace EF_SimpleCRUD
             {
                 // 取消EF对于实体完整性的检查
                 db.Configuration.ValidateOnSaveEnabled = false;
+                //CustomerSet customer = new CustomerSet()
+                //{
+                //    CustomerId = 9
+                //};
+                //CustomerSet customer1 = db.CustomerSet.Attach(customer);
+                //customer1.CustomerName = "Update CustomerName";
+                //db.SaveChanges();
+                Debugger.NotifyOfCrossThreadDependency();
+
                 CustomerSet customer = new CustomerSet()
                 {
-                    CustomerId = 9
+                    CustomerId = 2,
+                    CustomerName = "NGPONG Update"
                 };
-                CustomerSet customer1 = db.CustomerSet.Attach(customer);
-                customer1.CustomerName = "Update CustomerName";
+                db.Entry(customer);
+                customer.CustomerName = "UpdateUpdateUpdateUpdate";
+                db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
