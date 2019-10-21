@@ -1,6 +1,7 @@
 ﻿using Implement;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -12,6 +13,8 @@ namespace Servers
     {
         static void Main(string[] args)
         {
+            ConfigurationManager.GetSection("system.serviceModel/")
+
             using (ServiceHost host = new ServiceHost(typeof(Calculator))) 
             {
                 host.Opened += host_Opened;
