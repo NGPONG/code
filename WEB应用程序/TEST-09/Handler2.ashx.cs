@@ -16,8 +16,7 @@ namespace TEST_09
             context.Response.ContentType = "text/plain";
             string id = context.Session.SessionID;
 
-            HttpCookieCollection cookieResponse = context.Response.Cookies;
-            HttpCookieCollection cookieRequest = context.Request.Cookies;
+            context.Response.Write("123123");
         }
 
         public bool IsReusable

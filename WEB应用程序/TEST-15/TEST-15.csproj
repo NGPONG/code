@@ -82,11 +82,15 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.ashx.cs">
+      <DependentUpon>Test.ashx</DependentUpon>
+    </Compile>
     <Compile Include="TestModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CurlHandler.ashx" />
     <None Include="packages.config" />
+    <Content Include="Test.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

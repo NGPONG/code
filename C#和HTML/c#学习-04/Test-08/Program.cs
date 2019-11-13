@@ -14,23 +14,9 @@ namespace Test_08
 
         static void Main(string[] args)
         {
-            bool flag = true;
-            Console.WriteLine("Begin Testing……");
-
-            while (flag)
-            {
-                Task.Factory.StartNew(()=> 
-                {
-                    string threadId = Thread.CurrentThread.ManagedThreadId.ToString();
-                    Console.WriteLine($"我是线程{threadId}");
-                    if (CallContext.GetData($"Thread{threadId}") != null)
-                    {
-                        flag = false;
-                        return;
-                    }
-                    CallContext.SetData($"Thread{threadId}", new object());
-                });
-            }
+            var str = "This is Dan's ";
+            str = str.Insert(str.IndexOf("'"),"'");
+            Console.WriteLine(str);
 
             Console.ReadLine();
         }
