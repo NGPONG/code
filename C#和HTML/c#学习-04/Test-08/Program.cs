@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -14,11 +15,10 @@ namespace Test_08
 
         static void Main(string[] args)
         {
-            var str = "This is Dan's ";
-            str = str.Insert(str.IndexOf("'"),"'");
-            Console.WriteLine(str);
+            DataTable table = new DataTable();
+            table.ReadXml(@"C:\Users\NGPONG\Desktop\新建文本文档.xml");
 
-            Console.ReadLine();
+
         }
     }
 }
