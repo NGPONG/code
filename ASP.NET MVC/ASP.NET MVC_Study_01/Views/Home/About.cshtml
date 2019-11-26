@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<div>
+    <form method="post" action="/Home/TestAPI" id="form1">
+        用户名:<input type="text" name="UserName" /><br />
+        密码<input type="password" name="UserPass" /><br />
+        邮箱<input type="text" name="Email" /><br />
+        <input type="text" name="MyMessage" />
+        <input type="submit" value="添加" id="btnAdd" />
+    </form>
+</div>
