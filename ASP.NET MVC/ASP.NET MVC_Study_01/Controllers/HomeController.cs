@@ -17,14 +17,24 @@ namespace ASP.NET_MVC_Study_01.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            var views = base.View();
             return View();
         }
 
         [HttpGet]
-        public ActionResult TestAPI(UserInfo users)
+        public void TestAPI2()
         {
-            return Content($"Your Message is");
+            var hello = ViewBag.Hello;
+            int age = ViewBag.Age;
+            HttpContext.Response.Write("Hello,World!");
+        }
+
+        [HttpGet]
+        public void TestAPI(UserInfo users)
+        {
+            base.ViewBag.Hello = "World";
+            base.ViewBag.Age = 22;
+            HttpContext.Response.Redirect("/Home/TestAPI2");
         }
 
         //[HttpPost]
