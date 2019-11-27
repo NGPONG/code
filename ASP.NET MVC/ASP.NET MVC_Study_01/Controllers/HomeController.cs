@@ -8,7 +8,7 @@ namespace ASP.NET_MVC_Study_01.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             return View();
         }
