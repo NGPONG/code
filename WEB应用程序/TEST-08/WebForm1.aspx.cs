@@ -11,7 +11,7 @@ namespace TEST_08
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.Context.Server.Execute("webForm2.aspx"); 
+            //base.Context.Server.Execute("webForm2.aspx"); 
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="TEST_08.WebForm1" %>
+<%@ Import Namespace="System.Reflection" %>
+
 
 <!DOCTYPE html>
 
@@ -11,5 +13,6 @@
     <h1>哈哈哈哈哈哈，我是页面1的代码</h1>
     <%=base.Context.Server.UrlEncode("你好啊") %> 
     <!--111111111111111111-->
+    <%=Assembly.GetExecutingAssembly().Location %>
 </body>
 </html>

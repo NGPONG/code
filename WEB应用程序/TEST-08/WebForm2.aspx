@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="TEST_08.WebForm2" %>
+<%@ Import Namespace="System.Reflection" %>
 
 <!DOCTYPE html>
 
@@ -10,5 +11,6 @@
 <body>
     <h1>哈哈哈哈哈，我是页面2中的代码</h1>
     <!--222222222222-->
+    <%=Assembly.GetExecutingAssembly().Location %>
 </body>
 </html>

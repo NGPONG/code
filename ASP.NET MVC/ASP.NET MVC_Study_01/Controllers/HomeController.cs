@@ -37,11 +37,11 @@ namespace ASP.NET_MVC_Study_01.Controllers
             HttpContext.Response.Redirect("/Home/TestAPI2");
         }
 
-        //[HttpPost]
-        //public ActionResult About()
-        //{
-        //    return base.Content($"Your Message is");
-        //}
+        [HttpGet]
+        public ActionResult TestAction()
+        {
+            return base.View();
+        }
 
         public ActionResult Contact()
         {
