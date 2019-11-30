@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
@@ -15,10 +16,7 @@ namespace Test_08
 
         static void Main(string[] args)
         {
-            DataTable table = new DataTable();
-            table.ReadXml(@"C:\Users\NGPONG\Desktop\新建文本文档.xml");
-
-
+            Console.WriteLine("123");
         }
     }
 }
