@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestAPI2</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("#btnTest_TestAPI").click(function () {
+
+                $.post("/Home/TestAPI", {}, function (data) {
+
+                    var i = 1;
+                })
+            });
+
+            $("#btnTest_TestAPI3").click(function () {
+
+                $.post("/Home/TestAP3", {}, function (data) {
+
+                    var i = 1;
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnTest_TestAPI" value="TestAPI" />
+    <input type="button" id="btnTest_TestAPI3" value="TestAP3" />
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,20 +22,22 @@ namespace ASP.NET_MVC_Study_01.Controllers
             return View();
         }
 
-        [HttpGet]
-        public void TestAPI2()
+        [HttpPost]
+        public ActionResult TestAPI()
         {
-            var hello = ViewBag.Hello;
-            int age = ViewBag.Age;
-            HttpContext.Response.Write("Hello,World!");
+            return Content(JsonConvert.SerializeObject(new UserInfo() { UserName = "吴鹏", Email = "pengpeng1997428@gmail.com", ID = 1, RegTime = DateTime.Now, UserPass = "Pengqi1997.0428" }), "application/json");
+        }
+
+        [HttpPost]
+        public ActionResult TestAP3 ()
+        {
+            return Json(new UserInfo() { UserName = "吴鹏", Email = "pengpeng1997428@gmail.com", ID = 1, RegTime = DateTime.Now, UserPass = "Pengqi1997.0428" });
         }
 
         [HttpGet]
-        public void TestAPI(UserInfo users)
+        public ActionResult TestAPI2(UserInfo users)
         {
-            base.ViewBag.Hello = "World";
-            base.ViewBag.Age = 22;
-            HttpContext.Response.Redirect("/Home/TestAPI2");
+            return base.View();
         }
 
         [HttpGet]
