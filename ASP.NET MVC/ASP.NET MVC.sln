@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET MVC_Study_01", "ASP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_01", "Test_01\Test_01.csproj", "{FE59B7CE-16E4-4784-8088-A9FA9B1935A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET MVC_Study_02", "ASP.NET MVC_Study_02\ASP.NET MVC_Study_02.csproj", "{650A15A4-5A43-44DA-A12E-76F3E2779CAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FE59B7CE-16E4-4784-8088-A9FA9B1935A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE59B7CE-16E4-4784-8088-A9FA9B1935A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE59B7CE-16E4-4784-8088-A9FA9B1935A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{650A15A4-5A43-44DA-A12E-76F3E2779CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650A15A4-5A43-44DA-A12E-76F3E2779CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650A15A4-5A43-44DA-A12E-76F3E2779CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650A15A4-5A43-44DA-A12E-76F3E2779CAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
