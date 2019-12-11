@@ -19,7 +19,27 @@ namespace ASP.NET_MVC_Study_01.Controllers
         {
             ViewBag.Message = "Your application description page.";
             var views = base.View();
+
+            Test();
             return View();
+        }
+
+        public void Test()
+        {
+            try
+            {
+                TestExp();
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        public void TestExp()
+        {
+            throw new Exception("哈哈哈");
         }
 
         [HttpPost]
