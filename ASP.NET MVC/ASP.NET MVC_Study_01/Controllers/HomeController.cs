@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using ASP.NET_MVC_Study_01.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,16 +13,13 @@ namespace ASP.NET_MVC_Study_01.Controllers
     {
         public ActionResult Index(string id)
         {
-            return View();
+            return View(new MyModels() { Age = 11, Name = "wupeng" });
         }
 
         [HttpGet]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            var views = base.View();
-
-            Test();
             return View();
         }
 

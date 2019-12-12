@@ -1,6 +1,9 @@
 ﻿@{
     // ViewBag.Title = "哈哈哈傻批";
 }
+
+@using System.Reflection;
+
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
@@ -13,6 +16,8 @@
         邮箱<input type="text" name="Email" /><br />
         <input type="text" name="MyMessage" />
         <input type="submit" value="添加" id="btnAdd" />
+
+        <h1>@Assembly.GetExecutingAssembly().Location</h1>
 
         @{
             var str = "123";
