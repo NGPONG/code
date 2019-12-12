@@ -1,3 +1,6 @@
-﻿@{
+﻿@using System.Reflection;
+
+@{
+    base.Context.Items["temp"] = Assembly.GetExecutingAssembly().Location;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }

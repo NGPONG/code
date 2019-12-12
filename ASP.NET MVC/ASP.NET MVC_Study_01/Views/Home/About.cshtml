@@ -19,6 +19,8 @@
 
         <h1>@Assembly.GetExecutingAssembly().Location</h1>
 
+        @base.Context.Items["temp"].ToString();
+
         @{
             var str = "123";
             @str
