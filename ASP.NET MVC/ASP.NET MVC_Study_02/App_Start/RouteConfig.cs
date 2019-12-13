@@ -18,6 +18,12 @@ namespace ASP.NET_MVC_Study_02
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "1",
+            //    url: "{*values}",
+            //    defaults: new { controller = "Home", action = "Index" }
+            //);
         }
     }
 }

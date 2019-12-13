@@ -169,7 +169,7 @@ namespace TEST_10
         private void Application_BeginRequest(object sender, EventArgs e)
         {
             var application = sender as HttpApplication;
-            application.Context.Response.End();
+            //application.Context.Response.End();
             //application.Context.Response.End();
             //MyModule.objMyModuleEventStr.Clear();
             //MyModule.objMyModuleEventStr.Add("HttpModule【BeginRequest】<br/>");

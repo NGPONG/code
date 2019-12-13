@@ -19,6 +19,12 @@ namespace ASP.NET_MVC_Study_01
                 defaults: new { controller = "Home", action = "About" },
                 constraints: new { httpMethod = new HttpMethodConstraint("GET")}
             );
+
+            //routes.MapRoute(
+            //    name: "1",
+            //    url: "{*values}",
+            //    defaults: new { controller = "Home", action = "About" } 
+            //);
         }
     }
 }
