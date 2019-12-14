@@ -16,8 +16,7 @@ namespace ASP.NET_MVC_Study_01
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{*values}",
-                defaults: new { controller = "Home", action = "About" },
-                constraints: new { httpMethod = new HttpMethodConstraint("GET")}
+                defaults: new { controller = "Home", action = "About" }
             );
 
             //routes.MapRoute(

@@ -23,17 +23,10 @@ namespace ASP.NET_MVC_Study_01.Controllers
             return View();
         }
 
-        public void Test()
+        [HttpGet]
+        public ActionResult Test(string value)
         {
-            try
-            {
-                TestExp();
-            }
-            catch (Exception e)
-            {
-
-                throw;
-            }
+            return Redirect("~/Home/Contact");
         }
 
         public void TestExp()
@@ -45,6 +38,7 @@ namespace ASP.NET_MVC_Study_01.Controllers
         public ActionResult TestAPI()
         {
             return Content(JsonConvert.SerializeObject(new UserInfo() { UserName = "吴鹏", Email = "pengpeng1997428@gmail.com", ID = 1, RegTime = DateTime.Now, UserPass = "Pengqi1997.0428" }), "application/json");
+            
         }
 
         [HttpPost]
@@ -70,6 +64,36 @@ namespace ASP.NET_MVC_Study_01.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Get()
+        {
+            return Content("Hello,World!");
+        }
+
+        [HttpPost]
+        public ActionResult Post()
+        {
+            return Content("Hello,World!");
+        }
+
+        [HttpPut]
+        public ActionResult Put()
+        {
+            return Content("Hello,World!");
+        }
+
+        [HttpDelete]
+        public ActionResult Delete()
+        {
+            return Content("Hello,World!");
+        }
+
+        [HttpPatch]
+        public ActionResult Patch()
+        {
+            return Content("Hello,World!");
         }
     }
 
