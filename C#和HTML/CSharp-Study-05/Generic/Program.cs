@@ -22,6 +22,36 @@ namespace Generic
         }
     }
 
+    public interface IPerson<T>
+    {
+        T Name(T value);
+    }
+
+    public class Student<T> : IPerson<int>
+    {
+        public int Name(int value)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Person
+    {
+
+    }
+
+    public class MyClass
+    {
+    }
+
+    public interface ITest { }
+
+    public class GenericClassTest<T>
+        where T : class,new()
+    {
+
+    }
+
     public class CommandMethod<T>
     {
         public T GetMaxLength(T[] arrary,GenericHandler<T> handler)
