@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCache", "GenericCach
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contravariant and Covariant", "Contravariant and Covariant\Contravariant and Covariant.csproj", "{FAB790E0-F0A6-4B36-A482-261803120FA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_01", "Test\Test_01\Test_01.csproj", "{AC1C3089-B055-4E0A-AC03-A67EE7234217}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{669B3141-E328-472C-BFA2-0E8D5AAA5D31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{FAB790E0-F0A6-4B36-A482-261803120FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAB790E0-F0A6-4B36-A482-261803120FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAB790E0-F0A6-4B36-A482-261803120FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1C3089-B055-4E0A-AC03-A67EE7234217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1C3089-B055-4E0A-AC03-A67EE7234217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1C3089-B055-4E0A-AC03-A67EE7234217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1C3089-B055-4E0A-AC03-A67EE7234217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC1C3089-B055-4E0A-AC03-A67EE7234217} = {669B3141-E328-472C-BFA2-0E8D5AAA5D31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F74E0803-679E-4CB1-AE70-F7E8BC8E28BD}
