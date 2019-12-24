@@ -12,5 +12,9 @@ int main(void) {
 
 	printf("%c\n", '2');		// 50
 
+
+	printf("%s\n", "hhahahahha");		// 50
+	printf("%x\n", '2');		// 50
+
 	return 0;
 }
