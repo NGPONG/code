@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Char", "Char\Char.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Float_Double", "Float_Double\Float_Double.vcxproj", "{A1734B10-A3A8-4263-987D-82F3DE9E656A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "String", "String\String.vcxproj", "{9F279580-25EE-4753-92A3-E0986DDAF7EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{A1734B10-A3A8-4263-987D-82F3DE9E656A}.Release|x64.Build.0 = Release|x64
 		{A1734B10-A3A8-4263-987D-82F3DE9E656A}.Release|x86.ActiveCfg = Release|Win32
 		{A1734B10-A3A8-4263-987D-82F3DE9E656A}.Release|x86.Build.0 = Release|Win32
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Debug|x64.ActiveCfg = Debug|x64
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Debug|x64.Build.0 = Debug|x64
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Debug|x86.Build.0 = Debug|Win32
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Release|x64.ActiveCfg = Release|x64
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Release|x64.Build.0 = Release|x64
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Release|x86.ActiveCfg = Release|Win32
+		{9F279580-25EE-4753-92A3-E0986DDAF7EB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
