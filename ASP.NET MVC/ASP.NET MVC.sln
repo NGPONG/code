@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET_MVC_Study_02", "ASP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET_MVC_Study_03", "ASP.NET_MVC_Study_03\ASP.NET_MVC_Study_03.csproj", "{0F92F86F-FA40-4724-88C7-EB2ACF7E0725}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET_MVC_Study_04", "ASP.NET_MVC_Study_04\ASP.NET_MVC_Study_04.csproj", "{160CB658-C037-46E2-B13A-CCA1329D3DDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0F92F86F-FA40-4724-88C7-EB2ACF7E0725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F92F86F-FA40-4724-88C7-EB2ACF7E0725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F92F86F-FA40-4724-88C7-EB2ACF7E0725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160CB658-C037-46E2-B13A-CCA1329D3DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160CB658-C037-46E2-B13A-CCA1329D3DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160CB658-C037-46E2-B13A-CCA1329D3DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160CB658-C037-46E2-B13A-CCA1329D3DDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
