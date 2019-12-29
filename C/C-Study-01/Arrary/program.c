@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <Windows.h>
 
-int main(void) {
+int main_Temp1(void) {
 
 	char arrary[] = { '1','2','\0' };
 
@@ -14,4 +14,17 @@ int main(void) {
 
 	system("paurse");
 	return 0;
+}
+
+
+int main (void) {
+
+	char str[] = "Hello";
+
+	int length = sizeof (str) / sizeof (str[0]);
+
+
+
+	system ("pause");
+	return EXIT_SUCCESS;
 }

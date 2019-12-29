@@ -1,4 +1,56 @@
+#pragma warning(disable:6031)
+#pragma warning(disable:4996)			
+
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include <Windows.h>
+
+
+int main(void) {
+
+	char str[] = "Hello world\n  ";
+
+	int value = strlen(str);
+
+	system("pause");
+	return EXIT_SUCCESS;
+}
+
+int main_Temp5(void) {
+
+	puts("Hello,World!");
+
+	fputs("My Name is WUPENG\n", stdout);
+
+	system("pause");
+	return EXIT_SUCCESS;
+}
+
+
+int main_Temp4(void) {
+
+	char strs[8] = {0};
+	gets(strs);
+
+	char testCh;
+	scanf("%c", &testCh);
+
+
+	char testCh1;
+	scanf("%c", &testCh1);
+
+	char strs2[8] = { 0 };
+	gets(strs2);
+
+	printf("%s",strs);
+
+	system("pause");
+	return EXIT_SUCCESS;
+}
+
 
 int main_Temp1(void) {
 
@@ -34,7 +86,7 @@ int main_Temp2(void) {
 	return 0;
 }
 
-int main(void) {
+int main_Temp3(void) {
 
 	 char var = 'A';
 

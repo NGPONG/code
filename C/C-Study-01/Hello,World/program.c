@@ -5,10 +5,6 @@
 
 int main(void)
 {
-	printf("Hello,World %d \n",123123);
-
-
-
 	// ÔÝÍ£
 	//system("mspaint");
 
