@@ -1,22 +1,28 @@
-#pragma warning(disable:6031)
-#pragma warning(disable:4996)			
+#pragma warning(disable : 6031)
+#pragma warning(disable : 4996)
 
+#include <Windows.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 int main(void) {
 
-	int a = 10;
+	int a = 65;
 
-	int *p_a = &a;
+	int *p = &a;
 
-	printf("value: %p\n", &a);
-	printf("value: %p\n", &p_a);
-	printf("value: %p\n", &*p_a);
+	void *p_Void = (void *)p;
+
+
+	printf("%p\n", &a);
+	printf("%p\n", p);
+	printf("%p\n", p_Void);
+	printf("%p\n", &p);
+	printf("%p\n", &p_Void);
+
 
 	system("pause");
 	return EXIT_SUCCESS;
