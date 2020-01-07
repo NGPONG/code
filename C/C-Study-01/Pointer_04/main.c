@@ -8,22 +8,32 @@
 #include <time.h>
 #include <Windows.h>
 
-void fun_Test(int nums[5]) {
+int *fun_Test(int a) {
 
-	
+	a = 20;
+
+	int b = 30;
+
+	return &a;
+}
+
+void fun_Test2() {
+
+	int a = 20;
+
+	int b = 30;
 }
 
 int main(void) {
-	
+
 	int a = 10;
 
-	int b = 20;
+	int *p = fun_Test(a);
 
-	int *p[] = { &a,&b };
+	for (size_t i = 0; i < 100000; i++) {
 
-	int *p_Test = &p;
-
-	printf("%d\n", **p + 1);
+		fun_Test2();
+	}
 
 	system("pause");
 	return EXIT_SUCCESS;

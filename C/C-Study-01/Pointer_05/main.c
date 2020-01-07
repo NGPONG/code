@@ -8,22 +8,25 @@
 #include <time.h>
 #include <Windows.h>
 
-void fun_Test(int nums[5]) {
-
-	
-}
-
 int main(void) {
-	
-	int a = 10;
 
-	int b = 20;
+	char *str = "hellossllodd";
+	char *str_Sub = "llo";
 
-	int *p[] = { &a,&b };
+	int i = 0;
 
-	int *p_Test = &p;
+	while (1) {
 
-	printf("%d\n", **p + 1);
+		str = strstr(str, str_Sub);
+		if (str != NULL) {
+		
+			i++;
+			str += strlen(str_Sub);
+			continue;
+		}
+
+		break;
+	}
 
 	system("pause");
 	return EXIT_SUCCESS;
