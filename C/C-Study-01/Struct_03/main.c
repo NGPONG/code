@@ -9,30 +9,16 @@
 #include <time.h>
 #include <Windows.h>
 
-struct Person {
+typedef struct Person {
 
 	int Age;
-	int Gender;
 	char *Name;
-};
-
-void fun_Test(struct Person per) {
-
-	int i = 0;
-}
-
-void fun_Test2(int *p) {
-
-	*p = 10;
-}
+	int Gender;
+} person_t;
 
 int main(void) {
 
-	int i = 2;
 
-	char *str = malloc(sizeof(char) * 10);
-
-	strcpy(str, "World!");
 
 	system("pause");
 	return EXIT_SUCCESS;
