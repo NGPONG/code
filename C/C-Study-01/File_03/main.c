@@ -1,4 +1,4 @@
-#pragma warning(disable:6031)
+﻿#pragma warning(disable:6031)
 #pragma warning(disable:4996)			
 
 #include <stdio.h>
@@ -59,8 +59,43 @@ int read(void) {
 int main(void) {
 
 	//write();
-	read();
-	
+	//read();
+
+	FILE *fp = fopen("c:/Users/NGPONG/Desktop/test.txt", "a");
+	if (fp == NULL) {
+
+		perror("fp error");
+		return EXIT_FAILURE;
+	}
+
+	int index1 = ftell(fp);
+
+	char str[6] = { 0 };
+	fgets(str, sizeof(str), fp);
+
+	printf("%s", str);
+
+	int index = ftell(fp);
+
+	printf("fp_Index = %d\n", index);
+
+	//fseek(fp, 0, SEEK_CUR);
+
+	int ret = fputs("BBBBB", fp);
+
+	index = ftell(fp);
+
+	fseek(fp, 0, SEEK_SET);
+
+	index = ftell(fp);
+
+	ret = fputs("CCCCC", fp);
+
+	index = ftell(fp);
+
+	printf("ret = %d\n", ret);
+
+	fclose(fp);
 	system("pause");
 	return EXIT_SUCCESS;
 }
