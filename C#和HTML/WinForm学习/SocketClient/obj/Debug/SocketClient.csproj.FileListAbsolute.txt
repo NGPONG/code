@@ -41,3 +41,12 @@ C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\SocketClient\obj\Debug\So
 C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.exe
 C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.pdb
 C:\Users\NGPONG\Desktop\源码\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\bin\Debug\SocketClient.exe.config
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\bin\Debug\SocketClient.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\bin\Debug\SocketClient.pdb
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.csprojAssemblyReference.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.Form1.resources
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.Properties.Resources.resources
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.csproj.GenerateResource.cache
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.exe
+C:\Users\NGPONG\Desktop\code\C#和HTML\WinForm学习\SocketClient\obj\Debug\SocketClient.pdb

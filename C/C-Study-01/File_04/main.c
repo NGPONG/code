@@ -44,7 +44,7 @@ int main(void) {
 		fseek(fp, 100, SEEK_CUR);
 
 		long index = ftell(fp);
-
+		
 		if (feof(fp)) {
 
 			break;
