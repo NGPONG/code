@@ -224,17 +224,14 @@ void Free(list_t *list) {
 
 		if ((next_temp = current->next) == NULL) {
 
-			//printf("free %p\n", list->tail);
 			free(list->tail);
 			break;
 		}
 
-		//printf("free %p\n", current);
 		free(current);
 
 		current = next_temp;
 	}
 
-	//printf("free %p\n", list);
 	free(list);
 }

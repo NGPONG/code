@@ -9,22 +9,65 @@
 #include <time.h>
 #include <Windows.h>
 
-int a = 1000;
+#pragma pack(4)
 
-extern void fun(void) {
+/*
+size : 6byte
+Valid: 1
+*/
+struct student {
 
-	printf("123");
-}
+	char a;					// 0x00000000
+	char b;					// 0x00000001
+	char c;					// 0x00000002
+	char d;					// 0x00000003
+	char e;					// 0x00000004
+	char f;					// 0x00000005
+};
+
+union object {
+
+	char var;
+	short int_16;
+	int int_32;
+};
+
+/*
+size : 16
+Valid: 4
+*/
+struct person {
+
+	char g;					// 0x00000000 ~ 0x00000003	 4
+	int i;					// 0x00000004 ~ 0x00000007	 4
+	struct student stu;		// 0x00000008 ~ 0x0000000E	 8
+
+};
 
 int main(void) {
 
+	struct person per;
+	struct student stu;
 
-	int arrary[3] = { 1,2,3 };
+	union object obj;
+	printf("%d\n", sizeof(obj));
 
-	int (*p_arrary)[3] = arrary;
 
-	printf("%d\n", *(*p_arrary));         // Print 1
-	printf("%d\n", *((*p_arrary) + 1));	    // Print 2
+	//printf("%p\n", &stu.a);
+	//printf("%p\n", &stu.b);
+	//printf("%p\n", &stu.c);
+	//printf("%p\n", &stu.d);
+	//printf("%p\n", &stu.e);
+	//printf("%p\n", &stu.f);
+
+
+
+	printf("%p\n", &per.g);
+	printf("%p\n", &per.i);
+	printf("%p\n", &per.stu);
+
+	printf("size = %d\n", sizeof(per));
+	printf("size = %d\n", sizeof(stu));
 
 	system("pause");
 	return EXIT_SUCCESS;

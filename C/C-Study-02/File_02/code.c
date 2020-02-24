@@ -72,7 +72,11 @@ void *decode(void) {
 	}
 
 	char **configs = malloc(sizeof(char *) * 1024);
-	memset(configs, 0, 1024);
+	if (configs == NULL) {
+	
+		return;
+	}
+	memset(configs, 0, sizeof(char *) * 1024);
 
 	char buffer[128] = { 0 };
 	short mark;

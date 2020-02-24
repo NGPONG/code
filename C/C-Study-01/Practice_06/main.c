@@ -22,7 +22,7 @@ int copy(void) {
 		perror("file error");
 		return -1;
 	}
-
+	
 	while (1) {
 
 		int ret = fread(buffer, 1, MAX_LENGTH, reader);

@@ -10,6 +10,9 @@ namespace Test_01
     {
         static void Main(string[] args)
         {
+            int a = 10;
+            byte b = a;
+
         }
     }
 }
