@@ -204,6 +204,7 @@ void Reverse_List(list_t *list) {
 	for (size_t i = 0; i < list->size; i++) {
 
 		next = current->next;
+
 		current->next = prev;
 
 		// move
