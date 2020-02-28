@@ -40,6 +40,13 @@ int main(void) {
 		printf("address = %p, value = %d\n", *(arrary->ptr_arrary + i), *(int *)*(arrary->ptr_arrary + i));
 	}
 
+	DestoryArrary(arrary);
+
+	for (size_t i = 0; i < arrary->length; i++) {
+
+		printf("address = %p, value = %d\n", *(arrary->ptr_arrary + i), *(int *)*(arrary->ptr_arrary + i));
+	}
+
 	system("pause");
 	return EXIT_SUCCESS;
 }

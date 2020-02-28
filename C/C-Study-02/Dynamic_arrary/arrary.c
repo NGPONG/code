@@ -2,6 +2,42 @@
 
 static int capacity;
 
+int CheckArraryAvailableLength(struct dynamicArrary *arrary) {
+
+	if (arrary->length == capacity) {
+
+		int flag = ReallocArrary(&arrary->ptr_arrary, arrary->length);
+		if (!flag) {
+
+			printf("[Realloc complete]  struct address = %p, arrary adderss = %p\n", arrary, arrary->ptr_arrary);
+		}
+	}
+
+	return 0;
+}
+
+int ReallocArrary(void ***ptr_arrary, int length) {
+
+	capacity += 10;
+	void **arrary_new = malloc(sizeof(void *) * capacity);
+	if (arrary_new == NULL) {
+
+		return -1;
+	}
+
+	printf("[Realloc]  address old = %p, address new = %p\n", *ptr_arrary, arrary_new);
+	/*move the data from the old array to the new array*/
+	memcpy(arrary_new, *ptr_arrary, sizeof(void *) * length);
+
+	free(*ptr_arrary);
+	*ptr_arrary = arrary_new;
+
+	return 0;
+}
+
+#pragma endregion
+
+
 struct dynamicArrary *InitDynamicArrary(int m_capacity) {
 
 	if (m_capacity <= 0) {
@@ -54,39 +90,6 @@ int Insert(struct dynamicArrary *arrary, int index, void *value) {
 	memcpy(arrary->ptr_arrary + index, &value, sizeof(void *));
 
 	arrary->length++;
-	return 0;
-}
-
-int CheckArraryAvailableLength(struct dynamicArrary *arrary) {
-
-	if (arrary->length == capacity) {
-
-		int flag = ReallocArrary(&arrary->ptr_arrary, arrary->length);
-		if (!flag) {
-
-			printf("[Realloc complete]  struct address = %p, arrary adderss = %p\n", arrary, arrary->ptr_arrary);
-		}
-	}
-
-	return 0;
-}
-
-int ReallocArrary(void ***ptr_arrary, int length) {
-
-	capacity += 10;
-	void **arrary_new = malloc(sizeof(void *) * capacity);
-	if (arrary_new == NULL) {
-
-		return -1;
-	}
-
-	printf("[Realloc]  address old = %p, address new = %p\n", *ptr_arrary, arrary_new);
-	/*move the data from the old array to the new array*/
-	memcpy(arrary_new, *ptr_arrary, sizeof(void *) * length);
-
-	free(*ptr_arrary);
-	*ptr_arrary = arrary_new;
-
 	return 0;
 }
 
@@ -146,4 +149,34 @@ int RemoveByValue(struct dynamicArrary *arrary, void *value, int (*invoker)(void
 	}
 
 	return 0;
+}
+
+int DestoryArrary(struct dynamicArrary *arrary) {
+
+	if (arrary == NULL) {
+		
+		return -1;
+	}
+
+	printf("are you sure destory arrary? (yes/no)\n");
+
+	char str_CustomerInput[8] = { 0 };
+	fgets(str_CustomerInput, sizeof(str_CustomerInput), stdin);
+
+	if (strcmp(str_CustomerInput, "yes")) {
+	
+		return -1;
+	}
+
+	for (int i = 0; i < arrary->length; i++) {
+
+		printf("[free]  element address = %p\n", *(arrary->ptr_arrary + i));
+		free(*(arrary->ptr_arrary + i));
+	}
+
+	printf("[free]  arrary address = %p\n", arrary->ptr_arrary);
+	free(arrary->ptr_arrary);
+
+	printf("[free]  struct address = %p\n", arrary);
+	free(arrary);
 }
