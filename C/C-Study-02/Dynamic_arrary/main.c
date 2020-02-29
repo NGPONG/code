@@ -16,6 +16,11 @@ int arrary_compare_int(void *data_source, void *data_compare) {
 	return *(int *)data_source == *(int *)data_compare;
 }
 
+//int arrary_foreach_int(void *data_1, void *data_2) {
+//
+//	printf();
+//}
+
 int main(void) {
 
 	struct dynamicArrary *arrary = InitDynamicArrary(2);
@@ -41,11 +46,6 @@ int main(void) {
 	}
 
 	DestoryArrary(arrary);
-
-	for (size_t i = 0; i < arrary->length; i++) {
-
-		printf("address = %p, value = %d\n", *(arrary->ptr_arrary + i), *(int *)*(arrary->ptr_arrary + i));
-	}
 
 	system("pause");
 	return EXIT_SUCCESS;

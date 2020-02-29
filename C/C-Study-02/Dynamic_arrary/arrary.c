@@ -16,7 +16,7 @@ int CheckArraryAvailableLength(struct dynamicArrary *arrary) {
 	return 0;
 }
 
-int ReallocArrary(void ***ptr_arrary, int length) {
+int ReallocArrary(void ***p_ptr_arrary, int length) {
 
 	capacity += 10;
 	void **arrary_new = malloc(sizeof(void *) * capacity);
@@ -25,18 +25,15 @@ int ReallocArrary(void ***ptr_arrary, int length) {
 		return -1;
 	}
 
-	printf("[Realloc]  address old = %p, address new = %p\n", *ptr_arrary, arrary_new);
+	printf("[Realloc]  address old = %p, address new = %p\n", *p_ptr_arrary, arrary_new);
 	/*move the data from the old array to the new array*/
-	memcpy(arrary_new, *ptr_arrary, sizeof(void *) * length);
+	memcpy(arrary_new, *p_ptr_arrary, sizeof(void *) * length);
 
-	free(*ptr_arrary);
-	*ptr_arrary = arrary_new;
+	free(*p_ptr_arrary);
+	*p_ptr_arrary = arrary_new;
 
 	return 0;
 }
-
-#pragma endregion
-
 
 struct dynamicArrary *InitDynamicArrary(int m_capacity) {
 
@@ -158,12 +155,12 @@ int DestoryArrary(struct dynamicArrary *arrary) {
 		return -1;
 	}
 
-	printf("are you sure destory arrary? (yes/no)\n");
+	printf("are you sure destory arrary? [yes/no]\n");
 
 	char str_CustomerInput[8] = { 0 };
 	fgets(str_CustomerInput, sizeof(str_CustomerInput), stdin);
 
-	if (strcmp(str_CustomerInput, "yes")) {
+	if (strcmp(str_CustomerInput, "yes\n")) {
 	
 		return -1;
 	}
@@ -179,4 +176,6 @@ int DestoryArrary(struct dynamicArrary *arrary) {
 
 	printf("[free]  struct address = %p\n", arrary);
 	free(arrary);
+
+	capacity = 0;
 }

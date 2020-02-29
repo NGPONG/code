@@ -18,7 +18,7 @@ list_t *Create() {
 	return list;
 }
 
-void AddNode(list_t *list, int data) {
+void AddNode(list_t *list, void *data) {
 
 	if (list == NULL) {
 	
@@ -48,7 +48,7 @@ void AddNode(list_t *list, int data) {
 	list->size++;
 }
 
-void ForeachAllNode(list_t *list) {
+void ForeachAllNode(list_t *list,void (*invoker)(node_t *)) {
 
 	if (list == NULL || list->head == NULL) {
 
@@ -58,13 +58,13 @@ void ForeachAllNode(list_t *list) {
 	node_t *current = list->head;
 	while (1) {
 
-		printf("address = %p,value = %d\n", current, current->data);
+		invoker(current);
 
 		if ((current = current->next) == NULL) {
 			
-			printf("******************************************\n");
-			printf("head address = %p,value = %d\n", list->head, list->head->data);
-			printf("tail address = %p,value = %d\n", list->tail, list->tail->data);
+			printf("foreach ended******************************************\n");
+			printf("head address = %p\n", list->head);
+			printf("tail address = %p\n", list->tail);
 			printf("list address = %p\n", list);
 			printf("list size = %d\n\n", list->size);
 			break;
@@ -72,7 +72,7 @@ void ForeachAllNode(list_t *list) {
 	}
 }
 
-void Insert(list_t *list, int index, int data) {
+void Insert(list_t *list, int index, void *data) {
 
 	if (list == NULL) {
 	
@@ -104,15 +104,15 @@ void Insert(list_t *list, int index, int data) {
 	}
 	else {
 	
-		node_t *node_aft = list->head;
+		node_t *node_bef = list->head;
 		for (size_t i = 0; i < index - 1; i++) {
 
-			node_aft = node_aft->next;
+			node_bef = node_bef->next;
 		}
 
-		node_t *node_bef = node_aft->next;
-		node_aft->next = node;
-		node->next = node_bef;
+		node_t *node_aft = node_bef->next;
+		node_bef->next = node;
+		node->next = node_aft;
 	}
 
 	list->size++;
@@ -225,14 +225,19 @@ void Free(list_t *list) {
 
 		if ((next_temp = current->next) == NULL) {
 
+			printf("free node address = %p, Data address = %p\n", list->tail, list->tail->data);
+			free(list->tail->data);
 			free(list->tail);
 			break;
 		}
 
+		printf("free node address = %p, Data address = %p\n", current, current->data);
+		free(current->data);
 		free(current);
 
 		current = next_temp;
 	}
 
+	printf("free list address = %p\n", list);
 	free(list);
 }

@@ -11,26 +11,32 @@
 
 #include "singly_list.h"
 
+void printer_int(node_t *current) {
+
+	printf("node address = %p, data address = %p, Data value = %d\n", current, current->data, *(int *)current->data);
+}
+
 int main(void) {
 
 	list_t *list = Create();
-	AddNode(list, 1);
-	AddNode(list, 2);
-	AddNode(list, 3);
-	AddNode(list, 4);
-	AddNode(list, 5);
-	AddNode(list, 6);
-	ForeachAllNode(list);
+	for (int i = 0; i < 1000000; i++) {
+
+		int *a = malloc(sizeof(int));
+		if (a == NULL) {
+			
+			perror("heap error");
+			return -1;
+		}
+		*a = i + 1;
+		AddNode(list, a);
+	}
+
+	ForeachAllNode(list,printer_int);
 
 	Reverse_List(list);
 
-	ForeachAllNode(list);
+	ForeachAllNode(list, printer_int);
 
-	//for (size_t i = 0; i < 1000000; i++) {
-
-	//	AddNode(list, i + 1);
-	//}
-	
 	Free(list);
 	system("pause");
 	return EXIT_SUCCESS;
