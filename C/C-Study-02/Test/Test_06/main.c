@@ -3,122 +3,173 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
-#include <string.h>
-#include <time.h>
-#include <conio.h>
-#include <Windows.h>
 
-#define OK 1
-#define ERROR 0
-#define TRUE 1
-#define FALSE 0
-#define STACK_INIT_SIZE 2	 // 栈初始容量
-#define STACK_INCREMENT 2   //栈满后，每次扩充的容量
-#define EXPRESS_MAX 1024 //后缀表达式 长度不能超过1024
-typedef int Status;
-typedef char EleType;
+/* binary-tree node */
+struct binary_node {
+	int idx;
+	struct binary_node *left;
+	struct binary_node *right;
+};
 
-typedef struct SeqStack {
-	EleType *top;//栈顶指针
-	EleType *base;//栈底指针
-	int stackSize;//栈容量
-}SeqStack;
-//初始化栈
-Status InitStack(SeqStack *stack) {
-	//开辟空间
-	stack->base = stack->top = (EleType *)malloc(STACK_INIT_SIZE * sizeof(EleType));
-	if (!stack->base) {
-		exit(0);
-	}
+/* Perfect Binary Tree
+ *                               (200)
+ *                                 |
+ *                 o---------------+---------------o
+ *                 |                               |
+ *               (143)                           (876)
+ *                 |                               |
+ *          o------+-----o                  o------+-----o
+ *          |            |                  |            |
+ *        (754)        (386)              (486)        (740)
+ *          |            |                  |            |
+ *      o---+---o    o---+---o          o---+---o    o---+---o
+ *      |       |    |       |          |       |    |       |
+ *     (6)     (3)  (7)     (9)        (8)     (2)  (1)     (5)
+ */
+static int Perfect_BinaryTree_data[] = {
+								   -1, -1, 6, -1, -1, 3, 754, -1, -1, 7,
+								   -1, -1, 9, 386, 143, -1, -1, 8, -1, -1,
+								   2, 486, -1, -1, 1, -1, -1, 5, 740, 876,
+								   200 };
+/* Must indicate the number of counter on Postorder Create binary-tree */
+static int counter = 31;
+static int *BinaryTree_data = Perfect_BinaryTree_data;
 
-	memset(stack->base, 0x0, STACK_INIT_SIZE * sizeof(EleType));
+/* Preorder Create Binary-tree
+ *
+ *   Don't direct Postorder create binary-tree, but we can find the last
+ *   node is root, and previous node is right-child for root, and pre-previous
+ *   node is left-child for root..... So, we can create binary tree like this.
+ */
+static struct binary_node *Postorder_Create_BinaryTree(struct binary_node *node) {
+	int ch = BinaryTree_data[--counter];
 
-	stack->stackSize = STACK_INIT_SIZE;
-	return OK;
-}
-//压栈
-Status push(SeqStack *stack, EleType e) {
-	if (stack == NULL) {
-		return ERROR;
+	/* input from terminal */
+	if (ch == -1) {
+		return NULL;
 	}
-	//压栈之前检测容量是否足够
-	if (stack->top - stack->base == stack->stackSize) {
-		//超出容量 进行扩容，使用realloc函数，会拷贝原内存内容
-		stack->base = (EleType *)realloc(stack->base, stack->stackSize + STACK_INCREMENT);
-		if (!stack->base) {
-			exit(0);
-		}
-		stack->top = stack->base + stack->stackSize;
-		memset(stack->top, 0x0, STACK_INCREMENT);
-		stack->stackSize += STACK_INCREMENT;
+	else {
+		node = (struct binary_node *)malloc(sizeof(struct binary_node));
+		node->idx = ch;
+
+		/* Create right child */
+		node->right = Postorder_Create_BinaryTree(node->right);
+		/* Create left child */
+		node->left = Postorder_Create_BinaryTree(node->left);
+		return node;
 	}
-	*stack->top = e;
-	stack->top++;
-	return OK;
-}
-//弹栈
-Status pop(SeqStack *stack, EleType *e) {
-	if (stack == NULL || e == NULL) {
-		return ERROR;
-	}
-	//空栈
-	if (stack->top == stack->base) {
-		return ERROR;
-	}
-	*stack->top--;
-	*e = *stack->top;
-	return OK;
-}
-/*
-获取栈顶元素
-*/
-Status GetTop(SeqStack *stack, EleType *e) {
-	if (NULL == stack) {
-		return ERROR;
-	}
-	*e = *(stack->top - 1);
-	return OK;
-}
-/*
-判断栈是否为空
-*/
-int IsEmptyStack(SeqStack *stack) {
-	if (NULL == stack) {
-		return ERROR;
-	}
-	if (stack->top == stack->base) {
-		return TRUE;
-	}
-	return FALSE;
-}
-/*
-销毁栈
-*/
-Status DestroyStack(SeqStack *stack) {
-	if (NULL == stack) {
-		return ERROR;
-	}
-	//销毁栈 是释放栈在内存中占用的空间资源
-	if (!stack->base) {
-		free(stack->base);
-	}
-	stack->top = stack->base = NULL;
-	stack->stackSize = 0;
-	return OK;
 }
 
-int main(void) {
+/* Pre-Traverse Binary-Tree */
+static void Preorder_Traverse_BinaryTree(struct binary_node *node) {
+	if (node == NULL) {
+		return;
+	}
+	else {
+		printf("%d ", node->idx);
+		/* Traverse left child */
+		Preorder_Traverse_BinaryTree(node->left);
+		/* Traverse right child */
+		Preorder_Traverse_BinaryTree(node->right);
+	}
+}
 
-	SeqStack stack;// + - * / ( ）符号栈
-	InitStack(&stack);
+/* Midd-Traverse Binary-Tree */
+static void Middorder_Traverse_BinaryTree(struct binary_node *node) {
+	if (node == NULL) {
+		return;
+	}
+	else {
+		Middorder_Traverse_BinaryTree(node->left);
+		printf("%d ", node->idx);
+		Middorder_Traverse_BinaryTree(node->right);
+	}
+}
 
-	push(&stack, 'A');
-	push(&stack, 'B');
-	push(&stack, 'C');
-	push(&stack, 'D');
-	push(&stack, 'E');
+/* Post-Traverse Binary-Tree */
+static void Postorder_Traverse_BinaryTree(struct binary_node *node) {
+	if (node == NULL) {
+		return;
+	}
+	else {
+		Postorder_Traverse_BinaryTree(node->left);
+		Postorder_Traverse_BinaryTree(node->right);
+		printf("%d ", node->idx);
+	}
+}
 
-	return EXIT_SUCCESS;
+/* The deep for Binary-Tree */
+static int BinaryTree_Deep(struct binary_node *node) {
+	int deep = 0;
+
+	if (node != NULL) {
+		int leftdeep = BinaryTree_Deep(node->left);
+		int rightdeep = BinaryTree_Deep(node->right);
+
+		deep = leftdeep >= rightdeep ? leftdeep + 1 : leftdeep + 1;
+	}
+	return deep;
+}
+
+/* Leaf counter */
+static int BinaryTree_LeafCount(struct binary_node *node) {
+	static int count;
+
+	if (node != NULL) {
+		if (node->left == NULL && node->right == NULL)
+			count++;
+
+		BinaryTree_LeafCount(node->left);
+		BinaryTree_LeafCount(node->right);
+	}
+	return count;
+}
+
+/* Post-Free BinaryTree */
+static void Postorder_Free_BinaryTree(struct binary_node *node) {
+	if (node == NULL) {
+		return;
+	}
+	else {
+		Postorder_Free_BinaryTree(node->left);
+		Postorder_Free_BinaryTree(node->right);
+		free(node);
+		node = NULL;
+	}
+}
+
+int main() {
+	/* Define binary-tree root */
+	struct binary_node *BiscuitOS_root = NULL;
+
+	printf("Postorder Create BinaryTree\n");
+	BiscuitOS_root = Postorder_Create_BinaryTree(BiscuitOS_root);
+
+	/* Preoder traverse binary-tree */
+	printf("Preorder Traverse Binary-Tree:\n");
+	Preorder_Traverse_BinaryTree(BiscuitOS_root);
+	printf("\n");
+
+	/* Middorder traverse binary-tree */
+	printf("Middorder Traverse Binary-Tree:\n");
+	Middorder_Traverse_BinaryTree(BiscuitOS_root);
+	printf("\n");
+
+	/* Postorder traverse binary-tree */
+	printf("Postorder Traverse Binary-Tree:\n");
+	Postorder_Traverse_BinaryTree(BiscuitOS_root);
+	printf("\n");
+
+	/* The deep for Binary-Tree */
+	printf("The Binary-Tree Deep: %d\n",
+		BinaryTree_Deep(BiscuitOS_root));
+
+	/* The leaf number for Binary-Tree */
+	printf("The Binary-Tree leaf: %d\n",
+		BinaryTree_LeafCount(BiscuitOS_root));
+
+	/* Postorder free binary-tree */
+	Postorder_Free_BinaryTree(BiscuitOS_root);
+
+	return 0;
 }

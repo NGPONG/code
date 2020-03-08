@@ -1,0 +1,6 @@
+#ifndef __THREADED_BINARY_TREE_H__
+#define __THREADED_BINARY_TREE_H__
+
+
+
+#endif // !__THREADED_BINARY_TREE_H__
