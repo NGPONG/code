@@ -68,7 +68,7 @@ static size_t index_Postorder = 0;
 static ElementType_t Perfect_BinaryTree_data[] = { 'A',																		 /* ROOT */
 											'B', 'D', 'H', '#', '#', 'I', '#', '#', 'E', 'J', '#', '#', 'K', '#', '#',		 /* LEFT */
 											'C', 'F', 'L', '#', '#', 'M', '#', '#', 'G', 'N', '#', '#', 'O', '#', '#' };	 /* RIGHT */
-Binary_Tree * Postorder_Create_BinaryTree(Binary_Tree *parent) {
+Binary_Tree *Postorder_Create_BinaryTree(Binary_Tree *parent) {
 
 	ElementType_t ch = Perfect_BinaryTree_data[index_Postorder++];
 	if (ch == '#') {
@@ -95,6 +95,22 @@ Binary_Tree * Postorder_Create_BinaryTree(Binary_Tree *parent) {
 			tree->parent);
 
 		return tree;
+	}
+}
+
+int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
+
+	if (tree == 0x0)
+		return -1;
+
+	Binary_Tree *tree_current = NULL;
+
+	while (1) {
+
+		if ((tree_current = tree->right) == NULL) {
+		
+
+		}
 	}
 }
 
@@ -160,7 +176,7 @@ int BinaryTree_Deep(struct binary_node *node) {
 		int rightdeep = BinaryTree_Deep(node->right);
 
 		/*
-		 * Get a deeper value of the left or right subtrees, 
+		 * Get a deeper value of the left or right subtrees,
 		 * plus one to add the depth of the current node
 		 */
 		deep = leftdeep >= rightdeep ? leftdeep + 1 : rightdeep + 1;
