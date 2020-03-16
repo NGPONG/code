@@ -14,10 +14,12 @@ typedef struct binary_node {
 	struct binary_node *parent;
 	struct binary_node *left;  /* Left sub tree */
 	struct binary_node *right; /* Right sub tree */
+	char tag;
 } Binary_Tree;
 
 int Preorder_Create_BinaryTree(Binary_Tree **tree, Binary_Tree *parent);
 Binary_Tree *Postorder_Create_BinaryTree(Binary_Tree *parent);
+int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree);
 int Preorder_Traverse_BinaryTree(Binary_Tree *tree);
 int Postorder_Traverse_BinaryTree(Binary_Tree *tree);
 int Middorder_Traverse_BinaryTree(Binary_Tree *tree);

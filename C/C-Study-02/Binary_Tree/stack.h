@@ -13,13 +13,13 @@ typedef struct binary_node StackElement;
 
 struct Stack {
 
-	char *s_data;
+	StackElement **s_data;
 	int s_size;
 };
 
 struct Stack *Init_Stack();
-int Push(struct Stack *stack, char data);
-int Pop(struct Stack *stack);
+int Push(struct Stack *stack, StackElement *data);
+StackElement *Pop(struct Stack *stack);
 int Destory(struct Stack *stack);
 
 #endif // __STACK_H__

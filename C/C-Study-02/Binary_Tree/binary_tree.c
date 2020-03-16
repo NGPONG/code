@@ -1,4 +1,5 @@
 #include "binary_tree.h"
+#include "stack.h"
 
 /*
  * Inorder create binary-tree can complete the
@@ -27,7 +28,7 @@ int Preorder_Create_BinaryTree(Binary_Tree **tree, Binary_Tree *parent) {
 
 			return -1;
 		}
-		memset(*tree, 0, sizeof(Binary_Tree));
+		memset(*tree, 0x0, sizeof(Binary_Tree));
 
 		(*tree)->data = ch;
 		(*tree)->parent = parent;
@@ -103,15 +104,49 @@ int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
 	if (tree == 0x0)
 		return -1;
 
-	Binary_Tree *tree_current = NULL;
+	struct Stack *stack = Init_Stack();
 
+	/* 1st Step: Push the root element into stack */
+	Push(stack, tree);
+
+	/* Start traverse - Preorder */
 	while (1) {
 
-		if ((tree_current = tree->right) == NULL) {
+		/* End of traverse means all tree node was accessed */
+		if (stack->s_size == 0) {
 		
+			break;
+		}
 
+		/*
+		 * We need to pop the top element in stack at first time,
+		 * When the member flag is 1, it means that this element needs to be output
+		 */
+		StackElement *element = Pop(stack);
+		if (element->tag == 1) {
+		
+			printf("\n[*] Traverse Binary-tree: Value = %c, Address = %p\n\n", element->data, element);
+			continue;
+		}
+		else {
+		
+			element->tag = 1;
+			if (element->right != NULL) {
+			
+				Push(stack, element->right);
+			}
+			if (element->left != NULL) {
+
+				Push(stack, element->left);
+			}
+			/* Put the element that just popped on the top of the stack again */
+			Push(stack, element);
+
+			continue;
 		}
 	}
+
+	Destory(stack);
 }
 
 int Preorder_Traverse_BinaryTree(Binary_Tree *tree) {

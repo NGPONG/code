@@ -35,6 +35,8 @@ int main(void) {
 	CreateAnNewRow(1);
 	printf("Deepth of Pre_binaryTree is %d\n", BinaryTree_Deep(binaryTree));
 	CreateAnNewRow(1);
+	Preorder_Traverse_BinaryTree_WithoutRecursion(binaryTree);
+	CreateAnNewRow(1);
 	Postorder_Free_BinaryTree(&binaryTree);
 
 	CreateAnNewRow(0);
