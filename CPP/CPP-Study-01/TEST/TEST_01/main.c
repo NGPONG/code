@@ -9,12 +9,11 @@
 #include <time.h>
 #include <Windows.h>
 
-extern int a;
+void fun_test(void);
 
 int main(void) {
 
-
-	printf("%d\n", a);
+	fun_test();
 
 	system("pause");
 	return EXIT_SUCCESS;

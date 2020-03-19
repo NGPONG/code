@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
@@ -27,8 +27,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{DC7C8215-7298-46FC-B9BC-36ED597140D7}</ProjectGuid>
-    <RootNamespace>Test07</RootNamespace>
+    <ProjectGuid>{7136FBE5-7984-4FAB-886A-B6D4AB44762C}</ProjectGuid>
+    <RootNamespace>TEST03</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

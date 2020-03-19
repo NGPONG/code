@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace Test_01
 {
+    namespace TEST_TEST {
+
+        public class Class2 {
+
+            int a = 10;
+        }
+    }
     class Program
     {
         static void Main(string[] args)

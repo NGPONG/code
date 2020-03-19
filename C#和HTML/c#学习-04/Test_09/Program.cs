@@ -16,14 +16,7 @@ namespace Test_09
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 500; i++)
-            {
-                Thread thread = new Thread(Fun_test);
-                thread.IsBackground = true;
-                thread.Start();
-            }
 
-            Console.ReadLine();
         }
 
         static void Fun_test() {

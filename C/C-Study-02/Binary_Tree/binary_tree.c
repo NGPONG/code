@@ -126,6 +126,8 @@ int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
 		if (element->tag == 1) {
 		
 			printf("\n[*] Traverse Binary-tree: Value = %c, Address = %p\n\n", element->data, element);
+			element->tag = 0;
+
 			continue;
 		}
 		else {
