@@ -26,6 +26,8 @@ int main(void) {
 
 	struct Person per = { 'a',128,'b',256 };
 
+	printf("%d\n", sizeof(per));
+
 	printf("%d\n", *(int *)((char *)&per + (size_t)&(((struct Person *)0)->person2) + (size_t)&(((struct Person2 *)0)->a)));
 
 	system("pause");

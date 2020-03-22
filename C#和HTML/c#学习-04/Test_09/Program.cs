@@ -9,14 +9,25 @@ namespace Test_09
 {
     public class Person
     {
+        public string Name { get; set; }
 
+        ~Person() {
+
+            Console.WriteLine("OK");
+        }
+
+        public Person() {
+
+            Console.WriteLine("111");
+        }
 
     }
     class Program
     {
         static void Main(string[] args)
         {
-
+            Person per = new Person();
+            per = new Person();
         }
 
         static void Fun_test() {
