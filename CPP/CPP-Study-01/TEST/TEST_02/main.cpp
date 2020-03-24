@@ -2,13 +2,14 @@
 #pragma warning(disable:4996)			
 
 #include <iostream>
-#include "test.h"
 
 using namespace std;
 
+extern int a;
+
 int main(void) {
 
-	fun_test();
+	cout << a << endl;
 	
 	system("pause");
 	return EXIT_SUCCESS;

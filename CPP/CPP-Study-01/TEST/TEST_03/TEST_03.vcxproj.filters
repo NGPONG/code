@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="test.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

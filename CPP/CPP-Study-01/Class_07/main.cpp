@@ -18,7 +18,7 @@ public:
 
     static void Print();
 };
-int Person::Age;
+int Person::Age = 10;
 char *Person::Name = (char *)"NGPONG";
 void Person::Print() {
 
@@ -30,6 +30,7 @@ int main(void) {
 
     Person::Set_Age(23);
     Person::Print();
+
 
 	system("pause");
 	return EXIT_SUCCESS;
