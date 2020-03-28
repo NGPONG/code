@@ -8,7 +8,7 @@
 
 static int a;
 
-int a = 1024;
+static int a = 1024;
 
 void fun_test() { printf("OK!\n"); }
 
