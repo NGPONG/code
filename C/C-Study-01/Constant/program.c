@@ -6,7 +6,7 @@
 int main(void) {
 
   int r = 3;
-	hahahahah
+	
   // Round perimeter 2 * PI * r
   float perimeter = 2 * PI * r;
   printf("perimeter = %.2f\n", 3.147);
