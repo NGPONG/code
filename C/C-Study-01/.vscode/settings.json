@@ -17,13 +17,8 @@
     "C_Cpp.clang_format_sortIncludes": false,                // 格式化时调整include的顺序（按字母排序）
     "files.associations": {
         "*.c": "c",
-        "stdio.h": "c",
-        "conio.h": "c",
-        "myinclude.h": "c",
-        "windows.h": "c",
-        "sdkddkver.h": "c",
-        "stdlib.h": "c",
-        "corecrt_wstdlib.h": "c"
+        "*.cpp": "cpp",
+        "*.h": "head_file"
     },
     "C_Cpp.clang_format_fallbackStyle": "LLVM"
 }
