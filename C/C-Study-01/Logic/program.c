@@ -2,16 +2,16 @@
 
 int main(void) {
 
-	int flag = -1;
+  int flag = -1;
 
-	if (flag) {
-	
-		printf("OK");
-	}
-	else {
-	
-		printf("NO");
-	}
+  if (flag) {
 
-	return 0;
+    printf("OK");
+  } else {
+
+    printf("NO");
+  }
+
+  system("pause");
+  return 0;
 }

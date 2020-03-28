@@ -24,7 +24,7 @@ int main(void) {
 			
 			break;
 		}
-		printf("%d ", ch);
+		printf("%c ", ch);
 	}
 
 	fclose(fp);

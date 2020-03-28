@@ -7,7 +7,7 @@
 
 int main(void) {
 
-	printf("\t¹þ¹þ¹þ", time(NULL));
+	printf("\thahahha", time(NULL));
 
 	//srand(time(NULL));
 
