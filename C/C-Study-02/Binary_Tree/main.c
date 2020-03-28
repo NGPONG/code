@@ -49,6 +49,8 @@ int main(void) {
   CreateAnNewRow(1);
   Postorder_Free_BinaryTree(&binaryTree_Post);
 
+  printf("OK!!\n");
+
   system("pause");
   return EXIT_SUCCESS;
 }
