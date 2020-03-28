@@ -5,16 +5,16 @@
 
 int main(void) {
 
-	int r = 3;
+  int r = 3;
 
-	// Round perimeter 2 * PI * r
-	float perimeter = 2 * PI * r;
-	printf("perimeter = %.2f\n", 3.147);
+  // Round perimeter 2 * PI * r
+  float perimeter = 2 * PI * r;
+  printf("perimeter = %.2f\n", 3.147);
 
-	// Round area PI * r * r
-	float area = PI * r * r;
-	printf("area = %.2f\n", area);
+  // Round area PI * r * r
+  float area = PI * r * r;
+  printf("area = %.2f\n", area);
 
-	system("pause");
-	return 0;
+  system("pause");
+  return 0;
 }
