@@ -1,6 +1,3 @@
-#pragma warning(disable:6031)
-#pragma warning(disable:4996)			
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

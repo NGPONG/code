@@ -13,8 +13,8 @@ typedef struct binary_node StackElement;
 
 struct Stack {
 
-	StackElement **s_data;
-	int s_size;
+  StackElement **s_data;
+  int s_size;
 };
 
 struct Stack *Init_Stack();

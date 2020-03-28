@@ -1,6 +1,3 @@
-#pragma warning(disable:6031)
-#pragma warning(disable:4996)			
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -9,13 +6,16 @@
 #include <time.h>
 #include <Windows.h>
 
-extern int a;
+static int a;
+
+int a = 1024;
+
+void fun_test() { printf("OK!\n"); }
 
 int main(void) {
 
+  printf("%d\n", a);
 
-	printf("%d\n", a);
-
-	system("pause");
-	return EXIT_SUCCESS;
+  system("pause");
+  return EXIT_SUCCESS;
 }

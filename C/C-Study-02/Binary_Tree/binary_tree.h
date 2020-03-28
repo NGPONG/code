@@ -10,11 +10,11 @@ typedef char ElementType_t;
 
 typedef struct binary_node {
 
-	ElementType_t data;
-	struct binary_node *parent;
-	struct binary_node *left;  /* Left sub tree */
-	struct binary_node *right; /* Right sub tree */
-	char tag;
+  ElementType_t data;
+  struct binary_node *parent;
+  struct binary_node *left;  /* Left sub tree */
+  struct binary_node *right; /* Right sub tree */
+  char tag;
 } Binary_Tree;
 
 int Preorder_Create_BinaryTree(Binary_Tree **tree, Binary_Tree *parent);
