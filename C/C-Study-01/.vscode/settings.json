@@ -17,8 +17,7 @@
     "C_Cpp.clang_format_sortIncludes": false,                // 格式化时调整include的顺序（按字母排序）
     "files.associations": {
         "*.c": "c",
-        "*.cpp": "cpp",
-        "*.h": "head_file"
+        "*.cpp": "cpp"
     },
     "C_Cpp.clang_format_fallbackStyle": "LLVM"
 }
