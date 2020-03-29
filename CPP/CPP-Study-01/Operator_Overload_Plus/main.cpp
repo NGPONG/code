@@ -4,7 +4,6 @@ using namespace std;
 #include <string.h>
 
 class Person {
-
 public:
   Person(int age, char *name) {
     this->m_age = age;
@@ -41,8 +40,6 @@ int main(void) {
 
   Person per_01 = Person(4, (char *)"NGPONG");
   Person per_02 = Person(8, (char *)"Hello,World!");
-
-  Person per_03 = per_01 + per_02;
 
   system("pause");
   return EXIT_SUCCESS;
