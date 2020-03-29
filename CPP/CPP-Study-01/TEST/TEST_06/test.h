@@ -2,9 +2,8 @@
 #define __TEST_H__
 
 #include <iostream>
-
 using namespace std;
 
-static void fun_test_01(void);
+void fun_test(void);
 
-#endif // !__TEST_H__
+#endif /* end of include guard: __TEST_H__*/

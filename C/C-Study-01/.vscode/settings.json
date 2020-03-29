@@ -1,4 +1,5 @@
 {
+    "files.encoding": "gbk",
     "files.defaultLanguage": "c",                            // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
     "editor.acceptSuggestionOnEnter": "off",                 // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense

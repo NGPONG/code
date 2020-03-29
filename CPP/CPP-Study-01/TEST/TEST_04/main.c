@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,19 +7,26 @@
 
 #define TEST 1024
 
+#include "test.h"
+
 struct Person;
 struct Person;
 struct Person;
 struct Person;
 struct Person;
 struct Person;
+
+static int b;
+
+static int b = 1024;
 
 int main(void) {
 
+  printf("%d\n", a);
+  printf("%d\n", b);
 
-
-	system("pause");
-	return EXIT_SUCCESS;
+  system("pause");
+  return EXIT_SUCCESS;
 }
 
-static int a = 10;
+int a = 10;
