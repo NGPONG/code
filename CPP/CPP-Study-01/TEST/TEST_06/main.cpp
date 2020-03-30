@@ -9,8 +9,8 @@ using namespace std;
 
 class Person {
 public:
-  Person(int age, int gender, char *name) :
-    m_age(age), m_gender(gender), m_name(name) {
+  Person(int age, int gender, char *name)
+      : m_age(age), m_gender(gender), m_name(name) {
     cout << "Person constructor" << endl;
   }
 
@@ -21,14 +21,22 @@ public:
   }
 
 private:
-  int m_age;
-  int m_gender;
+  int   m_age;
+  int   m_gender;
   char *m_name;
 }
 
-void fun_test(void) { }
+
 
 int main(void) {
+
+  int    a  = 10;
+  int *  p  = &a;
+  char   ch = '1';
+  double u  = 1024;
+
+  
+
 
   system("pause");
   return EXIT_SUCCESS;

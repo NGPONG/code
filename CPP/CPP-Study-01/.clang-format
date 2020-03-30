@@ -16,8 +16,8 @@ AlignConsecutiveMacros: true
 AlignConsecutiveAssignments:	true
 
 # 连续声明时，对齐所有声明的变量名
-AlignConsecutiveDeclarations:	false
- 
+AlignConsecutiveDeclarations:	true
+
 AlignEscapedNewlines: Right
  
 # 左对齐逃脱换行(使用反斜杠换行)的反斜杠
@@ -39,7 +39,7 @@ AllowShortBlocksOnASingleLine:	true
 AllowShortCaseLabelsOnASingleLine:	true
 
 # 允许短的函数放在同一行: None, InlineOnly(定义在类中), Empty(空函数), Inline(定义在类中，空函数), All
-AllowShortFunctionsOnASingleLine:	All
+AllowShortFunctionsOnASingleLine:	Empty
 
 # 允许短的if语句保持在同一行
 AllowShortIfStatementsOnASingleLine:	true
@@ -109,7 +109,6 @@ BreakBeforeBinaryOperators:	None
 BreakBeforeTernaryOperators:	true
  
 # 在构造函数的初始化列表的逗号前换行
-BreakConstructorInitializers: AfterColon
 
 # 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变
 CommentPragmas:	'^ IWYU pragma:'
@@ -119,8 +118,10 @@ CompactNamespaces: false
 # 构造函数的初始化列表要么都在同一行，要么都各自一行
 ConstructorInitializerAllOnOneLineOrOnePerLine:	false
 
+AllowAllConstructorInitializersOnNextLine: true
+
 # 构造函数的初始化列表的缩进宽度
-ConstructorInitializerIndentWidth:	2
+ConstructorInitializerIndentWidth:	4
 
 # 延续的行的缩进宽度
 ContinuationIndentWidth:	2

@@ -9,7 +9,7 @@
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
-    "editor.acceptSuggestionOnEnter": "off",                 // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
+    "editor.acceptSuggestionOnEnter": "on",                  // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
     "editor.snippetSuggestions": "top",                      // （可选）snippets显示在补全列表顶端，默认是inline
     "editor.formatOnType": true,                             // 
 
@@ -27,5 +27,5 @@
     
     "C_Cpp.clang_format_sortIncludes": false,                // 格式化时调整include的顺序（按字母排序）
     "C_Cpp.errorSquiggles": "Disabled",
-    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe"
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe"
 }

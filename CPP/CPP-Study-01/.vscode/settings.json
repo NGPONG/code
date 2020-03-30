@@ -10,7 +10,8 @@
         "xlocale": "cpp",
         "xstring": "cpp",
         "vector": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "new": "cpp"
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
@@ -32,5 +33,5 @@
 
     "C_Cpp.clang_format_sortIncludes": false,                // 格式化时调整include的顺序（按字母排序）
     "C_Cpp.errorSquiggles": "Disabled",
-    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe"
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe"
 }
