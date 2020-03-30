@@ -1,36 +1,34 @@
 #include <iostream>
 using namespace std;
 
+#define SHORT_NAME       42
+#define LONGER_NAME      0x007f
+#define EVEN_LONGER_NAME (2)
+#define foo(x)           (x * x)
+#define bar(y, z)        (y + z)
+
 class Person {
-
 public:
-  Person(int age, char *name) : m_age(age), m_name(name){};
-
-  Person(const Person &person) {
-    this->m_age = person.m_age;
-    this->m_name = person.m_name;
+  Person(int age, int gender, char *name) :
+    m_age(age), m_gender(gender), m_name(name) {
+    cout << "Person constructor" << endl;
   }
 
-  ~Person() { 
-    cout << "delete" << endl; 
+  void Print() {
+    cout << this->m_age << endl;
+    cout << this->m_name << endl;
+    cpit << this->m_gender << endl;
   }
 
-  void fun_test(const Person *per) { 
-    ((Person)(*per)) + 10; 
-  }
-
-  void operator+(int num) { 
-    cout << this->m_age + num << endl; 
-  }
-
+private:
   int m_age;
+  int m_gender;
   char *m_name;
-};
+}
+
+void fun_test(void) { }
 
 int main(void) {
-
-  Person per = Person(1024, (char *)"Hello,World");
-  per.fun_test(&per);
 
   system("pause");
   return EXIT_SUCCESS;
