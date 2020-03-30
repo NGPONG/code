@@ -20,5 +20,6 @@
         "*.c": "c",
         "*.cpp": "cpp"
     },
-    "C_Cpp.clang_format_fallbackStyle": "LLVM"
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+	"C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe"
 }
