@@ -60,6 +60,9 @@ AlwaysBreakBeforeMultilineStrings:	false
 # 总是在template声明后换行
 AlwaysBreakTemplateDeclarations:	false
 
+# 允许所有构造函数初始化列表在下一行显示
+AllowAllConstructorInitializersOnNextLine: true
+
 # false表示函数实参要么都在同一行，要么都各自一行
 BinPackArguments:	false
 
@@ -113,12 +116,14 @@ BreakBeforeTernaryOperators:	true
 # 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变
 CommentPragmas:	'^ IWYU pragma:'
 
+# 命名空间对齐方式
 CompactNamespaces: false
+
+# 列限制，0 则代表不限制
+ColumnLimit: 0
 
 # 构造函数的初始化列表要么都在同一行，要么都各自一行
 ConstructorInitializerAllOnOneLineOrOnePerLine:	false
-
-AllowAllConstructorInitializersOnNextLine: true
 
 # 构造函数的初始化列表的缩进宽度
 ConstructorInitializerIndentWidth:	4
@@ -153,8 +158,9 @@ IncludeCategories:
 
 # 缩进case标签
 IndentCaseLabels:	false
- 
-IndentPPDirectives:  BeforeHash
+
+# 宏定义对齐方式
+IndentPPDirectives: None
 
 # 缩进宽度
 IndentWidth: 2
@@ -215,7 +221,8 @@ SortIncludes:	false
  
 # 在C风格类型转换后添加空格
 SpaceAfterCStyleCast:	false
- 
+
+# 如果为真，则模板关键字插入空格
 SpaceAfterTemplateKeyword: false
  
 # 在赋值运算符之前添加空格

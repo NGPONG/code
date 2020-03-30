@@ -3,21 +3,19 @@ using namespace std;
 
 #include <string.h>
 
-struct Student {
-
-  int age;
-}
-
 class Person {
 
-  friend ostream &operator<<(ostream &p_cout, Person per);
+  friend ostream &operator<<(ostream &cout, Person *per) {
+    cout << "Person name = " << per->m_name << " ,Person age  = " << per->m_age;
+    return cout;
+  }
 
 public:
   Person(int age, char *name = (char *)"DEFAULT") {
     this->m_age  = age;
     this->m_name = new char[strlen(name) + 1];
     strcpy(this->m_name, name);
-  };
+  }
   Person(const Person &per) {
     this->m_age  = per.m_age;
     this->m_name = per.m_name;
@@ -27,8 +25,15 @@ public:
     delete[] this->m_name;
   }
 
-  void fun_test(Person per) {
-    cout << per.m_name << endl;
+  void fun_test_01(void) {
+    cout << "Hello,World!" << endl;
+  }
+
+public:
+  ostream &operator<<(ostream &cout) {
+    /* TODO::flowing clang-format style need to be reset */
+    cout << "Person name = " << this->m_name << " ,Person age  = " << this->m_age;
+    return cout;
   }
 
 private:
@@ -36,13 +41,14 @@ private:
   char *m_name;
 };
 
-// ostream &operator<<(ostream &cout, Person *per) {
-//   cout
-// }
-
 int main(void) {
-  Person per(1024, (char *)"Hello,World");
+  Person per_01(1024, (char *)"Hello,World!");
+  Person per_02(256, (char *)"NGPONG!");
 
+  per_01 << cout
+         << endl
+         << &per_02
+         << endl;
 
   system("pause");
   return EXIT_SUCCESS;
