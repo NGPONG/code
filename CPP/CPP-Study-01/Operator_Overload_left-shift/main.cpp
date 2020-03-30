@@ -31,7 +31,6 @@ public:
 
 public:
   ostream &operator<<(ostream &cout) {
-    /* TODO::flowing clang-format style need to be reset */
     cout << "Person name = " << this->m_name << " ,Person age  = " << this->m_age;
     return cout;
   }
