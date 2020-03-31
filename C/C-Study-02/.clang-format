@@ -132,7 +132,7 @@ ConstructorInitializerIndentWidth:	4
 ContinuationIndentWidth:	2
 
 # 去除C++11的列表初始化的大括号{后和}前的空格
-Cpp11BracedListStyle:	true
+Cpp11BracedListStyle:	false
 
 # 继承最常用的指针和引用的对齐方式
 DerivePointerAlignment:	false

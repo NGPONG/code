@@ -9,6 +9,10 @@ class Person {
     cout << "Person name = " << per->m_name << " ,Person age  = " << per->m_age;
     return cout;
   }
+  friend void fun_test() {
+
+    cout << "OK" << endl;
+  }
 
 public:
   Person(int age, char *name = (char *)"DEFAULT") {
@@ -24,7 +28,6 @@ public:
     cout << "Person destructor" << endl;
     delete[] this->m_name;
   }
-
   void fun_test_01(void) {
     cout << "Hello,World!" << endl;
   }

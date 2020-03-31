@@ -1,42 +1,66 @@
 #include <iostream>
 using namespace std;
 
-#define SHORT_NAME       42
-#define LONGER_NAME      0x007f
-#define EVEN_LONGER_NAME (2)
-#define foo(x)           (x * x)
-#define bar(y, z)        (y + z)
-
-class Person {
+#pragma region CLASS_TEST
+class Student {
 public:
-  Person(int age, int gender, char *name)
-      : m_age(age), m_gender(gender), m_name(name) {
-    cout << "Person constructor" << endl;
+  Student(int age) {
+    this->m_age       = age;
+    Student::m_gender = 256;
+  }
+  static void Print() {
+    cout << Student::m_gender << endl;
   }
 
-  void Print() {
-    cout << this->m_age << endl;
-    cout << this->m_name << endl;
-    cpit << this->m_gender << endl;
-  }
+public:
+  int m_age;
 
 private:
-  int   m_age;
-  int   m_gender;
-  char *m_name;
+  static int m_gender;
+};
+
+int Student::m_gender;
+#pragma endregion
+
+struct Person {
+
+  friend Person &operator+(Person &per_host, int age_plus) {
+    per_host.m_age += age_plus;
+    return per_host;
+  };
+
+public:
+  Person(int age) {
+    this->m_age = age;
+  }
+  Person(const Person &per) {
+    cout << this->m_age << endl;
+    this->m_age = per.m_age;
+    cout << per.m_age << endl;
+  }
+  // Person &operator+(int age_plus) {
+  //   this->m_age += age_plus;
+  //   return *this;
+  // }
+  ~Person() {
+    cout << "Person destructor" << endl;
+  }
+
+public:
+  int m_age;
+};
+
+int &fun_test(int &a) {
+  a += 256;
+  return a;
 }
 
-
-
 int main(void) {
+  Person per(1024);
 
-  int    a  = 10;
-  int *  p  = &a;
-  char   ch = '1';
-  double u  = 1024;
+  per + 1;
 
-  
-
+  cout << per.m_age << endl;
 
   system("pause");
   return EXIT_SUCCESS;
