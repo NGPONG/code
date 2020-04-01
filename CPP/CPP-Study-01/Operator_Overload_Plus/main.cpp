@@ -4,6 +4,11 @@ using namespace std;
 #include <string.h>
 
 class Person {
+  friend Person &operator+(Person &per, int num) {
+    per.m_age += num;
+    return per;
+  }
+
 public:
   Person(int age, char *name) {
     this->m_age = age;
@@ -31,21 +36,12 @@ public:
   char *m_name;
 };
 
-/*
-Person operator+(Person &per_01, Person &per_02) {
-  Person per_temp = Person(per_01.m_age + per_02.m_age, (char *)"DEFAULT");
-  return per_temp;
-}
-*/
-
 int main(void) {
 
   Person per_01 = Person(4, (char *)"NGPONG");
   Person per_02 = Person(8, (char *)"Hello,World!");
 
-  
-
-  Person per_03 = per_01 + per_02;
+  Person &per_03 = (per_01 + per_02) + 10;
 
   system("pause");
   return EXIT_SUCCESS;
