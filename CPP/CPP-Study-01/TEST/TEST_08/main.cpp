@@ -1,22 +1,63 @@
 #include <iostream>
 using namespace std;
 
+#include <string.h>
+
+class Person {
+public:
+  Person() {
+    this->m_age = 0x0;
+  }
+  Person(int age) {
+    this->m_age = age;
+  }
+  Person(const Person &per) {
+    this->m_age = per.m_age;
+  }
+  Person(Person &&per) {
+    this->m_age = per.m_age;
+    per.m_age = 0x0;
+  }
+  ~Person() {
+    cout << "Person destructor" << endl;
+  }
+
+  Person &operator=(const Person &per) {
+    this->m_age = per.m_age;
+    return *this;
+  }
+
+public:
+  int m_age;
+};
+
+class TEST {
+public:
+  TEST(Person per) {
+    printf("%d\n", per.m_age);
+    this->per = per;
+  }
+
+public:
+  Person per;
+};
 
 int main(void) {
 
+  Person per(1024);
 
-  int a = 5;                  /* a:左值, 5:右值 */
-  int b = a;                  /* b:左值, b:左值 */
-  int c = 5;                  /* c:左值, 5:右值 */
-  int d = a + 1;              /* d:左值, a + 1:右值 */
-  int *e = &a;                /* e:左值, &a:右值 */
+  TEST test(per);
+  
+  /** 
+   * Person per(1024) == 0x62fe08
+   * Person per       == 0x62fe0c
+   * 0x62fe04 这个地址是干啥的
+   * 0x62fde8 又是一个不一样的地址？？？ 
+   * 在 拷贝操作符重载函数中 这个per的地址就正确了，就是理想中的 0x62fe0c
+   * 0x62fe04 这个应该是当前实例的地址
+   * 0x62fe04 是的，
+   */
 
-  //int &a_ref = a + 1;         /* a_ref:左值引用, a + 1:右值, 编译失败 */
-  const int &a_ref_c = a + 1; /* a_ref_c:常量左值引用, a + 1:右值, 编译通过 */
-
-  int &&a_r_r = a + 1;        /* a_r_r:右值引用, a + 1:右值 */
-  int &&a_r_r_c = move(a);    /* a_r_r_c:右值引用, move(a):将亡值 */
-
-
+  system("pause");
   return EXIT_SUCCESS;
 }

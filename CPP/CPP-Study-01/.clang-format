@@ -93,7 +93,7 @@ BraceWrapping:
   AfterStruct:	false
   # union定义后面
   AfterUnion:	false
- 
+  # extern 语句块
   AfterExternBlock: false
   # catch之前
   BeforeCatch:	false
@@ -107,6 +107,9 @@ BraceWrapping:
  
 # 在二元运算符前换行: None(在操作符后换行), NonAssignment(在非赋值的操作符前换行), All(在操作符前换行)
 BreakBeforeBinaryOperators:	None
+
+# 继承样式
+BreakBeforeInheritanceComma: false
 
 # 在三元运算符前换行
 BreakBeforeTernaryOperators:	true
