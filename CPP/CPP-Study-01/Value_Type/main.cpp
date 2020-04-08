@@ -145,6 +145,13 @@ int main(void) {
 
   int a = 10;
   int &a_ref = a;
+  cout << &a_ref << endl;
+
+  int &a_a_ref = a_ref;
+  cout << &a_a_ref << endl;
+
+  int &&a_ref_ref = a_a_ref;
+  cout << &a_ref_ref << endl;
 
   system("pause");
   return EXIT_SUCCESS;
