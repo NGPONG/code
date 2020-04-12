@@ -101,6 +101,23 @@ Person fun_test_11(Person per) {
   Person per_temp = per;
   return per_temp;
 }
+
+void fun_test_12(Person &&per) {
+  cout << "rvalue reference" << endl;
+}
+
+void fun_test_12(const Person &per) {
+  cout << "const lvalue reference" << endl;
+}
+
+int &&fun_test_13(void) {
+  cout << "DEBUG!" << endl;
+  cout << "DEBUG!" << endl;
+  cout << "DEBUG!" << endl;
+
+  return 0x400;
+}
+
 #pragma endregion func_test
 
 int main(void) {
@@ -143,15 +160,7 @@ int main(void) {
 
 #endif
 
-  int a = 10;
-  int &a_ref = a;
-  cout << &a_ref << endl;
-
-  int &a_a_ref = a_ref;
-  cout << &a_a_ref << endl;
-
-  int &&a_ref_ref = a_a_ref;
-  cout << &a_ref_ref << endl;
+  
 
   system("pause");
   return EXIT_SUCCESS;
