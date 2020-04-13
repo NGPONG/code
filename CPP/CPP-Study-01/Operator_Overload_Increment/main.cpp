@@ -22,12 +22,12 @@ public:
   ~Person() {}
 
 public:
-  /* preload-value-increment assignment operator function */
+  /* preload-value-increment assignment operator */
   Person &operator++() {
     ++this->m_age;
     return *this;
   }
-  /** post-value-increment assignment operator function
+  /** post-value-increment assignment operator
    * Argument of type int is a placeholder-argument, 
    * It's designed to tell the compiler this function 
    * is a post-value-increment assignment operator function.
