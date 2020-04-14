@@ -26,15 +26,16 @@ public:
     ++this->m_age;
     return *this;
   }
-  Person operator++(int) {
-    Person temp(this->m_age);
-    ++this->m_age;
-    return temp;
-  }
 
 public:
   int m_age;
 };
+
+Person operator++(Person &per,int) {
+  Person temp(per.m_age);
+  ++per.m_age;
+  return temp;
+}
 
 
 int main(void) {

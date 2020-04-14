@@ -12,6 +12,11 @@ public:
   }
 
 public:
+  /** 
+   * Square-Brackets assignment operator
+   * 1. '[]' 重载运算符函数只能够作为一个成员函数而存在
+   */
+
   int &operator[](int index) {
     if(index > this->m_length) index = this->m_length;
     return m_arrary[index];

@@ -4,16 +4,21 @@ using namespace std;
 #include <string.h>
 
 class Person {
-  // friend Person &operator+(const Person &per, int num){
-  //   return (Person &)per;
-  // }
+  friend char *operator+(Person &&per, int num){
+    per.m_age += num;
+    return (char *)"SUCCESS!";
+  }
 
 public:
-  Person(int age, char *name) {
+  Person(int age) {
     this->m_age = age;
   };
   Person(const Person &per) {
     this->m_age = per.m_age;
+  }
+  Person(Person &&per) {
+    this->m_age = per.m_age;
+    per.m_age = 0x0;
   }
   ~Person() {
     cout << "Person destructor" << endl;
@@ -31,10 +36,10 @@ public:
 
 int main(void) {
 
-  Person per_01 = Person(4, (char *)"NGPONG");
-  Person per_02 = Person(8, (char *)"Hello,World");
+  Person per_01 = Person(4);
+  Person per_02 = Person(8);
 
-  Person per = per_01 + per_02;
+  cout << ((per_01 + per_02) + 10) << endl;
 
   system("pause");
   return EXIT_SUCCESS;
