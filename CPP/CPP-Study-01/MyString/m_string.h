@@ -7,6 +7,8 @@
 using namespace std;
 
 class m_string {
+  friend ostream &operator<<(ostream &cout, const m_string &str);
+
 public:
   /* constructor */
   m_string(const char *data_);
@@ -30,7 +32,10 @@ public:
   m_string &operator=(const char *data_);
   char &operator[](int index);
   m_string &operator+(const char *data_);
-
+  m_string &operator+(const m_string &str);
+  bool operator==(const char *str);
+  bool operator==(const m_string &str);
+  
 public:
   int length = 0;
 
