@@ -50,7 +50,7 @@ public:
 int main(void) {
   HYBIRD hy((char *)"Hello,World!", 'K');
 
-  cout << *(((int *)(*(int *)&hy))) << endl;
+  cout << *(int *)*(int *)&hy << endl;
 
   system("pause");
   return EXIT_SUCCESS;

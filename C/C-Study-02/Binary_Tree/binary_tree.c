@@ -66,24 +66,20 @@ int Preorder_Create_BinaryTree(Binary_Tree **tree, Binary_Tree *parent) {
  */
 static size_t index_Postorder = 0;
 static ElementType_t Perfect_BinaryTree_data[] = {
-    'A', /* ROOT */
+    'A',                                    /* ROOT */
     'B', 'D', 'H', '#', '#', 'I', '#', '#',
-    'E', 'J', '#', '#', 'K', '#', '#', /* LEFT */
+    'E', 'J', '#', '#', 'K', '#', '#',      /* LEFT */
     'C', 'F', 'L', '#', '#', 'M', '#', '#',
-    'G', 'N', '#', '#', 'O', '#', '#'}; /* RIGHT */
+    'G', 'N', '#', '#', 'O', '#', '#'};     /* RIGHT */
 Binary_Tree *Postorder_Create_BinaryTree(Binary_Tree *parent) {
 
   ElementType_t ch = Perfect_BinaryTree_data[index_Postorder++];
   if (ch == '#') {
-
     return NULL;
   } else {
-
     Binary_Tree *tree = (Binary_Tree *)malloc(sizeof(struct binary_node));
-    if (tree == 0x0) {
+    if (tree == 0x0)  return NULL;
 
-      return NULL;
-    }
     memset(tree, 0, sizeof(struct binary_node));
 
     tree->left = Postorder_Create_BinaryTree(tree);
@@ -93,7 +89,9 @@ Binary_Tree *Postorder_Create_BinaryTree(Binary_Tree *parent) {
     tree->parent = parent;
     printf("[+] Create Binary-node: Node-Value = %c, Node-Address = %p, "
            "Parent-Address = %p\n",
-           tree->data, tree, tree->parent);
+           tree->data,
+           tree,
+           tree->parent);
 
     return tree;
   }
