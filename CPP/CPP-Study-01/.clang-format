@@ -129,7 +129,7 @@ ColumnLimit: 0
 ConstructorInitializerAllOnOneLineOrOnePerLine:	false
 
 # 构造函数的初始化列表的缩进宽度
-ConstructorInitializerIndentWidth:	4
+ConstructorInitializerIndentWidth:	2
 
 # 延续的行的缩进宽度
 ContinuationIndentWidth:	2
