@@ -1,8 +1,6 @@
-#include <iostream>
-using namespace std;
+#include "arrary.hpp"
 
 int main(void) {
-  
 
   system("pause");
   return EXIT_SUCCESS;
