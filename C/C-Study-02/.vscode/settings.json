@@ -5,7 +5,8 @@
         "*.c": "c",
         "*.cpp": "cpp",
         "stdlib.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "cctype": "c"
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了

@@ -1,6 +1,3 @@
-#pragma warning(disable:6031)
-#pragma warning(disable:4996)			
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -30,6 +27,8 @@ void fun_01() {
 			*(arrary + i) = *(arrary + i) ^ *(arrary + min);
 		}
 	}
+
+  printf("OK!");
 }
 
 void fun_02() {
@@ -53,12 +52,14 @@ void fun_02() {
 			*(arrary + min) = temp;
 		}
 	}
+
+	printf("OK!");
 }
 
 int main(void) {
+	fun_01();
+	/* fun_02(); */
 
-	fun_02();
-
-	system("pause");
+  system("pause");
 	return EXIT_SUCCESS;
 }
