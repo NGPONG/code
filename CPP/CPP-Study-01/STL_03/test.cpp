@@ -86,7 +86,6 @@ select_sort::~select_sort(){
 void insert_sort::execute(Person &per) {
   deque<int> &__dq = per.m_scores;
 
-  per.m_name;
   int buff;
   for (size_t i = 0; i < __dq.size(); ++i) {
     if (__dq[i - 1] > __dq[i]) {
