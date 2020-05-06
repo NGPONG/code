@@ -16,8 +16,8 @@ typedef int Element_type;
 
 int main(void) {
 
-	Element_type arrary[] = { 7,2,9,4,1,3,5,8,6 };
-	Element_type buff;
+  Element_type arrary[] = { 7, 2, 9, 4, 1, 3, 5, 8, 6 };
+  Element_type buff;
 
 	for (int i = 1; i < sizeof(arrary) / sizeof(Element_type); i++) {
 
