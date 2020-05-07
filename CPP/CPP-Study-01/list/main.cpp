@@ -94,11 +94,11 @@ void fun_insert(void) {
 }
 
 /** DELETE
- * void pop_back()                                        删除 list 容器内部的双向循环链表中的尾节点
- * void pop_front()                                       删除 list 容器内部的双向循环链表中的首节点
- * void clear()                                           删除 list 容器内部的双向循环链表中的所有的节点
- * void erase(const_iterator start, const_iterator end)   list 容器内部所维护的双向循环链表中删除迭代器 start 和 迭代器 end 所指向的下标之间的所有的节点
- * void erase(const_iterator pos)                         list 容器内部所维护的双向循环链表中删除迭代器 pos 所指向的节点
+ * void pop_back()                                                          删除 list 容器内部的双向循环链表中的尾节点
+ * void pop_front()                                                         删除 list 容器内部的双向循环链表中的首节点
+ * void clear()                                                             删除 list 容器内部的双向循环链表中的所有的节点
+ * void erase(list<T>::const_iterator start, list<T>::const_iterator end)   list 容器内部所维护的双向循环链表中删除迭代器 start 和 迭代器 end 所指向的下标之间的所有的节点
+ * void erase(list<T>::const_iterator pos)                                  list 容器内部所维护的双向循环链表中删除迭代器 pos 所指向的节点
 */
 void fun_delete(void) {
   int nums[5] = { 1, 2, 3, 4, 5 };

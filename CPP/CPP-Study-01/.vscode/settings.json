@@ -45,7 +45,12 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "set": "cpp",
+        "xtree": "cpp",
+        "xmemory": "cpp",
+        "xutility": "cpp",
+        "xstddef": "cpp"
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
