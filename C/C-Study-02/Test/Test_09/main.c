@@ -6,8 +6,10 @@
 #include <ctype.h>
 
 int main(void) {
-  char _ch = tolower('!');
-  printf("%c\n", _ch);
+  int a = 0x400;
+  const int c_a = a;
+
+  printf("%d\n",c_a);
 
   system("pause");
   return EXIT_SUCCESS;
