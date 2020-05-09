@@ -10,9 +10,11 @@ using namespace std;
 
 class Person {
 public:
-  Person(){
+  Person() {
     cout << "PERSON DEFAULT CONSTRUCTOR";
   };
+  Person(string _name, int _age)
+    : m_name(_name), m_age(_age){};
 public:
   string m_name;
   int m_age;

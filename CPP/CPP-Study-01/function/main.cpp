@@ -21,7 +21,6 @@ void foo(void) {
   __s.insert(5);
   __s.insert(1);
   __s.insert(3);
-  for_each(__s.begin(), __s.end(), set_printer<int>());
 
   vector<int> __v;
   __v.push_back(3);
@@ -30,6 +29,8 @@ void foo(void) {
   __v.push_back(4);
   __v.push_back(2);
   sort(__v.begin(), __v.end(), less<int>());
+
+  for_each(__s.begin(), __s.end(), set_printer<int>());
   for_each(__v.begin(), __v.end(), set_printer<int>());
 }
 
