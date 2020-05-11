@@ -93,6 +93,9 @@ void foo_function(void) {
  * 使用场景：将一个普通的函数转换为所重载的函数调用操作符的函数声明为 const 的仿函数
  * 
 */
+void foo_member_function(void) {
+  mem_fun_ref
+}
 
 int main(void) {
   /* foo_functor(); */
