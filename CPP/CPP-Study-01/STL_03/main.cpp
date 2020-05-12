@@ -2,7 +2,7 @@
 #include "test.h"
 
 void foo(void) {
- vector<Person> _pers;
+  vector<Person> _pers;
   for (size_t i = 65; i < 70; ++i) {
     _pers.push_back(Person(i, new select_sort()));
   }
