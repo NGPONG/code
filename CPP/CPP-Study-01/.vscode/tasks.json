@@ -29,9 +29,9 @@
                 "focus": false,                                         // 设为true后可以使执行task时焦点聚集在终端，但对编译C/C++来说，设为true没有意义
                 "panel": "shared"                                       // 不同的文件的编译信息共享一个终端面板
             },
-            "dependsOn": [
-                "Build debug director"
-            ],
+            /* "dependsOn": [
+                "Folder initialization"
+            ], */
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
@@ -40,7 +40,7 @@
             }
         },
         {
-            "label": "Build debug director",
+            "label": "Folder initialization",
             "type": "shell",
             "command": "./.vscode/build_dir.sh",
             "args": [
