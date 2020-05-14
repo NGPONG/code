@@ -1,0 +1,4 @@
+heroId,heroName,heroHp,heroAtk,heroDef,heroInfo
+1,Arthur,500,10,30,HP|DEF:UP
+2,Yi-Hou,300,30,15,ATK:UP,HP:DOWN
+3,Yun-Zhao,400,25,25,BALANCE
