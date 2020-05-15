@@ -6,7 +6,12 @@ using namespace std;
 
 void foo(void) {
   controller sys;
-  map<int, hero> *heros = sys.init_hero_data();
+  sys.print("Welcome!\n\n");
+
+  sys.print("Please choose your favorite hero:\n");
+  sys.get_heros();
+
+  
 }
 
 int main(void) {

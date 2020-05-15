@@ -1,18 +1,23 @@
 #include "gamecol.h"
 
 /** 
+ * @brief 打印信息
+ * @param __mes 信息
+*/
+void controller::print(const char *__mes) {
+  printf(__mes);
+}
+
+/** 
  * @brief 打印英雄选择界面
  * @param __data 存储英雄的数据
 */
-void controller::print_hero_select(map<string, map<string, string>> &__data) {
-  printf("Welcome to the power contest:\n");
+void controller::get_heros() {
+  if (this->__heros == nullptr) init_hero_data();
 
-  printf("Please choose your favorite hero:\n");
-
-  char _buf[1024] = { 0 };
-  printf("\t%s [%s]\n", __data["1"]["heroName"].c_str(), __data["1"]["heroInfo"].c_str());
-  printf("\t%s [%s]\n", __data["2"]["heroName"].c_str(), __data["2"]["heroInfo"].c_str());
-  printf("\t%s [%s]\n", __data["3"]["heroName"].c_str(), __data["3"]["heroInfo"].c_str());
+  for (map<int, hero>::const_iterator i = this->__heros->begin(); i != this->__heros->end(); ++i) {
+    printf("  %d: %s [%s]\n", i->first, i->second.hero_name.c_str(), i->second.hero_info.c_str());
+  }
 }
 
 /** 
@@ -20,11 +25,20 @@ void controller::print_hero_select(map<string, map<string, string>> &__data) {
  * @return 返回指向在堆中存储英雄信息的指针，该指针的生命周期由 controller 的析构来进行维护
 */
 map<int, hero> *controller::init_hero_data() {
+  if (this->__heros != nullptr) delete this->__heros;
+
+  this->__heros = new map<int, hero>();
+
   map<int, map<string, string>> __hero_src;
   __fm.load_CSV_file("./hero.dt", __hero_src);
 
   for (map<int, map<string, string>>::const_iterator i = __hero_src.begin(); i != __hero_src.end(); ++i) {
-    this->__heros->insert(make_pair(i->first, hero(stoi(i->second.at("heroId")), stoi(i->second.at("heroAtk")), stoi(i->second.at("heroDef")), stoi(i->second.at("heroHp")), i->second.at("heroInfo"), i->second.at("heroName"))));
+    this->__heros->insert(make_pair(i->first, hero(stoi(i->second.at("heroId")),
+                                                   stoi(i->second.at("heroAtk")),
+                                                   stoi(i->second.at("heroDef")),
+                                                   stoi(i->second.at("heroHp")),
+                                                   i->second.at("heroInfo"),
+                                                   i->second.at("heroName"))));
   }
 
   return this->__heros;
@@ -34,6 +48,4 @@ map<int, hero> *controller::init_hero_data() {
 controller::~controller() {
   if (this->__heros != nullptr) delete this->__heros;
 }
-controller::controller() {
-  this->__heros = new map<int, hero>();
-}
+controller::controller() {}
