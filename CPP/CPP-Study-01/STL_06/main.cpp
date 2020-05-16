@@ -11,7 +11,7 @@ void foo(void) {
   sys.print("Please choose your favorite hero:\n");
   sys.get_heros();
 
-  
+
 }
 
 int main(void) {
