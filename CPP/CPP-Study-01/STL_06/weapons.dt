@@ -1,4 +1,4 @@
 weaponId,weaponName,weaponAtk,weaponCritPlus,weaponCritRate,weaponSuckPlus,weaponSuckRate,weaponFrozenRate
-1,Ð¡µ¶,5,0,0,0,0,0
-2,´ó¿³µ¶,10,2,30,0,0,0
-3,ÍÀÁúµ¶,20,2,50,1,30,50
+1,Pocket-knife,5,0,0,0,0,0
+2,Machete,10,2,30,0,0,0
+3,Dragon-slayer's-knife,20,2,50,1,30,50

@@ -1,0 +1,6 @@
+monsterId,monsterName,monsterAtk,monsterDef,monsterHp
+1,slime,5,10,50
+2,machine-Gunner,10,5,80
+3,stone-giant,20,10,200
+4,Hellraiser,50,20,300
+5,black-dragon,100,15,500

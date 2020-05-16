@@ -5,11 +5,12 @@
 #include <time.h>
 #include <ctype.h>
 
-int main(void) {
-  int a = 0x400;
-  const int c_a = a;
+struct Person {
+  int p_age;
+  char *p_name;
+};
 
-  printf("%d\n",c_a);
+int main(void) {
 
   system("pause");
   return EXIT_SUCCESS;

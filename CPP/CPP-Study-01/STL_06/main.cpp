@@ -6,6 +6,7 @@ using namespace std;
 
 void foo(void) {
   controller sys;
+  
   sys.print("Welcome!\n\n");
 
   sys.print("Please choose your favorite hero:\n");
@@ -13,7 +14,8 @@ void foo(void) {
   sys.select_heros();
 
   sys.print("Please choose your what weapon will used\n");
-
+  sys.get_weapons();
+  sys.select_weapons();
 }
 
 int main(void) {

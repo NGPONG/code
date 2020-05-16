@@ -127,7 +127,7 @@ void fun_find() {
 
   /* pair<set<int>::const_iterator, set<int>::const_iterator> equal_range(T _key) */
   pair<set<int>::const_iterator, set<int>::const_iterator> _res = __s.equal_range(3);
-}
+} 
 
 int main(void) {
   /* fun_constructor(); */
