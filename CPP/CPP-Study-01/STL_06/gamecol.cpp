@@ -33,15 +33,29 @@ map<int, hero> *controller::init_hero_data() {
   __fm.load_CSV_file("./hero.dt", __hero_src);
 
   for (map<int, map<string, string>>::const_iterator i = __hero_src.begin(); i != __hero_src.end(); ++i) {
-    this->__heros->insert(make_pair(i->first, hero(stoi(i->second.at("heroId")),
-                                                   stoi(i->second.at("heroAtk")),
-                                                   stoi(i->second.at("heroDef")),
-                                                   stoi(i->second.at("heroHp")),
-                                                   i->second.at("heroInfo"),
-                                                   i->second.at("heroName"))));
+    this->__heros->insert(make_pair(i->first, hero(stoi(i->second.at("heroId")), stoi(i->second.at("heroAtk")), stoi(i->second.at("heroDef")), stoi(i->second.at("heroHp")), i->second.at("heroInfo"), i->second.at("heroName"))));
   }
 
   return this->__heros;
+}
+
+/** 
+ * @brief 选择英雄
+*/
+void controller::select_heros() {
+  while (true) {
+    int selected_val;
+    scanf("%d\n", &selected_val);
+
+    map<int, hero>::const_iterator result = this->__heros->find(selected_val);
+    if (result != this->__heros->end()) {
+      this->game_player.selected_hero = result->second;
+      cout << "The hero you choose is [" << this->game_player.selected_hero.hero_name << "]" << endl;
+      break;
+    }
+
+    cout << "无效选择，请重新输入" << endl;
+  }
 }
 
 
