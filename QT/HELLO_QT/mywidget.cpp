@@ -7,9 +7,9 @@ MyWidget::MyWidget(QWidget *parent)
   //  QPushButton *button = new QPushButton();
   //  button->setParent(this);
 
-  QPushButton button;
-  button.setParent(this);
-  button.show();
+  QPushButton *button = new QPushButton();
+  button->setFixedSize(300,300);
+  button->setWindowTitle()
 }
 
 MyWidget::~MyWidget()

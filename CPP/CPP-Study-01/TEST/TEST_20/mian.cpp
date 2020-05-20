@@ -1,15 +1,34 @@
 #include <iostream>
 using namespace std;
 
-void foo(int _val = 0x400);
+class base {
+public:
+  base(int age)
+    : _age(age) {
+    cout << "base constructor" << endl;
+  }
+
+public:
+  int _age;
+};
+
+
+class perosn : public base {
+public:
+  perosn(int age)
+    : base(age) {
+    cout << "person constructor" << endl;
+  };
+
+  void print() {
+    cout << base::_age << endl;
+    cout << this->_age << endl;
+  }
+};
 
 int main(void) {
-  foo();
+
 
   system("pause");
   return EXIT_SUCCESS;
-}
-
-void foo(int _val) {
-  cout << _val << endl;
 }
