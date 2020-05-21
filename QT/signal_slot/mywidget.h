@@ -2,6 +2,11 @@
 #define MYWIDGET_H
 
 #include <QWidget>
+#include <string>
+#include <qpushbutton.h>
+
+#include "my_signal.h"
+#include "my_slot.h"
 
 class MyWidget : public QWidget
 {

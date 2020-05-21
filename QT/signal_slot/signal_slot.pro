@@ -17,9 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
+    my_signal.cpp \
+    my_slot.cpp \
     mywidget.cpp
 
 HEADERS += \
+    my_signal.h \
+    my_slot.h \
     mywidget.h
 
 # Default rules for deployment.
