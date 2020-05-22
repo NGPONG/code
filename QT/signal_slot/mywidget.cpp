@@ -75,8 +75,6 @@ MyWidget::MyWidget(QWidget *parent)
 //  foo_test_03(this);
 //  foo_test_05(this);
 
-  connect()
-
   foo_test_06(this);
 }
 
