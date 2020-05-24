@@ -9,7 +9,6 @@ MyWidget::MyWidget(QWidget *parent)
 
   QPushButton *button = new QPushButton();
   button->setFixedSize(300,300);
-  button->setWindowTitle()
 }
 
 MyWidget::~MyWidget()
