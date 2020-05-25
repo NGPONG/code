@@ -27,20 +27,19 @@ int main(void) {
   int i = 10;
   printf("%p\n", &i);
 
+  int *p = &i;
+
   function<void(void)> _fn = [=]() mutable {
-    cout << ++i << " ";
-    printf("%p\n", &i);
+    cout << ((*p) += 1) << " ";
   };
 
   _fn();
   _fn();
   _fn();
 
-  [=]() mutable {
-    cout << ++i << endl;
-  }();
-
   cout << i << endl;
+
+  cout << sizeof(_fn) << endl;
 
   system("pause");
   return EXIT_SUCCESS;

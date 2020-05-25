@@ -8,8 +8,10 @@ MyWidget::MyWidget(QWidget *parent)
   ui->setupUi(this);
 
   /* start timer */
+  /* global timer */
   this->timerid_1 = QObject::startTimer(100);
 
+  /* timer instance */
   QTimer *timer = new QTimer();
   connect(timer,&QTimer::timeout,[=] {
     static int _i = 100;
@@ -19,11 +21,13 @@ MyWidget::MyWidget(QWidget *parent)
 
 
   /* set stop timer event */
+  /* global timer */
   connect(ui->pushButton,&QPushButton::clicked,[=] {
     killTimer(this->timerid_1);
     this->timerid_1 = -1;
   });
 
+  /* timer instance */
   connect(ui->pushButton_2,&QPushButton::clicked,[=] () mutable {
     if(timer == nullptr) {
       qDebug() << "OK!";
