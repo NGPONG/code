@@ -10,7 +10,7 @@ class Button : public QPushButton {
   Q_OBJECT
 public:
   explicit Button(QWidget *_par, QString _normal, QString _press = "");
-
+  
 private:
   QString normal_img_path;  /* Display picture path by default */
   QString pressed_Img_path; /* Press to display the picture path */

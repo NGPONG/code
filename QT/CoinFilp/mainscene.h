@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <qpainter.h>
+#include <iostream>
 
 #include "button.h"
 #include "chooselevelscene.h"

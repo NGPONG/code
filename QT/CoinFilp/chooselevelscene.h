@@ -5,20 +5,24 @@
 #include <QMenuBar>
 #include <QPainter>
 #include <QLabel>
+#include <QTimer>
 
 #include "button.h"
+#include <playscene.h>
 
-class ChooseLevelScene : public QMainWindow
-{
-    Q_OBJECT
+class ChooseLevelScene : public QMainWindow {
+  Q_OBJECT
 public:
-    explicit ChooseLevelScene(QWidget *parent = nullptr);
+  explicit ChooseLevelScene(QWidget *parent = nullptr);
 
 public:
-    void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent *) override;
 
+public:
+  PlayScene *play_scene = nullptr;
+  
 signals:
-    void closed(void);
+  void closed(void);
 };
 
-#endif // CHOOSELEVELSCENE_H
+#endif  // CHOOSELEVELSCENE_H
