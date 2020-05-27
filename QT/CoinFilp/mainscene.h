@@ -2,8 +2,11 @@
 #define MAINSCENE_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include <qpainter.h>
-#include <buttonstart.h>
+
+#include "button.h"
+#include "chooselevelscene.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainScene; }
@@ -25,5 +28,6 @@ public:
 
 private:
   Ui::MainScene *ui;
+  ChooseLevelScene *choose_scene;
 };
 #endif // MAINSCENE_H
