@@ -22,8 +22,11 @@ void MainScene::init_win(void) {
   this->setWindowTitle("game");
 
   /* control */
-  ButtonStart *btn_start = new ButtonStart(this, ":/res/MenuSceneStartButton.png");
+  Button *btn_start = new Button(this, ":/res/MenuSceneStartButton.png");
   btn_start->move(this->width() * 0.5 - btn_start->width() * 0.5,this->height() * 0.7);
+
+  /* form */
+  this->choose_scene = new ChooseLevelScene();
 
   /* event */
   connect(ui->actionExit,&QAction::triggered,[=] {
@@ -31,6 +34,16 @@ void MainScene::init_win(void) {
   });
   connect(btn_start,&QPushButton::clicked,[=] {
     btn_start->zoom_down();
+
+    /* deley 0.7s and enter the choose level form */
+    QTimer::singleShot(500,this,[=] {
+        this->hide();
+        this->choose_scene->show();
+    });
+  });
+  connect(choose_scene,&ChooseLevelScene::closed,[=] {
+      choose_scene->hide();
+      this->show();
   });
 }
 
