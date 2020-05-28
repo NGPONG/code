@@ -1,6 +1,3 @@
-#pragma warning(disable:6031)
-#pragma warning(disable:4996)			
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -12,32 +9,30 @@
 #include "singly_list.h"
 
 void printer_int(node_t *current) {
-
-	printf("node address = %p, data address = %p, Data value = %d\n", current, current->data, *(int *)current->data);
+  printf("node address = %p, data address = %p, Data value = %d\n", current, current->data, *(int *)current->data);
 }
 
 int main(void) {
+  list_t *list = create();
+  for (int i = 0; i < 100; i++) {
 
-	list_t *list = Create();
-	for (int i = 0; i < 1000000; i++) {
+    int *a = malloc(sizeof(int));
+    if (a == NULL) {
 
-		int *a = malloc(sizeof(int));
-		if (a == NULL) {
-			
-			perror("heap error");
-			return -1;
-		}
-		*a = i + 1;
-		AddNode(list, a);
-	}
+      perror("heap error");
+      return -1;
+    }
+    *a = i + 1;
+    add_node(list, a);
+  }
 
-	ForeachAllNode(list,printer_int);
+  foreach_all_node(list, printer_int);
 
-	Reverse_List(list);
+  reverse_list(list);
 
-	ForeachAllNode(list, printer_int);
+  foreach_all_node(list, printer_int);
 
-	Free(list);
-	system("pause");
-	return EXIT_SUCCESS;
+  free_list(list);
+  system("pause");
+  return EXIT_SUCCESS;
 }

@@ -32,7 +32,7 @@ public:
 int a = 0x100;
 
 int (*inv)(bool) = [](bool _flag) -> int {
-  if (_flag) 
+  if (_flag)
     return 0x400;
   else
     return 0x200;
@@ -42,7 +42,7 @@ int main(void) {
   base b(0x400);
 
   cout << b.m_val << endl;
-  
+
   cout << inv(false) << endl;
 
   system("pause");
