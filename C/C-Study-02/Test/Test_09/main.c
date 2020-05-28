@@ -5,12 +5,10 @@
 #include <time.h>
 #include <ctype.h>
 
-struct Person {
-  int p_age;
-  char *p_name;
-};
+#include "test.h"
 
 int main(void) {
+  foo();
 
   system("pause");
   return EXIT_SUCCESS;
