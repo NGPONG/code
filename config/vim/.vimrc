@@ -15,6 +15,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 " remove whitespace in world trailing
 Plug 'bronson/vim-trailing-whitespace'
+" airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
