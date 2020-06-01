@@ -1,30 +1,27 @@
-"------------------------------BY_CODING-------------------------------------------
-" 1. set syntax highlight
-if has("syntax")
-  syntax on
-endif
-
-
 "------------------------------BY_PLUGINS-------------------------------------------
 call plug#begin('~/.vim/plugged')
-" theme: one-darkd
-Plug 'tomasiser/vim-code-dark'
-" theme: dark-plus
-Plug 'joshdick/onedark.vim'
-" more syntax
-Plug 'sheerun/vim-polyglot'
-" remove whitespace in world trailing
-Plug 'bronson/vim-trailing-whitespace'
-" airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+ " theme: one-darkd
+ Plug 'tomasiser/vim-code-dark'
+ " theme: dark-plus
+ Plug 'joshdick/onedark.vim'
+ " more syntax
+ Plug 'sheerun/vim-polyglot'
+ " remove whitespace in world trailing
+ Plug 'bronson/vim-trailing-whitespace'
+ " airline
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-"------------------------------BY_NORMAL-------------------------------------------
+"------------------------------BY_GLOBAL-------------------------------------------
 " Make configuration changes effective immediately
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " line number
 set number
+" set syntax highlight
+if has("syntax")
+  syntax on
+endif
 " tabwidth
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 " set auto indent
@@ -33,13 +30,13 @@ set autoindent
 colorscheme codedark
 " share cliboard by sys
 set clipboard^=unnamed,unnamedplus
+" cursor
+set ve+=onemore
 " encoding
 set encoding=utf-8
 set fileencoding=utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-" cursor
-set ve+=onemore
 " air line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
