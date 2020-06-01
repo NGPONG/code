@@ -38,11 +38,13 @@ set encoding=utf-8
 set fileencoding=utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+" cursor
+set ve+=onemore
 " air line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
-let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#hunks#enabled=1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -56,6 +58,7 @@ nnoremap <Home> ^
 vnoremap <Home> ^
 inoremap <Home> <Esc>^i
 vnoremap <End> $h
+nnoremap <End> $l
 nnoremap <BS> "_X
 vnoremap <BS> "_X
 nnoremap <Space> i<Space><Esc>w
@@ -67,4 +70,4 @@ nnoremap <tab> V>
 vnoremap <tab> >gv
 vnoremap i I
 vnoremap w aw
-nmap <CR> o<Esc>
+nnoremap <CR> i<CR><Esc>
