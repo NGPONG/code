@@ -2,7 +2,7 @@
 using namespace std;
 
 #include "filemanager.h"
-
+#include "gamecol.h"
 
 void foo(void) {
   controller sys;
@@ -18,7 +18,5 @@ void foo(void) {
 
 int main(void) {
   foo();
-
-  system("pause");
   return EXIT_SUCCESS;
 }
