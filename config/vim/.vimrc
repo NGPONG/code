@@ -54,7 +54,7 @@ inoremap <Home> <Esc>^i
 vnoremap <End> $h
 nnoremap <BS> "_X
 vnoremap <BS> "_X
-"nnoremap p P
+nnoremap <Space> i<Space><Esc>w
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
