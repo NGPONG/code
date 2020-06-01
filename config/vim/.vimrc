@@ -26,7 +26,18 @@ endif
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 " set auto indent
 set autoindent
+" Set 24-bit (true-color) mode in Vim/Neovim when outside tmux
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 " set colorscheme
+" dark_plus: codedark;
+"  one_dark: onedark;
 colorscheme codedark
 " share cliboard by sys
 set clipboard^=unnamed,unnamedplus
@@ -37,7 +48,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-" air line
+" air_line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
@@ -49,7 +60,6 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-
 "------------------------------BY_KEYS-------------------------------------------
 nnoremap <Home> ^
 vnoremap <Home> ^
@@ -58,13 +68,13 @@ vnoremap <End> $h
 nnoremap <End> $l
 nnoremap <BS> "_X
 vnoremap <BS> "_X
-nnoremap <Space> i<Space><Esc>w
+nnoremap <Space> i<Space><Esc>l
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
 nnoremap <tab> V>
 vnoremap <tab> >gv
-vnoremap i I
+vnoremap i "_xI
 vnoremap w aw
 nnoremap <CR> i<CR><Esc>
