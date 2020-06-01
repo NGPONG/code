@@ -1,6 +1,6 @@
 #include "gamecol.h"
 
-/** 
+/**
  * @brief 打印信息
  * @param __mes 信息
 */
@@ -8,7 +8,7 @@ void controller::print(const char *__mes) {
   printf(__mes);
 }
 
-/** 
+/**
  * @brief 打印英雄选择界面
  * @param __data 存储英雄的数据
 */
@@ -20,7 +20,7 @@ void controller::get_heros() {
   }
 }
 
-/** 
+/**
  * @brief 获取英雄信息
  * @return 返回指向在堆中存储英雄信息的指针，该指针的生命周期由 controller 的析构来进行维护
 */
@@ -39,7 +39,7 @@ map<int, hero> *controller::init_hero_data() {
   return this->c_heros;
 }
 
-/** 
+/**
  * @brief 选择英雄
 */
 void controller::select_heros() {
@@ -61,7 +61,7 @@ void controller::select_heros() {
   }
 }
 
-/** 
+/**
  * @brief 获取武器信息
  * @return 返回指向在堆中存储武器信息的指针，该指针的生命周期由 controller 的析构来进行维护
 */
@@ -89,7 +89,7 @@ map<int, weapon *> *controller::init_weapon_data() {
   return this->c_weapons;
 }
 
-/** 
+/**
  * @brief 打印武器选择界面
 */
 void controller::get_weapons() {
@@ -100,7 +100,7 @@ void controller::get_weapons() {
   }
 }
 
-/** 
+/**
  * @brief 选择武器
 */
 void controller::select_weapons() {
