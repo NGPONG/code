@@ -179,3 +179,7 @@ nnoremap <tab> V>
 vnoremap <tab> >gv
 vnoremap w aw
 nnoremap <CR> i<CR><Esc>
+nnoremap <C-Left> :bp<Esc>
+nnoremap <C-Right> :bn<Esc>
+nnoremap bw :bw<Esc>
+
