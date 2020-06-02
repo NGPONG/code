@@ -1,32 +1,38 @@
 "------------------------------BY_PLUGINS-------------------------------------------
-call plug#begin('~/.vim/plugged')
- " theme: one-darkd
+call plug#begin('~/.local/share/nvim/plugged')
+
+ " themes
  Plug 'tomasiser/vim-code-dark'
- " theme: dark-plus
  Plug 'joshdick/onedark.vim'
- " more syntax
- Plug 'sheerun/vim-polyglot'
- " remove whitespace in world trailing
+
+ " common
  Plug 'bronson/vim-trailing-whitespace'
- " airline
- Plug 'vim-airline/vim-airline'
- Plug 'vim-airline/vim-airline-themes'
- " tags
- Plug 'ludovicchabant/vim-gutentags'
- Plug 'universal-ctags/ctags'
- Plug 'skywind3000/gutentags_plus'
- " syntax check
- Plug 'dense-analysis/ale'
+
+ " Intelligent
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
  " visual tree
  Plug 'preservim/nerdtree'
  Plug 'ryanoasis/vim-devicons'
  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+ " airline
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
+"----------------------------------------------------------------------------------
+
+
 
 "------------------------------BY_GLOBAL-------------------------------------------
+" remember postion
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " Make configuration changes effective immediately
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+au BufWritePost $MYVIMRC source $MYVIMRC
 
 " line number
 set number
@@ -43,25 +49,23 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 set autoindent
 
 " Set 24-bit (true-color) mode in Vim/Neovim when outside tmux
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
-" set colorscheme
-" dark_plus: codedark;
-"  one_dark: onedark;
-colorscheme codedark
+"if (empty($TMUX))
+"  if (has("nvim"))
+"    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"  endif
+"  if (has("termguicolors"))
+"    set termguicolors
+"  endif
+"endif
 
 " share cliboard by sys
 set clipboard^=unnamed,unnamedplus
 
 " cursor
 set ve+=onemore
+set cursorline
+set guicursor=
+"set cursorcolumn
 
 " hide status bar in bottom
 set shortmess=F
@@ -77,6 +81,15 @@ set encoding=UTF-8
 set fileencoding=utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+"--------------------------------------------------------------------------------
+
+
+
+"------------------------------BY_PLUGINS----------------------------------------
+" set colorscheme
+" dark_plus: codedark;
+"  one_dark: onedark;
+colorscheme codedark
 
 " air_line
 let g:airline_powerline_fonts = 1
@@ -98,46 +111,9 @@ endif
 let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
-" ALE
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚡'
-let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
-
-" set tags
-set tags=./.tags;,.tags
-let $GTAGSLABEL = 'native-pygments'
-let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-let g:gutentags_ctags_tagfile = '.tags'
-let g:gutentags_modules = []
-if executable('ctags')
-	let g:gutentags_modules += ['ctags']
-endif
-if executable('gtags-cscope') && executable('gtags')
-	let g:gutentags_modules += ['gtags_cscope']
-endif
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
-let g:gutentags_auto_add_gtags_cscope = 0
-let g:gutentags_define_advanced_commands = 1
 
 " nerd tree
-map <F1> :NERDTreeToggle<CR>
+map <silent> <C-e> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeHidden=0
 let NERDTreeShowBookmarks=1
@@ -161,6 +137,10 @@ let g:NERDTreeIndicatorMapCustom = {
 \}
 
 
+"--------------------------------------------------------------------------------
+
+
+
 "------------------------------BY_KEYS-------------------------------------------
 nnoremap <Home> ^
 vnoremap <Home> ^
@@ -179,7 +159,7 @@ nnoremap <tab> V>
 vnoremap <tab> >gv
 vnoremap w aw
 nnoremap <CR> i<CR><Esc>
-nnoremap <C-Left> :bp<Esc>
-nnoremap <C-Right> :bn<Esc>
-nnoremap bw :bw<Esc>
-
+nnoremap <silent> <C-Left> :bp<Esc>
+nnoremap <silent> <C-Right> :bn<Esc>
+nnoremap <silent> bw :bw<Esc>
+"---------------------------------------------------------------------------------
