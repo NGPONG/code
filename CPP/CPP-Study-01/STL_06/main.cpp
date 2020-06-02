@@ -10,7 +10,6 @@ void foo(void) {
   sys.print("Please choose your favorite hero:\n");
   sys.get_heros();
   sys.select_heros();
-
   sys.print("Please choose your what weapon will used\n");
   sys.get_weapons();
   sys.select_weapons();
