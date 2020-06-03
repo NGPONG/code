@@ -14,7 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  " visual tree
  Plug 'preservim/nerdtree'
  Plug 'ryanoasis/vim-devicons'
- Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+ Plug 'Xuyuanp/nerdtree-git-plugin'
 
  " airline
  Plug 'vim-airline/vim-airline'
@@ -31,8 +31,8 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Make configuration changes effective immediately
-au BufWritePost $MYVIMRC source $MYVIMRC
+" Reloads vimrc after saving
+autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " line number
 set number
@@ -79,8 +79,7 @@ set cmdheight=1
 " encoding
 set encoding=UTF-8
 set fileencoding=utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+
 "--------------------------------------------------------------------------------
 
 
@@ -114,13 +113,18 @@ let g:airline_skip_empty_sections = 1
 
 " nerd tree
 map <silent> <C-e> :NERDTreeToggle<CR>
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeHidden=0
-let NERDTreeShowBookmarks=1
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowBookmarks=0
+let g:NERDTreeUpdateOnWrite = 1
+let g:NERDTreeHighlightCursorline = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeIndicatorMapCustom = {
@@ -136,6 +140,24 @@ let g:NERDTreeIndicatorMapCustom = {
         \ "Unknown"   : "?"
 \}
 
+
+let g:webdevicons_enable_nerdtree = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsUnicodeDecorateFileNodes = 0
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" adding to vim-airline's tabline
+let g:webdevicons_enable_airline_tabline = 1
+" adding to vim-airline's statusline
+let g:webdevicons_enable_airline_statusline = 1
+
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 "--------------------------------------------------------------------------------
 
