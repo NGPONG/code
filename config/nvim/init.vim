@@ -5,11 +5,16 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'tomasiser/vim-code-dark'
  Plug 'joshdick/onedark.vim'
 
+ " more syntax
+ "Plug 'sheerun/vim-polyglot'
+ "Plug 'arakashic/chromatica.nvim'
+ Plug 'jackguo380/vim-lsp-cxx-highlight'
+
  " common
  Plug 'bronson/vim-trailing-whitespace'
 
  " Intelligent
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'neoclide/coc.nvim', {'brnch': 'release'}
 
  " visual tree
  Plug 'preservim/nerdtree'
@@ -236,8 +241,6 @@ let g:devicons_colors = {
     \'dark_violet': ['']
 \}
 call DeviconsColors(g:devicons_colors)
-
-
 
 "--------------------------------------------------------------------------------
 

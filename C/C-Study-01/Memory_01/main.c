@@ -1,5 +1,5 @@
 #pragma warning(disable:6031)
-#pragma warning(disable:4996)			
+#pragma warning(disable:4996)
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,7 +7,7 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
+
 
 void enter(void) {
 
@@ -30,15 +30,18 @@ int g_b;
 
 int main(void) {
 
-	enter();
+    qwdaldq,;wd,;
+    qwdasdkqwd;
+    
+	nter();
 
 	fun_Test(100, 200);
 
-	enter();
+	nter();
 
 	int a = 10;
 	int b;
-
+    
 	printf("stack frame:a		= %p\n", &a);
 	printf("stack frame:b		= %p\n", &b);
 
