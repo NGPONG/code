@@ -77,6 +77,8 @@ set cmdheight=1
 set encoding=UTF-8
 set fileencoding=utf-8
 
+set bufhidden=delete | bnext | set bufhidden=hide
+
 "--------------------------------------------------------------------------------
 
 
@@ -118,7 +120,7 @@ let g:NERDTreeUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeAutoDeleteBuffer = 0
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIndicatorMapCustom = {
@@ -242,6 +244,9 @@ let g:devicons_colors = {
 \}
 call DeviconsColors(g:devicons_colors)
 
+
+nnoremap <F12> <Plug>(coc-definition)
+
 "--------------------------------------------------------------------------------
 
 
@@ -255,12 +260,13 @@ nnoremap <End> $l
 nnoremap <BS> "_X
 vnoremap <BS> "_X
 nnoremap <Space> i<Space><Esc>l
-nnoremap a i
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
-vnoremap i I
+nmap a i
+vmap a i
+vmap i I
 nnoremap <tab> V>
 vnoremap <tab> >gv
 vnoremap w aw
@@ -269,5 +275,6 @@ vnoremap p pl
 nnoremap <CR> i<CR><Esc>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
-nnoremap <silent> bw :bw<Esc>
+nnoremap <silent> <C-d> :setl bufhidden=delete<bar>bnext<Esc>
+nnoremap <silent> <C-D> :%bd<bar>e#<Esc>
 "---------------------------------------------------------------------------------
