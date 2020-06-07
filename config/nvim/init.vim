@@ -3,7 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
  Plug 'tomasiser/vim-code-dark'
- Plug 'joshdick/onedark.vim'
+ Plug 'w0ng/vim-hybrid'
+ Plug 'rakr/vim-one'
 
  " more syntax
  "Plug 'sheerun/vim-polyglot'
@@ -25,12 +26,16 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
 
+ " file
+ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+
 call plug#end()
 "----------------------------------------------------------------------------------
 
 
 
 "------------------------------BY_GLOBAL-------------------------------------------
+
 " remember postion
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -57,7 +62,14 @@ set autoindent
 set clipboard^=unnamed,unnamedplus
 
 " use terminal color policy
-set termguicolors
+if (empty($TMUX))
+  if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+    if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 
 " cursor
 set ve+=onemore
@@ -77,7 +89,12 @@ set cmdheight=1
 set encoding=UTF-8
 set fileencoding=utf-8
 
-set bufhidden=delete | bnext | set bufhidden=hide
+" some state options
+set hidden
+
+" defualt split policy
+set splitbelow
+set splitright
 
 "--------------------------------------------------------------------------------
 
@@ -86,8 +103,13 @@ set bufhidden=delete | bnext | set bufhidden=hide
 "------------------------------BY_PLUGINS----------------------------------------
 " set colorscheme
 " dark_plus: codedark;
-"  one_dark: onedark;
-colorscheme codedark
+"   hy_bird: hybrid
+"            set background=dark;
+"       one: one
+"            set background=dark;
+colorscheme one
+set background=dark
+let g:one_allow_italics = 1 " may be dont support
 
 " air_line
 let g:airline_powerline_fonts = 1
@@ -114,13 +136,13 @@ map <silent> <C-e> :NERDTreeToggle<CR>
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeChDirMode = 2
-let g:NERDTreeHidden=0
 let NERDTreeShowBookmarks=0
 let g:NERDTreeUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline = 0
 let NERDTreeMinimalUI = 1
+let NERDTreeShowHidden=1
 let NERDTreeDirArrows = 1
-let NERDTreeAutoDeleteBuffer = 0
+let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIndicatorMapCustom = {
@@ -135,6 +157,7 @@ let g:NERDTreeIndicatorMapCustom = {
         \ 'Ignored'   : '☒',
         \ "Unknown"   : "?"
 \}
+"autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
 
 " set nerd_tree icons
 let g:webdevicons_enable_nerdtree = 1
@@ -171,7 +194,7 @@ let g:sol = {
 		\"violet": "#ba89f3",
         \"dark_violet": "#b55cb1",
 		\"blue": "#268bd2",
-        \"dark_blue": "#005f91",
+        \"dark_blue": "#009aeb",
 		\"cyan": "#2aa198",
 		\"green": "#719e07",
         \"dark_green": "#3d9939",
@@ -244,8 +267,38 @@ let g:devicons_colors = {
 \}
 call DeviconsColors(g:devicons_colors)
 
+" coc
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
 
-nnoremap <F12> <Plug>(coc-definition)
+" Leaderf
+let g:Lf_PreviewResult = {
+  \ 'Rg': 1
+\}
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_PreviewInPopup = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_ReverseOrder = 0
+let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+let g:Lf_WindowHeight = 0.2
+let g:Lf_PreviewHorizontalPosition = 'right'
+let g:Lf_DefaultMode = 'Regex'
+function! FindCurrent()
+  let g:Lf_PreviewInPopup = 0
+  execute 'Leaderf rg --bottom --current-buffer'
+endfunction
+function! FindFile()
+  let g:Lf_PreviewInPopup = 1
+  execute 'Leaderf rg --bottom'
+endfunction
 
 "--------------------------------------------------------------------------------
 
@@ -270,11 +323,22 @@ vmap i I
 nnoremap <tab> V>
 vnoremap <tab> >gv
 vnoremap w aw
-nnoremap p pl
-vnoremap p pl
 nnoremap <CR> i<CR><Esc>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
-nnoremap <silent> <C-d> :setl bufhidden=delete<bar>bnext<Esc>
-nnoremap <silent> <C-D> :%bd<bar>e#<Esc>
+nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
+nnoremap <silent> <C-S-Left> <C-w><Left>
+nnoremap <silent> <C-S-Right> <C-w><Right>
+nnoremap <silent> <C-S-Up> <C-w><Up>
+nnoremap <silent> <C-S-Down> <C-w><Down>
+nnoremap <silent> <C-S-Del> <C-w>q
+noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
+noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
+vnoremap <C-p> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
+nnoremap <S-Up> <C-u>
+nnoremap <S-Down> <C-d>
+nnoremap bl :Leaderf buffer --bottom<CR>
+noremap <C-f> :call FindCurrent()<CR>
+noremap <C-g> :call FindFile()<CR>
+nnoremap <F36> <C-o>
 "---------------------------------------------------------------------------------

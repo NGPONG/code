@@ -1,31 +1,25 @@
 {
-    // code-lens
-    //"codeLens.enable": true,
-    //"codeLens.subseparator": " | ",
+  // diagnostcic
+  "diagnostic.displayByAle": false,
+  "diagnostic.errorSign": "⛔",
+  "diagnostic.warningSign": "🚸",
+  "diagnostic.infoSign": "➖",
+  "diagnostic.hintSign": "➕",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": "◂ ",
+  "diagnostic.messageTarget": "echo",
+  //"diagnostic.signOffset": 9999999,
 
-    // diagnostci
-    "diagnostic.displayByAle": false,
-    "diagnostic.errorSign": "⛔",
-    "diagnostic.warningSign": "🚸",
-    "diagnostic.infoSign": "➖",
-    "diagnostic.hintSign": "➕",
-    "diagnostic.signOffset": 9999999,
-    "diagnostic.checkCurrentLine": true,
-    "diagnostic.virtualText": true,
-    "diagnostic.virtualTextPrefix": "◂ ",
-    "diagnostic.messageTarget": "echo",
+  // suggest
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.maxCompleteItemCount": 200,
+  "suggest.enablePreselect": true,
+  "suggest.enablePreview": true,
+  "suggest.noselect": false,
 
-    // suggest
-    "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.maxCompleteItemCount": 200,
-    "suggest.enablePreselect": true,
-    "suggest.enablePreview": true,
-    "suggest.noselect": false,
-
-    "coc.preferences.formatOnType": true,
-    "coc.preferences.formatOnTypeFiletypes": ";",
-
-    "languageserver": {
+  // languageserver
+  "languageserver": {
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
