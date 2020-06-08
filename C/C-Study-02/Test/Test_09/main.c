@@ -9,7 +9,6 @@
 
 int main(void) {
   foo();
-
   system("pause");
   return EXIT_SUCCESS;
 }
