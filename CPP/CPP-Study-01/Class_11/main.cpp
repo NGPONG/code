@@ -10,7 +10,13 @@ class student : public person_base {
 public:
   int m_age;
   char m_id;
+
+public:
+  void printp(void) {
+    printf("%c\n", *(char *)this);
+  }
 };
+
 
 int main(void) {
 
@@ -45,6 +51,10 @@ int main(void) {
   char *p_stu = (char *)&stu;
 
   cout << *p_stu << endl;
+
+  printf("%p\n", p_stu);
+
+  stu.printp();
 
 
   system("pause");
