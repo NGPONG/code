@@ -135,6 +135,7 @@ let g:airline_skip_empty_sections = 1
 map <silent> <C-e> :NERDTreeToggle<CR>
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowBookmarks=0
 let g:NERDTreeUpdateOnWrite = 1
@@ -291,11 +292,11 @@ let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 let g:Lf_WindowHeight = 0.2
 let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_DefaultMode = 'Regex'
-function! FindCurrent()
+function! Find_current()
   let g:Lf_PreviewInPopup = 0
   execute 'Leaderf rg --bottom --current-buffer'
 endfunction
-function! FindFile()
+function! Find_file()
   let g:Lf_PreviewInPopup = 1
   execute 'Leaderf rg --bottom'
 endfunction
@@ -338,7 +339,7 @@ vnoremap <C-p> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <S-Up> <C-u>
 nnoremap <S-Down> <C-d>
 nnoremap bl :Leaderf buffer --bottom<CR>
-noremap <C-f> :call FindCurrent()<CR>
-noremap <C-g> :call FindFile()<CR>
+noremap <C-f> :call Find_current()<CR>
+noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
 "---------------------------------------------------------------------------------
