@@ -132,9 +132,19 @@ let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
 " nerd tree
-map <silent> <C-e> :NERDTreeToggle<CR>
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+function! Refresh_tree()
+  if(exists("g:NERDTree") && g:NERDTree.IsOpen())
+    execute 'NERDTreeRefresh'
+  endif
+endfunction
+function! Open_tree()
+  execute 'NERDTreeToggle'
+  call Refresh_tree()
+endfunction
+map <silent> <C-e> :call Open_tree()<CR>
+autocmd BufWritePost * call Refresh_tree()
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") 
+      \ && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowBookmarks=0
@@ -158,17 +168,17 @@ let g:NERDTreeIndicatorMapCustom = {
         \ 'Ignored'   : '☒',
         \ "Unknown"   : "?"
 \}
-"autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
+autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
 
 " set nerd_tree icons
-let g:webdevicons_enable_nerdtree = 1
 let g:WebDevIconsOS = 'Darwin'
+let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:WebDevIconsUnicodeDecorateFileNodes = 0
+"let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:WebDevIconsUnicodeDecorateFileNodes = 0
-let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:DevIconsEnableFoldersOpenClose = 1
 if exists('g:loaded_webdevicons')
@@ -277,6 +287,17 @@ function! s:show_documentation()
   endif
 endfunction
 nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Leaderf
 let g:Lf_PreviewResult = {

@@ -4,7 +4,6 @@
 
 int main(void) {
   foo_1();
-  foo_2();
   printf("Hello,NGPONG!\n");
   return EXIT_SUCCESS;
 }
