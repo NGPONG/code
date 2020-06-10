@@ -107,6 +107,7 @@ set splitright
 "            set background=dark;
 "       one: one
 "            set background=dark;
+"            let g:one_allow_italics = 1; " may be dont support
 colorscheme one
 set background=dark
 let g:one_allow_italics = 1 " may be dont support
@@ -143,14 +144,15 @@ function! Open_tree()
 endfunction
 map <silent> <C-e> :call Open_tree()<CR>
 autocmd BufWritePost * call Refresh_tree()
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") 
-      \ && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowBookmarks=0
 let g:NERDTreeUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline = 0
 let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=23
+let g:Tlist_WinWidth=60
 let NERDTreeShowHidden=1
 let NERDTreeDirArrows = 1
 let NERDTreeAutoDeleteBuffer = 1
