@@ -4,7 +4,6 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 #include "binary_tree.h"
 
