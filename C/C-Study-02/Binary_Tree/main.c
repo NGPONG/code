@@ -27,8 +27,6 @@ int CreateAnNewRow(int printLine) {
 }
 
 int main(void) {
-
-
   Binary_Tree *binaryTree = NULL;
   Preorder_Create_BinaryTree(&binaryTree, NULL);
   CreateAnNewRow(1);
