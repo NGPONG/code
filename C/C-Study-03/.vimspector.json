@@ -11,23 +11,24 @@
          "cwd": "${workspaceRoot}",
          "environment": [],
          "externalConsole": true,
-         "stopAtEntry": true,
+         "stopAtEntry": false,
          "MIMode": "gdb",
          "logging": {
            "engineLogging": false
          }
       }
-    },
-    "cpp:attach": {
-       "adapter": "vscode-cpptools",
-       "configuration": {
-          "name": "cpp",
-          "type": "cppdbg",
-          "request": "attach",
-          "program": "${fileDirname}/${fileBasenameNoExtension}",
-          "MIMode": "gdb"
-       }
     }
+    //,
+    //"cpp:attach": {
+    //   "adapter": "vscode-cpptools",
+    //   "configuration": {
+    //      "name": "cpp",
+    //      "type": "cppdbg",
+    //      "request": "attach",
+    //      "program": "${fileDirname}/${fileBasenameNoExtension}",
+    //      "MIMode": "gdb"
+    //   }
+    //}
   }
 }
 

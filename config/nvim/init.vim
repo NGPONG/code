@@ -326,6 +326,9 @@ function! Find_file()
   execute 'Leaderf rg --bottom'
 endfunction
 
+
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
 "--------------------------------------------------------------------------------
 
 
@@ -367,4 +370,9 @@ nnoremap bl :Leaderf buffer --bottom<CR>
 noremap <C-f> :call Find_current()<CR>
 noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
+nnoremap <silent>b :call vimspector#ToggleBreakpoint()<CR>
+command Dgbstart :call vimspector#Continue()
+command Dgbexit :call vimspector#Reset()
+command Dgbrestart :call vimspector#Restart()
+
 "---------------------------------------------------------------------------------
