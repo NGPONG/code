@@ -8,7 +8,6 @@ public:
 
 int main(void) {
   const base __b;
-  __b._age = 0x100;
 
   system("pause");
   return EXIT_SUCCESS;
