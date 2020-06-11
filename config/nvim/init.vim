@@ -29,6 +29,8 @@ call plug#begin('~/.local/share/nvim/plugged')
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+ Plug 'puremourning/vimspector'
+
 call plug#end()
 "----------------------------------------------------------------------------------
 
