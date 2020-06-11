@@ -4,7 +4,6 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 #include "binary_tree.h"
 
@@ -27,8 +26,6 @@ int CreateAnNewRow(int printLine) {
 }
 
 int main(void) {
-
-
   Binary_Tree *binaryTree = NULL;
   Preorder_Create_BinaryTree(&binaryTree, NULL);
   CreateAnNewRow(1);

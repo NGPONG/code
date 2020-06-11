@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "./headr/test.h"
+#include "./header/test_1.h"
+#include "./header/test_2.h"
 
 void foo_1(void) {
   printf("hello,foo_1\n");

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./headr/test.h"
+#include "./header/test_1.h"
 
 int main(void) {
   foo_1();

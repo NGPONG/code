@@ -29,6 +29,9 @@ call plug#begin('~/.local/share/nvim/plugged')
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+ " debug
+ Plug 'puremourning/vimspector'
+
 call plug#end()
 "----------------------------------------------------------------------------------
 
@@ -107,6 +110,7 @@ set splitright
 "            set background=dark;
 "       one: one
 "            set background=dark;
+"            let g:one_allow_italics = 1; " may be dont support
 colorscheme one
 set background=dark
 let g:one_allow_italics = 1 " may be dont support
@@ -132,15 +136,26 @@ let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
 " nerd tree
-map <silent> <C-e> :NERDTreeToggle<CR>
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+function! Refresh_tree()
+  if(exists("g:NERDTree") && g:NERDTree.IsOpen())
+    execute 'NERDTreeRefresh'
+  endif
+endfunction
+function! Open_tree()
+  execute 'NERDTreeToggle'
+  call Refresh_tree()
+endfunction
+map <silent> <C-e> :call Open_tree()<CR>
+autocmd BufWritePost * call Refresh_tree()
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowBookmarks=0
 let g:NERDTreeUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline = 0
 let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=23
+let g:Tlist_WinWidth=60
 let NERDTreeShowHidden=1
 let NERDTreeDirArrows = 1
 let NERDTreeAutoDeleteBuffer = 1
@@ -161,14 +176,14 @@ let g:NERDTreeIndicatorMapCustom = {
 "autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
 
 " set nerd_tree icons
-let g:webdevicons_enable_nerdtree = 1
 let g:WebDevIconsOS = 'Darwin'
+let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:WebDevIconsUnicodeDecorateFileNodes = 0
+"let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:WebDevIconsUnicodeDecorateFileNodes = 0
-let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:DevIconsEnableFoldersOpenClose = 1
 if exists('g:loaded_webdevicons')
@@ -277,6 +292,17 @@ function! s:show_documentation()
   endif
 endfunction
 nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Leaderf
 let g:Lf_PreviewResult = {
@@ -300,6 +326,9 @@ function! Find_file()
   let g:Lf_PreviewInPopup = 1
   execute 'Leaderf rg --bottom'
 endfunction
+
+" vimspector
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 "--------------------------------------------------------------------------------
 
@@ -342,4 +371,19 @@ nnoremap bl :Leaderf buffer --bottom<CR>
 noremap <C-f> :call Find_current()<CR>
 noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
+nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <silent><C-d> :CocList --normal --auto-preview diagnostics<CR>
+command Run :call vimspector#Continue()
+command Exit :call vimspector#Reset()
+command Restart :call vimspector#Restart()
+function! s:PrintVariable(_val)
+  execute 'VimspectorEval '. a:_val
+  call feedkeys("G")
+endfunction
+command! -nargs=1 C call s:PrintVariable(<f-args>)
+function! s:WatchVariable(_val)
+  execute 'VimspectorWatch '. a:_val
+endfunction
+command! -nargs=1 W call s:WatchVariable(<f-args>)
+
 "---------------------------------------------------------------------------------

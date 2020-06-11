@@ -18,6 +18,14 @@
   "suggest.enablePreview": true,
   "suggest.noselect": false,
 
+  "coc.preferences.hoverTarget" : "preview",
+
+  // list
+  //"list.previewSplitRight": true,
+  "list.normalMappings": {
+		"<C-y>": "do:cancel"	
+  },
+
   // languageserver
   "languageserver": {
     "ccls": {
