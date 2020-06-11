@@ -9,6 +9,5 @@ int main(int argc, char *argv[]) {
   }
 
   foo();
-  printf("hello,gdb!\n");
   return EXIT_SUCCESS;
 }

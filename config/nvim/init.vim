@@ -29,6 +29,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+ " debug
  Plug 'puremourning/vimspector'
 
 call plug#end()
@@ -172,7 +173,7 @@ let g:NERDTreeIndicatorMapCustom = {
         \ 'Ignored'   : '☒',
         \ "Unknown"   : "?"
 \}
-autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
+"autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
 
 " set nerd_tree icons
 let g:WebDevIconsOS = 'Darwin'
@@ -326,7 +327,7 @@ function! Find_file()
   execute 'Leaderf rg --bottom'
 endfunction
 
-
+" vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 "--------------------------------------------------------------------------------
@@ -370,9 +371,19 @@ nnoremap bl :Leaderf buffer --bottom<CR>
 noremap <C-f> :call Find_current()<CR>
 noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
-nnoremap <silent>b :call vimspector#ToggleBreakpoint()<CR>
-command Dgbstart :call vimspector#Continue()
-command Dgbexit :call vimspector#Reset()
-command Dgbrestart :call vimspector#Restart()
+nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <silent><C-d> :CocList --normal --auto-preview diagnostics<CR>
+command Run :call vimspector#Continue()
+command Exit :call vimspector#Reset()
+command Restart :call vimspector#Restart()
+function! s:PrintVariable(_val)
+  execute 'VimspectorEval '. a:_val
+  call feedkeys("G")
+endfunction
+command! -nargs=1 C call s:PrintVariable(<f-args>)
+function! s:WatchVariable(_val)
+  execute 'VimspectorWatch '. a:_val
+endfunction
+command! -nargs=1 W call s:WatchVariable(<f-args>)
 
 "---------------------------------------------------------------------------------

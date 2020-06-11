@@ -10,7 +10,7 @@
 		 "args": [],
          "cwd": "${workspaceRoot}",
          "environment": [],
-         "externalConsole": true,
+         "externalConsole": false,
          "stopAtEntry": false,
          "MIMode": "gdb",
          "logging": {
