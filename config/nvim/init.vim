@@ -12,7 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'jackguo380/vim-lsp-cxx-highlight'
 
  " common
- Plug 'bronson/vim-trailing-whitespace'
+ "Plug 'bronson/vim-trailing-whitespace'
 
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
@@ -31,6 +31,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
  " debug
  Plug 'puremourning/vimspector'
+
+ " git
+ Plug  'airblade/vim-gitgutter'
 
 call plug#end()
 "----------------------------------------------------------------------------------
@@ -77,11 +80,12 @@ endif
 " cursor
 set ve+=onemore
 set cursorline
-set guicursor=
+"set guicursor=
 set mousehide
 
 " hide status bar in bottom
 set shortmess=F
+set shortmess+=c
 set noshowmode
 set noruler
 set laststatus=0
@@ -99,11 +103,15 @@ set hidden
 set splitbelow
 set splitright
 
-" improve coc experience
+" improve coc expreience
 set nobackup
 set nowritebackup
 set updatetime=300
-set signcolumn=yes
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 "--------------------------------------------------------------------------------
 
@@ -117,9 +125,7 @@ set signcolumn=yes
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
-colorscheme one
-set background=dark
-let g:one_allow_italics = 1 " may be dont support
+colorscheme codedark
 
 " air_line
 let g:airline_powerline_fonts = 1
@@ -179,6 +185,7 @@ let g:NERDTreeIndicatorMapCustom = {
         \ 'Ignored'   : '☒',
         \ "Unknown"   : "?"
 \}
+let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
 "autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
 
 " set nerd_tree icons
@@ -294,12 +301,32 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+let g:coc_snippet_next = '<tab>'
+
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+let g:coc_global_extensions = [
+  \ 'coc-lists',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-snippets'
+  \ ]
 
 " Leaderf
 let g:Lf_PreviewResult = {
@@ -314,7 +341,7 @@ let g:Lf_ReverseOrder = 0
 let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 let g:Lf_WindowHeight = 0.2
 let g:Lf_PreviewHorizontalPosition = 'right'
-let g:Lf_DefaultMode = 'Regex'
+let g:Lf_DefaultMode = 'Fuzzy'
 function! Find_current()
   let g:Lf_PreviewInPopup = 0
   execute 'Leaderf rg --bottom --current-buffer'
@@ -347,8 +374,8 @@ vnoremap X "_X
 nmap a i
 vmap a i
 vmap i I
-nnoremap <tab> V>
-vnoremap <tab> >gv
+"nnoremap <tab> V>
+"vnoremap <tab> >gv
 vnoremap w aw
 nnoremap <CR> i<CR><Esc>
 nnoremap <silent> <C-Left> :bp<Esc>

@@ -18,17 +18,15 @@
   "suggest.enablePreview": true,
   "suggest.noselect": false,
 
-  "coc.preferences.echodocSupport": true,
-
   // list
   //"list.previewSplitRight": true,
-  
+
   // languageserver
   "languageserver": {
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "trace.server": "verbose",
+      //"trace.server": "verbose",
       "rootPatterns": [".ccls-root", ".ccls", "compile_commands.json",".vim/", ".git/", ".hg/"],
       "initializationOptions": {
         "cache": {
