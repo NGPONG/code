@@ -8,5 +8,8 @@ int main(int argc, char *argv[]) {
     printf("%s\n", *(argv + i));
   }
   foo();
+  
+  malloc(1024 * sizeof(int));
+ 
   return EXIT_SUCCESS;
 }
