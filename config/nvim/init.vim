@@ -99,6 +99,12 @@ set hidden
 set splitbelow
 set splitright
 
+" improve coc experience
+set nobackup
+set nowritebackup
+set updatetime=300
+set signcolumn=yes
+
 "--------------------------------------------------------------------------------
 
 
@@ -293,16 +299,7 @@ function! s:show_documentation()
 endfunction
 nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " Leaderf
 let g:Lf_PreviewResult = {
@@ -373,9 +370,9 @@ noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
 nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <silent><C-d> :CocList --normal --auto-preview diagnostics<CR>
-command Run :call vimspector#Continue()
-command Exit :call vimspector#Reset()
-command Restart :call vimspector#Restart()
+command! Run :call vimspector#Continue()
+command! Exit :call vimspector#Reset()
+command! Restart :call vimspector#Restart()
 function! s:PrintVariable(_val)
   execute 'VimspectorEval '. a:_val
   call feedkeys("G")
