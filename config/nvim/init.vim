@@ -33,7 +33,10 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'puremourning/vimspector'
 
  " git
- Plug  'airblade/vim-gitgutter'
+ Plug 'airblade/vim-gitgutter'
+
+ " async
+ Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 "----------------------------------------------------------------------------------
@@ -107,11 +110,7 @@ set splitright
 set nobackup
 set nowritebackup
 set updatetime=300
-if has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
 
 "--------------------------------------------------------------------------------
 
@@ -323,10 +322,14 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 let g:coc_global_extensions = [
   \ 'coc-lists',
-  \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-snippets'
+  "\ 'coc-cmake'
   \ ]
+
+
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 " Leaderf
 let g:Lf_PreviewResult = {
@@ -334,7 +337,6 @@ let g:Lf_PreviewResult = {
 \}
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
-let g:Lf_PreviewInPopup = 0
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_ReverseOrder = 0
@@ -344,15 +346,40 @@ let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_DefaultMode = 'Fuzzy'
 function! Find_current()
   let g:Lf_PreviewInPopup = 0
-  execute 'Leaderf rg --bottom --current-buffer'
+  execute 'Leaderf line --bottom'
 endfunction
 function! Find_file()
   let g:Lf_PreviewInPopup = 1
   execute 'Leaderf rg --bottom'
 endfunction
+let g:Lf_NormalMap = {
+    \ "_": [ 
+    \   ["<C-p>", "p"]
+    \ ]
+\}
 
 " vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
+" gitgutter
+set foldtext=gitgutter#fold#foldtext()
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+let g:gitgutter_preview_win_floating = 0
+
+
+" 自动打开 quickfix window ，高度为 6
+let g:asyncrun_open = 16
+
+" 任务结束时候响铃提醒
+let g:asyncrun_bell = 1
+
+" 设置 F10 打开/关闭 Quickfix 窗口
+nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
+
+nnoremap <silent> <C-n> :AsyncRun -raw -cwd=$(VIM_FILEDIR)
+
 
 "--------------------------------------------------------------------------------
 
@@ -377,7 +404,7 @@ vmap i I
 "nnoremap <tab> V>
 "vnoremap <tab> >gv
 vnoremap w aw
-nnoremap <CR> i<CR><Esc>
+"nnoremap <CR> i<CR><Esc>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
@@ -388,9 +415,10 @@ nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
-vnoremap <C-p> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
+vnoremap <C-k> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <S-Up> <C-u>
 nnoremap <S-Down> <C-d>
+nnoremap <C-a> gg<S-v>G
 nnoremap bl :Leaderf buffer --bottom<CR>
 noremap <C-f> :call Find_current()<CR>
 noremap <C-g> :call Find_file()<CR>

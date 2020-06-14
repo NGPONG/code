@@ -18,15 +18,22 @@
   "suggest.enablePreview": true,
   "suggest.noselect": false,
 
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  
   // list
   //"list.previewSplitRight": true,
+  
+  // preferences
+  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnInsertLeave": true,
 
   // languageserver
   "languageserver": {
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      //"trace.server": "verbose",
+      // "trace.server": "verbose",
       "rootPatterns": [".ccls-root", ".ccls", "compile_commands.json",".vim/", ".git/", ".hg/"],
       "initializationOptions": {
         "cache": {
