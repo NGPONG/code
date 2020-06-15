@@ -125,7 +125,10 @@ set signcolumn=yes
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
-colorscheme codedark
+colorscheme one
+set background=dark
+let g:one_allow_italics = 1
+
 
 " air_line
 let g:airline_powerline_fonts = 1
@@ -420,9 +423,9 @@ nnoremap bl :Leaderf buffer --bottom<CR>
 noremap <C-f> :call Find_current()<CR>
 noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
-nnoremap <silent><C-b> <F9>
 nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
+nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 command! Run :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
