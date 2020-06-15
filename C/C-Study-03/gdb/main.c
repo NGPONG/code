@@ -1,23 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#isnclude "source.h"
-
-#dfine _FLAG 1
-
+#include "source.h"
 
 int main(int argc, char *argv[]) {
-  for (int i = 0; i < argc; i++) {
-sdqwdqwd
-  }
-  if (_FLAG) {
+  foo();
+
+  for (int i = 0; i < 10; ++i) {
     printf("Hello,NGPONG!");
-
-  } else {
-
-  }
-
-  if (1) {
   }
 
   return EXIT_SUCCESS;

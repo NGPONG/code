@@ -2,10 +2,6 @@
 #include <stdlib.h>
 
 int main(void) {
-  har *str = malloc(sizeof(char) * 0x400);
-
-  fscanf(stdin, "%s\n", str);
-  fprintf(stdout, "%s", str);
-
+  printf("Hello,World!");
   return EXIT_SUCCESS;
 }

@@ -101,6 +101,7 @@ set fileencoding=utf-8
 
 " some state options
 set hidden
+set relativenumber
 
 " defualt split policy
 set splitbelow
@@ -192,9 +193,6 @@ let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:WebDevIconsUnicodeDecorateFileNodes = 0
-"let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -323,12 +321,8 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 let g:coc_global_extensions = [
   \ 'coc-lists',
   \ 'coc-json',
-  \ 'coc-snippets'
-  "\ 'coc-cmake'
+  \ 'coc-cmake'
   \ ]
-
-
-"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 " Leaderf
@@ -360,6 +354,15 @@ let g:Lf_NormalMap = {
 
 " vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+function! s:PrintVariable(_val)
+  execute 'VimspectorEval '. a:_val
+  call feedkeys("G")
+endfunction
+command! -nargs=1 C call s:PrintVariable(<f-args>)
+function! s:WatchVariable(_val)
+  execute 'VimspectorWatch '. a:_val
+endfunction
+command! -nargs=1 W call s:WatchVariable(<f-args>)
 
 " gitgutter
 set foldtext=gitgutter#fold#foldtext()
@@ -368,18 +371,15 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 let g:gitgutter_preview_win_floating = 0
 
-
-" 自动打开 quickfix window ，高度为 6
-let g:asyncrun_open = 16
-
-" 任务结束时候响铃提醒
+" compile
+function! s:open_coc_quickfix()
+  execute 'CocList --normal --no-quit quickfix'
+endfunction
+autocmd User AsyncRunStop call s:open_coc_quickfix()
 let g:asyncrun_bell = 1
-
-" 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
-
-nnoremap <silent> <C-n> :AsyncRun -raw -cwd=$(VIM_FILEDIR)
-
+"nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
+"nnoremap <silent> <F8> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+"nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 
 "--------------------------------------------------------------------------------
 
@@ -401,10 +401,7 @@ vnoremap X "_X
 nmap a i
 vmap a i
 vmap i I
-"nnoremap <tab> V>
-"vnoremap <tab> >gv
 vnoremap w aw
-"nnoremap <CR> i<CR><Esc>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
@@ -415,7 +412,7 @@ nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
-vnoremap <C-k> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
+vnoremap <C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <S-Up> <C-u>
 nnoremap <S-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
@@ -423,19 +420,11 @@ nnoremap bl :Leaderf buffer --bottom<CR>
 noremap <C-f> :call Find_current()<CR>
 noremap <C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
-nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <silent><C-d> :CocList --normal --auto-preview diagnostics<CR>
+nnoremap <silent><C-b> <F9>
+nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
+nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 command! Run :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
-function! s:PrintVariable(_val)
-  execute 'VimspectorEval '. a:_val
-  call feedkeys("G")
-endfunction
-command! -nargs=1 C call s:PrintVariable(<f-args>)
-function! s:WatchVariable(_val)
-  execute 'VimspectorWatch '. a:_val
-endfunction
-command! -nargs=1 W call s:WatchVariable(<f-args>)
 
 "---------------------------------------------------------------------------------
