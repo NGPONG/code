@@ -7,8 +7,6 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'rakr/vim-one'
 
  " more syntax
- "Plug 'sheerun/vim-polyglot'
- "Plug 'arakashic/chromatica.nvim'
  Plug 'jackguo380/vim-lsp-cxx-highlight'
 
  " common
@@ -45,32 +43,60 @@ call plug#end()
 
 "------------------------------BY_GLOBAL-------------------------------------------
 
-" remember postion
+" remember_postion() {
+
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Reloads vimrc after saving
+" }
+
+" reloads_vimrc_after_saving() {
+
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
-" line number
+" }
+
+
+" line_number() {
+
 set number
 
-" set syntax highlight
+" }
+
+
+" set_syntax_highlight() {
+
 if has("syntax")
   syntax on
 endif
 
-" tabwidth
+" }
+
+
+" tabwidth() {
+
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" set auto indent
+" }
+
+
+" set_auto_indent() {
+
 set autoindent
 
-" share cliboard by sys
+" }
+
+
+" share_cliboard_by_sys() {
+
 set clipboard^=unnamed,unnamedplus
 
-" use terminal color policy
+" }
+
+
+" use_terminal_color_policy() {
+
 if (empty($TMUX))
   if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -80,13 +106,21 @@ if (empty($TMUX))
   endif
 endif
 
-" cursor
+" }
+
+
+" cursor() {
+
 set ve+=onemore
 set cursorline
 "set guicursor=
 set mousehide
 
-" hide status bar in bottom
+" }
+
+
+" hide_status_bar_in_bottom() {
+
 set shortmess=F
 set shortmess+=c
 set noshowmode
@@ -95,30 +129,49 @@ set laststatus=0
 set noshowcmd
 set cmdheight=1
 
-" encoding
+" }
+
+
+" encoding() {
+
 set encoding=UTF-8
 set fileencoding=utf-8
 
-" some state options
+" }
+
+
+" some_state_options {
+
 set hidden
 set relativenumber
 
-" defualt split policy
+" }
+
+
+" defualt_split_policy() {
+
 set splitbelow
 set splitright
 
-" improve coc expreience
+" }
+
+
+" improve_coc_expreience() {
+
 set nobackup
 set nowritebackup
 set updatetime=300
 set signcolumn=yes
+
+" }
 
 "--------------------------------------------------------------------------------
 
 
 
 "------------------------------BY_PLUGINS----------------------------------------
-" set colorscheme
+" colorscheme() {
+
 " dark_plus: codedark;
 "   hy_bird: hybrid
 "            set background=dark;
@@ -129,8 +182,11 @@ colorscheme one
 set background=dark
 let g:one_allow_italics = 1
 
+" }
 
-" air_line
+
+" air_line() {
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
@@ -150,7 +206,11 @@ endif
 let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
-" nerd tree
+" }
+
+
+" nerd tree() {
+
 function! Refresh_tree()
   if(exists("g:NERDTree") && g:NERDTree.IsOpen())
     execute 'NERDTreeRefresh'
@@ -191,7 +251,11 @@ let g:NERDTreeIndicatorMapCustom = {
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
 "autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
 
-" set nerd_tree icons
+" }
+
+
+" set_nerd_tree_icons() {
+
 let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
@@ -203,7 +267,11 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
-" set nerd_tree icons color
+" }
+
+
+" set_nerd_tree_icons_color() {
+
 :hi Directory guifg=#FFFFFF ctermfg=white
 let g:sol = {
 	\"gui": {
@@ -296,7 +364,11 @@ let g:devicons_colors = {
 \}
 call DeviconsColors(g:devicons_colors)
 
-" coc
+" }
+
+
+" coc() {
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -327,8 +399,11 @@ let g:coc_global_extensions = [
   \ 'coc-cmake'
   \ ]
 
+" }
 
-" Leaderf
+
+" Leaderf() {
+
 let g:Lf_PreviewResult = {
   \ 'Rg': 1
 \}
@@ -355,7 +430,11 @@ let g:Lf_NormalMap = {
     \ ]
 \}
 
-" vimspector
+" }
+
+
+" vimspector() {
+
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 function! s:PrintVariable(_val)
   execute 'VimspectorEval '. a:_val
@@ -367,14 +446,22 @@ function! s:WatchVariable(_val)
 endfunction
 command! -nargs=1 W call s:WatchVariable(<f-args>)
 
-" gitgutter
+" }
+
+
+" gitgutter() {
+
 set foldtext=gitgutter#fold#foldtext()
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 let g:gitgutter_preview_win_floating = 0
 
-" compile
+" }
+
+
+" compile() {
+
 function! s:open_coc_quickfix()
   execute 'CocList --normal --no-quit quickfix'
 endfunction
@@ -383,6 +470,8 @@ let g:asyncrun_bell = 1
 "nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <silent> <F8> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 "nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+
+" }
 
 "--------------------------------------------------------------------------------
 
@@ -429,5 +518,4 @@ nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 command! Run :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
-
 "---------------------------------------------------------------------------------
