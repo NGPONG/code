@@ -1,4 +1,5 @@
 "------------------------------BY_PLUGINS-------------------------------------------
+
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
@@ -37,6 +38,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
+
 "----------------------------------------------------------------------------------
 
 
@@ -50,6 +52,7 @@ if has("autocmd")
 endif
 
 " }
+
 
 " reloads_vimrc_after_saving() {
 
@@ -170,6 +173,7 @@ set signcolumn=yes
 
 
 "------------------------------BY_PLUGINS----------------------------------------
+
 " colorscheme() {
 
 " dark_plus: codedark;
@@ -478,6 +482,7 @@ let g:asyncrun_bell = 1
 
 
 "------------------------------BY_KEYS-------------------------------------------
+
 nnoremap <Home> ^
 vnoremap <Home> ^
 inoremap <Home> <Esc>^i
@@ -518,4 +523,5 @@ nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 command! Run :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
+
 "---------------------------------------------------------------------------------
