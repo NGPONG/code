@@ -400,7 +400,8 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 let g:coc_global_extensions = [
   \ 'coc-lists',
   \ 'coc-json',
-  \ 'coc-cmake'
+  \ 'coc-cmake',
+  \ 'coc-snippets'
   \ ]
 
 " }

@@ -10,6 +10,7 @@
   "diagnostic.virtualTextPrefix": "◂ ",
   "diagnostic.messageTarget": "echo",
   "diagnostic.signOffset": 9999999,
+  "diagnostic.virtualTextCurrentLineOnly": false,
 
   // suggest
   "suggest.acceptSuggestionOnCommitCharacter": true,
@@ -17,8 +18,6 @@
   "suggest.enablePreselect": true,
   "suggest.enablePreview": true,
   "suggest.noselect": false,
-
-  "diagnostic.virtualTextCurrentLineOnly": false,
   
   // list
   //"list.previewSplitRight": true,
@@ -27,6 +26,14 @@
   "coc.preferences.useQuickfixForLocations": false,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnInsertLeave": true,
+  "coc.preferences.snippets.enable": true,
+
+  "snippets.extends": {
+    "cpp": ["c"]
+  },
+  "snippets.priority": 999,
+
+  "snippets.userSnippetsDirectory": "~/code/config/nvim/ultisnips",
 
   // languageserver
   "languageserver": {
