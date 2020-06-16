@@ -6,34 +6,25 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'tomasiser/vim-code-dark'
  Plug 'w0ng/vim-hybrid'
  Plug 'rakr/vim-one'
-
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
-
  " common
  "Plug 'bronson/vim-trailing-whitespace'
-
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
-
  " visual tree
  Plug 'preservim/nerdtree'
  Plug 'ryanoasis/vim-devicons'
  Plug 'Xuyuanp/nerdtree-git-plugin'
-
  " airline
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
-
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-
  " debug
  Plug 'puremourning/vimspector'
-
  " git
  Plug 'airblade/vim-gitgutter'
-
  " async
  Plug 'skywind3000/asyncrun.vim'
 
@@ -217,11 +208,11 @@ let g:airline_skip_empty_sections = 1
 
 function! Refresh_tree()
   if(exists("g:NERDTree") && g:NERDTree.IsOpen())
-    execute 'NERDTreeRefresh'
+    silent execute 'NERDTreeRefresh'
   endif
 endfunction
 function! Open_tree()
-  execute 'NERDTreeToggle'
+  silent execute 'NERDTreeToggle'
   call Refresh_tree()
 endfunction
 map <silent> <C-e> :call Open_tree()<CR>
@@ -375,7 +366,7 @@ call DeviconsColors(g:devicons_colors)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+    silent execute 'h '.expand('<cword>')
   else
     call CocActionAsync('doHover')
   endif
@@ -423,11 +414,11 @@ let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_DefaultMode = 'Fuzzy'
 function! Find_current()
   let g:Lf_PreviewInPopup = 0
-  execute 'Leaderf line --bottom'
+  silent execute 'Leaderf line --bottom'
 endfunction
 function! Find_file()
   let g:Lf_PreviewInPopup = 1
-  execute 'Leaderf rg --bottom'
+  silent execute 'Leaderf rg --bottom'
 endfunction
 let g:Lf_NormalMap = {
     \ "_": [ 
@@ -442,12 +433,12 @@ let g:Lf_NormalMap = {
 
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 function! s:PrintVariable(_val)
-  execute 'VimspectorEval '. a:_val
+  silent execute 'VimspectorEval '. a:_val
   call feedkeys("G")
 endfunction
 command! -nargs=1 C call s:PrintVariable(<f-args>)
 function! s:WatchVariable(_val)
-  execute 'VimspectorWatch '. a:_val
+  silent execute 'VimspectorWatch '. a:_val
 endfunction
 command! -nargs=1 W call s:WatchVariable(<f-args>)
 
@@ -468,7 +459,7 @@ let g:gitgutter_preview_win_floating = 0
 " compile() {
 
 function! s:open_coc_quickfix()
-  execute 'CocList --normal --no-quit quickfix'
+  silent execute 'CocList --normal --no-quit quickfix'
 endfunction
 autocmd User AsyncRunStop call s:open_coc_quickfix()
 let g:asyncrun_bell = 1
@@ -489,9 +480,9 @@ vnoremap <Home> ^
 inoremap <Home> <Esc>^i
 vnoremap <End> $h
 nnoremap <End> $l
-nnoremap <BS> "_X
-vnoremap <BS> "_X
-nnoremap <Space> i<Space><Esc>l
+"nnoremap <BS> "_X
+"vnoremap <BS> "_X
+"nnoremap <Space> i<Space><Esc>l
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
@@ -510,13 +501,13 @@ nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
-vnoremap <C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
+vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <S-Up> <C-u>
 nnoremap <S-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
-nnoremap bl :Leaderf buffer --bottom<CR>
-noremap <C-f> :call Find_current()<CR>
-noremap <C-g> :call Find_file()<CR>
+nnoremap <silent>bl :Leaderf buffer --bottom<CR>
+noremap <silent><C-f> :call Find_current()<CR>
+noremap <silent><C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
 nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
