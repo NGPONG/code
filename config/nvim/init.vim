@@ -414,11 +414,11 @@ let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_DefaultMode = 'Fuzzy'
 function! Find_current()
   let g:Lf_PreviewInPopup = 0
-  silent execute 'Leaderf line --bottom'
+  execute 'Leaderf line --bottom'
 endfunction
 function! Find_file()
   let g:Lf_PreviewInPopup = 1
-  silent execute 'Leaderf rg --bottom'
+  execute 'Leaderf rg --bottom'
 endfunction
 let g:Lf_NormalMap = {
     \ "_": [ 
@@ -501,6 +501,7 @@ nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
+nnoremap <silent><C-F12> <C-o>
 vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <S-Up> <C-u>
 nnoremap <S-Down> <C-d>
@@ -515,5 +516,4 @@ nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 command! Run :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
-
 "---------------------------------------------------------------------------------
