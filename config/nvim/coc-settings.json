@@ -23,7 +23,7 @@
   //"list.previewSplitRight": true,
   
   // preferences
-  "coc.preferences.useQuickfixForLocations": false,
+  "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.snippets.enable": true,
