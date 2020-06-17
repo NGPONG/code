@@ -503,8 +503,8 @@ noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent><C-F12> <C-o>
 vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
-nnoremap <S-Up> <C-u>
-nnoremap <S-Down> <C-d>
+nnoremap <C-Up> <C-u>
+nnoremap <C-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
 nnoremap <silent>bl :Leaderf buffer --bottom<CR>
 noremap <silent><C-f> :call Find_current()<CR>

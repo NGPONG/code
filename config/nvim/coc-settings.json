@@ -24,15 +24,15 @@
   
   // preferences
   "coc.preferences.useQuickfixForLocations": true,
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.snippets.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-      "c",
-      "cpp",
-      "h",
-      "hpp"
-    ],
+  //"coc.preferences.formatOnType": true,
+  //"coc.preferences.formatOnInsertLeave": true,
+  //"coc.preferences.formatOnSaveFiletypes": [
+  //    "c",
+  //    "cpp",
+  //    "h",
+  //    "hpp"
+  //  ],
   
   // snippets
   "snippets.extends": {
