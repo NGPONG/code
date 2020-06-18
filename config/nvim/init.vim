@@ -506,6 +506,8 @@ vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmod
 nnoremap <C-Up> <C-u>
 nnoremap <C-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
+"inoremap <silent><C-s> <Esc>:w<CR>
+"nnoremap <silent><C-s> :w<CR>
 nnoremap <silent>bl :Leaderf buffer --bottom<CR>
 noremap <silent><C-f> :call Find_current()<CR>
 noremap <silent><C-g> :call Find_file()<CR>
