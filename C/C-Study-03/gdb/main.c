@@ -8,6 +8,21 @@ int main(int argc, char *argv[]) {
     printf("%s\n", *(argv + i));
   }
 
+
+  fputs
+  
+
+
+
+
+
+
+
+
+
+
+
+
   foo();
   return EXIT_SUCCESS;
 }
