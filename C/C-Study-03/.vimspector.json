@@ -11,7 +11,7 @@
          "cwd": "${workspaceRoot}",
          "environment": [],
          "externalConsole": false,
-         "stopAtEntry": false,
+         "stopAtEntry": true,
          "MIMode": "gdb",
          "logging": {
            "engineLogging": false

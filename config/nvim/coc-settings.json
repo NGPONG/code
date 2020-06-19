@@ -25,7 +25,7 @@
   // preferences
   //"coc.preferences.useQuickfixForLocations": false,
   "coc.preferences.snippets.enable": true,
-  //"coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnType": true,
   //"coc.preferences.formatOnInsertLeave": true,
   //"coc.preferences.formatOnSaveFiletypes": [
   //    "c",

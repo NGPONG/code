@@ -518,4 +518,7 @@ nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 command! Run :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
+
+inoremap <expr> <C-l> coc#on_enter()
+
 "---------------------------------------------------------------------------------

@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -15,6 +16,8 @@ void foo_01(void) {
     perror("E");
     return;
   }
+
+  printf("%d\n", _fd);
 
   char *str1 = "hello,world!\n";
   char *str2 = "NGPONG!\n";
@@ -34,6 +37,8 @@ void foo_02(void) {
     return;
   }
 
+  printf("%d\n", _fd);
+
   char *str = "hello!\n";
   write(_fd, str, strlen(str));
 
@@ -46,14 +51,40 @@ void foo_03(void) {
     perror("E");
     return;
   }
-  
+
+  printf("%d\n", _fd);
+
   char *str = "123qwe\n";
   write(_fd, str, strlen(str));
 
   close(_fd);
 }
 
+void foo_04(void) {
+  printf("123");
+}
+
+void foo_05(void) {
+  int _fd = open("/home/ngpong/code/C/C-Study-03/file_02/text", O_WRONLY | O_APPEND);
+  if (_fd == -1) {
+    return;
+  }
+  printf("file postion pointer = %lu\n", lseek(_fd, 0, SEEK_CUR));
+
+  // char str_r[0x8] = { 0 };
+  // read(_fd, str_r, sizeof(str_r));
+
+  char *str_w = "NGPONG!\n";
+  write(_fd, str_w, strlen(str_w));
+
+  printf("file postion pointer = %lu\n", lseek(_fd, 0, SEEK_CUR));
+
+  char *str_w_2 = "hello,keesung!";
+
+  close(_fd);
+}
+
 int main(void) {
-  foo_03();
+  foo_05();
   return EXIT_SUCCESS;
 }
