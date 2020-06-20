@@ -173,9 +173,7 @@ set signcolumn=yes
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
-colorscheme one
-set background=dark
-let g:one_allow_italics = 1
+colorscheme codedark
 
 " }
 
@@ -213,6 +211,7 @@ function! Refresh_tree()
 endfunction
 function! Open_tree()
   silent execute 'NERDTreeToggle'
+  wincmd p
   call Refresh_tree()
 endfunction
 map <silent> <C-e> :call Open_tree()<CR>
@@ -244,7 +243,7 @@ let g:NERDTreeIndicatorMapCustom = {
         \ "Unknown"   : "?"
 \}
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
-"autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
+autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
 " }
 
@@ -385,8 +384,8 @@ inoremap <silent><expr> <TAB>
   \ coc#refresh()
 let g:coc_snippet_next = '<tab>'
 
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 let g:coc_global_extensions = [
   \ 'coc-lists',
@@ -442,6 +441,10 @@ function! s:WatchVariable(_val)
 endfunction
 command! -nargs=1 W call s:WatchVariable(<f-args>)
 
+command! Debug :call vimspector#Continue()
+command! Exit :call vimspector#Reset()
+command! Restart :call vimspector#Restart()
+
 " }
 
 
@@ -463,10 +466,16 @@ function! s:open_coc_quickfix()
 endfunction
 autocmd User AsyncRunStop call s:open_coc_quickfix()
 let g:asyncrun_bell = 1
-"nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
-"nnoremap <silent> <F8> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-"nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 
+nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -Wno-unused-variable "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
+
+function! Quick_run_program()
+  silent execute "AsyncRun gcc -Wall -g -O2 -static-libgcc -std=c11 -Wno-unused-variable \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"\n-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT)"
+endfunction
+command! Run :call Quick_run_program()
+
+"nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
+"nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 " }
 
 "--------------------------------------------------------------------------------
@@ -475,9 +484,10 @@ let g:asyncrun_bell = 1
 
 "------------------------------BY_KEYS-------------------------------------------
 
-nnoremap <Home> ^
-vnoremap <Home> ^
-inoremap <Home> <Esc>^i
+inoremap <Esc> <Esc><Right>
+nnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
+vnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
+inoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '<Esc>^i' : '<Esc>0i'
 vnoremap <End> $h
 nnoremap <End> $l
 "nnoremap <BS> "_X
@@ -487,6 +497,7 @@ nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
+nnoremap p P
 nmap a i
 vmap a i
 vmap i I
@@ -514,11 +525,6 @@ noremap <silent><C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
 nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
-nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
-command! Run :call vimspector#Continue()
-command! Exit :call vimspector#Reset()
-command! Restart :call vimspector#Restart()
-
-inoremap <expr> <C-l> coc#on_enter()
+"nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 
 "---------------------------------------------------------------------------------

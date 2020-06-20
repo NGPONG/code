@@ -65,26 +65,59 @@ void foo_04(void) {
 }
 
 void foo_05(void) {
-  int _fd = open("/home/ngpong/code/C/C-Study-03/file_02/text", O_WRONLY | O_APPEND);
+  int _fd = open("/home/ngpong/code/C/C-Study-03/file_02/text", O_WRONLY);
   if (_fd == -1) {
     return;
   }
   printf("file postion pointer = %lu\n", lseek(_fd, 0, SEEK_CUR));
 
-  // char str_r[0x8] = { 0 };
-  // read(_fd, str_r, sizeof(str_r));
-
   char *str_w = "NGPONG!\n";
   write(_fd, str_w, strlen(str_w));
-
   printf("file postion pointer = %lu\n", lseek(_fd, 0, SEEK_CUR));
 
   char *str_w_2 = "hello,keesung!";
+  write(_fd, str_w_2, strlen(str_w_2));
+  printf("file postion pointer = %lu\n", lseek(_fd, 0, SEEK_CUR));
 
   close(_fd);
 }
 
+void foo_06(void) {
+  int _fd = open("/home/ngpong/code/C/C-Study-03/file_02/text", O_RDONLY);
+  if (_fd == -1) {
+    return;
+  }
+
+  char buf[5] = { 0 };
+  read(_fd, buf, sizeof(buf));
+
+  printf("%s\n", buf);
+
+  close(_fd);
+}
+
+void foo_07(void) {
+  int _fd = open("/dev/tty", O_RDONLY);
+  if (_fd == -1) {
+    perror("E");
+    return;
+  }
+
+  char *buf = malloc(sizeof(char) * 0x40);
+  if (buf == NULL) {
+    perror("E");
+    return;
+  }
+
+  while (true) {
+    read(_fd, buf, sizeof(buf));
+  }
+  
+  free(buf);
+  close(_fd);
+}
+
 int main(void) {
-  foo_05();
+  foo_07();
   return EXIT_SUCCESS;
 }

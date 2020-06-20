@@ -15,10 +15,10 @@
   // suggest
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.maxCompleteItemCount": 200,
-  "suggest.enablePreselect": true,
+  "suggest.enablePreselect": false,
   "suggest.enablePreview": true,
   "suggest.noselect": false,
-  
+
   // list
   //"list.previewSplitRight": true,
   
@@ -51,12 +51,24 @@
       "rootPatterns": [".ccls-root", ".ccls", "compile_commands.json",".vim/", ".git/", ".hg/"],
       "initializationOptions": {
         "cache": {
-          "directory": ".ccls-cache"
+          "directory": "" // stored in memory
         },
         "client": {
-          "snippetSupport": true
+          "snippetSupport": false
         },
-        "highlight": { "lsRanges" : true }
+        "completion": {
+          "placeholder": true,
+          "detailedLabel": false
+        },
+        "highlight": { 
+          "lsRanges" : true
+        },
+        "diagnostics": {
+          "onChange": 1
+        },
+        "index": {
+          "onChange": true
+        }
       }
     }
   }
