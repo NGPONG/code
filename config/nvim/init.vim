@@ -137,7 +137,7 @@ set fileencoding=utf-8
 " some_state_options {
 
 set hidden
-set relativenumber
+"set relativenumber
 
 " }
 
@@ -455,6 +455,7 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 let g:gitgutter_preview_win_floating = 0
+let g:gitgutter_use_location_list = 1
 
 " }
 
@@ -467,15 +468,16 @@ endfunction
 autocmd User AsyncRunStop call s:open_coc_quickfix()
 let g:asyncrun_bell = 1
 
-nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -Wno-unused-variable "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
+nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
 
 function! Quick_run_program()
-  silent execute "AsyncRun gcc -Wall -g -O2 -static-libgcc -std=c11 -Wno-unused-variable \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"\n-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT)"
+  silent execute "AsyncRun gcc -Wall -O2 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
 endfunction
 command! Run :call Quick_run_program()
 
 "nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+
 " }
 
 "--------------------------------------------------------------------------------
@@ -517,8 +519,8 @@ vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmod
 nnoremap <C-Up> <C-u>
 nnoremap <C-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
-"inoremap <silent><C-s> <Esc>:w<CR>
-"nnoremap <silent><C-s> :w<CR>
+inoremap <silent><C-s> <Esc>:w<CR>
+nnoremap <silent><C-s> :w<CR>
 nnoremap <silent>bl :Leaderf buffer --bottom<CR>
 noremap <silent><C-f> :call Find_current()<CR>
 noremap <silent><C-g> :call Find_file()<CR>
