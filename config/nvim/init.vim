@@ -504,6 +504,7 @@ nmap a i
 vmap a i
 vmap i I
 vnoremap w aw
+"nnoremap ww `<v`>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>

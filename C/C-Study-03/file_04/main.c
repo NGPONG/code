@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <dirent.h>
 
-void read_all_files(char *path,char *depth) {
+void read_all_files(char *path, char *depth) {
   printf("<%s>\n", path);
 
   DIR *root = opendir(path);
@@ -20,7 +20,7 @@ void read_all_files(char *path,char *depth) {
 
   struct dirent *item = NULL;
   while ((item = readdir(root)) != NULL) {
-    /* Dont't show unless dirctory file */
+    /* Dont't process unless file */
     if ((strcmp(item->d_name, ".") == 0) || (strcmp(item->d_name, "..") == 0)) continue;
 
     printf("%s%s ", depth, item->d_name);
@@ -45,7 +45,7 @@ void read_all_files(char *path,char *depth) {
       char *depth_next = malloc(strlen(depth) + strlen("  ") + 8);
       sprintf(depth_next, "%s%s", depth, "  ");
 
-      printf("\n%s",depth_next);
+      printf("\n%s", depth_next);
 
       /* To next loop */
       read_all_files(next_folder, depth_next);
