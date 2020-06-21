@@ -8,7 +8,8 @@
 #include "test.h"
 
 int main(void) {
-  foo();
+  
+
   system("pause");
   return EXIT_SUCCESS;
 }

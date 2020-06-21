@@ -1,14 +1,39 @@
 #include <iostream>
+
 using namespace std;
 
-class base {
-public:
-  int _age = 0x400;
-};
+typedef struct person student;
+
+typedef struct person student;
+
+typedef struct person student;
+
+typedef struct person student;
+
+typedef struct person student;
+
+typedef int int_32_t;
+typedef int int_32_t;
+typedef int int_32_t;
+typedef int int_32_t;
+typedef int int_32_t;
+typedef int int_32_t;
+typedef int int_32_t;
+typedef int int_32_t;
+
+typedef char int_32_t;
+
+
+extern void get_student_age(student *stu);
+extern student *get_student(void);
 
 int main(void) {
-  const base __b;
+  student *stu = get_student();
+  get_student_age(stu);
 
-  system("pause");
+  int32_t i = 0x100;
+
+  cout << i << endl;
+
   return EXIT_SUCCESS;
 }
