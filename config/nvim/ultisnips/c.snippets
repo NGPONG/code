@@ -1,0 +1,94 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet once_header b
+#ifndef ${1:__HEAD_H__FILE}
+#define $1
+
+${2}
+
+#endif /* end of include guard: $1 */
+endsnippet
+
+snippet comment_normal b
+/* $0 */
+endsnippet
+
+snippet comment_fun b
+/**
+ * @brief $0
+ */
+endsnippet
+
+snippet comment_todo b
+/** ${1}
+ * $0
+ */
+endsnippet
+
+snippet while b
+while (${1:true}) {
+  $0
+}
+endsnippet
+
+snippet for b
+for (size_t i = 0; i < ${1:count}; ++i) {
+  $0
+}
+endsnippet
+
+snippet #region_u b
+#pragma region ${1:region}
+$0
+#pragma endregion ${1:endregion}
+endsnippet
+
+snippet #cmainlinx "C Main by linux" b
+#include <math.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+int main(void) {
+  $0
+  return EXIT_SUCCESS;
+}
+endsnippet
+
+snippet #cppmainlinx "CPP Main by linux" b
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+  $0
+  return EXIT_SUCCESS;
+}
+endsnippet
+

@@ -1,70 +1,96 @@
 "------------------------------BY_PLUGINS-------------------------------------------
+
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
  Plug 'tomasiser/vim-code-dark'
  Plug 'w0ng/vim-hybrid'
  Plug 'rakr/vim-one'
-
  " more syntax
- "Plug 'sheerun/vim-polyglot'
- "Plug 'arakashic/chromatica.nvim'
  Plug 'jackguo380/vim-lsp-cxx-highlight'
-
  " common
- Plug 'bronson/vim-trailing-whitespace'
-
+ "Plug 'bronson/vim-trailing-whitespace'
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
-
  " visual tree
  Plug 'preservim/nerdtree'
  Plug 'ryanoasis/vim-devicons'
  Plug 'Xuyuanp/nerdtree-git-plugin'
-
  " airline
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
-
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-
  " debug
  Plug 'puremourning/vimspector'
+ " git
+ Plug 'airblade/vim-gitgutter'
+ " async
+ Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
+
 "----------------------------------------------------------------------------------
 
 
 
 "------------------------------BY_GLOBAL-------------------------------------------
 
-" remember postion
+" remember_postion() {
+
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Reloads vimrc after saving
+" }
+
+
+" reloads_vimrc_after_saving() {
+
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
-" line number
+" }
+
+
+" line_number() {
+
 set number
 
-" set syntax highlight
+" }
+
+
+" set_syntax_highlight() {
+
 if has("syntax")
   syntax on
 endif
 
-" tabwidth
+" }
+
+
+" tabwidth() {
+
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" set auto indent
+" }
+
+
+" set_auto_indent() {
+
 set autoindent
 
-" share cliboard by sys
+" }
+
+
+" share_cliboard_by_sys() {
+
 set clipboard^=unnamed,unnamedplus
 
-" use terminal color policy
+" }
+
+
+" use_terminal_color_policy() {
+
 if (empty($TMUX))
   if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -74,48 +100,86 @@ if (empty($TMUX))
   endif
 endif
 
-" cursor
+" }
+
+
+" cursor() {
+
 set ve+=onemore
 set cursorline
-set guicursor=
+"set guicursor=
 set mousehide
 
-" hide status bar in bottom
+" }
+
+
+" hide_status_bar_in_bottom() {
+
 set shortmess=F
+set shortmess+=c
 set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
 set cmdheight=1
 
-" encoding
+" }
+
+
+" encoding() {
+
 set encoding=UTF-8
 set fileencoding=utf-8
 
-" some state options
-set hidden
+" }
 
-" defualt split policy
+
+" some_state_options {
+
+set hidden
+"set relativenumber
+
+" }
+
+
+" defualt_split_policy() {
+
 set splitbelow
 set splitright
+
+" }
+
+
+" improve_coc_expreience() {
+
+set nobackup
+set nowritebackup
+set updatetime=300
+set signcolumn=yes
+
+" }
 
 "--------------------------------------------------------------------------------
 
 
 
 "------------------------------BY_PLUGINS----------------------------------------
-" set colorscheme
+
+" colorscheme() {
+
 " dark_plus: codedark;
 "   hy_bird: hybrid
 "            set background=dark;
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
-colorscheme one
-set background=dark
-let g:one_allow_italics = 1 " may be dont support
+colorscheme codedark
 
-" air_line
+" }
+
+
+" air_line() {
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
@@ -135,14 +199,19 @@ endif
 let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
-" nerd tree
+" }
+
+
+" nerd tree() {
+
 function! Refresh_tree()
   if(exists("g:NERDTree") && g:NERDTree.IsOpen())
-    execute 'NERDTreeRefresh'
+    silent execute 'NERDTreeRefresh'
   endif
 endfunction
 function! Open_tree()
-  execute 'NERDTreeToggle'
+  silent execute 'NERDTreeToggle'
+  wincmd p
   call Refresh_tree()
 endfunction
 map <silent> <C-e> :call Open_tree()<CR>
@@ -173,16 +242,18 @@ let g:NERDTreeIndicatorMapCustom = {
         \ 'Ignored'   : '☒',
         \ "Unknown"   : "?"
 \}
-"autocmd VimEnter * if argc() == 1 | NERDTree | wincmd p | endif
+let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
+autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
-" set nerd_tree icons
+" }
+
+
+" set_nerd_tree_icons() {
+
 let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:WebDevIconsUnicodeDecorateFileNodes = 0
-"let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -190,7 +261,11 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
-" set nerd_tree icons color
+" }
+
+
+" set_nerd_tree_icons_color() {
+
 :hi Directory guifg=#FFFFFF ctermfg=white
 let g:sol = {
 	\"gui": {
@@ -283,77 +358,153 @@ let g:devicons_colors = {
 \}
 call DeviconsColors(g:devicons_colors)
 
-" coc
+" }
+
+
+" coc() {
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+    silent execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+let g:coc_snippet_next = '<tab>'
 
-" Leaderf
+"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+let g:coc_global_extensions = [
+  \ 'coc-lists',
+  \ 'coc-json',
+  \ 'coc-cmake',
+  \ 'coc-snippets'
+  \ ]
+
+" }
+
+
+" Leaderf() {
+
 let g:Lf_PreviewResult = {
   \ 'Rg': 1
 \}
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
-let g:Lf_PreviewInPopup = 0
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_ReverseOrder = 0
 let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 let g:Lf_WindowHeight = 0.2
 let g:Lf_PreviewHorizontalPosition = 'right'
-let g:Lf_DefaultMode = 'Regex'
+let g:Lf_DefaultMode = 'Fuzzy'
 function! Find_current()
   let g:Lf_PreviewInPopup = 0
-  execute 'Leaderf rg --bottom --current-buffer'
+  execute 'Leaderf line --bottom'
 endfunction
 function! Find_file()
   let g:Lf_PreviewInPopup = 1
   execute 'Leaderf rg --bottom'
 endfunction
+let g:Lf_NormalMap = {
+    \ "_": [ 
+    \   ["<C-p>", "p"]
+    \ ]
+\}
 
-" vimspector
+" }
+
+
+" vimspector() {
+
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+function! s:PrintVariable(_val)
+  silent execute 'VimspectorEval '. a:_val
+  call feedkeys("G")
+endfunction
+command! -nargs=1 C call s:PrintVariable(<f-args>)
+function! s:WatchVariable(_val)
+  silent execute 'VimspectorWatch '. a:_val
+endfunction
+command! -nargs=1 W call s:WatchVariable(<f-args>)
+
+command! Debug :call vimspector#Continue()
+command! Exit :call vimspector#Reset()
+command! Restart :call vimspector#Restart()
+
+" }
+
+
+" gitgutter() {
+
+set foldtext=gitgutter#fold#foldtext()
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+let g:gitgutter_preview_win_floating = 0
+let g:gitgutter_use_location_list = 1
+
+" }
+
+
+" compile() {
+
+function! s:open_coc_quickfix()
+  silent execute 'CocList --normal --no-quit quickfix'
+endfunction
+autocmd User AsyncRunStop call s:open_coc_quickfix()
+let g:asyncrun_bell = 1
+
+nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
+
+function! Quick_run_program()
+  silent execute "AsyncRun gcc -Wall -O2 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
+endfunction
+command! Run :call Quick_run_program()
+
+"nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
+"nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+
+" }
 
 "--------------------------------------------------------------------------------
 
 
 
 "------------------------------BY_KEYS-------------------------------------------
-nnoremap <Home> ^
-vnoremap <Home> ^
-inoremap <Home> <Esc>^i
+
+inoremap <Esc> <Esc><Right>
+nnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
+vnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
+inoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '<Esc>^i' : '<Esc>0i'
 vnoremap <End> $h
 nnoremap <End> $l
-nnoremap <BS> "_X
-vnoremap <BS> "_X
-nnoremap <Space> i<Space><Esc>l
+"nnoremap <BS> "_X
+"vnoremap <BS> "_X
+"nnoremap <Space> i<Space><Esc>l
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
+nnoremap p P
 nmap a i
 vmap a i
 vmap i I
-nnoremap <tab> V>
-vnoremap <tab> >gv
 vnoremap w aw
-nnoremap <CR> i<CR><Esc>
+"nnoremap ww `<v`>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
@@ -364,26 +515,19 @@ nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
-vnoremap <C-p> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
-nnoremap <S-Up> <C-u>
-nnoremap <S-Down> <C-d>
-nnoremap bl :Leaderf buffer --bottom<CR>
-noremap <C-f> :call Find_current()<CR>
-noremap <C-g> :call Find_file()<CR>
+nnoremap <silent><C-F12> <C-o>
+vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
+nnoremap <C-Up> <C-u>
+nnoremap <C-Down> <C-d>
+nnoremap <C-a> gg<S-v>G
+inoremap <silent><C-s> <Esc>:w<CR>
+nnoremap <silent><C-s> :w<CR>
+nnoremap <silent>bl :Leaderf buffer --bottom<CR>
+noremap <silent><C-f> :call Find_current()<CR>
+noremap <silent><C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
-nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <silent><C-d> :CocList --normal --auto-preview diagnostics<CR>
-command Run :call vimspector#Continue()
-command Exit :call vimspector#Reset()
-command Restart :call vimspector#Restart()
-function! s:PrintVariable(_val)
-  execute 'VimspectorEval '. a:_val
-  call feedkeys("G")
-endfunction
-command! -nargs=1 C call s:PrintVariable(<f-args>)
-function! s:WatchVariable(_val)
-  execute 'VimspectorWatch '. a:_val
-endfunction
-command! -nargs=1 W call s:WatchVariable(<f-args>)
+nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
+nnoremap <silent><C-j> :CocList --normal quickfix<CR>
+"nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 
 "---------------------------------------------------------------------------------
