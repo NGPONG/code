@@ -470,10 +470,10 @@ endfunction
 autocmd User AsyncRunStop call s:open_coc_quickfix()
 let g:asyncrun_bell = 1
 
-nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
+nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
 
 function! Quick_run_program()
-  silent execute "AsyncRun gcc -Wall -O2 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
+  silent execute "AsyncRun gcc -Wall -O2 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
 endfunction
 command! Run :call Quick_run_program()
 
