@@ -10,6 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  Plug 'jackguo380/vim-lsp-cxx-highlight'
  " common
  "Plug 'bronson/vim-trailing-whitespace'
+ Plug 'preservim/nerdcommenter'
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
  " visual tree
@@ -154,8 +155,8 @@ set splitright
 
 set nobackup
 set nowritebackup
-set updatetime=300
-set signcolumn=yes
+set updatetime=100
+set signcolumn=auto
 
 " }
 
@@ -447,6 +448,10 @@ command! Debug :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
 
+sign define vimspectorBP text=🔴 texthl=Normal
+sign define vimspectorBPDisabled text=🔵 texthl=Normal
+sign define vimspectorPC text=🔶 texthl=SpellBad
+
 " }
 
 
@@ -479,6 +484,20 @@ command! Run :call Quick_run_program()
 
 "nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+
+" }
+
+
+" nerd_commenter() {
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'both'
+let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
+let g:NERDCommentEmptyLines = 0
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+let g:NERDUsePlaceHolders = 0
 
 " }
 
@@ -531,5 +550,6 @@ nnoremap <F36> <C-o>
 nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
+vmap <C-k><C-s> <plug>NERDCommenterToggle
 
 "---------------------------------------------------------------------------------
