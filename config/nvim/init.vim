@@ -173,7 +173,9 @@ set signcolumn=yes
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
-colorscheme codedark
+colorscheme one
+set background=dark
+let g:one_allow_italics = 1 " may be dont support
 
 " }
 
