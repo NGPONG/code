@@ -153,10 +153,13 @@ set splitright
 
 " improve_coc_expreience() {
 
+"set signcolumn="yes:10"
+try
+  silent! set signcolumn=auto:4
+endtry
 set nobackup
 set nowritebackup
 set updatetime=100
-set signcolumn=auto
 
 " }
 
@@ -448,21 +451,31 @@ command! Debug :call vimspector#Continue()
 command! Exit :call vimspector#Reset()
 command! Restart :call vimspector#Restart()
 
-sign define vimspectorBP text=🔴 texthl=Normal
-sign define vimspectorBPDisabled text=🔵 texthl=Normal
-sign define vimspectorPC text=🔶 texthl=SpellBad
+sign define vimspectorBP text=● texthl=dbg_break_point
+sign define vimspectorBPDisabled text=◌ texthl=Normal
+sign define vimspectorPC text=➤ texthl=dbg_current_pos
+
+highlight dbg_break_point guibg=#none guifg=red
+highlight dbg_current_pos guibg=#none guifg=#ffc56b
 
 " }
 
 
 " gitgutter() {
 
-set foldtext=gitgutter#fold#foldtext()
+"set foldtext=gitgutter#fold#foldtext()
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 let g:gitgutter_preview_win_floating = 0
+let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_use_location_list = 1
+
+let g:gitgutter_sign_added = '▌'
+let g:gitgutter_sign_modified = '▌'
+let g:gitgutter_sign_removed = '▸ '
+"let g:gitgutter_sign_removed_first_line = '^^'
+"let g:gitgutter_sign_modified_removed = 'ww'
 
 " }
 

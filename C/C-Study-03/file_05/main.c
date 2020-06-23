@@ -130,19 +130,18 @@ void foo_03(void) {
 }
 
 void foo_02(void) {
-  int _fd = open("/home/ngpong/code/C/C-Study-03/file_05/test.log", O_WRONLY | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+  int _fd = open("./test.log", O_WRONLY);
   if (_fd == -1) {
     perror("E");
     return;
   }
-  write(_fd,"hello",strlen("hello"));  
 
-  int new_fd = dup(_fd);
-  write(new_fd,"world",strlen("world"));
+  int flag = fcntl(_fd, F_GETFL);
+  printf("%d\n", flag);
 
   close(_fd);
-  close(new_fd);
 }
+
 
 int main(void) {
   /* foo(); */

@@ -1,9 +1,9 @@
 {
   // diagnostcic
   "diagnostic.displayByAle": false,
-  "diagnostic.errorSign": "⛔",
-  "diagnostic.warningSign": "🚸",
-  "diagnostic.infoSign": "➖",
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
   "diagnostic.hintSign": "➕",
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
