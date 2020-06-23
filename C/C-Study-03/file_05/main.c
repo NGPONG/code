@@ -99,7 +99,7 @@ void foo(void) {
 
   char buf[64] = { 0 };
   while ((read(_fd_r, buf, sizeof(buf))) != 0) {
-    printf("%s",buf);
+    printf("%s", buf);
   }
   fflush(stdout);
 
@@ -123,7 +123,7 @@ void foo_03(void) {
 
   char buf[64] = { 0 };
   while ((read(_fd_r, buf, sizeof(buf))) != 0) {
-    printf("%s",buf);
+    printf("%s", buf);
   }
 
   close(_fd_r);
@@ -136,15 +136,53 @@ void foo_02(void) {
     return;
   }
 
-  int flag = fcntl(_fd, F_GETFL);
-  printf("%d\n", flag);
+  write(_fd, "APPEND", strlen("APPEND"));
+
+  int _fl = fcntl(_fd, F_GETFL);
+  printf("%d\n", _fl);
+
+  fcntl(_fd, F_SETFL, _fl | O_APPEND);
+
+  write(_fd, "NEW!!!", strlen("NEW!!!"));
 
   close(_fd);
 }
 
+void foo_04(void) {
+  int _fd = open("./test.log", O_WRONLY | O_APPEND);
+  if (_fd == -1) {
+    perror("E");
+    return;
+  }
+  printf("%d\n", _fd);
+
+  write(_fd, "foo_04 TEST\n", strlen("foo_04 TEST\n"));
+
+  int _new_fd = fcntl(_fd, F_DUPFD);
+  if (_new_fd == -1) {
+    perror("E");
+    return;
+  }
+  printf("%d\n", _new_fd);
+
+  write(_new_fd, "new fd test\n", strlen("new fd test\n"));
+
+  int _fd_dup = dup(_new_fd);
+  if (_fd_dup == -1) {
+    perror("E");
+    return;
+  }
+  printf("%d\n", _fd_dup);
+
+  write(_fd_dup, "3 point !\n", strlen("3 point !\n"));
+  
+  close(_fd);
+  close(_new_fd);
+  close(_fd_dup);
+}
 
 int main(void) {
   /* foo(); */
-  foo_02();
+  foo_04();
   return EXIT_SUCCESS;
 }

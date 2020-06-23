@@ -249,7 +249,7 @@ let g:NERDTreeIndicatorMapCustom = {
         \ "Unknown"   : "?"
 \}
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
-autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
+"autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
 " }
 
