@@ -110,6 +110,9 @@ set ve+=onemore
 set cursorline
 "set guicursor=
 set mousehide
+set breakindent
+set breakindentopt=sbr
+set showbreak=↪  
 
 " }
 
@@ -476,6 +479,8 @@ let g:gitgutter_sign_modified = '▌'
 let g:gitgutter_sign_removed = '▸ '
 "let g:gitgutter_sign_removed_first_line = '^^'
 "let g:gitgutter_sign_modified_removed = 'ww'
+
+nnoremap <silent> <Esc> :pclose<CR>
 
 " }
 
