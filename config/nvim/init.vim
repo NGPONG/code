@@ -3,9 +3,9 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
- "Plug 'tomasiser/vim-code-dark'
- "Plug 'w0ng/vim-hybrid'
- "Plug 'rakr/vim-one'
+ Plug 'tomasiser/vim-code-dark'
+ Plug 'w0ng/vim-hybrid'
+ Plug 'rakr/vim-one'
  Plug 'morhetz/gruvbox'
 
  " more syntax
@@ -250,12 +250,12 @@ let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIndicatorMapCustom = {
-        \ "Modified"  : "M",
-        \ "Staged"    : "A",
-        \ "Untracked" : "U",
-        \ "Renamed"   : "➜",
-        \ "Unmerged"  : "═",
-        \ "Deleted"   : "✖",
+        \ "Modified"  : "𝙈",
+        \ "Staged"    : "𝘼",
+        \ "Untracked" : "𝙏",
+        \ "Renamed"   : "𝙍",
+        \ "Unmerged"  : "𝙐",
+        \ "Deleted"   : "𝘿",
         \ "Dirty"     : "✗",
         \ "Clean"     : "✔︎",
         \ 'Ignored'   : '☒',
@@ -532,6 +532,7 @@ let g:NERDUsePlaceHolders = 0
 " indentLine() {
 
 let g:indentLine_char = '¦'
+autocmd Filetype json let g:indentLine_setConceal = 0
 
 " }
 
@@ -584,5 +585,7 @@ nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
+map <F1> <Esc>
+imap <F1> <Esc>
 
 "---------------------------------------------------------------------------------

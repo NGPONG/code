@@ -4,46 +4,35 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 #include "arrary.h"
 
 int arrary_compare_int(void *data_source, void *data_compare) {
-
-	return *(int *)data_source == *(int *)data_compare;
+  return *(int *)data_source == *(int *)data_compare;
 }
 
-//int arrary_foreach_int(void *data_1, void *data_2) {
-//
-//	printf();
-//}
-
 int main(void) {
+  struct dynamicArrary *arrary = InitDynamicArrary(2);
 
-	struct dynamicArrary *arrary = InitDynamicArrary(2);
+  for (size_t i = 0; i < 10; i++) {
+    int *a = malloc(sizeof(int));
+    if (a == NULL)
+      break;
+    *a = 10 + i;
 
-	for (size_t i = 0; i < 10; i++) {
+    Add(arrary, a);
+  }
 
-		int *a = malloc(sizeof(int));
-		if (a == NULL)
-			break;
-		*a = 10 + i;
+  RemoveByPostion(arrary, 7);
 
-		Add(arrary, a);
-	}
+  int a = 13;
+  RemoveByValue(arrary, &a, arrary_compare_int);
 
-	RemoveByPostion(arrary, 7);
+  for (size_t i = 0; i < arrary->length; i++) {
+    printf("address = %p, value = %d\n", *(arrary->ptr_arrary + i), *(int *)*(arrary->ptr_arrary + i));
+  }
 
-	int a = 13;
-	RemoveByValue(arrary, &a, arrary_compare_int);
+  DestoryArrary(arrary);
 
-	for (size_t i = 0; i < arrary->length; i++) {
-
-		printf("address = %p, value = %d\n", *(arrary->ptr_arrary + i), *(int *)*(arrary->ptr_arrary + i));
-	}
-
-	DestoryArrary(arrary);
-
-	system("pause");
-	return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }

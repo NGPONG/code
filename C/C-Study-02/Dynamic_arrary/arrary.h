@@ -6,9 +6,8 @@
 #include <string.h>
 
 struct dynamicArrary {
-
-	void **ptr_arrary;
-	int length;
+  void **ptr_arrary;
+  int length;
 };
 
 struct dynamicArrary *InitDynamicArrary(int m_capacity);
@@ -18,4 +17,4 @@ int RemoveByPostion(struct dynamicArrary *arrary, int index);
 int RemoveByValue(struct dynamicArrary *arrary, void *value, int (*invoker)(void *data_source, void *data_compare));
 int DestoryArrary(struct dynamicArrary *arrary);
 
-#endif // !__ARRARY_H__
+#endif  // !__ARRARY_H__

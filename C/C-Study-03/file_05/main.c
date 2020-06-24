@@ -10,6 +10,9 @@
 #include <sys/types.h>
 
 void foo(void) {
+
+
+
   /** 
    * 0 STDIN_FILENO  -> stdin
    * 1 STDOUT_FILENO -> stdout
