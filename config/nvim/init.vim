@@ -3,9 +3,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
- Plug 'tomasiser/vim-code-dark'
- Plug 'w0ng/vim-hybrid'
+ "Plug 'tomasiser/vim-code-dark'
+ "Plug 'w0ng/vim-hybrid'
  Plug 'rakr/vim-one'
+ "Plug 'sonph/onehalf', {'rtp': 'vim/'}
+ "Plug 'morhetz/gruvbox'
+ "Plug 'ayu-theme/ayu-vim'
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
  " common
@@ -110,9 +113,17 @@ set ve+=onemore
 set cursorline
 "set guicursor=
 set mousehide
+"set scrolloff=20
+
+" }
+
+" display() {
+
+set wrap
 set breakindent
 set breakindentopt=sbr
-set showbreak=↪  
+set showbreak=➥►
+set display+=lastline
 
 " }
 
@@ -156,7 +167,6 @@ set splitright
 
 " improve_coc_expreience() {
 
-"set signcolumn="yes:10"
 try
   silent! set signcolumn=auto:4
 endtry
@@ -180,9 +190,10 @@ set updatetime=100
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
+"       2/1: onehalfdark
+"            onehalflight
 colorscheme one
 set background=dark
-let g:one_allow_italics = 1 " may be dont support
 
 " }
 
@@ -468,19 +479,20 @@ highlight dbg_current_pos guibg=#none guifg=#ffc56b
 
 "set foldtext=gitgutter#fold#foldtext()
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterChange guifg=#c4c421 ctermfg=3
+highlight GitGutterChangeDelete guifg=#c4c421 ctermfg=4
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+let g:gitgutter_close_preview_on_escape=1
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_use_location_list = 1
-
 let g:gitgutter_sign_added = '▌'
 let g:gitgutter_sign_modified = '▌'
 let g:gitgutter_sign_removed = '▸ '
-"let g:gitgutter_sign_removed_first_line = '^^'
-"let g:gitgutter_sign_modified_removed = 'ww'
+let g:gitgutter_sign_modified_removed = '▌'
 
-nnoremap <silent> <Esc> :pclose<CR>
+"let g:gitgutter_sign_removed_first_line = '^^'
+"nnoremap <silent> <Esc> :pclose<CR>
 
 " }
 
@@ -569,5 +581,5 @@ nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
-
+nmap hp <Plug>(GitGutterPreviewHunk)
 "---------------------------------------------------------------------------------
