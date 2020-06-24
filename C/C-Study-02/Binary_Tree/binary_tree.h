@@ -9,7 +9,6 @@
 typedef char ElementType_t;
 
 typedef struct binary_node {
-
   ElementType_t data;
   struct binary_node *parent;
   struct binary_node *left;  /* Left sub tree */

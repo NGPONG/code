@@ -3,29 +3,40 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
- Plug 'tomasiser/vim-code-dark'
- Plug 'w0ng/vim-hybrid'
- Plug 'rakr/vim-one'
+ "Plug 'tomasiser/vim-code-dark'
+ "Plug 'w0ng/vim-hybrid'
+ "Plug 'rakr/vim-one'
+ Plug 'morhetz/gruvbox'
+
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
+
  " common
  "Plug 'bronson/vim-trailing-whitespace'
  Plug 'preservim/nerdcommenter'
+ Plug 'Yggdroot/indentLine'
+
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
+
  " visual tree
  Plug 'preservim/nerdtree'
  Plug 'ryanoasis/vim-devicons'
  Plug 'Xuyuanp/nerdtree-git-plugin'
+
  " airline
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+
  " debug
  Plug 'puremourning/vimspector'
+
  " git
  Plug 'airblade/vim-gitgutter'
+
  " async
  Plug 'skywind3000/asyncrun.vim'
 
@@ -180,9 +191,8 @@ set updatetime=100
 "       one: one
 "            set background=dark;
 "            let g:one_allow_italics = 1; " may be dont support
-colorscheme one
+colorscheme gruvbox
 set background=dark
-let g:one_allow_italics = 1 " may be dont support
 
 " }
 
@@ -240,9 +250,9 @@ let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIndicatorMapCustom = {
-        \ "Modified"  : "✹",
-        \ "Staged"    : "✚",
-        \ "Untracked" : "✭",
+        \ "Modified"  : "M",
+        \ "Staged"    : "A",
+        \ "Untracked" : "U",
         \ "Renamed"   : "➜",
         \ "Unmerged"  : "═",
         \ "Deleted"   : "✖",
@@ -470,6 +480,7 @@ highlight dbg_current_pos guibg=#none guifg=#ffc56b
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+let g:gitgutter_close_preview_on_escape=1
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_use_location_list = 1
@@ -479,8 +490,6 @@ let g:gitgutter_sign_modified = '▌'
 let g:gitgutter_sign_removed = '▸ '
 "let g:gitgutter_sign_removed_first_line = '^^'
 "let g:gitgutter_sign_modified_removed = 'ww'
-
-nnoremap <silent> <Esc> :pclose<CR>
 
 " }
 
@@ -519,6 +528,13 @@ let g:NERDUsePlaceHolders = 0
 
 " }
 
+
+" indentLine() {
+
+let g:indentLine_char = '¦'
+
+" }
+
 "--------------------------------------------------------------------------------
 
 
@@ -543,7 +559,6 @@ nmap a i
 vmap a i
 vmap i I
 vnoremap w aw
-"nnoremap ww `<v`>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
