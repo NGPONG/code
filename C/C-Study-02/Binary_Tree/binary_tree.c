@@ -15,16 +15,12 @@ static ElementType_t Binary_Tree_Data[] = {
     'A', 'B', 'D', 'H', '#', 'K', '#', '#', '#', 'E', '#', '#',
     'C', 'F', 'I', '#', '#', '#', 'G', '#', 'J', '#', '#'};
 int Preorder_Create_BinaryTree(Binary_Tree **tree, Binary_Tree *parent) {
-
   ElementType_t ch = Binary_Tree_Data[index_Preorder++];
   if (ch == '#') {
-
     return -1;
   } else {
-
     *tree = (Binary_Tree *)malloc(sizeof(Binary_Tree));
     if (*tree == 0x0) {
-
       return -1;
     }
     memset(*tree, 0x0, sizeof(Binary_Tree));
@@ -72,7 +68,6 @@ static ElementType_t Perfect_BinaryTree_data[] = {
     'C', 'F', 'L', '#', '#', 'M', '#', '#',
     'G', 'N', '#', '#', 'O', '#', '#'};     /* RIGHT */
 Binary_Tree *Postorder_Create_BinaryTree(Binary_Tree *parent) {
-
   ElementType_t ch = Perfect_BinaryTree_data[index_Postorder++];
   if (ch == '#') {
     return NULL;
@@ -98,7 +93,6 @@ Binary_Tree *Postorder_Create_BinaryTree(Binary_Tree *parent) {
 }
 
 int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
-
   if (tree == 0x0)
     return -1;
 
@@ -109,10 +103,8 @@ int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
 
   /* Start traverse - Preorder */
   while (1) {
-
     /* End of traverse means all tree node was accessed */
     if (stack->s_size == 0) {
-
       break;
     }
 
@@ -122,21 +114,17 @@ int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
      */
     StackElement *element = Pop(stack);
     if (element->tag == 1) {
-
       printf("\n[*] Traverse Binary-tree: Value = %c, Address = %p\n\n",
              element->data, element);
       element->tag = 0;
 
       continue;
     } else {
-
       element->tag = 1;
       if (element->right != NULL) {
-
         Push(stack, element->right);
       }
       if (element->left != NULL) {
-
         Push(stack, element->left);
       }
       /* Put the element that just popped on the top of the stack again */
@@ -152,7 +140,6 @@ int Preorder_Traverse_BinaryTree_WithoutRecursion(Binary_Tree *tree) {
 }
 
 int Preorder_Traverse_BinaryTree(Binary_Tree *tree) {
-
   if (tree == 0x0)
     return -1;
 
@@ -165,7 +152,6 @@ int Preorder_Traverse_BinaryTree(Binary_Tree *tree) {
 }
 
 int Postorder_Traverse_BinaryTree(Binary_Tree *tree) {
-
   if (tree == 0x0)
     return -1;
 
@@ -178,7 +164,6 @@ int Postorder_Traverse_BinaryTree(Binary_Tree *tree) {
 }
 
 int Middorder_Traverse_BinaryTree(Binary_Tree *tree) {
-
   if (tree == 0x0)
     return -1;
 
@@ -191,7 +176,6 @@ int Middorder_Traverse_BinaryTree(Binary_Tree *tree) {
 }
 
 int Postorder_Free_BinaryTree(Binary_Tree **tree) {
-
   if (*tree == 0x0)
     return -1;
 
@@ -208,11 +192,9 @@ int Postorder_Free_BinaryTree(Binary_Tree **tree) {
 
 /* The deep for Binary-Tree */
 int BinaryTree_Deep(struct binary_node *node) {
-
   int deep = 0;
 
   if (node != NULL) {
-
     int leftdeep = BinaryTree_Deep(node->left);
     int rightdeep = BinaryTree_Deep(node->right);
 

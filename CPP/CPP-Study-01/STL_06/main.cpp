@@ -9,7 +9,7 @@ using namespace std;
 
 void foo(void) {
   controller sys;
-sys.get_heros();
+  sys.get_heros();
   sys.print("Welcome!\n\n");
   sys.print("Please choose your favorite hero:\n");
   sys.get_heros();
@@ -17,7 +17,6 @@ sys.get_heros();
   sys.print("Please choose your what weapon will used\n");
   sys.get_weapons();
   sys.select_weapons();
-
 }
 
 int main(void) {

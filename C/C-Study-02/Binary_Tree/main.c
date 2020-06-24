@@ -8,7 +8,6 @@
 #include "binary_tree.h"
 
 int CreateAnNewRow(int printLine) {
-
   putchar('\n');
 
   if (printLine)

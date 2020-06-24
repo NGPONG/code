@@ -1,16 +1,13 @@
 #include "stack.h"
 
 struct Stack *Init_Stack() {
-
   struct Stack *stack = malloc(sizeof(struct Stack));
   if (stack == NULL) {
-
     return NULL;
   }
 
   stack->s_data = malloc(sizeof(StackElement *) * MAX_LENGTH);
   if (stack->s_data == NULL) {
-
     return NULL;
   }
   printf("[+] Init Stack:Stack Address = %p, Stack Data Address = %p\n", stack,
@@ -23,15 +20,12 @@ struct Stack *Init_Stack() {
 }
 
 int Push(struct Stack *stack, StackElement *data) {
-
   if (stack == NULL || stack->s_size == MAX_LENGTH) {
-
     return -1;
   }
 
   *(stack->s_data + stack->s_size) = data;
-  printf(
-      "[+] Push Binary-tree into stack:Address = %p ~ %p, Data Address = %p\n",
+  printf("[+] Push Binary-tree into stack:Address = %p ~ %p, Data Address = %p\n",
       stack->s_data + stack->s_size,
       (char *)(stack->s_data + stack->s_size + 0x1) - 0x1, data);
   stack->s_size++;
@@ -40,9 +34,7 @@ int Push(struct Stack *stack, StackElement *data) {
 }
 
 StackElement *Pop(struct Stack *stack) {
-
   if (stack == NULL || stack->s_size == 0) {
-
     return NULL;
   }
 
@@ -54,9 +46,7 @@ StackElement *Pop(struct Stack *stack) {
 }
 
 int Destory(struct Stack *stack) {
-
   if (stack == NULL || stack->s_data == NULL) {
-
     return -1;
   }
 

@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <string.h>
 
+using namespace std;
+
+
 #include "filemanager.h"
 #include "hero.h"
 #include "player.h"
@@ -15,8 +18,6 @@
 #include "dragonsword.h"
 #include "broadsword.h"
 #include "monster.h"
-
-using namespace std;
 
 class controller {
 public:

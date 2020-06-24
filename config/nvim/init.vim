@@ -5,30 +5,40 @@ call plug#begin('~/.local/share/nvim/plugged')
  " themes
  "Plug 'tomasiser/vim-code-dark'
  "Plug 'w0ng/vim-hybrid'
- Plug 'rakr/vim-one'
+ "Plug 'rakr/vim-one'
  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
- "Plug 'morhetz/gruvbox'
  "Plug 'ayu-theme/ayu-vim'
+ Plug 'morhetz/gruvbox'
+
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
+
  " common
  "Plug 'bronson/vim-trailing-whitespace'
  Plug 'preservim/nerdcommenter'
+ Plug 'Yggdroot/indentLine'
+
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
+
  " visual tree
  Plug 'preservim/nerdtree'
  Plug 'ryanoasis/vim-devicons'
  Plug 'Xuyuanp/nerdtree-git-plugin'
+
  " airline
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+
  " debug
  Plug 'puremourning/vimspector'
+
  " git
  Plug 'airblade/vim-gitgutter'
+
  " async
  Plug 'skywind3000/asyncrun.vim'
 
@@ -192,7 +202,7 @@ set updatetime=100
 "            let g:one_allow_italics = 1; " may be dont support
 "       2/1: onehalfdark
 "            onehalflight
-colorscheme one
+colorscheme gruvbox
 set background=dark
 
 " }
@@ -251,12 +261,12 @@ let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIndicatorMapCustom = {
-        \ "Modified"  : "✹",
-        \ "Staged"    : "✚",
-        \ "Untracked" : "✭",
-        \ "Renamed"   : "➜",
-        \ "Unmerged"  : "═",
-        \ "Deleted"   : "✖",
+        \ "Modified"  : "𝙈",
+        \ "Staged"    : "𝘼",
+        \ "Untracked" : "𝙏",
+        \ "Renamed"   : "𝙍",
+        \ "Unmerged"  : "𝙐",
+        \ "Deleted"   : "𝘿",
         \ "Dirty"     : "✗",
         \ "Clean"     : "✔︎",
         \ 'Ignored'   : '☒',
@@ -531,6 +541,14 @@ let g:NERDUsePlaceHolders = 0
 
 " }
 
+
+" indentLine() {
+
+let g:indentLine_char = '¦'
+autocmd Filetype json let g:indentLine_setConceal = 0
+
+" }
+
 "--------------------------------------------------------------------------------
 
 
@@ -555,7 +573,6 @@ nmap a i
 vmap a i
 vmap i I
 vnoremap w aw
-"nnoremap ww `<v`>
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
@@ -582,4 +599,7 @@ nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
 nmap hp <Plug>(GitGutterPreviewHunk)
+map <F1> <Esc>
+imap <F1> <Esc>
+
 "---------------------------------------------------------------------------------
