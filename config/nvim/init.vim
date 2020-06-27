@@ -5,7 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  " themes
  "Plug 'tomasiser/vim-code-dark'
  "Plug 'w0ng/vim-hybrid'
- "Plug 'rakr/vim-one'
+ Plug 'rakr/vim-one'
  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
  "Plug 'ayu-theme/ayu-vim'
  Plug 'morhetz/gruvbox'
@@ -202,7 +202,12 @@ set updatetime=100
 "            let g:one_allow_italics = 1; " may be dont support
 "       2/1: onehalfdark
 "            onehalflight
-colorscheme gruvbox
+"   gruvbox: let g:gruvbox_sign_column = 'bg0'
+"            gruvbox 
+"            set background=dark
+"let g:gruvbox_sign_column = 'bg0'
+let g:gruvbox_sign_column = 'bg0'
+colorscheme gruvbox 
 set background=dark
 
 " }
@@ -210,9 +215,7 @@ set background=dark
 
 " air_line() {
 
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#whitespace#symbol = '!'
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled = 1
@@ -282,8 +285,8 @@ let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1},
 
 let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
+"let g:webdevicons_enable_airline_tabline = 1
+"let g:webdevicons_enable_airline_statusline = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -572,7 +575,7 @@ nnoremap p P
 nmap a i
 vmap a i
 vmap i I
-vnoremap w aw
+vnoremap w iw
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
@@ -590,6 +593,7 @@ nnoremap <C-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
 inoremap <silent><C-s> <Esc>:w<CR>
 nnoremap <silent><C-s> :w<CR>
+nnoremap <C-S-p> :
 nnoremap <silent>bl :Leaderf buffer --bottom<CR>
 noremap <silent><C-f> :call Find_current()<CR>
 noremap <silent><C-g> :call Find_file()<CR>
