@@ -119,12 +119,39 @@ void foo_03(void) {
   }
 }
 
+/* Zombie process test */
+void foo_04(void) {
+  int pid = fork();
+  if (pid < 0) {
+    perror("E");
+    exit(EXIT_FAILURE);
+  } else if (pid == 0) { /* child process */
+    int idx = 0;
+    while (true) {
+      if ((++idx) == 15) {
+        char *str = "hello,world!";
+        str[0] = 'A';
 
+        exit(EXIT_SUCCESS);
+      }
+      printf("%d\n", idx);
+      sleep(1);
+    }
+  }
+  int idx = 0;
+  while (true) {
+    if ((++idx) == 5) {
+      exit(EXIT_SUCCESS);
+    }
+    sleep(1);
+  }
+}
 
 int main(int argc, char *argv[]) {
   /* foo_01(); */
   /* foo_02(); */
-  foo_03();
+  /* foo_03(); */
+  foo_04();
 
   return EXIT_SUCCESS;
 }
