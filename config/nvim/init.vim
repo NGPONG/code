@@ -588,8 +588,6 @@ noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent><C-F12> <C-o>
 vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
-nnoremap <C-Up> <C-u>
-nnoremap <C-Down> <C-d>
 nnoremap <C-a> gg<S-v>G
 inoremap <silent><C-s> <Esc>:w<CR>
 nnoremap <silent><C-s> :w<CR>
@@ -605,5 +603,12 @@ vmap <C-k><C-s> <plug>NERDCommenterToggle
 nmap hp <Plug>(GitGutterPreviewHunk)
 map <F1> <Esc>
 imap <F1> <Esc>
+nnoremap <S-Up> <C-y>
+nnoremap <S-Down> <C-e>
+vnoremap <S-Up> <C-y>
+vnoremap <S-Down> <C-e>
+nnoremap <C-Up> <C-u>
+nnoremap <C-Down> <C-d>
+
 
 "---------------------------------------------------------------------------------

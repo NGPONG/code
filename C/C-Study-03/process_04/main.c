@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include <wait.h>
+#include <sys/types.h>
 
 void foo_01(void) {
   int *ptr = malloc(sizeof(int));
@@ -50,7 +52,7 @@ void foo_02(void) {
 
   for (size_t i = 0; i < 3; ++i) {
     if (i > 0 && is_first_create) is_first_create = false;
-    
+
     /* Child Process */
     int pid = fork();
     if (pid < 0) {
@@ -73,18 +75,18 @@ void foo_02(void) {
 
       if (ch_pid == 0) {
         while (true) {
-          printf("[%d] -> [%d]\n",getppid() ,getpid());
+          printf("[%d] -> [%d]\n", getppid(), getpid());
           sleep(1);
         }
       }
     }
-    
+
     while (true) {
-      printf("[%d] -> [%d]\n",getppid() ,getpid());
+      printf("[%d] -> [%d]\n", getppid(), getpid());
       sleep(1);
     }
   }
-  
+
   /* Root process */
   while (true) {
     /* printf("[%d] -> [%d]\n",getppid() ,getpid()); */
@@ -92,9 +94,37 @@ void foo_02(void) {
   }
 }
 
+void foo_03(void) {
+  int pid = fork();
+  if (pid < 0) {
+    perror("E");
+    exit(EXIT_SUCCESS);
+  } else if (pid == 0) { /* child process */
+    /* make an error manually */
+    /* char *str = "hello,world!";            */
+    /* str[0] = 'A';                          */
+
+    /* int idx = 0x5;                         */
+    /* while ((--idx)) {                      */
+    /*   printf("[%d]: %d\n", getpid(), idx); */
+    /*   sleep(1);                            */
+    /* }                                      */
+
+    return;
+    /* exit(EXIT_FAILURE); */
+  } else if (pid > 0) { /* parent process */
+    int status;
+    wait(&status);
+    printf("child exit: is_normal_exited = %d, exit_status = %d\n", WIFEXITED(status), WEXITSTATUS(status));
+  }
+}
+
+
+
 int main(int argc, char *argv[]) {
   /* foo_01(); */
-  foo_02();
+  /* foo_02(); */
+  foo_03();
 
   return EXIT_SUCCESS;
 }
