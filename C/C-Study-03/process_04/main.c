@@ -129,9 +129,6 @@ void foo_04(void) {
     int idx = 0;
     while (true) {
       if ((++idx) == 15) {
-        char *str = "hello,world!";
-        str[0] = 'A';
-
         exit(EXIT_SUCCESS);
       }
       printf("%d\n", idx);
@@ -140,10 +137,108 @@ void foo_04(void) {
   }
   int idx = 0;
   while (true) {
-    if ((++idx) == 5) {
+    if ((++idx) == 20) {
+      /* int stat;               */
+      /* waitpid(pid, &stat, 0); */
       exit(EXIT_SUCCESS);
     }
+
+    if (idx == 30) {
+      exit(EXIT_SUCCESS);
+    }
+
+    printf("%d\n", idx);
     sleep(1);
+  }
+}
+
+void foo_05(void) {
+  int pid_top = fork();
+  if (pid_top < 0) {
+    perror("E");
+    exit(EXIT_FAILURE);
+  } else if (pid_top > 0) { /* parent process */
+    int idx = 0;
+    while (true) {
+      sleep(1);
+
+      if ((++idx) == 15) {
+        exit(EXIT_FAILURE);
+      }
+      printf("R [%d]:%d\n", getpid(), idx);
+    }
+  }
+
+  /* child process */
+  int pid = fork();
+  if (pid < 0) {
+    perror("E");
+    exit(EXIT_FAILURE);
+  } else if (pid > 0) { /* parent process */
+    int idx = 0;
+    while (true) {
+      sleep(1);
+
+      if ((++idx) == 10) {
+        /* exit(EXIT_FAILURE); */
+        char *str = "hello,world!";
+        str[0] = 'B';
+      }
+      printf("P [%d]:%d\n", getpid(), idx);
+    }
+  }
+
+  int idx = 0;
+  while (true) {
+    sleep(1);
+
+    if ((++idx) == 5) {
+      char *str = "hello,world!";
+      str[0] = 'B';
+    }
+    printf("C [%d]:%d\n", getpid(), idx);
+  }
+}
+
+void foo_06(void) {
+  int pid = fork();
+  if (pid < 0) {
+    perror("E");
+    exit(EXIT_FAILURE);
+  } else if (pid > 0) { /* parent process */
+    int idx = 0;
+    while (true) {
+      sleep(1);
+
+      if ((++idx) == 10) {
+        exit(EXIT_FAILURE);
+      }
+      printf("P [%d]:%d\n", getpid(), idx);
+    }
+  }
+
+  /* child process */
+  int idx = 0;
+  while (true) {
+    sleep(1);
+
+    if ((++idx) == 5) {
+      char *str = "hello,world!";
+      str[0] = 'B';
+    }
+    printf("C [%d]:%d\n", getpid(), idx);
+  }
+}
+
+void foo_07(void) {
+  int pid = fork();
+  if (pid < 0) {
+    perror("E");
+    exit(EXIT_FAILURE);
+  } else if (pid > 0) {
+    printf("parent process execute");
+  } else if (pid == 0) {
+    printf("child process execute");
   }
 }
 
@@ -151,7 +246,9 @@ int main(int argc, char *argv[]) {
   /* foo_01(); */
   /* foo_02(); */
   /* foo_03(); */
-  foo_04();
+  /* foo_04(); */
+  /* foo_05(); */
+  foo_06();
 
   return EXIT_SUCCESS;
 }
