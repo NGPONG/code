@@ -68,7 +68,9 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " line_number() {
 
+"set rulerformat=%l,%v
 set number
+set ruler
 
 " }
 
@@ -121,7 +123,6 @@ endif
 
 set ve+=onemore
 set cursorline
-"set guicursor=
 set mousehide
 "set scrolloff=20
 
@@ -558,7 +559,7 @@ autocmd Filetype json let g:indentLine_setConceal = 0
 
 "------------------------------BY_KEYS-------------------------------------------
 
-inoremap <Esc> <Esc><Right>
+inoremap <silent><expr> <Esc> (col('.') == 1) ? '<Esc>' : '<Esc><Right>'
 nnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
 vnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
 inoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '<Esc>^i' : '<Esc>0i'
@@ -611,5 +612,7 @@ nnoremap <C-Up> <C-u>
 nnoremap <C-Down> <C-d>
 inoremap <silent><c-z> <Esc>:u<CR>i
 nnoremap <silent><c-z> u
+map <S-Insert> <C-r>"
+map! <S-Insert> <C-r>"
 
 "---------------------------------------------------------------------------------
