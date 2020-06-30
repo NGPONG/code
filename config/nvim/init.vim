@@ -609,6 +609,7 @@ vnoremap <S-Up> <C-y>
 vnoremap <S-Down> <C-e>
 nnoremap <C-Up> <C-u>
 nnoremap <C-Down> <C-d>
-
+inoremap <silent><c-z> <Esc>:u<CR>i
+nnoremap <silent><c-z> u
 
 "---------------------------------------------------------------------------------
