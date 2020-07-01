@@ -183,11 +183,17 @@ void foo_06(void) {
   printf("[%d] parent exit: %d\n", getpid(), flag);
 }
 
+void foo_07(void) {
+  printf("hello, custom process\n");
+  exit(EXIT_SUCCESS);
+}
+
 int main(int argc, char *argv[]) {
   /* foo_02(); */
   /* foo_03(); */
   /* foo_04(); */
-  foo_06();
+  /* foo_06(); */
+  foo_07();
 
   return EXIT_SUCCESS;
 }

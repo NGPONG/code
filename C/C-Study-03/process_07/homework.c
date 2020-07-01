@@ -35,12 +35,13 @@ void foo(void) {
   int pid;
   int stat;
   while ((pid = waitpid(0, &stat, 0)) != -1) {
-    printf("resouce [%d]\n, state [%d]", pid, WEXITSTATUS(stat));
+    printf("resouce [%d], state [%d]\n", pid, WEXITSTATUS(stat));
     memset(&stat, 0x0, sizeof(int));
   }
 }
 
 int main(int argc, char *argv[]) {
+  foo();
 
   return EXIT_SUCCESS;
 }
