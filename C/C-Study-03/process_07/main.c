@@ -104,6 +104,12 @@ void foo_05(void) {
       /* read(fd, buf, sizeof(buf));            */
       /* printf("%s\n", buf);                   */
 
+      /* sleep(5); */
+
+      if (i == 2) {
+        sleep(5);
+      }
+
       printf("[%d]\n", getpid());
       exit(EXIT_FAILURE);
     }
@@ -111,21 +117,77 @@ void foo_05(void) {
     /* continue;                             */
   }
 
-  printf("hello,world!");
+  int state;
+  int flag = waitpid(0, &state, 0);
+  printf("%d\n", flag);
+  printf("parent process");
 
   /* parent process context */
   int idx = 0;
   while ((++idx) < 0x400) {
-    printf("[%d]\n", idx);
+    /* printf("[%d]\n", idx); */
     sleep(1);
   }
+}
+
+void foo_06(void) {
+  for (int i = 0; i < 2; ++i) {
+    int pid_0 = fork();
+    if (pid_0 < 0) {
+      perror("E");
+      exit(EXIT_FAILURE);
+    } else if (pid_0 == 0) {
+      if (i == 1) {
+        printf("[%d] process test start\n", getpid());
+
+        while (true) {
+          sleep(1);
+        }
+      } else {
+        int pid_1 = fork();
+        if (pid_1 > 0) {
+          printf("[%d] child process 1 start\n", getpid());
+
+          int idx = 0;
+          while (++idx < 15) {
+            sleep(1);
+          }
+
+          printf("[%d] child process 1 exit\n", getpid());
+
+          exit(EXIT_SUCCESS);
+        } else if (pid_1 == 0) {
+          printf("[%d] child process 2 start\n", getpid());
+
+          int idx = 0;
+          while ((++idx) < 5) {
+            sleep(1);
+          }
+
+          printf("[%d] child process 2 exit\n", getpid());
+
+          exit(EXIT_SUCCESS);
+        } else {
+          perror("E");
+          exit(EXIT_FAILURE);
+        }
+      }
+    }
+  }
+
+  printf("[%d] parent start\n", getpid());
+
+  int state;
+  int flag = waitpid(-1, &state, WNOHANG);
+
+  printf("[%d] parent exit: %d\n", getpid(), flag);
 }
 
 int main(int argc, char *argv[]) {
   /* foo_02(); */
   /* foo_03(); */
   /* foo_04(); */
-  foo_05();
+  foo_06();
 
   return EXIT_SUCCESS;
 }
