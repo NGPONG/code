@@ -50,6 +50,10 @@ call plug#end()
 
 "------------------------------BY_GLOBAL-------------------------------------------
 
+set wrapmargin=1
+set formatoptions+=t
+set formatoptions-=l
+
 " remember_postion() {
 
 if has("autocmd")
@@ -86,13 +90,17 @@ endif
 
 " tabwidth() {
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 expandtab
 
 " }
 
 
 " set_auto_indent() {
 
+"set smartindent
+"set cindent
+"set smarttab
+"set linebreak
 set autoindent
 
 " }
