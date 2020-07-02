@@ -83,7 +83,7 @@ void foo_03(void) {
     exit(EXIT_FAILURE);
   } else if (pid == 0) {
     sleep(3);
-    
+
     int idx = 0;
     char buf[128] = { 0 };
     while (true) {
@@ -136,14 +136,75 @@ void foo_05(void) {
   close(fd[1]);
 
   char buf[64] = { 0 };
+}
 
+void foo_06(void) {
+  int fd[2] = { 0 };
+  if (pipe(fd) == -1) {
+    perror("e");
+    exit(EXIT_FAILURE);
+  }
+
+  int pid = fork();
+  if (pid < 0) {
+    perror("e");
+    exit(EXIT_FAILURE);
+  } else if (pid == 0) { /* child process context */
+    /* read */
+    printf("[%d] child start read\n", getpid());
+    char buf[0x8] = { 0 };
+    int ln = read(fd[0], buf, sizeof(buf));
+    printf("[%d] child end read, size = (%d)\n", getpid(), ln);
+    printf("[%d] %s\n", getpid(), buf);
+
+    /* write */
+    printf("[%d] child start write\n", getpid());
+    char *data = "child data @@@@@@@@@@@@@@@@@@@2";
+    int sz = write(fd[1], data, strlen(data) + 1);
+    printf("[%d] child end write, size = (%d)\n", getpid(), sz);
+
+    exit(EXIT_SUCCESS);
+  }
+
+  /* parent process context */
+
+  /* sleep 500ms to wait child process for read data */
+  usleep(500 * 1000);
+
+  /* write */
+  printf("[%d] parent start write\n", getpid());
+  char *data_1 = "hello,world!";
+  int sz_1 = write(fd[1], data_1, strlen(data_1) + 1);
+  char *data_2 = "hello,NGPONG!";
+  int sz_2 = write(fd[1], data_2, strlen(data_2) + 1);
+  printf("[%d] parent end write, size_1 = (%d), size_2 = (%d)\n", getpid(), sz_1, sz_2);
+
+  /* read */
+  printf("[%d] parent start read\n", getpid());
+  char buf[0x40] = { 0 };
+  int ln = read(fd[0], buf, sizeof(buf));
+  printf("[%d] parent end read, size = (%d)\n", getpid(), ln);
+  printf("[%d] %s\n", getpid(), buf);
+
+  /* wait for child process executed */
+  int stat;
+  wait(&stat);
+
+  /* close all pipe */
+  for (size_t i = 0; i < 2; ++i) {
+    close(fd[i]);
+  }
+
+  /* end */
+  exit(EXIT_SUCCESS);
 }
 
 int main(void) {
   /* foo_01(); */
   /* foo_02(); */
   /* foo_03(); */
-  foo_04();
+  /* foo_04(); */
+  foo_06();
 
   return EXIT_SUCCESS;
 }
