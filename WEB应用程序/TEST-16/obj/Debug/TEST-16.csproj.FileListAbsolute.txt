@@ -1,6 +1,0 @@
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-16\bin\Debug\TEST-16.exe.config
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-16\bin\Debug\TEST-16.exe
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-16\bin\Debug\TEST-16.pdb
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-16\obj\Debug\TEST-16.csproj.CoreCompileInputs.cache
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-16\obj\Debug\TEST-16.exe
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-16\obj\Debug\TEST-16.pdb

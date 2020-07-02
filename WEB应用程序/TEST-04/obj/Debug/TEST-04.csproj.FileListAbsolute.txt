@@ -1,7 +1,0 @@
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\bin\Debug\TEST-04.exe.config
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\bin\Debug\TEST-04.exe
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\bin\Debug\TEST-04.pdb
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\obj\Debug\TEST-04.csproj.CoreCompileInputs.cache
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\obj\Debug\TEST-04.exe
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\obj\Debug\TEST-04.pdb
-C:\Users\NGPONG\Desktop\源码\WEB应用程序\TEST-04\obj\Debug\TEST-04.csprojAssemblyReference.cache
