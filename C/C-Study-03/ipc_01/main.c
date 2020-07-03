@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <wait.h>
+#include <fcntl.h>
 
 void foo_01(void) {
   int fd_r_w[2] = { -1 };
@@ -199,12 +200,75 @@ void foo_06(void) {
   exit(EXIT_SUCCESS);
 }
 
+void foo_07(void) {
+  int fd_pipe[2];
+  if (pipe(fd_pipe) == -1) {
+    perror("e");
+    exit(EXIT_FAILURE);
+  }
+
+  close(fd_pipe[1]);
+
+  unsigned char buf[64] = { 0 };
+  int flag = read(fd_pipe[0], buf, sizeof(buf));
+  printf("%d\n", flag);
+}
+
+void foo_08(void) {
+  int fd_pipe[2];
+  if (pipe(fd_pipe) == -1) {
+    perror("e");
+    exit(EXIT_FAILURE);
+  }
+  
+  /* set pipe line write postion nonblock */
+  int fl = fcntl(fd_pipe[1], F_GETFL);
+  fcntl(fd_pipe[1], F_SETFL, fl | O_NONBLOCK);
+  
+  int idx = 0;
+  char buf[0x400] = { 0 };
+  memset(buf,0x40,sizeof(buf) - 1); /* keep last index is /0 */
+
+  printf("%s\n", buf);
+
+  while (true) {
+    int sz = write(fd_pipe[1], buf, sizeof(buf));
+    printf("[%d] write data [%d](%s)\n", ++idx, sz, buf);
+
+    usleep(100 * 1000); /* sleep 240ms */
+  }
+}
+
+void foo_09(void) {
+  int fd_pipe[2];
+  if (pipe(fd_pipe) == -1) {
+    perror("e");
+    exit(EXIT_FAILURE);
+  }
+
+  /* char *str = "hello,world!";              */
+  /* write(fd_pipe[1], str, strlen(str) + 1); */
+
+  close(fd_pipe[1]);
+
+  char buf[64] = { 0 };
+  int size = read(fd_pipe[0], buf, sizeof(buf));
+  printf("[%d] %s", size, buf);
+
+  printf("OK");
+}
+
+
 int main(void) {
   /* foo_01(); */
   /* foo_02(); */
   /* foo_03(); */
   /* foo_04(); */
-  foo_06();
+  /* foo_06(); */
+  /* foo_07(); */
+  /* foo_08(); */
+
+  foo_09();
 
   return EXIT_SUCCESS;
 }

@@ -29,6 +29,10 @@ call plug#begin('~/.local/share/nvim/plugged')
  " airline
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+ 
+ " lightline
+ "Plug 'itchyny/lightline.vim'
+ "Plug 'mengelbrecht/lightline-bufferline'
 
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -49,10 +53,6 @@ call plug#end()
 
 
 "------------------------------BY_GLOBAL-------------------------------------------
-
-set wrapmargin=1
-set formatoptions+=t
-set formatoptions-=l
 
 " remember_postion() {
 
@@ -172,6 +172,7 @@ set fileencoding=utf-8
 
 set hidden
 "set relativenumber
+set noshowmode
 
 " }
 
@@ -242,6 +243,28 @@ let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
 " }
+
+
+" light_line() {
+
+"let g:lightline = {
+"      \ 'colorscheme': 'powerline',
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+"      \ },
+"      \ 'tabline': {
+"      \   'left': [ ['buffers'] ],
+"      \   'right': [ ['close'] ]
+"      \ },
+"      \ 'component_expand': {
+"      \   'buffers': 'lightline#bufferline#buffers'
+"      \ },
+"      \ 'component_type': {
+"      \   'buffers': 'tabsel'
+"      \ }
+"      \ }
+
+"}
 
 
 " nerd tree() {
@@ -530,7 +553,7 @@ let g:asyncrun_bell = 1
 nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
 
 function! Quick_run_program()
-  silent execute "AsyncRun gcc -Wall -O2 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
+  silent execute "AsyncRun gcc -Wall -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
 endfunction
 command! Run :call Quick_run_program()
 
