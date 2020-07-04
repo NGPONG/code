@@ -3,12 +3,13 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
- "Plug 'tomasiser/vim-code-dark'
+ Plug 'tomasiser/vim-code-dark'
  "Plug 'w0ng/vim-hybrid'
- Plug 'rakr/vim-one'
+ "Plug 'rakr/vim-one'
  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
  "Plug 'ayu-theme/ayu-vim'
- Plug 'morhetz/gruvbox'
+ "Plug 'morhetz/gruvbox'
+ Plug 'srcery-colors/srcery-vim'
 
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -216,9 +217,10 @@ set updatetime=100
 "            gruvbox 
 "            set background=dark
 "let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_sign_column = 'bg0'
-colorscheme gruvbox 
-set background=dark
+"    srcery: let g:srcery_italic = 1
+"            srcery
+
+colorscheme codedark
 
 " }
 

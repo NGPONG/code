@@ -14,6 +14,8 @@ void foo(void) {
     exit(EXIT_FAILURE);
   }
 
+  printf("[%d] start write\n",getpid());
+
   char *str = "hello,world!";
   int size = write(fd,str,strlen(str) + 1);
   printf("size = %d",size);
