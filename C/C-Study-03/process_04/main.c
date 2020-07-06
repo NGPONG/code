@@ -242,13 +242,17 @@ void foo_07(void) {
   }
 }
 
+void foo_08(void) {
+  
+}
+
 int main(int argc, char *argv[]) {
   /* foo_01(); */
   /* foo_02(); */
   /* foo_03(); */
   /* foo_04(); */
   /* foo_05(); */
-  foo_06();
+  /* foo_06(); */
 
   return EXIT_SUCCESS;
 }

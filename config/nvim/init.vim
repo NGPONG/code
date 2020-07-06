@@ -5,10 +5,12 @@ call plug#begin('~/.local/share/nvim/plugged')
  " themes
  "Plug 'tomasiser/vim-code-dark'
  "Plug 'w0ng/vim-hybrid'
- Plug 'rakr/vim-one'
+ "Plug 'rakr/vim-one'
  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
  "Plug 'ayu-theme/ayu-vim'
  Plug 'morhetz/gruvbox'
+ "Plug 'srcery-colors/srcery-vim'
+ Plug 'dunstontc/vim-vscode-theme'
 
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -29,6 +31,10 @@ call plug#begin('~/.local/share/nvim/plugged')
  " airline
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+ 
+ " lightline
+ "Plug 'itchyny/lightline.vim'
+ "Plug 'mengelbrecht/lightline-bufferline'
 
  " file
  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -68,7 +74,9 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " line_number() {
 
+"set rulerformat=%l,%v
 set number
+set ruler
 
 " }
 
@@ -84,13 +92,17 @@ endif
 
 " tabwidth() {
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 expandtab
 
 " }
 
 
 " set_auto_indent() {
 
+"set smartindent
+"set cindent
+"set smarttab
+"set linebreak
 set autoindent
 
 " }
@@ -121,7 +133,6 @@ endif
 
 set ve+=onemore
 set cursorline
-"set guicursor=
 set mousehide
 "set scrolloff=20
 
@@ -163,6 +174,7 @@ set fileencoding=utf-8
 
 set hidden
 "set relativenumber
+set noshowmode
 
 " }
 
@@ -206,8 +218,16 @@ set updatetime=100
 "            gruvbox 
 "            set background=dark
 "let g:gruvbox_sign_column = 'bg0'
+"    srcery: let g:srcery_italic = 1
+"            srcery
+let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg0'
-colorscheme gruvbox 
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_italicize_strings = 1
+let g:gruvbox_italicize_comments = 1
+let g:gruvbox_improved_strings = 0
+colorscheme gruvbox
 set background=dark
 
 " }
@@ -233,6 +253,28 @@ let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
 " }
+
+
+" light_line() {
+
+"let g:lightline = {
+"      \ 'colorscheme': 'powerline',
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+"      \ },
+"      \ 'tabline': {
+"      \   'left': [ ['buffers'] ],
+"      \   'right': [ ['close'] ]
+"      \ },
+"      \ 'component_expand': {
+"      \   'buffers': 'lightline#bufferline#buffers'
+"      \ },
+"      \ 'component_type': {
+"      \   'buffers': 'tabsel'
+"      \ }
+"      \ }
+
+"}
 
 
 " nerd tree() {
@@ -521,7 +563,7 @@ let g:asyncrun_bell = 1
 nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
 
 function! Quick_run_program()
-  silent execute "AsyncRun gcc -Wall -O2 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
+  silent execute "AsyncRun gcc -Wall -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
 endfunction
 command! Run :call Quick_run_program()
 
@@ -558,7 +600,7 @@ autocmd Filetype json let g:indentLine_setConceal = 0
 
 "------------------------------BY_KEYS-------------------------------------------
 
-inoremap <Esc> <Esc><Right>
+inoremap <silent><expr> <Esc> (col('.') == 1) ? '<Esc>' : '<Esc><Right>'
 nnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
 vnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '^' : '0'
 inoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '<Esc>^i' : '<Esc>0i'
@@ -576,6 +618,7 @@ nmap a i
 vmap a i
 vmap i I
 vnoremap w iw
+nnoremap q b
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
@@ -591,7 +634,7 @@ vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmod
 nnoremap <C-a> gg<S-v>G
 inoremap <silent><C-s> <Esc>:w<CR>
 nnoremap <silent><C-s> :w<CR>
-nnoremap <C-S-p> :
+"nnoremap <C-S-p> :
 nnoremap <silent>bl :Leaderf buffer --bottom<CR>
 noremap <silent><C-f> :call Find_current()<CR>
 noremap <silent><C-g> :call Find_file()<CR>
@@ -609,6 +652,9 @@ vnoremap <S-Up> <C-y>
 vnoremap <S-Down> <C-e>
 nnoremap <C-Up> <C-u>
 nnoremap <C-Down> <C-d>
-
+inoremap <silent><c-z> <Esc>:u<CR>i
+nnoremap <silent><c-z> u
+map <S-Insert> <C-r>"
+map! <S-Insert> <C-r>"
 
 "---------------------------------------------------------------------------------

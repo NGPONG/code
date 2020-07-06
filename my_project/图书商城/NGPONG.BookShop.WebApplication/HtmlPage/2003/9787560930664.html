@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>C++网络编程 卷1</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords" />
+
+    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
+    <link href="/Css/tableStyle.css" rel="stylesheet" />
+    <link href="/Css/index.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script>
+    <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>
+    <script>
+        // 载入回复
+        function loadData() {
+
+            $.ajax({
+                type: "post",
+                url: "/ashx/BooksInfo/BookComment.ashx",
+                async: true,
+                dataType: "json",
+                data: "BookId=5068&Action=Select",
+                success: function (data, textStatus, jqXHR) {
+
+                    if (data.IsSuccess == true) {
+
+                        // 拼接数据
+                        var htmlData = spliceData(data.Info);
+                        $(htmlData).appendTo($("#commentList"));
+                        // 注册事件
+                        registerReceiveClick();
+                    }
+                    else {
+
+                        if (data.Status == "302") {
+
+                            if (data.Message != "") {
+
+                                window.alert(data.Message);
+                            }
+                            window.location.href = data.RedirectUrl;
+                        }
+                        else if (data.Status == "500") {
+
+                            window.alert(data.Message);
+                        }
+                    }
+                }
+            });
+        }
+        // 拼接回复数据
+        function spliceData(data) {
+
+            var htmlDataReturn = "";
+
+            for (var i = 0; i < data.length; i++) {
+
+                var bookComment = data[i];
+                htmlDataReturn += "<li><span>" + bookComment.UserName + "：" + bookComment.Msg + "</span>&nbsp;&nbsp;<span style=\"color:gray;font-size:7px\">" + bookComment.CreateDateTime + "</span>&nbsp;&nbsp;<a href=\"#linkContent\" class =\"ReceiveComment\" id=\"" + bookComment.Id + "\" style=\"font-size:10px\">回复</a></li>";
+
+                // 该条评论是否存在回复信息
+                if (bookComment.CommentReceives != null) {
+
+                    CommentReceive = bookComment.CommentReceives;
+                    htmlDataReturn += "<ul>";
+                    for (var j = 0; j < CommentReceive.length; j++) {
+
+                        var commentReceiveItem = CommentReceive[j];
+                        htmlDataReturn += "<li>&nbsp;&nbsp;" + commentReceiveItem.UserName + "：" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                    }
+                    htmlDataReturn += "</ul>";
+                }
+            }
+
+            return htmlDataReturn
+        }
+        // 注册回复的点击事件
+        function registerReceiveClick() {
+
+            $(".ReceiveComment").click(function () {
+
+                $("#txtContent").attr("placeholder", "回复 " + $(this).prev().prev().text().replace(/[\[\]]/g, "")).focus();
+                $("#btnAdd").attr("Action", "Receive").attr("CommentId", $(this).attr("id"));
+            });
+        }
+    </script>
+    <style type="text/css">
+    </style>
+    <script>
+        $(document).ready(function () {
+
+            loadData();
+
+            $("#btnAddCart").click(function () {
+
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/ProcessShoppingCart.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "productInfo={\"bookId\":\"5068\",\"qty\":1}&Action=Add",
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (!data.IsSuccess) {
+
+                            if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                        }
+                        else {
+
+                            $("#CartMsg").text(data.Message);
+                            $("#showResult").css("display", "block");
+                            $("#showResult").dialog({
+                                height: 240,
+                                modal: true,
+                                buttons: {
+                                    Ok: function () {
+                                        $(this).dialog("close");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+
+            $("#btnCancel").click(function () {
+
+                $("#txtContent").attr("placeholder", "有什么感想?来说说!!");
+            });
+
+            $("#btnAdd").click(function () {
+
+                var action = $(this).attr("Action");
+                $.ajax({
+                    type: "post",
+                    url: "/ashx/BooksInfo/BookComment.ashx",
+                    async: true,
+                    dataType: "json",
+                    data: "BookId=5068" + (action == "Receive" ? "&CommentId=" + $(this).attr("CommentId") : "") + "&Action=" + action + "&txtContent=" + $("#txtContent").val(),
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (data.IsSuccess == true) {
+
+                            window.alert(data.Message);
+                            // 清空数据
+                            $("#txtContent").val("");
+                            // 拼接数据
+                            if (action == "Receive") {
+
+                                var commentReceiveItem = data.Info[0];
+                                var htmlData = "";
+                                htmlData += "<ul>";
+                                htmlData += "<li>&nbsp;&nbsp;[" + commentReceiveItem.UserName + "]:" + commentReceiveItem.Msg + "&nbsp;&nbsp;<span style=\"color:gray; font-size:7px\">" + commentReceiveItem.CreateDateTime + "</span></li>";
+                                htmlData += "</ul>";
+                                $("#" + $("#btnAdd").attr("CommentId")).parent().append($(htmlData));
+
+                                // init Data
+                                $("#txtContent").attr("placeholder", "有什么感想?来说说!!");
+                                $("#btnAdd").attr("Action", "Add");
+                                $("#btnAdd").removeAttr("CommentId");
+                            }
+                            else {
+
+                                var htmlData = spliceData(data.Info);
+                                $(htmlData).appendTo($("#commentList"));
+
+                                // 注册事件
+                                registerReceiveClick();
+                            }
+                        }
+                        else {
+
+                            if (data.Status == "302") {
+
+                                if (data.Message != "") {
+
+                                    window.alert(data.Message);
+                                }
+                                window.location.href = data.RedirectUrl;
+                            }
+                            else if (data.Status == "500") {
+
+                                window.alert(data.Message);
+                            }
+                            else if (data.Status == "501") {
+
+                                // init
+                                $("#txtContent").val("");
+                                $("#txtContent").attr("placeholder", "有什么感想?来说说!!");
+                                $("#btnAdd").attr("Action", "Add");
+                                $("#btnAdd").removeAttr("CommentId");
+
+                                window.alert(data.Message);
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <center>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a>
+                </span>
+            </div>
+        </div>
+
+
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </center>
+
+    <table>
+        <tr><td>书名</td><td>C++网络编程 卷1</td></tr>
+        <tr><td>作者</td><td>（美）Douglas C.Schmidt，Stephen D.Huston  著，於春景  译</td></tr>
+        <tr><td>单价</td><td>35.00</td><td><input type="button" value="加入购物车" id="btnAddCart" class="reply_btn" /></td></tr>
+        <tr><td>封面</td><td><img src="/Images/BookCovers/9787560930664.jpg" /></td></tr>
+        <tr><td>简介</td><td>随着计算机网络、设备和系统的持续发展，软件工程师面临一个独特的挑战：在不断变化的环境中创建可靠的分布式应用。《C++网络编程，卷1》就此提供了实用、有效的方案：运用ADAPTIVE通信环境(ACE)——一个可以运行在数十个硬件平台和操作系统上、具有创造性的开放源码框架一来开发和优化复杂的分布式系统。 <br>    本书指导软件专业人员如何在开发高效、可移植、灵活的网络应用程序时避免陷阱和错误。它剖析了并发式网络应用固有的设计复杂性，以及克服这些复杂性时必须作出的权衡。<br>    《C++网络编程》以一则概论开篇，介绍了撰写分布式并发应用程序时涉及的议题和工具。然后，针对开发灵活、高效的并发式网络应用程序的需要，本书提供了重要的设计空间、模式和原则。本书作者从专家角度向你展示，在运用C++和模式效地开发面向对象网络应用时，应当如何提高你的设计技能。<br>   读者可以在书中看到以下内容： <br>   ·C++网络编程技术， 包括一篇概论和许多解决常见开发问题的策略 <br>   ·ACE工具包 <br>   ·连接协议、消息交换、消息传递与共享内存 <br>   ·可复用网络应用服务的实现方法 <br>   ·面向对象网络编程中的并发技术 <br>   ·ACE wrapper facades的设计原则和模式 <br>   有了这本书，C++开发者就有了一套最完整的、可以自如运用的工具包，从而能够方便、 高效地开发成功的、 多平台、并发式网络应用程序。</td></tr>
+    </table>
+    <hr />
+    <ul id="commentList" class="itcast_comments"></ul>
+    <a name="linkContent"></a>
+    <textarea id="txtContent" rows="20" cols="100" style="font-family:'Microsoft YaHei'" class="reply_box" placeholder="有什么感想?来说说!!"></textarea><br />
+    <input type="button" value="发布评论" Action="Add" id="btnAdd" class="reply_btn" />
+    <input type="button" value="取消回复" id="btnCancel" class="reply_btn" />
+    <span id="txtMsg" style="font-size:14px;color:red"></span>
+    <div id="footer">
+        <table border="0" width="100%" class="categories1">
+            <tr>
+                <td align="center">
+                    <ul>
+                        <li><a href='#'>关于我们王府井书店</li>
+                        <li><a href="#">书店营业时间：9：30-21：00 </a> </li>
+                        <li> <a href="#" ; target=_blank;><img src="/images/logo123x40.jpg" width="123" height="40" border="0"></a> <a href="#" ; target=_blank;><img border="0" src="/Images/kaixin.jpg"></a> </li>
+                        <li>&nbsp;<span lang="zh-cn"><a title="京ICP备08001692号" href="http://www.miibeian.gov.cn">京ICP备08987373号</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="showResult" style="display:none">
+        <span id="CartMsg" style="font-size:14px;color:red"></span>请移步至<a href="/Member/ShoppingCart.aspx">购物车</a>页面，进行订单的支付!
+    </div>
+</body>
+</html>

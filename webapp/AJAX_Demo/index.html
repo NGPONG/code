@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery/jquery-1.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Check User Login
+            $.ajax({
+                type: "get",
+                url: "/ASHX/CheckUserLogin.ashx",
+                async: false,
+                dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+
+                    if (data.isLogin == "true") {
+
+                        window.location.href = data.location;
+                    }
+                }
+            });
+
+            // Check User Name
+            $("#txtUserName").blur(function () {
+                
+                if ($(this).val() == "") {
+
+                    return;
+                }
+
+                var $spanMessage = $("#spMsg");
+                $.ajax({
+                    type: "post",
+                    url: "/ASHX/CheckUserName.ashx",
+                    async: true,
+                    cache: false,
+                    data: "userName=" + $(this).val(),
+                    dataType: "json",
+                    success: function (data, textStatus, jqXHR) {
+
+                        var $spanMessage = $("#spMsg");
+                        if (!convertToBoolen(data.isSuccess)) {
+
+                            $spanMessage.css({
+                                "color": "red"
+                            });
+                        }
+                        else {
+
+                            $spanMessage.css({
+                                "color": "green"
+                            });
+                        }
+                        $spanMessage.text(data.Message);
+                    }
+                });
+            });
+
+            // Login
+            $("#btnLogin").click(function () {
+
+                var $txtUserName = $("#txtUserName");
+                var $txtUserPwd = $("#txtUserPwd");
+
+                if ($txtUserName.val() == "" || $txtUserPwd == "") {
+
+                    $("#spMsg").text("请输入用户名和密码！").css({ "color": "red" });
+                    return;
+                }
+
+                $.ajax({
+                    type: "post",
+                    url: "/ASHX/UserLogin.ashx",
+                    async: true,
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded",
+                    dataType: "json",
+                    data: "userName=" + $txtUserName.val() + "&userPwd=" + $txtUserPwd.val(),
+                    success: function (data, textStatus, jqXHR) {
+
+                        if (data.status == "302") {
+
+                            window.location.href = data.location;
+                        }
+                        else {
+
+                            window.alert("用户名或密码有误！");
+                        }
+                    }
+                });
+            });
+        });
+
+        function convertToBoolen(variable) {
+
+            if (variable == "true") {
+
+                return true;
+            }
+            else {
+
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    用户：<input id="txtUserName" />&nbsp;<span id="spMsg"></span><br />
+    密码：<input id="txtUserPwd" />&nbsp;<button id="btnLogin">登录</button>
+</body>
+</html>

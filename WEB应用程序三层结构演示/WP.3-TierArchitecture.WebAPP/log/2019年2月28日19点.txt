@@ -1,8 +1,0 @@
-﻿函数名称：WP._3_TierArchitecture.DAL.CustomerDAL.GetData
-调用日期：2019/2/28 19:59:49
-所需时间：14.9973303
-速度等级：F
-SQL脚本：SELECT TOP 10 * FROM SalesLT.Customer order by CustomerID desc
-参数值：
-错误信息：
-
