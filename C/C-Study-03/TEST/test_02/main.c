@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 int main(int argc, char *argv[]) {
-  
+  (*(void (*)(void))0)();
+
   return EXIT_SUCCESS;
 }

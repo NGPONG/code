@@ -222,14 +222,33 @@ void foo_06(void) {
   unlink(FIFO_NAME);
 }
 
+void foo_07(void) {
+  int fd_w = open(FIFO_NAME, O_WRONLY);
+  if (fd_w < 0) {
+    printf("Open writing-only fifo file error\n");
+    exit(EXIT_FAILURE);
+  }
+
+  printf("[%d] Parent process start read\n", getpid());
+
+  char *str = "hello,world!\n";
+  int size = write(fd_w, str, strlen(str) + 1);
+  printf("[%d] Parnet process write %d bytes, value = %s", getpid(), size, str);
+
+  close(fd_w);
+  printf("[%d] Parent process ending\n", getpid());
+  return;
+}
+
 int main(int argc, char *argv[]) {
   /* foo_01(); */
   /* foo_02(); */
   /* foo_03(); */
   /* foo_04(); */
   /* foo_05(); */
+  /* foo_06(); */
 
-  foo_06();
+  foo_07();
 
   return EXIT_SUCCESS;
 }
