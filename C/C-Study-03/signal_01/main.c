@@ -117,13 +117,18 @@ void foo_06(void) {
   printf("process exit!\n");
 }
 
+void foo_07(void) {
+  
+}
+
 int main(int argc, char *argv[]) {
   /* foo_01(); */
   /* foo_02(); */
   /* foo_03(); */
   /* foo_04(); */
   /* foo_05(); */
-  foo_06();
+  /* foo_06(); */
+  foo_07();
 
   printf("hello,world!\n");
 
