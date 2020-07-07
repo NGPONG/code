@@ -656,5 +656,6 @@ inoremap <silent><c-z> <Esc>:u<CR>i
 nnoremap <silent><c-z> u
 map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
+tnoremap <Esc> <C-\><C-n>
 
 "---------------------------------------------------------------------------------
