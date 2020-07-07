@@ -117,8 +117,25 @@ void foo_06(void) {
   printf("process exit!\n");
 }
 
+void foo_06_SIGINT(int sig) {
+  printf("SIGINT 信号处理开始执行，睡眠 20s\n");
+  sleep(30);
+  printf("SIGINT 信号处理执行完毕\n");
+}
+void foo_06_SIGUSR1(int sig) {
+  printf("SIGUSR1 开始执行\n");
+  printf("SIGUSR1 执行完毕\n");
+  exit(EXIT_SUCCESS);
+}
 void foo_07(void) {
-  
+  signal(SIGINT, foo_06_SIGINT);
+  signal(SIGPIPE,foo_06_SIGUSR1);
+
+  int idx = 0;
+  while (true) {
+    printf("[%d] process running value = %d\n", getpid(), ++idx);
+    sleep(1);
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -128,9 +145,8 @@ int main(int argc, char *argv[]) {
   /* foo_04(); */
   /* foo_05(); */
   /* foo_06(); */
-  foo_07();
 
-  printf("hello,world!\n");
+  foo_07();
 
   return EXIT_SUCCESS;
 }

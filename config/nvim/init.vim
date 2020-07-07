@@ -19,6 +19,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  "Plug 'bronson/vim-trailing-whitespace'
  Plug 'preservim/nerdcommenter'
  Plug 'Yggdroot/indentLine'
+ "Plug 'lyokha/vim-xkbswitch'
 
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
@@ -224,7 +225,7 @@ let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_italic = 1
 let g:gruvbox_bold = 1
-let g:gruvbox_italicize_strings = 1
+let g:gruvbox_italicize_strings = 0
 let g:gruvbox_italicize_comments = 1
 let g:gruvbox_improved_strings = 0
 colorscheme gruvbox
@@ -235,7 +236,6 @@ set background=dark
 
 " air_line() {
 
-let g:airline_powerline_fonts = 0
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled = 1
@@ -656,5 +656,7 @@ inoremap <silent><c-z> <Esc>:u<CR>i
 nnoremap <silent><c-z> u
 map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
+inoremap <C-Space> <Nop>
+nnoremap <C-Space> <Nop>
 
 "---------------------------------------------------------------------------------

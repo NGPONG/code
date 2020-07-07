@@ -23,6 +23,7 @@ void foo_01(void) {
     perror("memory map error");
     return;
   }
+  
   close(fd);
 
   int pid = fork();
@@ -59,6 +60,7 @@ void foo_01(void) {
   }
 }
 
+/* 内存共享映射区 */
 void foo_02(void) {
   void *addr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
   if (addr == MAP_FAILED) {
