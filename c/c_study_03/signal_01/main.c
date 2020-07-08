@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <sys/wait.h>
 #include <sys/time.h>
+#include <signal.h>
 
 void sig_handler(int _sig) {
   printf("[%d] Delivered signal: %d\n", getpid(), _sig);
@@ -117,23 +118,36 @@ void foo_06(void) {
   printf("process exit!\n");
 }
 
-void foo_06_SIGINT(int sig) {
-  printf("SIGINT 信号处理开始执行，睡眠 20s\n");
-  sleep(30);
-  printf("SIGINT 信号处理执行完毕\n");
+void foo_07_SIGINIT(int _sig) {
+  printf("SIGINIT START\n");
+  sleep(1024);
+  printf("SIGINIT EXECUTED\n");
 }
-void foo_06_SIGUSR1(int sig) {
-  printf("SIGUSR1 开始执行\n");
-  printf("SIGUSR1 执行完毕\n");
-  exit(EXIT_SUCCESS);
+void foo_07_SIGUSER(int _sig) {
+  printf("SIGUSER2 START\n");
+  sleep(2);
+  printf("SIGUSER2 EXECUTED\n");
+}
+void foo_07_SIGARM(int _sig) {
+  printf("SIGARM START\n");
+  printf("SIGARM EXECUTED\n");
 }
 void foo_07(void) {
-  signal(SIGINT, foo_06_SIGINT);
-  signal(SIGPIPE,foo_06_SIGUSR1);
+  signal(SIGINT, foo_07_SIGINIT);
+  signal(SIGALRM,foo_07_SIGARM);
+  
+  /* ignore SIGUSR2 signal */
+  struct sigaction action;
+  action.sa_handler = SIG_IGN;
+  sigemptyset(&action.sa_mask);
+  action.sa_flags = 0;
+  sigaction(SIGUSR2,&action,NULL);
+
+  signal(SIGUSR2, foo_07_SIGUSER);
 
   int idx = 0;
   while (true) {
-    printf("[%d] process running value = %d\n", getpid(), ++idx);
+    printf("[%d] executed %d times\n", getpid(), ++idx);
     sleep(1);
   }
 }
