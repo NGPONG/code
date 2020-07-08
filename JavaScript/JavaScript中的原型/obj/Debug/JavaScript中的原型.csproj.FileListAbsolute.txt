@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\JavaScript\JavaScript中的原型\bin\JavaScript中的原型.dll.config
-C:\Users\Administrator\Desktop\源码\JavaScript\JavaScript中的原型\bin\JavaScript中的原型.dll
-C:\Users\Administrator\Desktop\源码\JavaScript\JavaScript中的原型\bin\JavaScript中的原型.pdb
-C:\Users\Administrator\Desktop\源码\JavaScript\JavaScript中的原型\obj\Debug\JavaScript中的原型.dll
-C:\Users\Administrator\Desktop\源码\JavaScript\JavaScript中的原型\obj\Debug\JavaScript中的原型.pdb
-C:\Users\Administrator\Desktop\源码\JavaScript\JavaScript中的原型\obj\Debug\JavaScript中的原型.csprojResolveAssemblyReference.cache

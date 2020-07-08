@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\JavaScript\闭包和作用域链\bin\闭包和作用域链.dll.config
-C:\Users\Administrator\Desktop\源码\JavaScript\闭包和作用域链\bin\闭包和作用域链.dll
-C:\Users\Administrator\Desktop\源码\JavaScript\闭包和作用域链\bin\闭包和作用域链.pdb
-C:\Users\Administrator\Desktop\源码\JavaScript\闭包和作用域链\obj\Debug\闭包和作用域链.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\JavaScript\闭包和作用域链\obj\Debug\闭包和作用域链.dll
-C:\Users\Administrator\Desktop\源码\JavaScript\闭包和作用域链\obj\Debug\闭包和作用域链.pdb

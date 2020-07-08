@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        var str = "123123";
+        var regExp = /\d/g; // 全局模式
+
+        while (true)
+        {
+            // 全局模式下，每执行一次exec()函数，所获取的结果都不同，通过循环获取正则匹配的所有结果
+            var result = regExp.exec(str);  // 通过该数组名获取匹配结果
+            var result = regExp.exec(str); // 通过该数组的第一个元素获取匹配的结果
+            if (result == null)
+            {
+                break;
+            }
+            document.write(result);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

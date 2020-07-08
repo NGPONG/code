@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        window.onload = function () {
+
+            document.getElementById("btnDemo").onclick = function () {
+
+                window.alert(this.id);
+            }
+            window.value = "123";
+
+            var demo = document.getElementById("btnDemo").onclick;
+            demo();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btnDemo"/>
+</body>
+</html>

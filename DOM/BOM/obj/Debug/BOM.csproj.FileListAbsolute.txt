@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\DOM\BOM\bin\BOM.dll.config
-C:\Users\Administrator\Desktop\源码\DOM\BOM\bin\BOM.dll
-C:\Users\Administrator\Desktop\源码\DOM\BOM\bin\BOM.pdb
-C:\Users\Administrator\Desktop\源码\DOM\BOM\obj\Debug\BOM.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\DOM\BOM\obj\Debug\BOM.dll
-C:\Users\Administrator\Desktop\源码\DOM\BOM\obj\Debug\BOM.pdb

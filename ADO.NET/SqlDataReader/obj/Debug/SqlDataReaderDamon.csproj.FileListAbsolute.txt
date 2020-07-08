@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\SqlDataReader\bin\Debug\SqlDataReader.exe.config
-C:\Users\Administrator\Desktop\源码\ADO.NET\SqlDataReader\bin\Debug\SqlDataReader.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\SqlDataReader\bin\Debug\SqlDataReader.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\SqlDataReader\obj\Debug\SqlDataReaderDamon.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\SqlDataReader\obj\Debug\SqlDataReader.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\SqlDataReader\obj\Debug\SqlDataReader.pdb

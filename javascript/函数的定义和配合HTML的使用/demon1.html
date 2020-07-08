@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function GetDateTime( )
+        {
+            var date = new Date();
+            alert(date.toLocaleString());
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="点击按钮显示时间" onclick="GetDateTime();"> <!--点击按钮显示时间-->
+
+    <a href="#" onclick="GetDateTime();">点击超链接显示时间</a>  <!--点击超链接显示时间-->
+
+    <img src="images/timg.jpg" onclick="GetDateTime()"/>    <!--点击图片显示时间-->
+</body>
+</html>

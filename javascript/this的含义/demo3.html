@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        var id = 30;
+
+        function Demo(fn)
+        {
+            this.id = 10;
+            this.fun = fn;
+            this.showId = function () {
+
+                window.alert(this.id);
+                this.fun();
+                fn();
+            }
+        }
+
+        function Demo2()
+        {
+            this.id = 20;
+            this.fun = function () {
+
+                window.alert(this.id);
+            }
+        }
+        var de2 = new Demo2();
+        de2.fun();
+        var de = new Demo(de2.fun);
+        
+        de.showId();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

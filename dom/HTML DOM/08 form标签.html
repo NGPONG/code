@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        window.onload = function () {
+
+            var frmElement = document.getElementById("frmDemo");
+            frmElement.onsubmit = function () {
+
+                window.alert("点击submit提交按钮后，把数据提交至服务器前，会执行我哟");
+                return false; // 返回false的时候，不会进行页面的跳转，也就是不会把数据提交至服务器
+            }
+        }
+    </script>
+
+    <script>
+        window.onload = function () {
+
+            var frmElement = document.getElementById("frmDemo"); // 获取form标签的HTML 标签对象
+            var submitElement = document.getElementById("btnSubmit"); // 获取submit提交按钮的HTML 标签对象
+            var btnElement = document.getElementById("btnDemo"); // 获取btn按钮标签的HTML 标签对象
+
+            frmElement.onsubmit = function () {
+
+                window.alert("哈哈哈");
+            }
+
+            btnElement.onclick = function () {
+
+                // 通过这种方式我们可以通过不点击submit按钮也可以在其他地方动态的把form标签里的数据提交至服务器
+                // 但是提交至服务器前，是不会执行 onsubmit 函数
+                frmElement.submit();
+            }
+
+            btnElement.onclick = function () {
+
+                // 通过调用submit提交按钮标签对象的onclik函数
+                // 我们就能够在其他地方完整的再现 当点击submit提交按钮后的所有功能
+                submitElement.click();
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form action="demo.html" id="frmDemo">
+        <input type="submit" value="提交" id="btnSubmit"/>
+        <input type="button" value="按钮" id="btnDemo" />
+    </form>
+</body>
+</html>
