@@ -54,12 +54,23 @@ void foo_03(void) {
   }
 }
 
+void foo_04(void) {
+  sigset_t mask;
+  sigemptyset(&mask);
+
+  sigaddset(&mask, SIGINT);
+
+  sigprocmask(SIG_BLOCK, &mask, NULL);
+
+  struct sigaction act;
+}
 
 
 int main(int argc, char *argv[]) {
   /* foo_01(); */
+  /* foo_03(); */
 
-  foo_03();
+  foo_04();
 
   return EXIT_SUCCESS;
 }
