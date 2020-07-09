@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        function Addition(numOne, numTwo)
+        {
+            this.result = Number(numOne) + Number(numTwo);
+        }
+
+        function Subtraction(numOne, numTwo)
+        {
+            this.result = Number(numOne) - Number(numTwo);
+        }
+
+        function Multiplication(numOne, numTwo)
+        {
+            this.result = Number(numOne) * Number(numTwo);
+        }
+
+        function Divide(numOne, numTwo)
+        {
+            this.result = Number(numOne) / Number(numTwo);
+        }
+
+        window.onload = function (){
+            document.getElementById("btnAmount").onclick = function () {
+                var numOne = document.getElementById("txtNumOne").value;
+                var numTwo = document.getElementById("txtNumTwo").value;
+                var sesOperator = document.getElementById("operator").value;
+
+                var operatorClass;
+                switch (sesOperator)
+                {
+                    case "+":
+                        operatorClass = new Addition(numOne, numTwo);
+                        break;
+                    case "-":
+                        operatorClass = new Subtraction(numOne, numTwo);
+                        break;
+                    case "*":
+                        operatorClass = new Multiplication(numOne, numTwo);
+                        break;
+                    case "/":
+                        operatorClass = new Divide(numOne, numTwo);
+                    default:
+                        break;
+                }
+
+                if (operatorClass != null)
+                {
+                    document.getElementById("txtAmount").value = operatorClass.result;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtNumOne" size="1"/>
+    <select size="1" id="operator">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="text" id="txtNumTwo" size="1"/>
+    <input type="button" id="btnAmount" value="="/>
+    <input type="text" id="txtAmount" size="1"/>
+    <script>
+    </script>
+</body>
+</html>

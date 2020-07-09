@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\JavaScript\this的含义\bin\this的含义.dll.config
-C:\Users\Administrator\Desktop\源码\JavaScript\this的含义\bin\this的含义.dll
-C:\Users\Administrator\Desktop\源码\JavaScript\this的含义\bin\this的含义.pdb
-C:\Users\Administrator\Desktop\源码\JavaScript\this的含义\obj\Debug\this的含义.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\JavaScript\this的含义\obj\Debug\this的含义.dll
-C:\Users\Administrator\Desktop\源码\JavaScript\this的含义\obj\Debug\this的含义.pdb

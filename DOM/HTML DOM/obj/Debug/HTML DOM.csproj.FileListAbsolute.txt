@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\DOM\HTML DOM\bin\HTML DOM.dll.config
-C:\Users\Administrator\Desktop\源码\DOM\HTML DOM\bin\HTML DOM.dll
-C:\Users\Administrator\Desktop\源码\DOM\HTML DOM\bin\HTML DOM.pdb
-C:\Users\Administrator\Desktop\源码\DOM\HTML DOM\obj\Debug\HTML DOM.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\DOM\HTML DOM\obj\Debug\HTML DOM.dll
-C:\Users\Administrator\Desktop\源码\DOM\HTML DOM\obj\Debug\HTML DOM.pdb

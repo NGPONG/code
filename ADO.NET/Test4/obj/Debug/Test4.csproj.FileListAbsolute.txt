@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test4\bin\Debug\Test4.exe.config
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test4\obj\Debug\Test4.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test4\bin\Debug\Test4.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test4\bin\Debug\Test4.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test4\obj\Debug\Test4.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test4\obj\Debug\Test4.pdb

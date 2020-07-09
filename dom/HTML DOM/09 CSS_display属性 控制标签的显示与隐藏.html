@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        div {
+            height:300px;
+            width:300px;
+            position:absolute;
+            background-color:yellow;
+            border:solid;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+                
+            var btnElement = document.getElementById("btnShow");
+            var divElement = document.getElementsByTagName("div")[0];
+            btnElement.onclick = function () {
+
+                if (this.value == "隐藏")
+                {
+                    this.value = "显示";
+                    divElement.style.display = "none";
+                }
+                else
+                {
+                    this.value = "隐藏"
+                    divElement.style.display = "block";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btnShow" value="隐藏"/>
+    <div>
+
+    </div>
+</body>
+</html>

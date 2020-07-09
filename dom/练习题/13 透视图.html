@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+        var divFatherElement;
+
+        window.onload = function () {
+
+            divFatherElement = document.getElementById("divDemo");
+            var height = 960;
+            var width = 960;
+
+            do
+            {
+                height -= 15;
+                width -= 15;
+                var divElement = document.createElement("div");
+                divElement.style.height = height.toString() + "px";
+                divElement.style.width = width.toString() + "px";
+                divElement.style.border = "solid";
+                divElement.style.padding = "5px";
+                divFatherElement.appendChild(divElement);
+                divFatherElement = divElement;
+            }
+            while (height >= 15 || height >= 15);
+        }
+        
+    </script>
+</head>
+<body>
+    <div style="border:solid;height:960px;width:960px;padding:5px;" id="divDemo">
+    </div>
+</body>
+</html>

@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用自定义函数\bin\Debug\ADO.NET中调用自定义函数.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用自定义函数\bin\Debug\ADO.NET中调用自定义函数.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用自定义函数\obj\Debug\ADO.NET中调用自定义函数.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用自定义函数\obj\Debug\ADO.NET中调用自定义函数.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\ADO.NET中调用自定义函数\obj\Debug\ADO.NET中调用自定义函数.pdb

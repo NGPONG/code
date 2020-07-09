@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataSet和DataTable的damo\bin\Debug\DataSet和DataTable的damo.exe.config
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataSet和DataTable的damo\bin\Debug\DataSet和DataTable的damo.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataSet和DataTable的damo\bin\Debug\DataSet和DataTable的damo.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataSet和DataTable的damo\obj\Debug\DataSet和DataTable的damo.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataSet和DataTable的damo\obj\Debug\DataSet和DataTable的damo.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataSet和DataTable的damo\obj\Debug\DataSet和DataTable的damo.pdb

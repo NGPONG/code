@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script>
+
+        // 设置定时器
+        var intervalled = setInterval("document.write(1)", 100);
+
+        // 通过setInterval()定时器的返回值来取消定时器的执行
+        clearInterval(intervalled);
+
+    </script>
+
+    <script>
+
+        // 设置延时器
+        var intervalled = setTimeout(f, 500);
+
+        // 通过setTimeout()延时器的返回值来取消指定延时器的执行
+        clearInterval(intervalled);
+
+        function f()
+        {
+            document.write(1);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -8,8 +8,9 @@ call plug#begin('~/.local/share/nvim/plugged')
  "Plug 'rakr/vim-one'
  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
  "Plug 'ayu-theme/ayu-vim'
- "Plug 'morhetz/gruvbox'
- Plug 'srcery-colors/srcery-vim'
+ Plug 'morhetz/gruvbox'
+ "Plug 'srcery-colors/srcery-vim'
+ "Plug 'dunstontc/vim-vscode-theme'
 
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -18,6 +19,7 @@ call plug#begin('~/.local/share/nvim/plugged')
  "Plug 'bronson/vim-trailing-whitespace'
  Plug 'preservim/nerdcommenter'
  Plug 'Yggdroot/indentLine'
+ "Plug 'lyokha/vim-xkbswitch'
 
  " Intelligent
  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
@@ -213,7 +215,13 @@ set updatetime=100
 "            let g:one_allow_italics = 1; " may be dont support
 "       2/1: onehalfdark
 "            onehalflight
-"   gruvbox: let g:gruvbox_sign_column = 'bg0'
+"   gruvbox: let g:gruvbox_contrast_dark = 'medium'
+"            let g:gruvbox_sign_column = 'bg0'
+"            let g:gruvbox_italic = 1
+"            let g:gruvbox_bold = 1
+"            let g:gruvbox_italicize_strings = 0
+"            let g:gruvbox_italicize_comments = 1
+"            let g:gruvbox_improved_strings = 0
 "            gruvbox 
 "            set background=dark
 "let g:gruvbox_sign_column = 'bg0'
@@ -227,7 +235,6 @@ colorscheme codedark
 
 " air_line() {
 
-let g:airline_powerline_fonts = 0
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#enabled = 1
@@ -648,5 +655,9 @@ inoremap <silent><c-z> <Esc>:u<CR>i
 nnoremap <silent><c-z> u
 map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
+inoremap <C-Space> <Nop>
+nnoremap <C-Space> <Nop>
+
+tnoremap <Esc> <C-\><C-n>
 
 "---------------------------------------------------------------------------------

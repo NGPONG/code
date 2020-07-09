@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\bin\Debug\连接字符串创建器.exe.config
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\bin\Debug\连接字符串创建器.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\bin\Debug\连接字符串创建器.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\obj\Debug\连接字符串创建器.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\obj\Debug\连接字符串创建器.Form1.resources
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\obj\Debug\连接字符串创建器.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\obj\Debug\连接字符串创建器.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\obj\Debug\连接字符串创建器.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\连接字符串创建器\obj\Debug\连接字符串创建器.pdb

@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test2\bin\Debug\Test2.exe.config
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test2\bin\Debug\Test2.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test2\bin\Debug\Test2.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test2\obj\Debug\Test2.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test2\obj\Debug\Test2.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\Test2\obj\Debug\Test2.pdb

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <span id="spanDemo">标签中的文本内容</span>
+
+    <script>
+        var element = document.getElementById("spanDemo"); // 通过document对象获取HTML标签对象
+
+        window.alert(element.innerText); // innerText：获取当前标签内部的文本内容
+        window.alert(element.textContent); // textContent：获取当前标签内部的文本内容（火狐浏览器只支持这种方式）
+    </script>
+
+    <div id="divDemo">
+        <span>哈哈哈哈</span>
+    </div>
+
+    <script>
+        var divElement = document.getElementById("divDemo"); // 通过document对象获取HTML标签对象
+        window.alert(divElement.innerHTML); // InnerHTML：获取当前标签内部的 标签文本+普通文本
+    </script>
+</body>
+</html>

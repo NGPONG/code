@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\bin\Debug\DataGuridView.exe.config
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\bin\Debug\DataGuridView.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\bin\Debug\DataGuridView.pdb
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\obj\Debug\DataGuridView.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\obj\Debug\DataGuridView.Form1.resources
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\obj\Debug\DataGuridView.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\obj\Debug\DataGuridView.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\obj\Debug\DataGuridView.exe
-C:\Users\Administrator\Desktop\源码\ADO.NET\DataGuridView\obj\Debug\DataGuridView.pdb
