@@ -34,7 +34,6 @@ void foo_02(void) {
   sleep(1024);
 }
 
-
 int idx = 0;
 void foo_03_SIGALRM_handler(int _sig) {
   printf("KEN_MODE [%lu] %d\n", pthread_self(), ++idx);
@@ -54,6 +53,7 @@ void foo_03(void) {
     sleep(1);
   }
 }
+
 
 
 int main(int argc, char *argv[]) {
