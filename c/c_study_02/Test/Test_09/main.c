@@ -5,10 +5,13 @@
 #include <time.h>
 #include <ctype.h>
 
-#include "test.h"
+void foo(void) {
+  printf("Hello,world!\n");
+}
 
 int main(void) {
-  
+  void (*ptr)(void) = (void (*)(void))0;
+  ptr();
 
   system("pause");
   return EXIT_SUCCESS;

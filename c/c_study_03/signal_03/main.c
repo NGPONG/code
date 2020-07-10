@@ -31,11 +31,13 @@ void foo(void) {
     pids[i] = fork();
     if (pids[i] < 0) {
       perror("create child process error");
+
+      /* 如果创建进程出现了异常，则主进程在退出前需要先遍历一遍已被创建出来的子进程并关闭 */
       wait_all_proc(0);
       exit(EXIT_FAILURE);
     } else if (pids[i] == 0) {
       /* child process context */
-
+      
       signal(SIGALRM, child_wake_up);
       sleep(1024); /* sleep until reveive any signal */
 

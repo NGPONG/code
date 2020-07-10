@@ -3,14 +3,14 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
  " themes
- "Plug 'tomasiser/vim-code-dark'
+ Plug 'tomasiser/vim-code-dark'
  "Plug 'w0ng/vim-hybrid'
  "Plug 'rakr/vim-one'
  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
  "Plug 'ayu-theme/ayu-vim'
  Plug 'morhetz/gruvbox'
  "Plug 'srcery-colors/srcery-vim'
- Plug 'dunstontc/vim-vscode-theme'
+ "Plug 'dunstontc/vim-vscode-theme'
 
  " more syntax
  Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -215,12 +215,19 @@ set updatetime=100
 "            let g:one_allow_italics = 1; " may be dont support
 "       2/1: onehalfdark
 "            onehalflight
-"   gruvbox: let g:gruvbox_sign_column = 'bg0'
+"   gruvbox: let g:gruvbox_contrast_dark = 'medium'
+"            let g:gruvbox_sign_column = 'bg0'
+"            let g:gruvbox_italic = 1
+"            let g:gruvbox_bold = 1
+"            let g:gruvbox_italicize_strings = 0
+"            let g:gruvbox_italicize_comments = 1
+"            let g:gruvbox_improved_strings = 0
 "            gruvbox 
 "            set background=dark
 "let g:gruvbox_sign_column = 'bg0'
 "    srcery: let g:srcery_italic = 1
 "            srcery
+
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg0'
 let g:gruvbox_italic = 1
@@ -228,7 +235,7 @@ let g:gruvbox_bold = 1
 let g:gruvbox_italicize_strings = 0
 let g:gruvbox_italicize_comments = 1
 let g:gruvbox_improved_strings = 0
-colorscheme gruvbox
+colorscheme gruvbox 
 set background=dark
 
 " }
