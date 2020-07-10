@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-void foo(void) {
+void foo_01(void) {
   int s_pid = fork();
   if (s_pid == -1) {
     perror("create child process error");
@@ -32,7 +32,7 @@ void foo(void) {
         exit(EXIT_SUCCESS);
       } else if (pid > 0) {
         printf("[%d] Create child process [%d]\n", getpid(), pid);
-      }
+     }
     }
 
     while (true) {
@@ -48,8 +48,12 @@ void foo(void) {
   printf("Child process exit: %d\n",getpid());
 }
 
+void foo(void) {
+  
+}
+
 int main(int argc, char *argv[]) {
-  foo();
+  foo_01();
 
   return EXIT_SUCCESS;
 }
