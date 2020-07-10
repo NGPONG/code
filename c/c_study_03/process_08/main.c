@@ -18,8 +18,8 @@ void foo(void) {
       perror("create session error");
       exit(EXIT_FAILURE);
     }
-    
-    for (int i = 0; i < 3; ++i) {
+
+    for (int i = 0; i < 5; ++i) {
       int pid = fork();
       if (pid == 0) {
         int idx = 0;
@@ -27,13 +27,16 @@ void foo(void) {
           printf("[%d] Child process executing, value = %d\n", getpid(), idx);
           usleep(1000 * 1000);
         }
+
+        printf("Child process exit: %d\n",getpid());
+        exit(EXIT_SUCCESS);
       } else if (pid > 0) {
         printf("[%d] Create child process [%d]\n", getpid(), pid);
       }
+    }
 
-      while (true) {
-        usleep(1000 * 1000);
-      }
+    while (true) {
+      usleep(1000 * 1000);
     }
 
   } else {
@@ -41,9 +44,12 @@ void foo(void) {
     printf("[%d] Create child process [%d]\n", getpid(), s_pid);
     exit(EXIT_SUCCESS);
   }
+
+  printf("Child process exit: %d\n",getpid());
 }
 
 int main(int argc, char *argv[]) {
+  foo();
 
   return EXIT_SUCCESS;
 }

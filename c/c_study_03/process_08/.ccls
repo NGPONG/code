@@ -1,7 +1,7 @@
 clang
 %c -std=c11
 %cpp -std=c++2a
-%c -I/usr/lib/gcc/x86_64-linux-gnu/9/include/
+%c %cpp -I/usr/lib/gcc/x86_64-linux-gnu/9/include/
 %c %cpp -D_DEFAULT_SOURCE
 %c %cpp -pthread
 %h %hpp --include=Global.h
