@@ -22,12 +22,14 @@
     "defaults": {
       // Put settings here that you want to apply to all profiles.
       "useAcrylic": true,
+      "acrylicOpacity": 0.85,
+      "backgroundImageOpacity" : 1,
       "cursorShape": "filledBox",
-      "fontFace": "FiraCode NF",
-      "colorScheme": "Snazzy",
+      "fontFace": "FuraCode Nerd Font",
+      "fontSize": 14,
+      "colorScheme": "Campbell",
       "historySize" : 9001,
       "closeOnExit" : true,
-      "acrylicOpacity": 0.85,
       "padding" : "0, 0, 0, 0",
       "snapOnInput" : true
     },
@@ -59,33 +61,19 @@
         "hidden": false,
         "name": "Azure Cloud Shell",
         "source": "Windows.Terminal.Azure"
+      },
+      {
+        // Make changes here to the powershell.exe profile.
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "commandline": "powershell.exe",
+        "hidden": true
       }
     ]
   },
   // Add custom color schemes to this array.
   // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
   "schemes": [
-    {
-      "name": "Snazzy",
-      "black": "#000000",
-      "red": "#fc4346",
-      "green": "#50fb7c",
-      "yellow": "#f0fb8c",
-      "blue": "#49baff",
-      "purple": "#fc4cb4",
-      "cyan": "#8be9fe",
-      "white": "#ededec",
-      "brightBlack": "#555555",
-      "brightRed": "#fc4346",
-      "brightGreen": "#50fb7c",
-      "brightYellow": "#f0fb8c",
-      "brightBlue": "#49baff",
-      "brightPurple": "#fc4cb4",
-      "brightCyan": "#8be9fe",
-      "brightWhite": "#ededec",
-      "background": "#1e1f29",
-      "foreground": "#ebece6"
-    },
     {
       "name": "Ubuntu",
       "black": "#2e3436",
@@ -105,7 +93,7 @@
       "brightCyan": "#34e2e2",
       "brightWhite": "#eeeeec",
       "background": "#300a24",
-      "foreground": "#eeeeec"
+      "foreground": "#ffffff"
     },
     {
       "name": "Gruvbox",
@@ -129,25 +117,48 @@
       "foreground": "#e6d4a3"
     },
     {
-      "name": "Nord",
-      "background": "#2e3440",
-      "foreground": "#eceff4",
-      "brightBlack": "#2e3440",
-      "brightBlue": "#5e81ac",
-      "brightCyan": "#8fbcbb",
-      "brightGreen": "#a3be8c",
-      "brightPurple": "#b48ead",
-      "brightRed": "#bf616a",
-      "brightWhite": "#eceff4",
-      "brightYellow": "#ebcb8b",
-      "black": "#2e3440",
-      "blue": "#5e81ac",
-      "cyan": "#8fbcbb",
-      "green": "#a3be8c",
-      "purple": "#b48ead",
-      "red": "#bf616a",
-      "white": "#eceff4",
-      "yellow": "#ebcb8b"
+      "name": "Argonaut",
+      "black": "#232323",
+      "red": "#ff000f",
+      "green": "#8ce10b",
+      "yellow": "#ffb900",
+      "blue": "#008df8",
+      "purple": "#6d43a6",
+      "cyan": "#00d8eb",
+      "white": "#ffffff",
+      "brightBlack": "#444444",
+      "brightRed": "#ff2740",
+      "brightGreen": "#abe15b",
+      "brightYellow": "#ffd242",
+      "brightBlue": "#0092ff",
+      "brightPurple": "#9a5feb",
+      "brightCyan": "#67fff0",
+      "brightWhite": "#ffffff",
+      "background": "#0e1019",
+      "foreground": "#ffffff"
+    },
+    {
+      "name" : "Campbell",
+      "cursorColor": "#FFFFFF",
+      "selectionBackground": "#FFFFFF",
+      "background" : "#0C0C0C",
+      "foreground" : "#ffffff",
+      "black" : "#0C0C0C",
+      "blue" : "#0037DA",
+      "cyan" : "#3A96DD",
+      "green" : "#13A10E",
+      "purple" : "#881798",
+      "red" : "#C50F1F",
+      "white" : "#CCCCCC",
+      "yellow" : "#C19C00",
+      "brightBlack" : "#767676",
+      "brightBlue" : "#3B78FF",
+      "brightCyan" : "#61D6D6",
+      "brightGreen" : "#16C60C",
+      "brightPurple" : "#B4009E",
+      "brightRed" : "#E74856",
+      "brightWhite" : "#F2F2F2",
+      "brightYellow" : "#F9F1A5"
     }
   ],
   // Add custom keybindings to this array.
@@ -162,6 +173,22 @@
     {
       "command": "find",
       "keys": "ctrl+shift+f"
+    },
+    { 
+      "command": "scrollDown",
+      "keys": "shift+alt+down"
+    },
+    { 
+      "command": "scrollUp",
+      "keys": "shift+alt+up"
+    },
+    { 
+      "command": "scrollUpPage",
+      "keys": "shift+alt+pgup"
+    },
+    { 
+      "command": "scrollDownPage",
+      "keys": "shift+alt+pgdn"
     },
     // Press Alt+Shift+D to open a new pane.
     // - "split": "auto" makes this pane open in the direction that provides the most surface area.
