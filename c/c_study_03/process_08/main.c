@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     int idx = 0;
     while ((++idx) < 0x400) {
       printf("child executeing %d\n", idx);
-      sleep(1);
+      usleep(1000 * 1000);
     }
 
     exit(EXIT_SUCCESS);
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
   int idx = 0;
   while ((++idx) < 5) {
     printf("parent executeing %d\n",idx);
-    sleep(1);
+    usleep(1000 * 1000);
   }
 
   return EXIT_SUCCESS;
