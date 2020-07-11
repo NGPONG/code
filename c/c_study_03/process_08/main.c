@@ -54,7 +54,7 @@ void foo_01(void) {
 }
 
 void handler(int _sig) {
-  int fd_w = open("./log", O_WRONLY | O_APPEND, 0644);
+  int fd_w = open("./log", O_WRONLY | O_CREAT | O_APPEND, 0644);
   if (fd_w < 0) {
     perror("open file error");
     exit(EXIT_FAILURE);
@@ -68,7 +68,7 @@ void handler(int _sig) {
   }
   memset(buff, 0x0, 32);
 
-  sprintf(buff, "%d\n", ++idx);
+  sprintf(buff, "[%d]\n", ++idx);
 
   /* strlen(xx) + 1 means ensure writed full bytes('\0') */
   write(fd_w, buff, strlen(buff) + 1);
@@ -83,7 +83,7 @@ void foo(void) {
     exit(EXIT_FAILURE);
   } else if (pid == 0) {
     /* Improve child process to be session leader. */
-    int sid = setsid();
+    /* int sid = setsid(); */
     /* Reset file mask */
     umask(0000);
     /* Registered a clock */
@@ -105,29 +105,7 @@ void foo(void) {
 
 int main(int argc, char *argv[]) {
   /* foo_01(); */
-  /* foo(); */
-  int fd_w = open("./log", O_CREAT | O_APPEND | O_EXCL, 0644);
-  if (fd_w < 0) {
-    perror("open file error");
-    exit(EXIT_FAILURE);
-  }
-
-  static int idx = 0;
-  char *buff = malloc(sizeof(32));
-  if (buff == NULL) {
-    perror("memory error");
-    exit(EXIT_FAILURE); /* 等下试试这玩意 */
-  }
-  memset(buff, 0x0, 32);
-
-  sprintf(buff, "%d\n", ++idx);
-
-  /* strlen(xx) + 1 means ensure writed full bytes('\0') */
-  write(fd_w, buff, strlen(buff) + 1);
-
-  free(buff);
-  close(fd_w);
+  foo();
   
-  printf("OK");
   return EXIT_SUCCESS;
 }
