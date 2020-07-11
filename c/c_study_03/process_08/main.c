@@ -105,28 +105,29 @@ void foo(void) {
 
 int main(int argc, char *argv[]) {
   /* foo_01(); */
-  foo();
- // int fd_w = open("./log", O_CREAT | O_APPEND | O_EXCL, 0644);
- // if (fd_w < 0) {
- //   perror("open file error");
- //   exit(EXIT_FAILURE);
- // }
+  /* foo(); */
+  int fd_w = open("./log", O_CREAT | O_APPEND | O_EXCL, 0644);
+  if (fd_w < 0) {
+    perror("open file error");
+    exit(EXIT_FAILURE);
+  }
 
- // static int idx = 0;
- // char *buff = malloc(sizeof(32));
- // if (buff == NULL) {
- //   perror("memory error");
- //   exit(EXIT_FAILURE); /* 等下试试这玩意 */
- // }
- // memset(buff, 0x0, 32);
+  static int idx = 0;
+  char *buff = malloc(sizeof(32));
+  if (buff == NULL) {
+    perror("memory error");
+    exit(EXIT_FAILURE); /* 等下试试这玩意 */
+  }
+  memset(buff, 0x0, 32);
 
- // sprintf(buff, "%d\n", ++idx);
+  sprintf(buff, "%d\n", ++idx);
 
- // /* strlen(xx) + 1 means ensure writed full bytes('\0') */
- // write(fd_w, buff, strlen(buff) + 1);
+  /* strlen(xx) + 1 means ensure writed full bytes('\0') */
+  write(fd_w, buff, strlen(buff) + 1);
 
- // free(buff);
- // close(fd_w);
-
+  free(buff);
+  close(fd_w);
+  
+  printf("OK");
   return EXIT_SUCCESS;
 }
