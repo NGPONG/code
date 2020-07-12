@@ -495,7 +495,7 @@ let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_DefaultMode = 'Fuzzy'
 function! Find_current()
   let g:Lf_PreviewInPopup = 0
-  execute 'Leaderf line --bottom'
+  execute 'Leaderf line --bottom --regexMode'
 endfunction
 function! Find_file()
   let g:Lf_PreviewInPopup = 1
@@ -567,7 +567,7 @@ endfunction
 autocmd User AsyncRunStop call s:open_coc_quickfix()
 let g:asyncrun_bell = 1
 
-nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
+nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -pthread -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
 
 function! Quick_run_program()
   silent execute "AsyncRun gcc -Wall -O0 -static-libgcc -std=c11 -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"

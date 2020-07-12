@@ -103,9 +103,29 @@ void foo(void) {
   }
 }
 
+void foo_02_handler(int _sig) {
+  printf("executed\n");
+}
+void foo_02(void) {
+  int pid = fork();
+  if (pid == 0) {
+    while (true) {
+      printf("child process\n");
+      sleep(1);
+    }
+  }
+
+  signal(SIGUSR2, foo_02_handler);
+  while (true) {
+    printf("parent process\n");
+    sleep(1);
+  }
+}
+
 int main(int argc, char *argv[]) {
   /* foo_01(); */
-  foo();
+  /* foo(); */
+  foo_02();
   
   return EXIT_SUCCESS;
 }
