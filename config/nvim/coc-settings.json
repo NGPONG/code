@@ -14,7 +14,7 @@
 
   // suggest
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.maxCompleteItemCount": 200,
+  "suggest.maxCompleteItemCount": 20,
   "suggest.enablePreselect": false,
   "suggest.enablePreview": true,
   "suggest.noselect": false,
