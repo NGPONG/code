@@ -2,52 +2,53 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
- " themes
- Plug 'tomasiser/vim-code-dark'
- "Plug 'w0ng/vim-hybrid'
- "Plug 'rakr/vim-one'
- "Plug 'sonph/onehalf', {'rtp': 'vim/'}
- "Plug 'ayu-theme/ayu-vim'
- Plug 'morhetz/gruvbox'
- "Plug 'srcery-colors/srcery-vim'
- "Plug 'dunstontc/vim-vscode-theme'
-
- " more syntax
- Plug 'jackguo380/vim-lsp-cxx-highlight'
-
- " common
- "Plug 'bronson/vim-trailing-whitespace'
- Plug 'preservim/nerdcommenter'
- Plug 'Yggdroot/indentLine'
- "Plug 'lyokha/vim-xkbswitch'
-
- " Intelligent
- Plug 'neoclide/coc.nvim', {'brnch': 'release'}
-
- " visual tree
- Plug 'preservim/nerdtree'
- Plug 'ryanoasis/vim-devicons'
- Plug 'Xuyuanp/nerdtree-git-plugin'
-
- " airline
- Plug 'vim-airline/vim-airline'
- Plug 'vim-airline/vim-airline-themes'
- 
- " lightline
- "Plug 'itchyny/lightline.vim'
- "Plug 'mengelbrecht/lightline-bufferline'
-
- " file
- Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-
- " debug
- Plug 'puremourning/vimspector'
-
- " git
- Plug 'airblade/vim-gitgutter'
-
- " async
- Plug 'skywind3000/asyncrun.vim'
+  " themes
+  Plug 'tomasiser/vim-code-dark'
+  "Plug 'w0ng/vim-hybrid'
+  "Plug 'rakr/vim-one'
+  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  "Plug 'ayu-theme/ayu-vim'
+  Plug 'morhetz/gruvbox'
+  "Plug 'srcery-colors/srcery-vim'
+  "Plug 'dunstontc/vim-vscode-theme'
+  
+  " more syntax
+  Plug 'jackguo380/vim-lsp-cxx-highlight'
+  
+  " common
+  "Plug 'bronson/vim-trailing-whitespace'
+  "Plug 'lyokha/vim-xkbswitch'
+  Plug 'preservim/nerdcommenter'
+  Plug 'Yggdroot/indentLine'
+  Plug 'luochen1990/rainbow'
+  
+  " Intelligent
+  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
+  
+  " visual tree
+  Plug 'preservim/nerdtree'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  
+  " airline
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  
+  " lightline
+  "Plug 'itchyny/lightline.vim'
+  "Plug 'mengelbrecht/lightline-bufferline'
+  
+  " file
+  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+  
+  " debug
+  Plug 'puremourning/vimspector'
+  
+  " git
+  Plug 'airblade/vim-gitgutter'
+  
+  " async
+  Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -598,6 +599,13 @@ let g:NERDUsePlaceHolders = 0
 
 let g:indentLine_char = '¦'
 autocmd Filetype json let g:indentLine_setConceal = 0
+
+" }
+
+
+" raninbow_backet() {
+
+let g:rainbow_active = 1
 
 " }
 
