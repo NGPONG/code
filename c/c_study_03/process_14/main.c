@@ -13,7 +13,7 @@ static sem_t sem_consumer;
 static char data[64] = { 0 };
 
 static void _init(void) {
-  sem_init(&sem_producer, 0, 2);
+  sem_init(&sem_producer, 0, 1);
   sem_init(&sem_consumer, 0, 0);
 }
 
@@ -27,9 +27,9 @@ void *producer_thread_start(void *_arg) {
 
   while (true) {
     sem_wait(&sem_producer); /* Start lock, sem-- */
-    int val = 0;
-    sem_getvalue(&sem_producer, &val);
-    printf("p = %d\n",val);
+    /* int val = 0;                       */
+    /* sem_getvalue(&sem_producer, &val); */
+    /* printf("p = %d\n",val);            */
 
     memset(data, 0x0, sizeof(data));
     sprintf(data, "%d\n", ++idx);
@@ -43,16 +43,16 @@ void *consumer_thread_start(void *_arg) {
   while (true) {
     /* 当 sem 执行前 == 0 或者本次操作后 == 0 则阻塞 */
     sem_wait(&sem_consumer); /* Start lock, sem-- */
-    int val = 0;
-    sem_getvalue(&sem_consumer, &val);
-    printf("c = %d\n",val);
+    /* int val = 0;                       */
+    /* sem_getvalue(&sem_consumer, &val); */
+    /* printf("c = %d\n",val);            */
 
     printf("%s", data);
     memset(data, 0x0, sizeof(data));
 
     sem_post(&sem_producer); /* End lock, sem++ */
 
-    sleep(1);
+    usleep(500 * 1000);
   }
 
   return NULL;
