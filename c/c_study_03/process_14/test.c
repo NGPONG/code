@@ -8,18 +8,19 @@
 
 void foo_01(void) {
   sem_t sem;
-  sem_init(&sem, 1, 0);
+  sem_init(&sem, 1, 1);
 
-  sem_post(&sem);
-  sem_post(&sem);
-  sem_post(&sem);
+  int val;
 
-  sem_wait(&sem);
-  printf("hello,");
-  fflush(stdout);
-  
-  
-  sem_wait(&sem);
+  sem_getvalue(&sem, &val);
+  printf("%d\n", val);
+
+  int ret = sem_trywait(&sem);
+  printf("[%d] %s\n", ret, strerror(ret));
+
+  sem_getvalue(&sem, &val);
+  printf("%d\n", val);
+
   printf("world\n");
 }
 
