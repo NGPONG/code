@@ -516,7 +516,7 @@ let g:Lf_NormalMap = {
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 function! s:PrintVariable(_val)
   silent execute 'VimspectorEval '. a:_val
-  call feedkeys("G")
+  "call feedkeys("G")
 endfunction
 command! -nargs=1 C call s:PrintVariable(<f-args>)
 function! s:WatchVariable(_val)
