@@ -40,7 +40,7 @@
   },
   "snippets.priority": 999,
 
-  "snippets.userSnippetsDirectory": "~/code/config/nvim/ultisnips",
+  "snippets.userSnippetsDirectory": "~/.config/nvim/ultisnips",
 
   // languageserver
   "languageserver": {
@@ -70,6 +70,13 @@
           "onChange": true
         }
       }
+    }
+    ,
+   "bash": {
+     "command": "bash-language-server",
+     "args": ["start"],
+     "filetypes": ["sh"],
+     "ignoredRootPaths": ["~"]
     }
   }
 }

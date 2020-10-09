@@ -9,7 +9,6 @@
 
 using namespace std;
 
-
 #include "filemanager.h"
 #include "hero.h"
 #include "player.h"
