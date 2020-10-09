@@ -1,5 +1,7 @@
 #include "gamecol.h"
 
+using namespace std;
+
 /**
  * @brief 打印信息
  * @param __mes 信息

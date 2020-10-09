@@ -6,7 +6,6 @@ using namespace std;
 #include "filemanager.h"
 #include "gamecol.h"
 
-
 void foo(void) {
   controller sys;
   sys.get_heros();
