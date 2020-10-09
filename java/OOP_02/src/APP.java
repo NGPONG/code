@@ -1,19 +1,18 @@
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 public class APP {
-    public static void main(String[] args) {
-        Person p = new Student();
-        p.run(); // 应该打印Person.run还是Student.run?
-    }
+  public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+    Person.class.newInstance();
+  }
 }
 
 class Person {
-    public void run() {
-        System.out.println("Person.run");
-    }
-}
+  public Person() {
 
-class Student extends Person {
-    @Override
-    public void run() {
-        System.out.println("Student.run");
-    }
+  }
+
+  public void speak() {
+    System.out.println("hello,world");
+  }
 }
