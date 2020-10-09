@@ -70,8 +70,8 @@ void ArrarySort(BYTE *arrary, int element_Size, int arrary_length,int (*invoker)
 			memset(temp, 0, element_Size);
 		}
 	}
-
-	free(temp);
+  
+  free(temp);
 }
 
 
