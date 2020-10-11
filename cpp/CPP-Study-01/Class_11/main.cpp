@@ -32,14 +32,14 @@ int main(void) {
    * protected
    * private
    */
-
-/* 
+  
+  /* 
   0000000000000000
   0000000000000008
   0000000000000010
  */
 
-/*   student *stu = nullptr;
+  /*   student *stu = nullptr;
 
   cout << sizeof(student) << endl;
 

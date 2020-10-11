@@ -21,7 +21,6 @@ public:
 int Person::Age = 10;
 char *Person::Name = (char *)"NGPONG";
 void Person::Print() {
-
     cout << "Person name = " << Person::Name << endl;
     cout << "Person age = " << Person::Age << endl;
 };

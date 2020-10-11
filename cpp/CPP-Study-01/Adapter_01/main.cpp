@@ -74,7 +74,7 @@ void foo_function(void) {
   int nums[5] = { 3, 2, 4, 1, 5 };
   vector<int> __v(nums, nums + (sizeof(nums) / sizeof(int)));
 
-  sort(__v.begin(), __v.end(), ptr_fun(f_sort));
+  sort(__v.begin(), __v.end(), ptr_fun(::f_sort));
 }
 
 /** ³ÉÔ±º¯ÊıÊÊÅäÆ÷
