@@ -1,17 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void fun_test(int _val) {
-  cout << _val << endl;
-}
-
-void foo(void (*inv)(int)) {
-  inv(0x400);
-}
+#include <vector>
 
 int main(void) {
-  foo(fun_test);
+  vector<int> *_v = new vector<int>();
+  _v->push_back(1);
+  _v->push_back(2);
+  _v->push_back(3);
+  _v->push_back(4);
+  _v->push_back(5);
 
-  system("pause");
+  for (vector<int>::iterator i = _v->begin(); i != _v->end(); ++i) {
+    cout << *i << endl;
+  }
+
   return EXIT_SUCCESS;
 }
