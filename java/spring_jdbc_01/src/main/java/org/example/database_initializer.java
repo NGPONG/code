@@ -13,7 +13,6 @@ public class database_initializer {
 
   @PostConstruct
   public void init() {
-    /*
     jdbc_template.update("IF EXISTS(SELECT * FROM sysobjects WHERE name='users')"
             + "DROP TABLE [users]"
 
@@ -25,7 +24,6 @@ public class database_initializer {
             + "CONSTRAINT [PK_users] PRIMARY KEY CLUSTERED ( [Id] ASC ) "
             + "WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]"
             + ") ON [PRIMARY]");
-     */
 
     System.out.println("init ok");
   }

@@ -10,11 +10,15 @@ import org.example.services.*;
  */
 public class App {
   public static void main(String[] args) {
-    ApplicationContext context = new AnnotationConfigApplicationContext(app_config.class);
-    var usr_service = context.getBean(user_service.class);
-    var lit = usr_service.get_user_info();
-    for (user usr : lit) {
-      System.out.println(usr.toString());
+    try {
+      ApplicationContext context = new AnnotationConfigApplicationContext(app_config.class);
+      var usr_service = context.getBean(user_service.class);
+      var lit = usr_service.get_user_info();
+      for (user usr : lit) {
+        System.out.println(usr.toString());
+      }
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
     }
   }
 }
