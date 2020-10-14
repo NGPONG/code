@@ -25,6 +25,11 @@ public class UserService {
   }
 
   public User GetUserByName(String name) {
-    return lit.get(0);
+    var ret = lit.stream().filter(u -> u.getName().equals(name)).findFirst().get();
+    if(ret == null) {
+      throw new NullPointerException();
+    }
+
+    return ret;
   }
 }

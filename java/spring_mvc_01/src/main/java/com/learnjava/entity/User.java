@@ -1,5 +1,8 @@
 package com.learnjava.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class User {
   private long Id;
   public long getId() {
@@ -17,6 +20,7 @@ public class User {
     this.email = email;
   }
 
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private String password;
   public String getPassword() { return password; }
   public void setPassword(String password) { this.password = password; }

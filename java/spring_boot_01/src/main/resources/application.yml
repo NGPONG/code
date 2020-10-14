@@ -1,0 +1,24 @@
+# application.yml
+
+server:
+  port: ${APP_PORT:8080}
+
+spring:
+  application:
+    name: ${APP_NAME:unnamed}
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1;databaseName=LEARN_JAVA
+    username: sa
+    password: Pengqi1997.0428
+    dirver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      auto-commit: false
+      connection-timeout: 3000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      maximum-pool-size: 20
+      minimum-idle: 1
+
+pebble:
+  suffix:
+  cache: false
