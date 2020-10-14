@@ -7,10 +7,10 @@ spring:
   application:
     name: ${APP_NAME:unnamed}
   datasource:
-    url: jdbc:sqlserver://127.0.0.1;databaseName=LEARN_JAVA
-    username: sa
-    password: Pengqi1997.0428
-    dirver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:hsqldb:hsql://localhost/
+    username: SA
+    password:
+    dirver-class-name: org.hsqldb.jdbc.JDBCDriver
     hikari:
       auto-commit: false
       connection-timeout: 3000
@@ -18,7 +18,26 @@ spring:
       max-lifetime: 60000
       maximum-pool-size: 20
       minimum-idle: 1
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    ssl: ${REDIS_SSL:false}
+    database: ${REDIS_DATABASE:0}
 
 pebble:
   suffix:
   cache: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, beans, env, metrics
+
+storage:
+  local:
+    root-dir: ${STORAGE_LOCAL_ROOT:/var/storage}
+    max-size: ${STORAGE_LOCAL_MAX_SIZE:102400}
+    allow-empty: false
+    allow-types: jpg, png, gif
