@@ -11,8 +11,7 @@ int main(void) {
   n_graph *G = (n_graph *)malloc(sizeof(n_graph));
   init_graph(G);
 
-  printf("hello,world");
-
+  
   system("pause");
   return EXIT_SUCCESS;
 }

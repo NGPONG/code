@@ -1,6 +1,8 @@
 #include <memory.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 
 #include "graph.h"
 
@@ -32,11 +34,13 @@ void create_edge_node_by_pait(int i, int j, edge_type weight, vertext_node *adj_
   }
 
   edge_node *e_i = (edge_node *)malloc(sizeof(edge_node));
+  printf("[INFO] create %p\n", e_i);
   e_i->adj_vex_idx = i;
   e_i->next = adj_list[j].first_edge;
   adj_list[j].first_edge = e_i;
 
   edge_node *e_j = (edge_node *)malloc(sizeof(edge_node));
+  printf("[INFO] create %p\n", e_j);
   e_j->adj_vex_idx = j;
   e_j->next = adj_list[i].first_edge;
   adj_list[i].first_edge = e_j;
@@ -46,8 +50,8 @@ void create_edge_node_by_pait(int i, int j, edge_type weight, vertext_node *adj_
 void init_adjgraph(graph_adj *G) {
   memset(G, 0x0, sizeof(graph_adj));
 
-  G->vertexs_num = 5;
-  G->edges_num   = 6;
+  G->vertexs_num = 4;
+  G->edges_num   = 5;
   
   G->adj_list[0].data = '0';
   G->adj_list[0].first_edge = NULL;
@@ -71,6 +75,16 @@ void init_adjgraph(graph_adj *G) {
 }
 
 void destory_adjgraph(graph_adj *G) {
-  
-}
+  for (size_t i = 0; i < G->vertexs_num; ++i) {
+    edge_node *cur = G->adj_list[i].first_edge;
+    edge_node *tmp;
+    while (true) {
+      if (cur == NULL) break;
 
+      tmp = cur->next;
+      free(cur);
+      printf("[INFO] delete %p\n", cur);
+      cur = tmp;
+    }
+  } 
+}
