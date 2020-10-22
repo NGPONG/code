@@ -29,5 +29,17 @@
     
     "C_Cpp.clang_format_sortIncludes": false,                // 格式化时调整include的顺序（按字母排序）
     "C_Cpp.errorSquiggles": "Disabled",
-    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe"
+    "C_Cpp.autocomplete": "Disabled" ,
+    "C_Cpp.intelliSenseEngine": "Default", 
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe",
+
+    "clang.cflags": [
+        "-std=c11",
+        "-Wall"
+    ],
+    "clang.cxxflags": [
+        "-std=c++17",
+        "-Wall"
+    ],
+    "clang.completion.enable":true
 }

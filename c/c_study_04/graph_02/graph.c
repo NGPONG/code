@@ -7,28 +7,27 @@
 /**
  * @brief 遍历边表，找到符合下标 idx 的元素，如果未找到，就证明该对组属于第一次录入
 */
-int verify_repeat(int idx, vertext_node *head) {
-  int flg = -1;
-  if(head == NULL) 
-    flg = 0;
-  else {
-    edge_node *nod = NULL;
-    while (true) {
-      nod = head->first_edge->next;
-      if (nod == NULL) break;
+bool verify_repeat(int idx, vertext_node *head) {
+  bool flg = true;
 
-      if (nod->adj_vex_idx == idx) {
-        flg = 0;
-        break;
-      }
+  edge_node *nod = head->first_edge;
+  while (true) {
+    if (nod == NULL) break;
+
+    if (nod->adj_vex_idx == idx) {
+      flg = false;
+      break;
     }
+
+    nod = nod->next;
   }
+
   return flg;
 }
 void create_edge_node_by_pait(int i, int j, edge_type weight, vertext_node *adj_list) {
   if(adj_list == NULL) return;
 
-  if (verify_repeat(j, &adj_list[i]) == -1) {
+  if (!verify_repeat(j, &adj_list[i])) {
     return;
   }
 
@@ -42,8 +41,6 @@ void create_edge_node_by_pait(int i, int j, edge_type weight, vertext_node *adj_
   e_j->next = adj_list[i].first_edge;
   adj_list[i].first_edge = e_j;
 }
-
-
 
 /* Form pic-7-4-7 */
 void init_adjgraph(graph_adj *G) {

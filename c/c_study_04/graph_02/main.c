@@ -10,6 +10,6 @@
 int main(int argc, char *argv[]) {
   graph_adj grap;
   init_adjgraph(&grap);
-
+  
   return EXIT_SUCCESS;
 }
