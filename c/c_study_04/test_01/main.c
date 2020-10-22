@@ -1,13 +1,15 @@
+#include <math.h>
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
-#include <time.h>
-#include <Windows.h>
+#include <stdbool.h>
 
-int main(void) {
-  printf("hello,world\n");
+#include "graph.h"
 
-  system("pause");
+int main(int argc, char *argv[]) {
+  graph_adj grap;
+  init_adjgraph(&grap);
+
   return EXIT_SUCCESS;
 }
