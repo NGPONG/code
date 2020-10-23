@@ -1,0 +1,12 @@
+# application.yml
+
+server:
+  port: 8882
+
+spring:
+  application:
+    name: consul-consumer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500

@@ -1,0 +1,13 @@
+# application.yaml
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/NGPONG/Distributed-config-repo/
+
+server:
+  port: 8881
