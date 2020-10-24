@@ -18,7 +18,7 @@ public class ConfigController {
 
   @GetMapping("/storage/")
   public Map<String,StorageConfiguration> GetStorageConfig() {
-    return Map.of("data", storage_config);
+    return of("data", storage_config);
   }
 
   @Configuration

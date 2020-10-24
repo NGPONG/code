@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eureka-consumer-ribbon
+
+server:
+  port: 8884
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8881/eureka/
