@@ -10,9 +10,7 @@
 #include <Windows.h>
 
 int fibonacci(int postion) {
-
 	if (postion == 1 || postion == 2) {
-	
 		return 1;
 	}
 
@@ -20,7 +18,6 @@ int fibonacci(int postion) {
 }
 
 int main(void) {
-
 	int i = fibonacci(10);
 
 	system("pause");

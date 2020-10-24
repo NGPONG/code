@@ -1,10 +1,12 @@
 #include "graph.h"
 
+#include <stdbool.h>
 #include <string.h>
 
-/** 
- * @brief Init a new graph, it's created with reference to Figure 7-4-4 in the book
-*/
+void create_edge_node_by_pait(int i, int j, edge_type (*arc)[5]) {
+	arc[i][j] = 1;
+}
+
 void init_graph(n_graph *G) {
   memset(G, 0x0, sizeof(n_graph));
 
@@ -12,28 +14,40 @@ void init_graph(n_graph *G) {
   G->edges_num   = 6;
 
   /* 初始化顶点表 */
-  G->vexs[0] = '0';
-  G->vexs[1] = '1';
-  G->vexs[2] = '2';
-  G->vexs[3] = '3';
-  G->vexs[4] = '4';
-  G->vexs[5] = '5';
+  char ascii_start = '0';
+  for (size_t i = 0; i < G->vertexs_num; ++i) {
+    G->vexs[i] = ascii_start;
+    ++ascii_start;
+  }
 
   /* 初始化邻接矩阵中所有元的默认值，默认为正无穷 */
   for (int i = 0; i < G->vertexs_num; ++i) {
     for (int j = 0; j < G->vertexs_num; ++j) {
       int val = 0;
-      if (i != j) val = G_INFINITY;
+      if (i != j) val = 0;
 
       G->arc[i][j] = val;
     }
   }
-    
-  /* 初始化网的权 */
-  G->arc[0][4] = 6;
-  G->arc[1][0] = 9;
-  G->arc[1][2] = 3;
-  G->arc[2][0] = 2;
-  G->arc[2][3] = 5;
-  G->arc[3][4] = 1;
+}
+
+bool visted[5] = { false };
+
+void DES(int i, n_graph *G) {
+  visted[i] = true;
+  printf("[info] search: %c\n", G->vexs[i]);
+
+  for (size_t j = 0; j < G->vertexs_num; ++j) {
+    if (G->arc[i][j] && !visted[j]) {
+      DES(j, G);
+    }
+  }
+}
+
+void DES_traverse(n_graph *G) {
+  for (size_t i = 0; i < G->vertexs_num; ++i) {
+    if (visted[i]) continue;
+
+    DES(i, G);
+  }
 }

@@ -26,6 +26,15 @@ bool verify_repeat(int idx, vertext_node *head) {
 
   return flg;
 }
+
+/** 
+ * @brief 该函数仅考虑无向图的创建，每一次依据所录入
+ * 的 i 和 j 去构建两个节点的边表，故有可能会出现重复
+ * 录入的情况，例如起始录入了 (1,0) 然后又录入了 (0,1)
+ * ，这是允许出现的，因为对于无向图来说，它的边都是无向边
+ * ，故都可以使用相反的表示方式，故该函数还要判断重复的处理
+ * 问题
+*/
 void create_edge_node_by_pait(int i, int j, edge_type weight, vertext_node *adj_list) {
   if(adj_list == NULL) return;
 
@@ -72,6 +81,10 @@ void init_adjgraph(graph_adj *G) {
   create_edge_node_by_pait(2, 3, 0, G->adj_list);
   create_edge_node_by_pait(3, 0, 0, G->adj_list);
   create_edge_node_by_pait(3, 2, 0, G->adj_list);
+}
+
+void DES_traverse(graph_adj *G) {
+  
 }
 
 void destory_adjgraph(graph_adj *G) {

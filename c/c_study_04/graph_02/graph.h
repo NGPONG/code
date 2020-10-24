@@ -29,5 +29,6 @@ typedef struct {
 
 void init_adjgraph(graph_adj *G);
 void destory_adjgraph(graph_adj *G);
+void DES_traverse(graph_adj *G);
 
 #endif /* end of include guard: __HEAD_H__FILE */

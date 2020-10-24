@@ -31,16 +31,18 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.autocomplete":"Default" ,
     "C_Cpp.intelliSenseEngine": "Default", 
-    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe",
+    "C_Cpp.default.compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
 
     "clang.cxxflags": [
         "-std=c++17",
         "--target=x86_64-w64-windows-gnu",
+        "-Wno-unused-variable",
         "-Wall"
     ],
     "clang.cflags":[
         "--target=x86_64-w64-windows-gnu",
         "-std=c11",
+        "-Wno-unused-variable",
         "-Wall"
     ],
     "clang.completion.enable":false

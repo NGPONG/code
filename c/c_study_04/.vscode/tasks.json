@@ -9,7 +9,7 @@
                 "-o",                                                   // 指定输出文件名，不加该参数则默认输出a.exe，Linux下默认a.out
                 "${workspaceFolder}/DEBUG/${relativeFileDirname}.exe",  // 生成可执行文件路径
                 "-g",                                                   // 生成和调试有关的信息
-                "-Wall",                                                // 开启额外警告
+                // "-Wall",                                                // 开启额外警告
                 "-static-libgcc",                                       // 静态链接libgcc，一般都会加上
                 "-finput-charset=UTF-8",
                 "-O0",                                                  // 编译器优化级别
@@ -17,7 +17,7 @@
                 "-Wno-unused-variable",                                 // 禁用未使用变量的提示
                 "-std=c11",
             ],
-            "type": "shell",                                          // process是vsc把预定义变量和转义解析后直接全部传给command；shell相当于先打开shell再输入命令，所以args还会经过shell再解析一遍
+            "type": "process",                                          // process是vsc把预定义变量和转义解析后直接全部传给command；shell相当于先打开shell再输入命令，所以args还会经过shell再解析一遍
             "group": {
                 "kind": "build",
                 "isDefault": true                                       // 不为true时ctrl shift B就要手动选择了

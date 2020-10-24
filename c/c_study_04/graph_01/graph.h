@@ -14,5 +14,7 @@ typedef struct {
 } n_graph;
 
 void init_graph(n_graph *G);
+void create_edge_node_by_pait(int i, int j, edge_type (*arc)[5]);
+void DES_traverse(n_graph *G);
 
 #endif /* end of include guard: __GRAPH_H__ */
