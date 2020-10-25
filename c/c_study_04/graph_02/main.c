@@ -11,7 +11,9 @@ int main(int argc, char *argv[]) {
   graph_adj grap;
   init_adjgraph(&grap);
 
-  
+  DES_traverse(&grap);
+
+  /* BFS_traverse(&grap); */
 
   destory_adjgraph(&grap);
   return EXIT_SUCCESS;

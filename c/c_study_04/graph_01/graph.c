@@ -1,4 +1,5 @@
 #include "graph.h"
+#include "queue.h"
 
 #include <stdbool.h>
 #include <string.h>
@@ -31,23 +32,56 @@ void init_graph(n_graph *G) {
   }
 }
 
-bool visted[5] = { false };
+static bool visted[5];
 
-void DES(int i, n_graph *G) {
-  visted[i] = true;
-  printf("[info] search: %c\n", G->vexs[i]);
+void DES(int _i, n_graph *_G) {
+  visted[_i] = true;
+  printf("[info] search: %c\n", _G->vexs[_i]);
 
-  for (size_t j = 0; j < G->vertexs_num; ++j) {
-    if (G->arc[i][j] && !visted[j]) {
-      DES(j, G);
+  for (size_t j = 0; j < _G->vertexs_num; ++j) {
+    if (_G->arc[_i][j] && !visted[j]) {
+      DES(j, _G);
     }
   }
 }
 
-void DES_traverse(n_graph *G) {
-  for (size_t i = 0; i < G->vertexs_num; ++i) {
-    if (visted[i]) continue;
+void DES_traverse(n_graph *_G) {
+  memset(visted, false, sizeof(visted));
 
-    DES(i, G);
+  for (size_t i = 0; i < _G->vertexs_num; ++i) {
+    if (visted[i]) continue;
+    DES(i, _G);
+  }
+}
+
+void BFS(int _i, n_graph *_G, Queue *_queue) {
+  visted[_i] = true;
+  printf("[info] search :%d\n", _i);
+
+  AddQ(_queue, _i);
+  PrintQueue(_queue);
+
+  while (!IsEmptyQ(_queue)) {
+    _i = DeleteQ(_queue);
+    for (int j = 0; j < _G->vertexs_num; ++j) {
+      if(_G->arc[_i][j] == 1 && !visted[j]) {
+        visted[j] = true;
+        printf("[info] search :%d\n", j);
+        AddQ(_queue, j);
+        PrintQueue(_queue);
+      }
+    }
+  }
+}
+
+void BFS_traverse(n_graph *_G) { 
+  memset(visted, false, sizeof(visted));
+
+  /* 初始化队列 */
+  Queue *queue = CreateQueue();
+
+  for (size_t i = 0; i < _G->vertexs_num; ++i) {
+    if (visted[i]) continue;
+    BFS(i, _G, queue);
   }
 }

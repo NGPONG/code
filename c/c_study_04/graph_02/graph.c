@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include "graph.h"
+#include "queue.h"
 
 /**
  * @brief 遍历边表，找到符合下标 idx 的元素，如果未找到，就证明该对组属于第一次录入
@@ -83,8 +84,63 @@ void init_adjgraph(graph_adj *G) {
   create_edge_node_by_pait(3, 2, 0, G->adj_list);
 }
 
+static bool visted[5];
+
+void DES(int i, vertext_node *adj_list) {
+  visted[i] = true;
+  printf("[info] search: %c\n", adj_list[i].data);
+
+  edge_node *cur = adj_list[i].first_edge;
+  while (cur) {
+    if (!visted[cur->adj_vex_idx]) 
+      DES(cur->adj_vex_idx, adj_list);
+
+    cur = cur->next;
+  }
+}
+
 void DES_traverse(graph_adj *G) {
-  
+  memset(visted, false, sizeof(visted));
+
+  for (size_t i = 0; i < G->vertexs_num; ++i) {
+    if (visted[i]) continue;
+    DES(i, G->adj_list);
+  }
+}
+
+void BFS(int _i, graph_adj *_G, Queue *_queue) {
+  visted[_i] = true;
+  printf("[info] search :%d\n", _i);
+
+  AddQ(_queue, _i);
+  PrintQueue(_queue);
+
+  while (!IsEmptyQ(_queue)) {
+    _i = DeleteQ(_queue);
+    edge_node *cur = _G->adj_list[_i].first_edge;
+
+    while (cur) {
+      if(!visted[cur->adj_vex_idx]) {
+        visted[cur->adj_vex_idx] = true;
+        printf("[info] search :%d\n", cur->adj_vex_idx);
+        AddQ(_queue, cur->adj_vex_idx);
+        PrintQueue(_queue);
+      }
+      cur = cur->next;
+    }
+  }
+}
+
+void BFS_traverse(graph_adj *_G) { 
+  memset(visted, false, sizeof(visted));
+
+  /* 初始化队列 */
+  Queue *queue = CreateQueue();
+
+  for (size_t i = 0; i < _G->vertexs_num; ++i) {
+    if (visted[i]) continue;
+    BFS(i, _G, queue);
+  }
 }
 
 void destory_adjgraph(graph_adj *G) {

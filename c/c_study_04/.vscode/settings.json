@@ -1,13 +1,16 @@
 {
     "files.encoding": "utf8",
-    "files.defaultLanguage": "c",                            // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码\
+    "files.defaultLanguage": "c",                            // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码
     "files.associations": {
         "*.c": "c",
         "*.cpp": "cpp",
         "stdlib.h": "c",
         "time.h": "c",
         "cctype": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "math.h": "c",
+        "string.h": "c",
+        "stdio.h": "c"
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
@@ -19,8 +22,8 @@
 
     "code-runner.runInTerminal": true,                       // 设置成false会在“输出”中输出，无法输入
     "code-runner.executorMap": {                             // 右键run code时运行的命令；未注释的仅适用于PowerShell（Win10默认），文件名中有空格也可以编译运行；注释掉的适用于cmd（win7默认），PS和bash也能用，但文件名中有空格时无法运行
-        "c": "cd $dir && clang './*.c' -o '$workspaceRoot/DEBUG/$c_cr.exe' -Wall -g -O2 -static-libgcc -std=c11 -Wno-unused-variable && &'$workspaceRoot/DEBUG/$c_cr'",
-        "cpp": "cd $dir && clang++ './*.c' -o '$workspaceRoot/DEBUG/$cpp_cr.exe' -Wall -g -O2 -static-libgcc -Wno-unused-variable && &'$workspaceRoot/DEBUG/$cpp_cr'"
+        "c": "cd $dir && clang './*.c' -o '$workspaceRoot/DEBUG/$c_cr.exe' -Wall -g -O2 -finput-charset=UTF-8 -static-libgcc -std=c11 -Wno-unused-variable && &'$workspaceRoot/DEBUG/$c_cr'",
+        "cpp": "cd $dir && clang++ './*.c' -o '$workspaceRoot/DEBUG/$cpp_cr.exe' -Wall -g -O2 -finput-charset=UTF-8 -static-libgcc -Wno-unused-variable && &'$workspaceRoot/DEBUG/$cpp_cr'"
     }, 
     "code-runner.saveFileBeforeRun": true,                   // run code前保存
     "code-runner.preserveFocus": false,                      // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
@@ -31,7 +34,7 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.autocomplete":"Default" ,
     "C_Cpp.intelliSenseEngine": "Default", 
-    "C_Cpp.default.compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe",
 
     "clang.cxxflags": [
         "-std=c++17",

@@ -19,7 +19,9 @@ int main(void) {
   create_edge_node_by_pait(2, 3, G->arc);
   create_edge_node_by_pait(3, 4, G->arc);
 
-  DES_traverse(G);
+  /* DES_traverse(G); */
+
+  BFS_traverse(G);
 
   system("pause");
   return EXIT_SUCCESS;
