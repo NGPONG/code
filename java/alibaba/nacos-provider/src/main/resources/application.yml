@@ -1,0 +1,12 @@
+# discovery server
+
+spring:
+  application:
+    name: nacos-discovery-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+server:
+  port: 8881

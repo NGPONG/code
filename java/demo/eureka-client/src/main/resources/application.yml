@@ -1,9 +1,11 @@
+# eureka client
+
 spring:
   application:
     name: eureka-client
 
 server:
-  port: ${SERVER_PORT:8883}
+  port: ${SERVER_PORT:8882}
 
 eureka:
   client:

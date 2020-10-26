@@ -1,0 +1,8 @@
+# eureka consumer
+
+spring:
+  application:
+    name: hystrix-dashboard
+
+server:
+  port: 8885

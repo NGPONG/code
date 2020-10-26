@@ -1,0 +1,20 @@
+# api gateway
+
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 8883
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8881/eureka/
+
+# 自定义路由规则
+# 在依赖域服务治理框架 eureka 的实现下，该服务会注册自注册中心
+# 并自动获取注册中心下已经完成的服务实例的注册，以最终完成路由的映射配置
+zuul:
+  routes:
+    eureka-client: /api-gateway-route/**
