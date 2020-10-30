@@ -38,12 +38,10 @@
 
     "clang.cxxflags": [
         "-std=c++17",
-        "--target=x86_64-w64-windows-gnu",
         "-Wno-unused-variable",
         "-Wall"
     ],
     "clang.cflags":[
-        "--target=x86_64-w64-windows-gnu",
         "-std=c11",
         "-Wno-unused-variable",
         "-Wall"

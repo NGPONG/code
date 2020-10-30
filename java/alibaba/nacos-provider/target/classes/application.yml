@@ -1,8 +1,8 @@
-# discovery server
+# nacos-provider
 
 spring:
   application:
-    name: nacos-discovery-server
+    name: nacos-provider
   cloud:
     nacos:
       discovery:
