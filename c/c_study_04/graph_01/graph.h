@@ -18,5 +18,6 @@ void create_edge_node_by_pait(int i, int j, edge_type weight, edge_type (*arc)[9
 void DES_traverse(n_graph *G);
 void BFS_traverse(n_graph *G);
 void min_span_tree_prim(n_graph *_G);
+void dijkstra(n_graph *G);
 
 #endif /* end of include guard: __GRAPH_H__ */

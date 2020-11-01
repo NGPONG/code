@@ -10,7 +10,11 @@
         "typeinfo": "c",
         "math.h": "c",
         "string.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "type_traits": "c",
+        "algorithm": "c",
+        "array": "c",
+        "string_view": "c"
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
@@ -37,11 +41,13 @@
     "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe",
 
     "clang.cxxflags": [
+        "--target=x86_64-w64-windows-gnu",
         "-std=c++17",
         "-Wno-unused-variable",
         "-Wall"
     ],
     "clang.cflags":[
+        "--target=x86_64-w64-windows-gnu",
         "-std=c11",
         "-Wno-unused-variable",
         "-Wall"

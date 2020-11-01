@@ -1,5 +1,6 @@
 #include "graph.h"
 #include "queue.h"
+#include "priority_queue.h"
 
 #include <stdbool.h>
 #include <string.h>
@@ -32,7 +33,7 @@ void init_graph(n_graph *G, int _vertexs_num, int _edges_num) {
   }
 }
 
-static bool visted[5];
+static bool visted[6];
 
 void DES(int _i, n_graph *_G) {
   visted[_i] = true;
@@ -59,9 +60,7 @@ void DES_traverse(n_graph *_G) {
 void BFS(int _i, n_graph *_G, Queue *_queue) {
   visted[_i] = true;
   printf("[info] search :%d\n", _i);
-
   AddQ(_queue, _i);
-  PrintQueue(_queue);
 
   while (!IsEmptyQ(_queue)) {
     _i = DeleteQ(_queue);
@@ -72,7 +71,6 @@ void BFS(int _i, n_graph *_G, Queue *_queue) {
         visted[j] = true;
         printf("[info] search :%d\n", j);
         AddQ(_queue, j);
-        PrintQueue(_queue);
       }
     }
   }
@@ -205,5 +203,49 @@ void min_span_tree_kruskal(n_graph *G) {
       parent[n] = m;
       printf("(%d, %d)\n", edges[i].begin, edges[i].end);
     }
+  }
+}
+
+
+
+void dijkstra(n_graph *G) {
+  int parent[6]; 
+  for (size_t i = 0; i < 6; ++i) {
+    parent[i] = -1;
+  }
+
+  Data dt_first;
+  dt_first.idx = 0;
+  dt_first.data = 0;
+  Node *priority_queue = newNode(dt_first, 0); /* 第一个顶点，权值为0 */
+
+  parent[0] = 0;
+
+  while (!isEmpty(&priority_queue)) {
+    Data dt = peek(&priority_queue);
+    pop(&priority_queue);
+
+    if(!visted[dt.idx]) {
+      visted[dt.idx] = true;
+    }
+
+    for (int j = 0; j < 6; ++j) {
+      if(G->arc[dt.idx][j] != 0 &&
+         G->arc[dt.idx][j] != G_INFINITY &&
+         !visted[j]) {
+
+        Data d;
+        d.idx = j;
+        d.data = dt.data + G->arc[d.idx][dt.idx];
+
+        if(priority_queue == NULL) {
+          priority_queue = newNode(d, d.data);
+        }
+        else {
+          push(&priority_queue, d, d.data);
+        }
+        parent[j] = dt.idx;
+      }
+    }  
   }
 }

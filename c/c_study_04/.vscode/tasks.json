@@ -5,9 +5,9 @@
             "label": "Compile",                                         // 任务名称，与launch.json的preLaunchTask相对应
             "command": "clang",                                         // 要使用的编译器，C++用g++
             "args": [                                                   // 编译的命令，其实相当于VSC帮你在终端中输了这些东西
-                "${fileDirname}/*.c",
+                "${fileDirname}\\*.c",
                 "-o",                                                   // 指定输出文件名，不加该参数则默认输出a.exe，Linux下默认a.out
-                "${workspaceFolder}/DEBUG/${relativeFileDirname}.exe",  // 生成可执行文件路径
+                "${workspaceFolder}\\DEBUG\\${relativeFileDirname}.exe",  // 生成可执行文件路径
                 "-g",                                                   // 生成和调试有关的信息
                 // "-Wall",                                                // 开启额外警告
                 "-static-libgcc",                                       // 静态链接libgcc，一般都会加上
