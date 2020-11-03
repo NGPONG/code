@@ -15,14 +15,14 @@ void init_graph(n_graph *G, int _vertexs_num, int _edges_num) {
   G->vertexs_num = _vertexs_num;
   G->edges_num   = _edges_num;
 
-  /* ³õÊ¼»¯¶¥µã±í */
+  /* åˆå§‹åŒ–é¡¶ç‚¹è¡¨ */
   char ascii_start = '0';
   for (size_t i = 0; i < G->vertexs_num; ++i) {
     G->vexs[i] = ascii_start;
     ++ascii_start;
   }
 
-  /* ³õÊ¼»¯ÁÚ½Ó¾ØÕóÖĞËùÓĞÔªµÄÄ¬ÈÏÖµ£¬Ä¬ÈÏÎªÕıÎŞÇî */
+  /* åˆå§‹åŒ–é‚»æ¥çŸ©é˜µä¸­æ‰€æœ‰å…ƒçš„é»˜è®¤å€¼ï¼Œé»˜è®¤ä¸ºæ­£æ— ç©· */
   for (int i = 0; i < G->vertexs_num; ++i) {
     for (int j = 0; j < G->vertexs_num; ++j) {
       if (i != j) 
@@ -79,7 +79,7 @@ void BFS(int _i, n_graph *_G, Queue *_queue) {
 void BFS_traverse(n_graph *G) { 
   memset(visted, false, sizeof(visted));
 
-  /* ³õÊ¼»¯¶ÓÁĞ */
+  /* åˆå§‹åŒ–é˜Ÿåˆ— */
   Queue *queue = CreateQueue();
 
   for (size_t i = 0; i < G->vertexs_num; ++i) {
@@ -89,28 +89,28 @@ void BFS_traverse(n_graph *G) {
 }
 
 void min_span_tree_prim(n_graph *G) {
-  int adj_vexs[G->vertexs_num]; /* ±£´æ¶¥µãµÄÏÂ±ê */
-  int low_cast[G->vertexs_num]; /* ±£´æÈ¨Öµ£¬ËüµÄÏÂ±êËù¶ÔÓ¦µÄÖµºÍ adj_vexs ËùÏàºôÓ¦
-                                    ²¢ÇÒ¸ÃÊı×éËù¶ÔÓ¦µÄÏÂ±êÎª0µÄÊ±ºò£¬Ò²ÒâÎ¶×Å¸ÃÏÂ±êµÄ¶¥
-                                    µãÒÑ¾­±»ÄÉÈëÖÁ×îĞ¡Éú³ÉÊ÷µ±ÖĞ */
+  int adj_vexs[G->vertexs_num]; /* ä¿å­˜é¡¶ç‚¹çš„ä¸‹æ ‡ */
+  int low_cast[G->vertexs_num]; /* ä¿å­˜æƒå€¼ï¼Œå®ƒçš„ä¸‹æ ‡æ‰€å¯¹åº”çš„å€¼å’Œ adj_vexs æ‰€ç›¸å‘¼åº”
+                                    å¹¶ä¸”è¯¥æ•°ç»„æ‰€å¯¹åº”çš„ä¸‹æ ‡ä¸º0çš„æ—¶å€™ï¼Œä¹Ÿæ„å‘³ç€è¯¥ä¸‹æ ‡çš„é¡¶
+                                    ç‚¹å·²ç»è¢«çº³å…¥è‡³æœ€å°ç”Ÿæˆæ ‘å½“ä¸­ */
 
-  low_cast[0] = 0; /* Éè×îĞ¡Éú³ÉÊ÷´Ó0¶¥µã¿ªÊ¼£¬Ò²¾ÍÊÇËµÔÚ×î¿ªÊ¼µÄÊ±ºò£¬¶¥µã0¾Í±»ÄÉÈëµ½×îĞ¡Éú³ÉÊ÷µ±ÖĞÈ¥ÁË */
+  low_cast[0] = 0; /* è®¾æœ€å°ç”Ÿæˆæ ‘ä»0é¡¶ç‚¹å¼€å§‹ï¼Œä¹Ÿå°±æ˜¯è¯´åœ¨æœ€å¼€å§‹çš„æ—¶å€™ï¼Œé¡¶ç‚¹0å°±è¢«çº³å…¥åˆ°æœ€å°ç”Ÿæˆæ ‘å½“ä¸­å»äº† */
   adj_vexs[0] = 0;
 
-  /* ÒÀÕÕµÚÒ»¸ö¶¥µã(0)µÄÄÇÒ»ĞĞÖĞµÄËùÓĞµÄÖµ¶¼³õÊ¼»¯ */
+  /* ä¾ç…§ç¬¬ä¸€ä¸ªé¡¶ç‚¹(0)çš„é‚£ä¸€è¡Œä¸­çš„æ‰€æœ‰çš„å€¼éƒ½åˆå§‹åŒ– */
   for (size_t i = 1; i < G->vertexs_num; ++i) {
     adj_vexs[i] = 0;
     low_cast[i] = G->arc[0][i];
   }
 
   /**
-   * ÒÔÏÂµÄÑ­»·ÖÁÊ¼ÖÁÖÕ¶¼Òª¹ıÂËµô¶¥µãÎª 0 µÄ£¬ÒòÎªËüÔÚ×î
-   * ¿ªÊ¼µÄÊ±ºòÒÑ¾­±»ÄÉÈëµ½×îĞ¡Éú³ÉÊ÷ÁË£¬¹ÊĞèÒªÌø¹ı½øĞĞÅĞ¶Ï
+   * ä»¥ä¸‹çš„å¾ªç¯è‡³å§‹è‡³ç»ˆéƒ½è¦è¿‡æ»¤æ‰é¡¶ç‚¹ä¸º 0 çš„ï¼Œå› ä¸ºå®ƒåœ¨æœ€
+   * å¼€å§‹çš„æ—¶å€™å·²ç»è¢«çº³å…¥åˆ°æœ€å°ç”Ÿæˆæ ‘äº†ï¼Œæ•…éœ€è¦è·³è¿‡è¿›è¡Œåˆ¤æ–­
  */
   for (size_t i = 1; i < G->vertexs_num; ++i) {
     int k = 0;
     int min = G_INFINITY;
-    /* ´Ó low_cast ×¨ÃÅÓÃÓÚ±£´æÈ¨ÖµµÄÊı×éÖĞÉ¸Ñ¡³öÒ»¸ö×îĞ¡Öµ */
+    /* ä» low_cast ä¸“é—¨ç”¨äºä¿å­˜æƒå€¼çš„æ•°ç»„ä¸­ç­›é€‰å‡ºä¸€ä¸ªæœ€å°å€¼ */
     for (size_t j = 1; j < G->vertexs_num; ++j) {
       if(low_cast[j] != 0 && low_cast[j] < min) {
         min = low_cast[j];
@@ -118,14 +118,14 @@ void min_span_tree_prim(n_graph *G) {
       }
     }
 
-    /* ×îĞ¡ÖµµÄ¶¥µãÄÉÈëµ½×îĞ¡Éú³ÉÊ÷µ±ÖĞ */
+    /* æœ€å°å€¼çš„é¡¶ç‚¹çº³å…¥åˆ°æœ€å°ç”Ÿæˆæ ‘å½“ä¸­ */
     printf("(%d, %d)\n", adj_vexs[k], k);
     low_cast[k] = 0;
 
-    /* ³õÊ¼»¯ low_cast£¬´ÓµÚ k ĞĞ³õÊ¼»¯ */
+    /* åˆå§‹åŒ– low_castï¼Œä»ç¬¬ k è¡Œåˆå§‹åŒ– */
     for (size_t j = 1; j < G->vertexs_num; ++j) {
-      if(low_cast[j] != 0 && G->arc[k][j] < low_cast[j]) { /* ÕâÒ»²½: G->arc[k][j] < low_cast[j]£¬ÒâÎ¶×Å¿ÉÄÜ»á¸²
-                                                              ¸Çµô£¬µ«ÊÇ×ĞÏ¸ÏëÏë¿´£¬¸ÃËã·¨ÊÇ²éÕÒ×îĞ¡µÄÈ¨£¬¹Ê¸²¸ÇµôÊÇºÏÀíµÄ */
+      if(low_cast[j] != 0 && G->arc[k][j] < low_cast[j]) { /* è¿™ä¸€æ­¥: G->arc[k][j] < low_cast[j]ï¼Œæ„å‘³ç€å¯èƒ½ä¼šè¦†
+                                                              ç›–æ‰ï¼Œä½†æ˜¯ä»”ç»†æƒ³æƒ³çœ‹ï¼Œè¯¥ç®—æ³•æ˜¯æŸ¥æ‰¾æœ€å°çš„æƒï¼Œæ•…è¦†ç›–æ‰æ˜¯åˆç†çš„ */
         low_cast[j] = G->arc[k][j];
         adj_vexs[j] = k;
       }
@@ -176,7 +176,7 @@ void min_span_tree_kruskal(n_graph *G) {
   Edge edges[G->edges_num];
   int parent[G->vertexs_num];
 
-  /* ÓÃÀ´¹¹½¨±ß¼¯Êı×é²¢ÅÅĞò********************* */
+  /* ç”¨æ¥æ„å»ºè¾¹é›†æ•°ç»„å¹¶æ’åº********************* */
   int k = 0;
   for (int i = 0; i < G->vertexs_num - 1; i++) {
     for (int j = i + 1; j < G->vertexs_num; j++) {
@@ -217,7 +217,7 @@ void dijkstra(n_graph *G) {
   Data dt_first;
   dt_first.idx = 0;
   dt_first.data = 0;
-  Node *priority_queue = newNode(dt_first, 0); /* µÚÒ»¸ö¶¥µã£¬È¨ÖµÎª0 */
+  Node *priority_queue = newNode(dt_first, 0); /* ç¬¬ä¸€ä¸ªé¡¶ç‚¹ï¼Œæƒå€¼ä¸º0 */
 
   parent[0] = 0;
 

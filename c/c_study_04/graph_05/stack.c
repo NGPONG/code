@@ -8,12 +8,11 @@ struct Stack *Init_Stack() {
 
   stack->s_data = malloc(sizeof(char) * MAX_LENGTH);
   if (stack->s_data == NULL) {
-
     return NULL;
   }
+  memset(stack->s_data, 0x0, sizeof(struct Stack));
 
   stack->s_size = 0;
-  memset(stack->s_data, 0x0, sizeof(struct Stack));
 
   return stack;
 }
