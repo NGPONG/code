@@ -14,7 +14,8 @@
         "type_traits": "c",
         "algorithm": "c",
         "array": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "sstream": "c"
     },
 
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了

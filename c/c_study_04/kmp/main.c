@@ -6,11 +6,12 @@
 #include <stdbool.h>
 
 /* @brief 构造前缀表 */
-void prefix_table(char *str, int *prefix, int n) {
+void prefix_table(char *str, int *prefix) {
   prefix[0] = 0; /* 下标为0的prefix始终为0 */
 
   int len = 0;
   int i = 1;
+  int n = strlen(str);
   while (i < n) {
     /**
      * len 作为上一个字符的最大公共前后缀长度，它的值
@@ -42,24 +43,49 @@ void prefix_table(char *str, int *prefix, int n) {
   prefix[0] = -1;
 }
 
-void kmp(char *str_src, char *partten, int *prefix, int n) {
-  
-}
-
-int main(int argc, char *argv[]) {
-  char *str = "ABABCABAA";
-  int str_len = strlen(str);
-
-  int prefix[str_len];
+void kmp(char *str_src, char *partten) {
+  int n = strlen(partten);
+  int prefix[n];
   memset(prefix, 0x0, sizeof(prefix));
 
-  prefix_table(str, prefix, str_len);
-
-    
-
+  prefix_table(partten, prefix);
   for (size_t i = 0; i < sizeof(prefix) / sizeof(int); ++i) {
     printf("%d\n", prefix[i]);
   }
 
+  /* start match */
+  int j = 0; /* point to prefix table */
+  int i = 0; /* point to source string */
+  int m = strlen(str_src);
+  while (i < m) {
+    if(j == n - 1 && str_src[i] == partten[j]) {
+      /**
+       * 如果 partten 匹配到最后一位也匹配成功，那
+       * 么如果想要继续往下匹配字符串的话，则另 j 的
+       * 值指向对应 prefix 的值继续匹配即可 
+      */
+      printf("Found partten %d\n", i - j);
+      j = prefix[j];
+    } 
+
+    if(str_src[i] == partten[j]) {
+      i++;
+      j++;
+    } else {
+      j = prefix[j];
+      if(j == -1) {
+        j++;
+        i++;
+      }
+    }
+  }
+}
+
+int main(int argc, char *argv[]) {
+  char *partten = "ABABCABAA";
+  char *str_src = "ABABABABCABAAB";
+
+  kmp(str_src, partten);
+  
   return EXIT_SUCCESS;
 }
