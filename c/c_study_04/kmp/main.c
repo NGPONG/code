@@ -42,7 +42,7 @@ void prefix_table(char *str, int *prefix, int n) {
   prefix[0] = -1;
 }
 
-void kmp(char *str, int *prefix, int n) {
+void kmp(char *str_src, char *partten, int *prefix, int n) {
   
 }
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
 
   prefix_table(str, prefix, str_len);
 
-  
+    
 
   for (size_t i = 0; i < sizeof(prefix) / sizeof(int); ++i) {
     printf("%d\n", prefix[i]);
