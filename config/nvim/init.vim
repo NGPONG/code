@@ -11,7 +11,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'morhetz/gruvbox'
   "Plug 'srcery-colors/srcery-vim'
   "Plug 'dunstontc/vim-vscode-theme'
-  
+
   " more syntax
   Plug 'jackguo380/vim-lsp-cxx-highlight'
   
@@ -303,7 +303,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let NERDTreeShowBookmarks=0
-let g:NERDTreeUpdateOnWrite = 1
+let g:NERDTreeGitStatusUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline = 0
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=23
@@ -313,7 +313,7 @@ let NERDTreeDirArrows = 1
 let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
         \ "Modified"  : "𝙈",
         \ "Staged"    : "𝘼",
         \ "Untracked" : "𝙏",
@@ -474,7 +474,8 @@ let g:coc_global_extensions = [
   \ 'coc-lists',
   \ 'coc-json',
   \ 'coc-cmake',
-  \ 'coc-snippets'
+  \ 'coc-snippets',
+  \ 'coc-sh'
   \ ]
 
 " }
@@ -534,6 +535,8 @@ sign define vimspectorPC text=➤ texthl=dbg_current_pos
 
 highlight dbg_break_point guibg=#none guifg=red
 highlight dbg_current_pos guibg=#none guifg=#ffc56b
+
+let g:vimspector_install_gadgets = [ 'vscode-cpptools' ]
 
 " }
 

@@ -71,12 +71,12 @@
         }
       }
     }
-    ,
-   "bash": {
-     "command": "bash-language-server",
-     "args": ["start"],
-     "filetypes": ["sh"],
-     "ignoredRootPaths": ["~"]
-    }
+//    ,
+//    "bash": {
+//      "command": "bash-language-server",
+//      "args": ["start"],
+//      "filetypes": ["sh"],
+//      "ignoredRootPaths": ["~"]
+//    }
   }
 }
