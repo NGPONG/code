@@ -14,7 +14,7 @@ int fibonacci(unsigned int n) {
 
 int main(void) {
 	/* 打印前斐波那契数列中的前 40 个数 */
-	for (size_t i = 0; i < 40; ++i) {
+	for (size_t i = 0; i < 100000; ++i) {
     printf("%d(%d)\n", fibonacci(i), i);
   }
 
