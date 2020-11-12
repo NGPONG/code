@@ -58,6 +58,9 @@ call plug#end()
 
 "------------------------------BY_GLOBAL-------------------------------------------
 
+" no-wrap for myslq cli
+set nowrap
+
 " remember_postion() {
 
 if has("autocmd")
@@ -484,7 +487,7 @@ let g:coc_global_extensions = [
 " Leaderf() {
 
 let g:Lf_PreviewResult = {
-  \ 'Rg': 1
+  \ 'line': 1
 \}
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
