@@ -43,6 +43,5 @@ void left_rotate(bi_node **root) {
 int main(void) {
   bi_node *node = NULL;
 
-  system("pause");
   return EXIT_SUCCESS;
 }
