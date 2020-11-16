@@ -53,5 +53,6 @@
         "-Wno-unused-variable",
         "-Wall"
     ],
-    "clang.completion.enable":false
+    "clang.completion.enable": false,
+    "svn.ignoreMissingSvnWarning": true
 }
