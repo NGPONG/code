@@ -52,7 +52,7 @@ public:
     memcpy(this->m_arrary, arrary.m_arrary, sizeof(T) * arrary.length);
   }
   /* move assignment operator function */
-  Arrary<T> &operator=(Arrary<T> &&arrary) {
+  Arrary<T> &operator=(Arrary<T> arrary) {
     this->length = arrary.length;
     arrary.length = 0x0;
 

@@ -4,7 +4,7 @@ using namespace std;
 #include <string.h>
 
 class Person {
-  friend char *operator+(Person &&per, int num){
+  friend char *operator+(Person &&per, int num) {
     per.m_age += num;
     return (char *)"SUCCESS!";
   }

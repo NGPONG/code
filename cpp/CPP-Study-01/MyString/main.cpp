@@ -16,7 +16,7 @@ void test() {
   str_1 = "Hello,";
 
   cout << str_1[0] << str_1[1] << str_1[2] << str_1[3] << endl;
-
+  
   cout << str_1 + str_2 << endl;
   m_string str_3 = str_2 + "Hello!!!!";
 
