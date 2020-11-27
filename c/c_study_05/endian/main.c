@@ -5,13 +5,13 @@
 #include <string.h>
 #include <stdbool.h>
 
-union object {
+union entity {
   short s;
   char c[sizeof(short)];
 };
 
 int main(int argc, char *argv[]) {
-  union object obj;
+  union entity obj;
   obj.s = 0x0102;
 
   if (obj.c[0] == 0x02) {
@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
   } else {
     printf("most significant digit\n");
   }
-  
 
   return EXIT_SUCCESS;
 }
