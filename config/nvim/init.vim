@@ -21,6 +21,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'preservim/nerdcommenter'
   Plug 'Yggdroot/indentLine'
   Plug 'luochen1990/rainbow'
+  Plug 'psliwka/vim-smoothie'
   
   " Intelligent
   Plug 'neoclide/coc.nvim', {'brnch': 'release'}
@@ -232,15 +233,7 @@ set updatetime=100
 "    srcery: let g:srcery_italic = 1
 "            srcery
 
-let g:gruvbox_contrast_dark = 'medium'
-let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_italic = 1
-let g:gruvbox_bold = 1
-let g:gruvbox_italicize_strings = 0
-let g:gruvbox_italicize_comments = 1
-let g:gruvbox_improved_strings = 0
-colorscheme gruvbox 
-set background=dark
+colorscheme codedark
 
 " }
 
@@ -541,6 +534,10 @@ highlight dbg_current_pos guibg=#none guifg=#ffc56b
 
 let g:vimspector_install_gadgets = [ 'vscode-cpptools' ]
 
+let g:vimspector_code_minwidth = 90
+let g:vimspector_terminal_maxwidth = 75
+let g:vimspector_terminal_minwidth = 20
+
 " }
 
 
@@ -611,7 +608,18 @@ autocmd Filetype json let g:indentLine_setConceal = 0
 
 " raninbow_backet() {
 
-" let g:rainbow_active = 1
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+	\	'guifgs': ['yellow', 'MediumOrchid2', 'SkyBlue2'],
+	\	'operators': '_,_',
+	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\}
+
+" }
+
+" vim-smootie() {
+
+let g:smoothie_no_default_mappings = v:true
 
 " }
 
@@ -674,8 +682,12 @@ nnoremap <S-Up> <C-y>
 nnoremap <S-Down> <C-e>
 vnoremap <S-Up> <C-y>
 vnoremap <S-Down> <C-e>
-nnoremap <C-Up> <C-u>
-nnoremap <C-Down> <C-d>
+" nnoremap <C-Up> <C-u>
+map <silent> <C-Up> <cmd>call smoothie#upwards()<CR>
+" nnoremap <C-Down> <C-d>
+map <silent> <C-Down> <cmd>call smoothie#downwards()<CR>
+map <silent> <PageDown> <cmd>call smoothie#forwards()<CR>
+map <silent> <PageUp> <cmd>call smoothie#backwards()<CR>
 inoremap <silent><c-z> <Esc>:u<CR>i
 nnoremap <silent><c-z> u
 map <S-Insert> <C-r>"
