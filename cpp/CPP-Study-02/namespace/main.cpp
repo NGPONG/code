@@ -1,18 +1,28 @@
 #include <iostream>
-#include <functional>
 using namespace std;
 
-int main(void) {
-  int i = 10;
+#include <string.h>
 
-  function<bool(void)> invoker = [&](void) -> bool {
-    i++;
-    return true;
-  };
-
-  if(invoker()) {
-    cout << "SUCCESS i = " << i << endl;
+class Animal {
+public:
+  Animal() {
+    cout << "animal constructor" << endl;
   }
+  
+  /* ´¿Ðéº¯Êý */
+  virtual void speak() = 0;
+
+  virtual ~Animal() {
+    cout << "animal destructor" << endl;
+  };
+};
+
+void foo(Animal &ani) {
+  
+}
+
+int main(void) {
+  Animal *animal;
 
   return EXIT_SUCCESS;
 }

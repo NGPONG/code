@@ -10,6 +10,7 @@
   "diagnostic.virtualTextPrefix": "◂ ",
   "diagnostic.messageTarget": "echo",
   "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.signOffset": 9999999,
 
   // suggest
   "suggest.acceptSuggestionOnCommitCharacter": true,
