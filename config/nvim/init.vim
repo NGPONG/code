@@ -643,14 +643,15 @@ nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
 nnoremap p P
+vnoremap p pgvy
 nmap a i
 vmap a i
 vmap i I
 vmap q b
-" vnoremap w iw 这种映射方式可以直接选中一个单词，但是会出现前后不定的情况
+" 这种映射方式可以直接选中一个单词，但是会出现前后不定的情况
+" vnoremap w iw 
 vnoremap w e
 nnoremap q b
-nnoremap w e
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
