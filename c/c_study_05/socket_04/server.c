@@ -1,27 +1,13 @@
-#include <math.h>
-#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <arpa/inet.h>
-#include <netinet/in.h>
 #include <unistd.h>
 #include <ctype.h>
 #include <signal.h>
 
-void handler(int _sig) { printf("handler executed!\n"); }
-
 int main(int argc, char *argv[]) {
-  printf("%d\n", getpid());
-
-  struct sigaction act;
-  act.sa_handler = handler;
-  sigemptyset(&act.sa_mask);
-  act.sa_flags = 0;
-
-  sigaction(SIGINT, &act, NULL);
-
   int sfd = socket(AF_INET, SOCK_STREAM, 0x0);
   if (sfd < 0) {
     perror("create socket pair error");
@@ -34,10 +20,6 @@ int main(int argc, char *argv[]) {
   serv.sin_port = htons(8886);
   inet_pton(AF_INET, "127.0.0.1", &serv.sin_addr.s_addr);
   int bflg = bind(sfd, (const struct sockaddr *)&serv, sizeof(serv));
-  if (bflg < 0) {
-    perror("socket bind error");
-    exit(EXIT_FAILURE);
-  }
   
   /* start listen, client can connect to server right now */
   listen(sfd, 0x400);
@@ -59,14 +41,13 @@ int main(int argc, char *argv[]) {
   while (true) {
     bzero(buf, sizeof(buf));
     
-    printf("start waitting for new msg arrived\n");
     /* receive msg */
     int n = read(cfd, buf, sizeof(buf));
-    if (n == -1) {
-      
+    if (n <= 0) {
+      close(cfd);
     }
 
-    printf("receive: %s\n", buf);
+    printf("%s", buf);
     
     /* send msg */
     for (size_t i = 0; i < n; ++i) {
@@ -77,7 +58,6 @@ int main(int argc, char *argv[]) {
   
   /* close connection */
   close(sfd);
-  close(cfd);
 
   return EXIT_SUCCESS;
 }

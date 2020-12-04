@@ -1,24 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <signal.h>
 
-void handler(int _sig) { printf("handler executed!\n"); }
+#define DEBUG(format, ...) printf(format, ##__VA_ARGS__)
 
 int main(int argc, char *argv[]) {
-  printf("%d\n", getpid());
+  /* printf("%s[%d]", hello,world, 1024); */
+  /* 当录入了可变参数的情况，使用特殊宏定义 __VA_ARGS__ 时，会在参数前面添加 ','
+   */
+  DEBUG("%s[%d]", "hello, world", 1024);
 
-  struct sigaction act;
-  act.sa_handler = handler;
-  sigemptyset(&act.sa_mask);
-  act.sa_flags = 0;
-
-  sigaction(SIGINT, &act, NULL);
-
-  sleep(1000);
-  printf("process exited\n");
+  /* printf("hello,world"); */
+  /* 当未使用可变参数时，则不会在前面添加 ',' */
+  DEBUG("hello,world");
 
   return EXIT_SUCCESS;
 }
