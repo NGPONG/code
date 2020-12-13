@@ -1,5 +1,4 @@
-cd ./test
+#!/bin/bash
 
-if [[ $? != "1" ]]; then
-  echo "success"
-fi
+echo $@
+echo $1

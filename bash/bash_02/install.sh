@@ -2,13 +2,16 @@
 
 source /etc/os-release
 
-set -euo pipefail # Set [x] option if wanna debug
+set -euo pipefail # append -x option if wanna debug
 
 # colors
 RED="\033[0;31m"
 GREEN="\033[1;32m"
 YELLOW="\033[1;33m"
 NC="\033[0m"
+
+# global
+SET_PROXY=false
 
 function print_date {
   echo -n "[$(date '+%F %T')]: "
@@ -36,7 +39,7 @@ function set_proxy {
     sudo apt install curl
   fi
   
-  # download qv2ray and install
+  info "download qv2ray and install"
   local qv2ray_pkg="qv2ray_2.6.3-1stable1_amd64.deb"
   if [[ ! -e /tmp/$qv2ray_pkg ]]; then
     curl -L https://github.com/Qv2ray/Qv2ray/releases/download/v2.6.3/$qv2ray_pkg -o /tmp/$qv2ray_pkg
@@ -48,33 +51,42 @@ function set_proxy {
   fi
   set -e
 
-  if [[ ! -e ~/.config/qv2ray ]]; then
-    mkdir ~/.config/qv2ray
-    mkdir ~/.config/qv2ray/vcore
-    mkdir ~/.config/qv2ray/plugins
-  fi
+  mkdir ~/.config/qv2ray/vcore -p
+  mkdir ~/.config/qv2ray/plugins -p
 
-  # set up v2ray-core
+  info "set up v2ray-core"
   local v2ray_core_pkg="v2ray-linux-64.zip"
   if [[ ! -e /tmp/$v2ray_core_pkg ]]; then
     curl -L https://github.com/v2ray/v2ray-core/releases/download/v4.28.2/$v2ray_core_pkg -o /tmp/$v2ray_core_pkg
   fi
   unzip -o -d ~/.config/qv2ray/vcore/ /tmp/$v2ray_core_pkg
 
-  # set up qv2ray plugins
+  info "set up qv2ray plugins"
   local trojan_lib="QvTrojanPlugin.v2.0.0.linux-x64.so"
   if [[ ! -e /tmp/$trojan_lib ]]; then
     curl -L https://github.com/Qv2ray/QvPlugin-Trojan/releases/download/v2.0.0/$trojan_lib -o /tmp/$trojan_lib
   fi
   cp /tmp/$trojan_lib ~/.config/qv2ray/plugins/
   
-  # set up system proxy
+  info "set up system proxy"
   echo "export https_proxy="http://127.0.0.1:8889"
 export http_proxy="http://127.0.0.1:8889"" | sudo tee -a ~/.bashrc > /dev/null
   echo "Acquire::http::Proxy "http://127.0.0.1:8889";
 Acquire::https::Proxy "http://127.0.0.1:8889";" | sudo tee -a /etc/apt/apt.conf > /dev/null
-  
-  info "set proxy ended"
+
+  info "set up git config"
+  if [[ $(which git) != "" ]]; then
+    git config --global http.proxy http://127.0.0.1:8889
+    git config --global https.proxy http://127.0.0.1:8889
+  fi
+
+  info "set proxy ended, The default port of the proxy is [8889]"
+  info "Please check the modifications flowing files below, if they are what you need"
+  info "1. ~/.bashrc"
+  info "2. ~/code"
+  info "3. ~/ccls"
+  info "4. /tmp/*"
+  info "5. /etc/apt/apt.conf"
 }
 function check_env {
   info "start check system environment"
@@ -85,9 +97,16 @@ function check_env {
     exit 1
   fi
 
-  # check proxy
   if [[ ! $(cat ~/.bashrc) =~ https_proxy ]]; then
-    error "In order to ensure the transmission speed, you must first set up a proxy"
+    error "In order to ensure the transmission speed, you should set up a proxy first"
+
+    if [[ $SET_PROXY == true ]]; then
+      error "This script don't change anymore default, try [--set-proxy] if you need"
+    fi
+  fi
+
+  if [[ $SET_PROXY == true ]]; then
+    # check proxy
     set_proxy
     exit 1
   fi
@@ -107,12 +126,14 @@ function install_ide() {
 
   # config nvim configs
   if [[ ! -e ~/.config/nvim ]]; then
-    mkdir ~/.config/nvim
+    mkdir ~/.config/nvim/ultisnips -p
+
     cd ~
     git clone https://github.com/NGPONG/code
+
+    # The reason for setting as a linked file is because this is usually only used by myself
     ln -s /home/$USER/code/config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
     ln -s /home/$USER/code/config/nvim/init.vim ~/.config/nvim/init.vim
-    mkdir ~/.config/nvim/ultisnips
     ln -s /home/$USER/code/config/nvim/ultisnips/c.snippets ~/.config/nvim/ultisnips/c.snippets
     ln -s /home/$USER/code/config/nvim/ultisnips/json.snippets ~/.config/nvim/ultisnips/json.snippets
   fi
@@ -172,9 +193,6 @@ function install_gnu_tools {
     manpages-dev \
     libtool \
     autoconf
-
-  git config --global http.proxy http://127.0.0.1:8889
-  git config --global https.proxy http://127.0.0.1:8889
 
   info "completed install gnu tools";
 }
@@ -244,5 +262,9 @@ function main {
   info "Congratulations, you have completed the all of the configurable items"
   info "Enjoy it!"
 }
+
+if [[ $# -ne 0 ]] && [[ $1 == "--set-proxy" ]]; then
+  SET_PROXY=true
+fi
 
 main

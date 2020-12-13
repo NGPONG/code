@@ -645,8 +645,8 @@ vnoremap X "_X
 nnoremap p P
 vnoremap p pgvy
 nmap a i
-vmap a i
-vmap i I
+vmap a I
+" vmap i I
 vmap q b
 " 这种映射方式可以直接选中一个单词，但是会出现前后不定的情况
 " vnoremap w iw 
