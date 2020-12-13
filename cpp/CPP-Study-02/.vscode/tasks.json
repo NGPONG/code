@@ -9,7 +9,7 @@
                 "-o",                                                   // 指定输出文件名，不加该参数则默认输出a.exe，Linux下默认a.out
                 "${workspaceFolder}\\DEBUG\\${relativeFileDirname}.exe",  // 生成可执行文件路径
                 "-g",                                                   // 生成和调试有关的信息
-                "-O0",
+                "-O2",
                 //"-Wall",                                                // 开启额外警告
                 "-static-libgcc",                                       // 静态链接libgcc，一般都会加上
                 "-finput-charset=UTF-8",
@@ -28,9 +28,9 @@
                 "focus": false,                                         // 设为true后可以使执行task时焦点聚集在终端，但对编译C/C++来说，设为true没有意义
                 "panel": "shared"                                       // 不同的文件的编译信息共享一个终端面板
             },
-            "dependsOn": [
-                "Folder initialization"
-            ],
+            //"dependsOn": [
+            //    "Folder initialization"
+            //],
             "problemMatcher": {
                 "base": "$gcc",
                 "fileLocation": [
