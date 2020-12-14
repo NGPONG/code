@@ -9,8 +9,6 @@ int binary_search(int *arrary, int key, int len) {
   int mid = 0;
   while (true) {
     mid = (low + high) / 2;
-    
-    printf("mid = %d; low = %d; high = %d;\n", mid, low, high);
 
     if (arrary[mid] < key) {
       low = mid + 1;
