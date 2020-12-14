@@ -236,7 +236,7 @@ void dijkstra(n_graph *G) {
 
         Data d;
         d.idx = j;
-        d.data = dt.data + G->arc[d.idx][dt.idx];
+        d.data = dt.data + G->arc[dt.idx][d.idx];
 
         if(priority_queue == NULL) {
           priority_queue = newNode(d, d.data);

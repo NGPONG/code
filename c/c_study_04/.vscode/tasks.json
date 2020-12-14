@@ -28,7 +28,7 @@
                 "panel": "shared"                                       // 不同的文件的编译信息共享一个终端面板
             },
             "dependsOn": [
-                "Folder initialization"
+                // "Folder initialization"
             ],
             "problemMatcher": {
                 "base": "$gcc",
