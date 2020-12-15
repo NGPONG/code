@@ -9,17 +9,13 @@ int main(void) {
   int len = sizeof(arrary) / sizeof(*arrary);
 
   for (int i = 1; i < len; i++) {
-    if (ASC(arrary[i - 1], arrary[i])) {
-      int tmp = arrary[i];
+    int key = arrary[i];
 
-      int j = i - 1;
-      for (; j >= 0 && ASC(arrary[j], tmp); j--) {
-        arrary[j + 1] = arrary[j];
-      }
-      arrary[j + 1] = tmp;
-    } else {
-      continue;
+    int j = i - 1;
+    for (; j >= 0 && ASC(arrary[j], key); j--) {
+      arrary[j + 1] = arrary[j];
     }
+    arrary[j + 1] = key;
   }
 
   for (size_t i = 0; i < len; i++) printf("%d\n", arrary[i]);
