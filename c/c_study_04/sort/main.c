@@ -18,12 +18,24 @@
 static int arrary[] = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48 };
 static int len = sizeof(arrary) / sizeof(*arrary);
 
+void bucket_sort(int max_val) {
+}
+
+
+void counting_sort(int max_val) {
+  printf("start counting sort\n");
+}
+
+
+void quick_sort(int left, int right) {
+}
+
+
 void heapify(int n, int idx) {
 }
 void built_heap() {
 }
 void heap_sort() {
-  printf("start heap sort\n");
 }
 
 
@@ -58,7 +70,10 @@ int main(int argc, char *argv[]) {
   /* insert_sort(); */
   /* shell_sort(); */
   /* merge_split(0, len - 1); */
-  heap_sort();
+  /* heap_sort(); */
+  /* quick_sort(0, len - 1); */
+  /* counting_sort(50); */
+  /* bucket_sort(50); */
   
   PRINT(arrary);
 
