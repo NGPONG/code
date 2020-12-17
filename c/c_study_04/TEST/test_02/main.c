@@ -26,7 +26,7 @@ int main(void) {
   int arrary[] = { 0, 1, 16, 24, 35, 47, 59, 62, 73, 88, 99 };
   
   int idx = 0;
-  if((idx = binary_search(arrary, 89, sizeof(arrary) / sizeof(int))) != -1) {
+  if((idx = binary_search(arrary, 88, sizeof(arrary) / sizeof(int)) != -1)) {
     printf("dected [%d]\n", idx);
   } else {
     printf("none\n");
