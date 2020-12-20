@@ -71,12 +71,19 @@
         }
       }
     }
-//    ,
-//    "bash": {
-//      "command": "bash-language-server",
-//      "args": ["start"],
-//      "filetypes": ["sh"],
-//      "ignoredRootPaths": ["~"]
-//    }
+    ,
+    "golang": {
+      "command": "gopls",
+      // "args": [
+      //   "-logfile=gopls.log",
+      //   "-rpc.trace"
+      // ],
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "completeUnimported": true
+      }
+    }
   }
 }
