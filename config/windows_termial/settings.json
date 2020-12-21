@@ -25,7 +25,7 @@
       "acrylicOpacity": 0.85,
       "backgroundImageOpacity" : 1,
       "cursorShape": "filledBox",
-      "fontFace": "FuraCode Nerd Font",
+      "fontFace": "UbuntuMono NF", // FiraCode Nerd Font Mono
       "fontSize": 14,
       "colorScheme": "Campbell",
       "historySize" : 9001,
@@ -182,9 +182,21 @@
       "command": "scrollUp",
       "keys": "shift+alt+up"
     },
+    {
+      "command": null, 
+      "keys": "ctrl+shift+up"
+    },
+    {
+      "command": null, 
+      "keys": "ctrl+shift+down"
+    },
     { 
       "command": "scrollUpPage",
       "keys": "shift+alt+pgup"
+    },
+    { 
+      "command": null,
+      "keys": "f11"
     },
     { 
       "command": "scrollDownPage",
