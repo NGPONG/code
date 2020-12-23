@@ -492,7 +492,7 @@ let g:Lf_PreviewResult = {
   \ 'line': 1
 \}
 let g:Lf_HideHelp = 1
-let g:Lf_UseCache = 0
+let g:Lf_UseCache = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_ReverseOrder = 0
@@ -500,12 +500,12 @@ let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 let g:Lf_WindowHeight = 0.2
 let g:Lf_PreviewHorizontalPosition = 'right'
 let g:Lf_DefaultMode = 'Fuzzy'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewResult = { 'rg': 1 }
 function! Find_current()
-  let g:Lf_PreviewInPopup = 0
-  execute 'Leaderf line --bottom --regexMode'
+  execute 'Leaderf rg --current-buffer --bottom --regexMode'
 endfunction
 function! Find_file()
-  let g:Lf_PreviewInPopup = 1
   execute 'Leaderf rg --bottom'
 endfunction
 let g:Lf_NormalMap = {

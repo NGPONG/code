@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
   /* heap_sort(); */
   /* quick_sort(0, len - 1); */
   /* counting_sort(); */
-  /* bucket_sort(); */
+  bucket_sort();
   
   PRINT(arrary);
 
