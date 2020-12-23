@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\基础加强总复习\事件-类型安全的委托\bin\Debug\事件-类型安全的委托.exe.config
-C:\Users\Administrator\Desktop\源码\基础加强总复习\事件-类型安全的委托\bin\Debug\事件-类型安全的委托.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\事件-类型安全的委托\bin\Debug\事件-类型安全的委托.pdb
-C:\Users\Administrator\Desktop\源码\基础加强总复习\事件-类型安全的委托\obj\Debug\事件-类型安全的委托.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\事件-类型安全的委托\obj\Debug\事件-类型安全的委托.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\事件-类型安全的委托\obj\Debug\事件-类型安全的委托.pdb

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.js"></script>
+
+    <script>
+        window.onload = function () {
+
+
+            // 通过bind函数绑定jQuery(DOM)对象的事件
+            // jQuery对象.bind ( "事件类型" ，事件处理函数 ) 
+            $("#btnShow").bind("click", function () {
+
+                // this为DOM对象，因为jQuery对象是DOM对象的一个数组，并且jQuery事件是DOM事件的一种封装，所以我们能够利用this来获取事件发布者的对象
+                window.alert(this.value);
+            });
+
+            $("#btnShow").bind("click", function () {
+
+                window.alert("demo");
+            })
+
+
+            // 通过事件函数绑定jQuery(DOM)对象的事件
+            // jQuery对象.事件类型 ( 事件处理函数 ) 
+            $("#btnShow").click(function () {
+
+                // this为DOM对象，因为jQuery对象是DOM对象的一个数组，并且jQuery事件是DOM事件的一种封装，所以我们能够利用this来获取事件发布者的对象
+                window.alert(this.value);
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮哟" id="btnShow"/>
+</body>
+</html>

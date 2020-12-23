@@ -1,7 +1,0 @@
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\bin\Debug\工厂方法.exe.config
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\bin\Debug\工厂方法.exe
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\bin\Debug\工厂方法.pdb
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\obj\Debug\工厂方法.csprojAssemblyReference.cache
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\obj\Debug\工厂方法.csproj.CoreCompileInputs.cache
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\obj\Debug\工厂方法.exe
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\工厂方法\obj\Debug\工厂方法.pdb

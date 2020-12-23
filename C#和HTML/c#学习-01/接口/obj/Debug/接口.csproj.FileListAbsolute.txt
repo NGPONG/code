@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\接口\bin\Debug\接口.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\接口\bin\Debug\接口.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\接口\bin\Debug\接口.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\接口\obj\Debug\接口.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\接口\obj\Debug\接口.pdb

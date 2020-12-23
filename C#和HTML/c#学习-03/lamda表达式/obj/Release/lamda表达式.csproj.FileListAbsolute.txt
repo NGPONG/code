@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\lamda表达式\bin\Release\lamda表达式.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\lamda表达式\bin\Release\lamda表达式.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\lamda表达式\bin\Release\lamda表达式.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\lamda表达式\obj\Release\lamda表达式.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\lamda表达式\obj\Release\lamda表达式.pdb

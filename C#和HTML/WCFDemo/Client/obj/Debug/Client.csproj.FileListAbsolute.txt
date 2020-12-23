@@ -1,7 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\bin\Debug\Client.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\bin\Debug\Client.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\bin\Debug\Client.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\bin\Debug\Contract.dll
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\bin\Debug\Contract.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\obj\Debug\Client.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\WCFDemo\Client\obj\Debug\Client.pdb

@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程的使用\bin\Release\多线程的使用.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程的使用\bin\Release\多线程的使用.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程的使用\bin\Release\多线程的使用.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程的使用\obj\Release\多线程的使用.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多线程的使用\obj\Release\多线程的使用.pdb

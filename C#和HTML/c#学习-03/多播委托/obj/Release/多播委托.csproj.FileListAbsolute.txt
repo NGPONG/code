@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多播委托\bin\Release\多播委托.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多播委托\bin\Release\多播委托.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多播委托\bin\Release\多播委托.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多播委托\obj\Release\多播委托.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\多播委托\obj\Release\多播委托.pdb

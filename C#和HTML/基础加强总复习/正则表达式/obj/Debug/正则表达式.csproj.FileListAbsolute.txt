@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\基础加强总复习\正则表达式\bin\Debug\正则表达式.exe.config
-C:\Users\Administrator\Desktop\源码\基础加强总复习\正则表达式\bin\Debug\正则表达式.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\正则表达式\bin\Debug\正则表达式.pdb
-C:\Users\Administrator\Desktop\源码\基础加强总复习\正则表达式\obj\Debug\正则表达式.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\正则表达式\obj\Debug\正则表达式.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\正则表达式\obj\Debug\正则表达式.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\正则表达式\bin\Debug\正则表达式.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\正则表达式\obj\Debug\正则表达式.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\正则表达式\obj\Debug\正则表达式.pdb

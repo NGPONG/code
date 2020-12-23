@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\bin\Debug\test11.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\bin\Debug\test11.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\bin\Debug\test11.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\obj\Debug\test11.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\obj\Debug\test11.Form1.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\obj\Debug\test11.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\obj\Debug\test11.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\obj\Debug\test11.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test11\obj\Debug\test11.pdb

@@ -1,7 +1,0 @@
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\obj\Debug\泛型委托.csprojAssemblyReference.cache
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\obj\Debug\泛型委托.csproj.CoreCompileInputs.cache
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\bin\Debug\泛型委托.exe.config
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\bin\Debug\泛型委托.exe
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\bin\Debug\泛型委托.pdb
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\obj\Debug\泛型委托.exe
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\泛型委托\obj\Debug\泛型委托.pdb

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+
+            // $( "parent descendant" )：匹配父元素parent下的所有子元素descendant，并返回匹配结果的JQ对象
+            $("#divDemo div");
+
+            // $("parent>descendant")：匹配父元素parent下的直接子元素descendant，并返回匹配结果的JQ对象
+            $("#divDemo>div");
+
+            // $("element+sibling")：匹配一个紧挨着元素element后的同级元素sibling，并返回匹配结果的JQ对象
+            $("#divDemo+p");
+
+            // $("element~siblings")：匹配元素element后的所有同级元素siblings，并返回匹配结果的JQ对象
+            $("#divDemo~p");
+        });
+    </script>
+</head>
+<body>
+    <div class="hahha"></div>
+    <div id="divDemo">
+        <div>
+            <div>
+            </div>
+        </div>
+    </div>
+    <p class="pDemo">asd</p>
+    <p></p>
+</body>
+</html>

@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\jQuery\选择器\bin\选择器.dll.config
-C:\Users\Administrator\Desktop\源码\jQuery\选择器\bin\选择器.dll
-C:\Users\Administrator\Desktop\源码\jQuery\选择器\bin\选择器.pdb
-C:\Users\Administrator\Desktop\源码\jQuery\选择器\obj\Debug\选择器.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\jQuery\选择器\obj\Debug\选择器.dll
-C:\Users\Administrator\Desktop\源码\jQuery\选择器\obj\Debug\选择器.pdb

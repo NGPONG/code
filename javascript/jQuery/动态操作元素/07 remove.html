@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 页面上移除jQuery对象内部数组中，所指定的JQ选择器筛选的元素
+            $("p").remove("#pHello");
+        });
+    </script>
+</head>
+<body>
+    <p id="pHello">Hello</p>
+    <p id="pHow">how are </p>
+    <p id="pYou">you?</p>
+</body>
+</html>

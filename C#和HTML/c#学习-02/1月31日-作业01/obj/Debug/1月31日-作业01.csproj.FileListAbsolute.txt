@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业01\bin\Debug\1月31日-作业01.exe.config
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业01\obj\Debug\1月31日-作业01.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业01\bin\Debug\1月31日-作业01.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业01\bin\Debug\1月31日-作业01.pdb
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业01\obj\Debug\1月31日-作业01.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业01\obj\Debug\1月31日-作业01.pdb

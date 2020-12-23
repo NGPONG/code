@@ -1,3 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\begininvoke\bin\Debug\begininvoke.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\begininvoke\obj\Debug\begininvoke.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\begininvoke\obj\Debug\begininvoke.pdb

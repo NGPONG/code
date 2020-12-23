@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\bin\Debug\英汉翻译.exe.config
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\bin\Debug\英汉翻译.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\bin\Debug\英汉翻译.pdb
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\obj\Debug\英汉翻译.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\obj\Debug\英汉翻译.Form1.resources
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\obj\Debug\英汉翻译.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\obj\Debug\英汉翻译.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\obj\Debug\英汉翻译.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\英汉翻译\obj\Debug\英汉翻译.pdb

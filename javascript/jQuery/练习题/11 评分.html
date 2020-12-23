@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        var index = -1;
+        var elementWidth = 0;
+        var elementHeight = 0;
+
+        $(document).ready(function () {
+
+            elementWidth = $("img").length * $("img")[0].width;
+            elementHeight = $("img")[0].height;
+
+            $("img").hover(function () { // 鼠标移动
+
+                $(this).attr("src", "images/star2.png")
+                    .prevAll("img")
+                    .attr("src", "images/star2.png")
+                    .end()
+                    .nextAll("img").attr("src", "images/star1.png");
+            }, function (e) { // 鼠标移开
+
+                if (e.clientX <= elementWidth && e.clientY <= elementHeight)
+                {
+                    return;
+                }
+                else
+                {
+                    if (index != -1)
+                    {
+                        $($("img")[index]).attr("src", "images/star2.png").prevAll("img").attr("src", "images/star2.png").end().nextAll().attr("src", "images/star1.png");
+                        return;
+                    }
+                    $("img").attr("src", "images/star1.png");
+                }
+                //$("img").attr("src", "images/star1.png");
+            }).click(function () {
+
+                index = $(this).index("img");
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="images/star1.png" id="0" />
+    <img src="images/star1.png" id="1" />
+    <img src="images/star1.png" id="2" />
+    <img src="images/star1.png" id="3" />
+    <img src="images/star1.png" id="4" />
+</body>
+</html>

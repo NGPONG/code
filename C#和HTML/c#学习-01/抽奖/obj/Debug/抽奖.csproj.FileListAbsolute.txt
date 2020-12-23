@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\抽奖\bin\Debug\抽奖.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\抽奖\bin\Debug\抽奖.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\抽奖\bin\Debug\抽奖.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\抽奖\obj\Debug\抽奖.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\抽奖\obj\Debug\抽奖.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\抽奖\obj\Debug\抽奖.pdb

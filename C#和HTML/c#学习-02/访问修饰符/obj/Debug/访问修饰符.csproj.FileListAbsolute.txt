@@ -1,2 +1,0 @@
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\访问修饰符\bin\Debug\访问修饰符.exe.config
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\访问修饰符\obj\Debug\访问修饰符.csprojResolveAssemblyReference.cache

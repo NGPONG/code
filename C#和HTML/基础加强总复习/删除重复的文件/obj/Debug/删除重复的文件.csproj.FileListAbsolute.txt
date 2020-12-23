@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\删除重复的文件\bin\Debug\删除重复的文件.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\删除重复的文件\bin\Debug\删除重复的文件.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\删除重复的文件\bin\Debug\删除重复的文件.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\删除重复的文件\obj\Debug\删除重复的文件.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\删除重复的文件\obj\Debug\删除重复的文件.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\删除重复的文件\obj\Debug\删除重复的文件.pdb

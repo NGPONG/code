@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // $.each ( object , [callback] )：循环遍历数组中的每个元素执行我们所定义的回调函数
+            var nums = [1, 2, 3, 4, 5, 6];
+            $.each(nums, function (index, value)
+            {
+                document.write("当前循环到的元素下表为：" + index);
+                document.write("这个元素的值为：" + value);
+            });
+
+            // $.each ( object , [callback] )：循环遍历JSON中的每个元素执行我们所定义的回调函数
+            var json ={
+                    "名字": "吴鹏",
+                    "年龄": 22,
+                    "性别": "男人"
+                };
+            $.each(json, function (key, value)
+            {
+                document.write("当前循环到的JSON的键为：" + key);
+                document.write("该键所对应的值为：" + value);
+            })
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,7 +1,0 @@
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\bin\Debug\邮件发送.exe.config
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\bin\Debug\邮件发送.exe
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\bin\Debug\邮件发送.pdb
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\obj\Debug\邮件发送.csprojAssemblyReference.cache
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\obj\Debug\邮件发送.csproj.CoreCompileInputs.cache
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\obj\Debug\邮件发送.exe
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\邮件发送\obj\Debug\邮件发送.pdb

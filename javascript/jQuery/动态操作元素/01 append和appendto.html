@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 动态创建HTML标签的jQuery对象
+            var bElement = $("<b>哈哈哈</b>");
+
+            // 向匹配的JQ对象的内部的末尾处，动态的添加一个子元素
+            $("div").append(bElement);
+
+            // 动态创建HTML标签的jQuery对象
+            var bElement = $("<b>呵呵呵呵</b>");
+
+            // 把子元素动态的添加至匹配的JQ对象标签对内部的末尾处
+            bElement.appendTo($("div"));
+        });
+    </script>
+</head>
+<body>
+    <div>demo</div>
+</body>
+</html>

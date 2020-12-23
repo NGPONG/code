@@ -1,6 +1,0 @@
-﻿函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:24:42所需时间：0.0505837速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:24:45所需时间：0.0531664速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:24:57所需时间：0.0507886速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-

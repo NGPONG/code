@@ -1,8 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\bin\Release\test08.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\bin\Release\test08.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\bin\Release\test08.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\obj\Release\test08.Form1.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\obj\Release\test08.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\obj\Release\test08.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\obj\Release\test08.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test08\obj\Release\test08.pdb

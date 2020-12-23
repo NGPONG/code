@@ -1,3 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test08\bin\Debug\test08.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test08\obj\Debug\test08.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test08\obj\Debug\test08.pdb

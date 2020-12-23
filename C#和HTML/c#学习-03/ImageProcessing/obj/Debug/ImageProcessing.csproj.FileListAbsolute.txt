@@ -1,4 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\ImageProcessing\bin\Debug\ImageProcessing.dll
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\ImageProcessing\bin\Debug\ImageProcessing.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\ImageProcessing\obj\Debug\ImageProcessing.dll
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\ImageProcessing\obj\Debug\ImageProcessing.pdb

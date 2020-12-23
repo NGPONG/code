@@ -1,3 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\1重写Equals\bin\Debug\1重写Equals.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\1重写Equals\obj\Debug\1重写Equals.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\1重写Equals\obj\Debug\1重写Equals.pdb

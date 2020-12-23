@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test03\bin\Release\test03.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test03\bin\Release\test03.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test03\bin\Release\test03.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test03\obj\Release\test03.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\test03\obj\Release\test03.pdb

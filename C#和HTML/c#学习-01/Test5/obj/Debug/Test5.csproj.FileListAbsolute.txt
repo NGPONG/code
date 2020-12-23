@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test5\bin\Debug\Test5.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test5\obj\Debug\Test5.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test5\bin\Debug\Test5.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test5\bin\Debug\Test5.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test5\obj\Debug\Test5.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test5\obj\Debug\Test5.pdb

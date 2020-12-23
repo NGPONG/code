@@ -1,6 +1,0 @@
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\线程安全的集合\bin\Debug\线程安全的集合.exe.config
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\线程安全的集合\bin\Debug\线程安全的集合.exe
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\线程安全的集合\bin\Debug\线程安全的集合.pdb
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\线程安全的集合\obj\Debug\线程安全的集合.csproj.CoreCompileInputs.cache
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\线程安全的集合\obj\Debug\线程安全的集合.exe
-C:\Users\NGPONG\Desktop\code\C#和HTML\c#学习-04\线程安全的集合\obj\Debug\线程安全的集合.pdb

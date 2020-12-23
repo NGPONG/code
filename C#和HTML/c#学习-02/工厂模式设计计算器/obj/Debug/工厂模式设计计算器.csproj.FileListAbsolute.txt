@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\工厂模式设计计算器\bin\Debug\工厂模式设计计算器.exe.config
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\工厂模式设计计算器\bin\Debug\工厂模式设计计算器.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\工厂模式设计计算器\bin\Debug\工厂模式设计计算器.pdb
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\工厂模式设计计算器\obj\Debug\工厂模式设计计算器.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\工厂模式设计计算器\obj\Debug\工厂模式设计计算器.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\工厂模式设计计算器\obj\Debug\工厂模式设计计算器.pdb
-C:\Users\Administrator\Desktop\源码\ConsoleApplication2\工厂模式设计计算器\bin\Debug\工厂模式设计计算器.exe.config
-C:\Users\Administrator\Desktop\源码\ConsoleApplication2\工厂模式设计计算器\obj\Debug\工厂模式设计计算器.exe
-C:\Users\Administrator\Desktop\源码\ConsoleApplication2\工厂模式设计计算器\obj\Debug\工厂模式设计计算器.pdb

@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 06\bin\Debug\Test 06.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 06\bin\Debug\Test 06.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 06\bin\Debug\Test 06.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 06\obj\Debug\Test 06.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 06\obj\Debug\Test 06.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\Test 06\obj\Debug\Test 06.pdb

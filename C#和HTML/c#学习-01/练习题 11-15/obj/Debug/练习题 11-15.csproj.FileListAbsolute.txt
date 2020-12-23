@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 11-15\bin\Debug\练习题 11-15.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 11-15\bin\Debug\练习题 11-15.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 11-15\bin\Debug\练习题 11-15.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 11-15\obj\Debug\练习题 11-15.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 11-15\obj\Debug\练习题 11-15.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 11-15\obj\Debug\练习题 11-15.csprojResolveAssemblyReference.cache

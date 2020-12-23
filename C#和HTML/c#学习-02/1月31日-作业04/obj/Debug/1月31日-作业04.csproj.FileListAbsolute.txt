@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业04\bin\Debug\1月31日-作业04.exe.config
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业04\bin\Debug\1月31日-作业04.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业04\bin\Debug\1月31日-作业04.pdb
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业04\obj\Debug\1月31日-作业04.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\1月31日-作业04\obj\Debug\1月31日-作业04.pdb

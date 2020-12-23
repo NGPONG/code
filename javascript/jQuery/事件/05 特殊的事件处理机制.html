@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        var i = 0;
+        $(document).ready(function () {
+
+            $("#btnDemo").click(function () {
+
+                window.alert("我是button的事件！");
+            });
+
+            // jQueryInput对象.bind( "input propertychange" , 事件处理函数 )：为input标签的JQ对象绑定一个当input标签的value属性发生改变时所发生的事件
+            $("#txtDemo").bind("input propertychange", function () {
+
+                // JQ对象.trigger( "事件名" )：在其他地方调用JQ对象的指定事件名的事件
+                $("#btnDemo").trigger("click");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnDemo" value="按钮"/>
+    <input type="text" id="txtDemo"/>
+
+    <div id="divDemo"></div>
+</body>
+</html>

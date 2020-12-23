@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\bin\Debug\test07.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\bin\Debug\test07.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\bin\Debug\test07.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\obj\Debug\test07.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\obj\Debug\test07.Form1.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\obj\Debug\test07.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\obj\Debug\test07.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\obj\Debug\test07.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test07\obj\Debug\test07.pdb

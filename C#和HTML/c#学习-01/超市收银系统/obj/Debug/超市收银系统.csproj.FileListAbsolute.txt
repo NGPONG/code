@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统\bin\Debug\超市收银系统.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统\bin\Debug\超市收银系统.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统\bin\Debug\超市收银系统.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统\obj\Debug\超市收银系统.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统\obj\Debug\超市收银系统.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\超市收银系统\obj\Debug\超市收银系统.csprojResolveAssemblyReference.cache

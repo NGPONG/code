@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\bin\Release\委托案例：实现窗体之间的传值.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\bin\Release\委托案例：实现窗体之间的传值.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\bin\Release\委托案例：实现窗体之间的传值.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\obj\Release\委托案例_实现窗体之间的传值.Form1.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\obj\Release\委托案例_实现窗体之间的传值.Form2.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\obj\Release\委托案例_实现窗体之间的传值.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\obj\Release\委托案例：实现窗体之间的传值.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\obj\Release\委托案例：实现窗体之间的传值.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\委托案例：实现窗体之间的传值\obj\Release\委托案例：实现窗体之间的传值.pdb

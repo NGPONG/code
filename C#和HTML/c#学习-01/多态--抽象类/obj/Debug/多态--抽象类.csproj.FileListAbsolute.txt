@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态--抽象类\bin\Debug\多态--抽象类.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态--抽象类\bin\Debug\多态--抽象类.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态--抽象类\bin\Debug\多态--抽象类.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态--抽象类\obj\Debug\多态--抽象类.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\多态--抽象类\obj\Debug\多态--抽象类.pdb

@@ -1,93 +1,0 @@
-﻿函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:13:13
-速度等级：F
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-
-参数值：
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:15:08
-速度等级：F
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:15:12
-速度等级：F
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:15:51
-速度等级：F
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:17:19
-速度等级：F
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-错误信息：
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:17:43速度等级：F
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-错误信息：
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:18:16速度等级：FSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:18:36速度等级：FSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:18:38速度等级：FSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:18:41速度等级：FSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:21:49速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:21:52速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:22:37所需时间：0.050282速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData调用日期：2018/8/9 23:23:15所需时间：0.0505635速度等级：CSQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo参数值：错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:28:27
-所需时间：0.0537206
-速度等级：C
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:29:32
-所需时间：0.0533404
-速度等级：C
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：
-错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.AddManagerInfoDetail
-调用日期：2018/8/9 23:29:35
-所需时间：0.0011558
-速度等级：B
-SQL脚本：insert into ManagerInfo(MName,MPwd,MType) values(@MName,@MPwd,@MType)
-参数值：@MName#qwe1231234 | @MPwd#F7C64C124A00DC852BD3381F3AB8FA81 | @MType#1
-错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:29:35
-所需时间：0.0009253
-速度等级：A
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：@MName#qwe1231234 | @MPwd#F7C64C124A00DC852BD3381F3AB8FA81 | @MType#1
-错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.AddManagerInfoDetail
-调用日期：2018/8/9 23:29:38
-所需时间：2.6E-05
-速度等级：F
-SQL脚本：insert into ManagerInfo(MName,MPwd,MType) values(@MName,@MPwd,@MType)
-参数值：@MName#qwe1231234 | @MPwd#F7C64C124A00DC852BD3381F3AB8FA81 | @MType#1
-错误信息：
-
-函数名称：WP.Demo.DAL.ManagerInfoDAL.GetData
-调用日期：2018/8/9 23:29:38
-所需时间：0.0009946
-速度等级：A
-SQL脚本：select MId,MName,case MType when 0 then '经理' when 1 then '店员' end as MType from  ManagerInfo
-参数值：@MName#qwe1231234 | @MPwd#F7C64C124A00DC852BD3381F3AB8FA81 | @MType#1
-错误信息：
-

@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏 面向对象\bin\Debug\吴鹏 面向对象.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏 面向对象\bin\Debug\吴鹏 面向对象.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏 面向对象\bin\Debug\吴鹏 面向对象.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏 面向对象\obj\Debug\吴鹏 面向对象.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏 面向对象\obj\Debug\吴鹏 面向对象.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\吴鹏 面向对象\obj\Debug\吴鹏 面向对象.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\吴鹏 面向对象\bin\Debug\吴鹏 面向对象.exe.config
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\吴鹏 面向对象\obj\Debug\吴鹏 面向对象.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication1\吴鹏 面向对象\obj\Debug\吴鹏 面向对象.pdb

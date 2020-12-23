@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\接口\bin\Debug\接口.exe.config
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\接口\bin\Debug\接口.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\接口\bin\Debug\接口.pdb
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\接口\obj\Debug\接口.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\接口\obj\Debug\接口.exe
-C:\Users\Administrator\Desktop\学习笔记与源码\ConsoleApplication2\接口\obj\Debug\接口.pdb

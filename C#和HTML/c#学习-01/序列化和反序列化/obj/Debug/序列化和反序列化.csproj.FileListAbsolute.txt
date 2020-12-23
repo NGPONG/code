@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\序列化和反序列化\bin\Debug\序列化和反序列化.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\序列化和反序列化\bin\Debug\序列化和反序列化.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\序列化和反序列化\bin\Debug\序列化和反序列化.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\序列化和反序列化\obj\Debug\序列化和反序列化.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\序列化和反序列化\obj\Debug\序列化和反序列化.pdb

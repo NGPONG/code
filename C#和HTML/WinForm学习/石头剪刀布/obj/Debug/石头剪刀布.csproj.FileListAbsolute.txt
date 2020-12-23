@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\bin\Debug\石头剪刀布.exe.config
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\bin\Debug\石头剪刀布.exe
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\bin\Debug\石头剪刀布.pdb
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\obj\Debug\石头剪刀布.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\obj\Debug\石头剪刀布.Form1.resources
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\obj\Debug\石头剪刀布.Properties.Resources.resources
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\obj\Debug\石头剪刀布.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\obj\Debug\石头剪刀布.exe
-C:\Users\Administrator\Desktop\c#资料\WindowsFormsApplication1\石头剪刀布\obj\Debug\石头剪刀布.pdb

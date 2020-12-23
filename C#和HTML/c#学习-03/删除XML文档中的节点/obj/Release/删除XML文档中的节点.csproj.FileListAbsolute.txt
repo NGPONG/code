@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\删除XML文档中的节点\bin\Release\删除XML文档中的节点.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\删除XML文档中的节点\bin\Release\删除XML文档中的节点.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\删除XML文档中的节点\bin\Release\删除XML文档中的节点.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\删除XML文档中的节点\obj\Release\删除XML文档中的节点.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\c#学习-03\删除XML文档中的节点\obj\Release\删除XML文档中的节点.pdb

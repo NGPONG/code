@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\基础加强总复习\键值对集合练习\bin\Debug\键值对集合练习.exe.config
-C:\Users\Administrator\Desktop\源码\基础加强总复习\键值对集合练习\bin\Debug\键值对集合练习.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\键值对集合练习\bin\Debug\键值对集合练习.pdb
-C:\Users\Administrator\Desktop\源码\基础加强总复习\键值对集合练习\obj\Debug\键值对集合练习.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\键值对集合练习\obj\Debug\键值对集合练习.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\键值对集合练习\obj\Debug\键值对集合练习.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\键值对集合练习\bin\Debug\键值对集合练习.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\键值对集合练习\obj\Debug\键值对集合练习.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\键值对集合练习\obj\Debug\键值对集合练习.pdb

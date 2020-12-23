@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 21-25\bin\Debug\练习题 21-25.exe.config
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 21-25\bin\Debug\练习题 21-25.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 21-25\bin\Debug\练习题 21-25.pdb
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 21-25\obj\Debug\练习题 21-25.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 21-25\obj\Debug\练习题 21-25.exe
-C:\Users\Administrator\Desktop\c#资料\ConsoleApplication1\练习题 21-25\obj\Debug\练习题 21-25.pdb
-C:\Users\Administrator\Desktop\源码\ConsoleApplication1\练习题 21-25\bin\Debug\练习题 21-25.exe.config
-C:\Users\Administrator\Desktop\源码\ConsoleApplication1\练习题 21-25\obj\Debug\练习题 21-25.exe
-C:\Users\Administrator\Desktop\源码\ConsoleApplication1\练习题 21-25\obj\Debug\练习题 21-25.pdb

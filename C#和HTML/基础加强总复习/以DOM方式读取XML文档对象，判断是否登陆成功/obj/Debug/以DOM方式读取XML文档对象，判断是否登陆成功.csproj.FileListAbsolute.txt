@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\bin\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.exe.config
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\bin\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\bin\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.pdb
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\obj\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\obj\Debug\以DOM方式读取XML文档对象_判断是否登陆成功.Form1.resources
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\obj\Debug\以DOM方式读取XML文档对象_判断是否登陆成功.Properties.Resources.resources
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\obj\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.csproj.GenerateResource.Cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\obj\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\以DOM方式读取XML文档对象，判断是否登陆成功\obj\Debug\以DOM方式读取XML文档对象，判断是否登陆成功.pdb

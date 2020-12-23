@@ -1,9 +1,0 @@
-C:\Users\Administrator\Desktop\源码\基础加强总复习\XML文档的增删查改\bin\Debug\XML文档的增删查改.exe.config
-C:\Users\Administrator\Desktop\源码\基础加强总复习\XML文档的增删查改\bin\Debug\XML文档的增删查改.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\XML文档的增删查改\bin\Debug\XML文档的增删查改.pdb
-C:\Users\Administrator\Desktop\源码\基础加强总复习\XML文档的增删查改\obj\Debug\XML文档的增删查改.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\基础加强总复习\XML文档的增删查改\obj\Debug\XML文档的增删查改.exe
-C:\Users\Administrator\Desktop\源码\基础加强总复习\XML文档的增删查改\obj\Debug\XML文档的增删查改.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\XML文档的增删查改\bin\Debug\XML文档的增删查改.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\XML文档的增删查改\obj\Debug\XML文档的增删查改.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\XML文档的增删查改\obj\Debug\XML文档的增删查改.pdb

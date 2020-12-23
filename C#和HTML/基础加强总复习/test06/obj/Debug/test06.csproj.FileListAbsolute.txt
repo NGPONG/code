@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test06\bin\Debug\test06.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test06\bin\Debug\test06.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test06\bin\Debug\test06.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test06\obj\Debug\test06.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test06\obj\Debug\test06.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\test06\obj\Debug\test06.pdb

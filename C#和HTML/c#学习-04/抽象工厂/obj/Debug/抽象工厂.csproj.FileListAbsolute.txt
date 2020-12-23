@@ -1,7 +1,0 @@
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\bin\Debug\抽象工厂.exe.config
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\bin\Debug\抽象工厂.exe
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\bin\Debug\抽象工厂.pdb
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\obj\Debug\抽象工厂.csprojAssemblyReference.cache
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\obj\Debug\抽象工厂.csproj.CoreCompileInputs.cache
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\obj\Debug\抽象工厂.exe
-C:\Users\acer\Desktop\code\C#和HTML\c#学习-04\抽象工厂\obj\Debug\抽象工厂.pdb

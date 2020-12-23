@@ -1,6 +1,0 @@
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\异步回调\bin\Debug\异步回调.exe.config
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\异步回调\bin\Debug\异步回调.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\异步回调\bin\Debug\异步回调.pdb
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\异步回调\obj\Debug\异步回调.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\异步回调\obj\Debug\异步回调.exe
-C:\Users\Administrator\Desktop\源码\C#和HTML\基础加强总复习\异步回调\obj\Debug\异步回调.pdb
