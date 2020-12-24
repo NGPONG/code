@@ -1,42 +1,50 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func appendInt(src []int, val int) []int {
-  var tmp []int
-  zlen := len(src) + 1
-  if zlen <= cap(src) {
-    tmp = src[:zlen]
-  } else {
-    zcap := zlen
-    if zcap < 2 * len(src) {
-      zcap = 2 * len(src)
-    }
-    tmp = make([]int, zlen, zcap)
-    copy(tmp, src)
+func reverse(arr *[5]int) {
+  for i, j := 0, len(arr) - 1; i < j; i, j = i + 1, j - 1 {
+    arr[i], arr[j] = arr[j], arr[i]
   }
-  tmp[len(src)] = val
-
-  fmt.Printf("len = %d, cap = %d ", len(tmp), cap(tmp))
-
-  return tmp
 }
 
-func non_empty(src []string) []string {
-  out := src[:0]
-  for _, s := range src {
-    if (s != "") {
-      out = append(out, s)
+func rotate(s []int, n int) {
+  n %= len(s)
+  tmp := append(s, s[:n]...)
+  copy(s, tmp[n:])
+}
+
+func empty_repeat(arr []string) []string {
+  for i := 0; i < len(arr) - 1; {
+    if (arr[i] == arr[i + 1]) {
+      copy(arr[i:], arr[i + 1:])
+      arr = arr[:len(arr) - 1]
+    } else {
+      i++;
     }
   }
-  return out
+  return arr
 }
 
 func main() {
-  data := []string{"hello", "", "world", ""}
-  fmt.Println(data)
-  new_data := non_empty(data)
-  fmt.Println(new_data)
+  // exercise 4.3
+  // arr := [...]int{0, 1, 2, 3, 4}
+  // fmt.Println(arr)
+  // reverse(&arr)
+  // fmt.Println(arr)
+
+  // exercise 4.4
+  // arr := []int{0, 1, 2, 3, 4}
+  // rotate(arr, 2)
+  // fmt.Println(arr)
+
+  // exercise 4.5
+  // [a b b b c b]
+  // [a b b c b b]
+  // [a b b c b]
+  // [a b c b b]
+  // [a b c b]
+  arr := []string{"a", "b", "b", "b", "c", "b"}
+  arr = empty_repeat(arr[:])
+  fmt.Println(arr)
 }
