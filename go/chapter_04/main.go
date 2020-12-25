@@ -1,14 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+)
 
-type person struct {
-  id    int
-  name  string
+type Person struct {
+  Id   uint32 `json:"id"`
+  Name string `json:"name"`
 }
 
 func main() {
-  var per person
-  per.id = 10
-  per.name = "hello,world"
+  pers := [...]Person{
+    { Id : 0, Name : "a" },
+    { Id : 1, Name : "b" },
+  }
+
+  fmt.Println(pers)
+
+  if data, err := json.MarshalIndent(pers, "", "  "); err == nil {
+    fmt.Printf("%s\n", data)
+  } else {
+    log.Fatal("JSON MARSHALING FAILD")
+  }
 }
