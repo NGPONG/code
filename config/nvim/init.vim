@@ -26,6 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   " Intelligent
   Plug 'neoclide/coc.nvim', {'brnch': 'release'}
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   
   " visual tree
   Plug 'preservim/nerdtree'
@@ -626,9 +627,22 @@ let g:rainbow_conf = {
 
 " }
 
+
 " vim-smootie() {
 
 let g:smoothie_no_default_mappings = v:true
+
+" }
+
+
+" vim-go() {
+
+" let g:go_highlight_types = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_function_calls = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_extra_types = 1
 
 " }
 

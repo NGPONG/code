@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type person struct {
   id    int
@@ -8,7 +11,4 @@ type person struct {
 }
 
 func main() {
-  var per person
-  per.id = 10
-  per.name = "hello,world"
 }
