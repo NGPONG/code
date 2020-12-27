@@ -5,9 +5,9 @@ import (
 	"strings"
 )
 
-type person struct {
-  id    int
-  name  string
+type Person struct {
+  Id   uint32 `json:"id"`
+  Name string `json:"name"`
 }
 
 func main() {
