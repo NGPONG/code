@@ -26,7 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   " Intelligent
   Plug 'neoclide/coc.nvim', {'brnch': 'release'}
-  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   
   " visual tree
   Plug 'preservim/nerdtree'
@@ -100,7 +100,10 @@ endif
 
 " tabwidth() {
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 expandtab
+set expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2
+
+autocmd Filetype go set tabstop=4 softtabstop=4 shiftwidth=4
 
 " }
 
@@ -637,12 +640,20 @@ let g:smoothie_no_default_mappings = v:true
 
 " vim-go() {
 
-" let g:go_highlight_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_function_calls = 1
-" let g:go_highlight_operators = 1
-" let g:go_highlight_extra_types = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+
+let g:go_fmt_autosave = 0
+let g:go_imports_autosave = 0
+let g:go_mod_fmt_autosave = 0
+let g:go_metalinter_autosave = 0
+let g:go_asmfmt_autosave = 0
+let g:go_fmt_command = "gopls"
+" let g:go_debug=["lsp"]
 
 " }
 
@@ -686,7 +697,7 @@ nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent><C-F12> <C-o>
-vnoremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
+noremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <C-a> gg<S-v>G
 inoremap <silent><C-s> <Esc>:w<CR>
 nnoremap <silent><C-s> :w<CR>

@@ -38,4 +38,5 @@ func main() {
 	fmt.Println(expand(str, func(s string) string {
 		return "hello" + s
 	}))
+	fmt.
 }
