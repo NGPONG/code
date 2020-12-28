@@ -586,10 +586,11 @@ let g:asyncrun_bell = 1
 
 nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -pthread -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
 
-function! Quick_run_program()
+function! Quick_run_c_program()
   silent execute "AsyncRun gcc -Wall -O0 -static-libgcc -std=c11 -pthread -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
 endfunction
-command! Run :call Quick_run_program()
+autocmd Filetype c command! Run :call Quick_run_c_program()
+
 
 "nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
