@@ -1,84 +1,64 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"runtime"
-	"time"
+	"net/http"
+    "github.com/gin-gonic/gin"
 )
 
-type Person struct {
-	age int
-	name string
-}
-
-func (per *Person) per_func(idx int) {
-	fmt.Println(idx)
-	fmt.Println(per.age)
-	fmt.Println(per.name)
-}
-
-func trace() func() {
-	start := time.Now()
-
-	return func() {
-		fmt.Println(time.Since(start))
-	}
-}
-
-func double(x int, y int) (ret int) {
-	defer fmt.Println(&ret) //func() { fmt.Printf("%d\n", ret) }()
-	fmt.Println(&ret)
-	return x * y
-}
-
-func foo() {
-	defer trace()()
-	fmt.Println("hello,world")
-}
-
-func recover_foo() {
-	defer fmt.Println("hello,world")
-
-	defer func() {
-		if p := recover(); p != nil {
-			buf := [4096]byte{0}
-			n := runtime.Stack(buf[:], false)
-			os.Stdout.Write(buf[:n])
-		}
-	}()
-
-	panic("hello,world")
-}
-
-func person_foo() {
-	idx := 1024
-
-	per := Person{}
-	defer per.per_func(idx)
-	
-	per.age = 10
-	per.name = "NGPONG"
-}
-
-func (i *Person) int_foo() {
-	fmt.Println(i.age)
-	fmt.Println(i.name)
+// 绑定为json
+type Login struct {
+    User     string `form:"user" json:"user" xml:"user"  binding:"required"`
+    Password string `form:"password" json:"password" xml:"password" binding:"required"`
 }
 
 func main() {
-	// foo();
+    router := gin.Default()
 
-	// recover_foo()
-	// fmt.Println("hello,world")
+    router.POST("/loginJSON", func(c *gin.Context) {
+        var json Login
+        if err := c.ShouldBindJSON(&json); err != nil {
+            c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+            return
+        }
+        
+        if json.User != "manu" || json.Password != "123" {
+            c.JSON(http.StatusUnauthorized, gin.H{"status": "unauthorized"})
+            return
+        } 
+        
+        c.JSON(http.StatusOK, gin.H{"status": "you are logged in"})
+    })
 
-	// person_foo()
+    router.POST("/loginXML", func(c *gin.Context) {
+        var xml Login
+        if err := c.ShouldBindXML(&xml); err != nil {
+            c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+            return
+        }
+        
+        if xml.User != "manu" || xml.Password != "123" {
+            c.JSON(http.StatusUnauthorized, gin.H{"status": "unauthorized"})
+            return
+        } 
+        
+        c.JSON(http.StatusOK, gin.H{"status": "you are logged in"})
+    })
 
+    router.POST("/loginForm", func(c *gin.Context) {
+        var form Login
+        if err := c.ShouldBind(&form); err != nil {
+            c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+            return
+        }
+        
+        if form.User != "manu" || form.Password != "123" {
+            c.JSON(http.StatusUnauthorized, gin.H{"status": "unauthorized"})
+            return
+        } 
+        
+        c.JSON(http.StatusOK, gin.H{"status": "you are logged in"})
+    })
 
-	per := Person{}
-	per.age = 10
-	per.name = "hello,world"
-
-	per.int_foo()
-	(&per).int_foo()
+    // Listen and serve on 0.0.0.0:8080
+    router.Run(":8080")
 }

@@ -1,27 +1,21 @@
 package main
 
 import (
-    "log"
-    "github.com/gin-gonic/gin"
+	"fmt"
+	"crypto/sha256"
+	"time"
 )
 
-type Person struct {
-	Name     string    `json:"name"`
-    Address  string    `json:"address"`
-}
-
 func main() {
-    route := gin.Default()
-    route.POST("/foo", startPage)
-    route.Run(":8889")
-}
+	h := sha256.New()
 
-func startPage(c *gin.Context) {
-    var person Person
-    if c.ShouldBind(&person) == nil {
-		log.Println(person.Name)
-        log.Println(person.Address)
-    }
-
-    c.String(200, "Success")
+	for i := 0; i < 10; i++ {
+		h.Write([]byte(fmt.Sprintf("%d", time.Now().UnixNano())))
+		bs := h.Sum(nil)
+		h.Reset()
+		
+		res := fmt.Sprintf("%x", bs)
+		fmt.Println(len(res))
+		fmt.Printf("%s\n", res)
+	}
 }
