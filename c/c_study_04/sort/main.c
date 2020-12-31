@@ -29,29 +29,6 @@ void counting_sort() {
 
 
 void quick_sort(int left, int right) {
-  if (left > right) {
-    return;
-  }
-
-  int i = left, j = right, key = arrary[left];
-  while (i != j) {
-    while (i < j && arrary[j] >= key) {
-      --j;
-    }
-    while (i < j && arrary[i] <= key) {
-      ++i;
-    }
-    if (i < j) {
-      SWAP(arrary[i], arrary[j]);
-    }
-  }
-
-  int mid = i;
-  arrary[left] = arrary[mid];
-  arrary[mid] = key;
-
-  quick_sort(left, mid - 1);
-  quick_sort(mid + 1, right);
 }
 
 
@@ -95,8 +72,8 @@ int main(int argc, char *argv[]) {
   /* shell_sort(); */
   /* merge_split(0, len - 1); */
   /* heap_sort(); */
-  quick_sort(0, len - 1);
-  /* counting_sort(); */
+  /* quick_sort(0, len - 1); */
+  counting_sort();
   /* bucket_sort(); */
   
   PRINT(arrary);
