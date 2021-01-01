@@ -54,7 +54,6 @@ void heapify(int n, int idx) {
 void built_heap() {
 }
 void heap_sort() {
-  printf("start heap sort\n");
 }
 
 
@@ -90,8 +89,8 @@ int main(int argc, char *argv[]) {
   /* shell_sort(); */
   /* merge_split(0, len - 1); */
   /* heap_sort(); */
-  quick_sort(0, len - 1);
-  /* counting_sort(); */
+  /* quick_sort(0, len - 1); */
+  counting_sort();
   /* bucket_sort(); */
   
   PRINT(arrary);
