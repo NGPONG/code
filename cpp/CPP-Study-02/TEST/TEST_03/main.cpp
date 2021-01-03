@@ -1,33 +1,31 @@
 #include <iostream>
-#include <thread>
-#include <atomic>
-#include <assert.h>
-using namespace std;
+#include <list>
 
-std::atomic<bool> x, y;
-std::atomic<int> z;
-
-void write_x_then_y() {
-  x.store(true, std::memory_order_relaxed);  // ¢Ù
-  y.store(true, std::memory_order_relaxed);  // ¢Ú
-}
-
-void read_y_then_x() {
-  while (!y.load(std::memory_order_relaxed))
-    ;                                     // ¢Û
-  if (x.load(std::memory_order_relaxed))  // ¢Ü
-    ++z;                                  // ¢Ý
+void l_print(std::list<int> &l) {
+  for (auto i = l.begin(); i != l.end(); ++i) {
+    printf("[0x%p] %d\n", &*i, *i);
+  }
 }
 
 int main() {
-  x = false;
-  y = false;
-  z = 0;
-  std::thread a(write_x_then_y);
-  std::thread b(read_y_then_x);
-  a.join();
-  b.join();
-  assert(z.load() != 0);  // ¢Þ
+  std::list<int> l;
+
+  auto begin = l.begin();
+  printf("0x%p\n", &*begin);
+
+  auto end = l.end();
+  printf("0x%p\n", &*end);
+
+  for (size_t i = 0; i < 10; ++i) {
+    l.push_back(i);
+  }
+  l_print(l);
+
+  begin = l.begin();
+  printf("0x%p\n", &*begin);
+
+  end = l.end();
+  printf("0x%p\n", &*end);
 
   return EXIT_SUCCESS;
 }
