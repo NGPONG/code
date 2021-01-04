@@ -1,25 +1,22 @@
 #include <iostream>
-#include <list>
+#include <set>
 
-void l_print(std::list<int> &l) {
-  for (auto i = l.begin(); i != l.end(); ++i) {
-    printf("[0x%p] %d\n", &*i, *i);
+/* binary functor */
+template<class _Ty>
+struct __DESC {
+  constexpr bool operator()(const _Ty &left, const _Ty &right) {
+    return left > right;
   }
-}
+};
 
-int main() {
-  std::list<int> l;
-  for (int i = 0; i < 10; ++i) {
-    l.push_back(i);
-  }
+int main(void) {
+  /* set<T,F = less<T>>() */
+  std::set<int> __s_nor;
 
-  auto begin = l.begin();
-  printf("0x%p\n", &*begin);
+  /* set<T,F = less<T>>((V _begin, V _end) */
+  int nums[5] = { 3, 1, 5, 2, 4 };
+  std::set<int, __DESC<int>> __s(nums, nums + sizeof(nums) / sizeof(int));
 
-  l.erase(l.begin()++);
-
-  begin = l.begin();
-  printf("0x%p\n", &*begin);
-
-  return EXIT_SUCCESS;
+  /* set(const set &__s) */
+  std::set<int, __DESC<int>> __s_des(__s);
 }
