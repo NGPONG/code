@@ -1,22 +1,17 @@
 #include <iostream>
-#include <set>
+#include <map>
+#include <string>
 
-/* binary functor */
-template<class _Ty>
-struct __DESC {
-  constexpr bool operator()(const _Ty &left, const _Ty &right) {
-    return left > right;
-  }
-};
 
 int main(void) {
-  /* set<T,F = less<T>>() */
-  std::set<int> __s_nor;
+  std::map<std::string, int> __m;
 
-  /* set<T,F = less<T>>((V _begin, V _end) */
-  int nums[5] = { 3, 1, 5, 2, 4 };
-  std::set<int, __DESC<int>> __s(nums, nums + sizeof(nums) / sizeof(int));
+  /* pair<map<K,V>::iterator, bool> insert(pair<const K,V> __p) */
+  std::pair<std::map<std::string, int>::iterator, bool> result_01 = __m.insert(std::pair<std::string, int>("C", 3));
+  std::pair<std::map<std::string, int>::iterator, bool> result_02 = __m.insert(std::make_pair("A", 1));
+  std::pair<std::map<std::string, int>::iterator, bool> result_03 = __m.insert(std::map<std::string, int>::value_type("D", 4));
 
-  /* set(const set &__s) */
-  std::set<int, __DESC<int>> __s_des(__s);
+  auto i = ++__m.begin();
+
+  return EXIT_SUCCESS;
 }
