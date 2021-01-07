@@ -2,20 +2,26 @@ package main
 
 import (
 	"fmt"
-	"crypto/sha256"
-	"time"
 )
 
-func main() {
-	h := sha256.New()
+type base struct {
+	age uint
+}
 
-	for i := 0; i < 10; i++ {
-		h.Write([]byte(fmt.Sprintf("%d", time.Now().UnixNano())))
-		bs := h.Sum(nil)
-		h.Reset()
-		
-		res := fmt.Sprintf("%x", bs)
-		fmt.Println(len(res))
-		fmt.Printf("%s\n", res)
-	}
+func foo(arr []base) {
+	arr[0].age = 256
+
+	fmt.Println(&arr[0].age)
+}
+
+func main() {
+	b := base{age:1024}
+	fmt.Println(b.age)
+
+	arr := []base{b}
+	fmt.Println(&arr[0].age)
+
+	foo(arr)
+
+	fmt.Println(b.age)
 }
