@@ -3,10 +3,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
   " themes
-  Plug 'NGPONG/vim-code-dark'
+  "Plug 'NGPONG/vim-code-dark'
   "Plug 'tomasiser/vim-code-dark'
   "Plug 'w0ng/vim-hybrid'
-  "Plug 'rakr/vim-one'
+  Plug 'rakr/vim-one'
   "Plug 'sonph/onehalf', {'rtp': 'vim/'}
   "Plug 'ayu-theme/ayu-vim'
   Plug 'morhetz/gruvbox'
@@ -30,7 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   " visual tree
   Plug 'preservim/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
+  " Plug 'ryanoasis/vim-devicons'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   
   " airline
@@ -248,7 +248,6 @@ let g:gruvbox_improved_strings = 0
 colorscheme gruvbox 
 set background=dark
 
-
 " }
 
 
@@ -324,18 +323,16 @@ let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-        \ "Modified"  : "𝙈",
-        \ "Staged"    : "𝘼",
-        \ "Untracked" : "𝙏",
-        \ "Renamed"   : "𝙍",
-        \ "Unmerged"  : "𝙐",
-        \ "Deleted"   : "𝘿",
-        \ "Dirty"     : "✗",
-        \ "Clean"     : "✔︎",
-        \ 'Ignored'   : '☒',
-        \ "Unknown"   : "?"
-\}
+         \ "Modified"  : "M",
+         \ "Staged"    : "A",
+         \ "Untracked" : "T",
+         \ "Renamed"   : "R",
+         \ "Unmerged"  : "U",
+         \ "Deleted"   : "D",
+         \ "Dirty"     : "X",
+ \}
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
+
 "autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
 " }
@@ -343,113 +340,113 @@ let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1},
 
 " set_nerd_tree_icons() {
 
-let g:WebDevIconsOS = 'Darwin'
-let g:webdevicons_enable_nerdtree = 1
-"let g:webdevicons_enable_airline_tabline = 1
-"let g:webdevicons_enable_airline_statusline = 1
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:DevIconsEnableFoldersOpenClose = 1
-if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
-endif
+" let g:WebDevIconsOS = 'Darwin'
+" let g:webdevicons_enable_nerdtree = 1
+" "let g:webdevicons_enable_airline_tabline = 1
+" "let g:webdevicons_enable_airline_statusline = 1
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" let g:DevIconsEnableFoldersOpenClose = 1
+" if exists('g:loaded_webdevicons')
+"   call webdevicons#refresh()
+" endif
 
 " }
 
 
 " set_nerd_tree_icons_color() {
 
-:hi Directory guifg=#FFFFFF ctermfg=white
-let g:sol = {
-	\"gui": {
-		\"base03": "#002b36",
-		\"base02": "#073642",
-		\"base01": "#586e75",
-		\"base00": "#657b83",
-		\"base0": "#839496",
-		\"base1": "#93a1a1",
-		\"base2": "#eee8d5",
-		\"base3": "#fdf6e3",
-		\"yellow": "#ffd500",
-        \'wheat': "#b5a867",
-		\"orange": "#cb4b16",
-		\"red": "#dc322f",
-		\"magenta": "#d33682",
-		\"violet": "#ba89f3",
-        \"dark_violet": "#b55cb1",
-		\"blue": "#268bd2",
-        \"dark_blue": "#009aeb",
-		\"cyan": "#2aa198",
-		\"green": "#719e07",
-        \"dark_green": "#3d9939",
-        \"cream": "#ffc56b"
-	\},
-	\"cterm": {
-		\"base03": 8,
-		\"base02": 0,
-		\"base01": 10,
-		\"base00": 11,
-		\"base0": 12,
-		\"base1": 14,
-		\"base2": 7,
-		\"base3": 15,
-		\"yellow": 3,
-        \'wheat': 3,
-		\"orange": 9,
-		\"red": 1,
-		\"magenta": 5,
-		\"violet": 13,
-        \"dark_violet": 13,
-        \"dark_blue": 13,
-		\"blue": 4,
-		\"cyan": 6,
-		\"green": 2,
-        \"dark_green": 2,
-        \"cream": 10
-	\}
-\}
-function! DeviconsColors(config)
-  let colors = keys(a:config)
-  augroup devicons_colors
-    autocmd!
-	for color in colors
-      if color == 'normal'
-        exec 'autocmd FileType nerdtree,startify if &background == ''dark'' | '.
-          \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base01.' ctermfg='.g:sol.cterm.base01.' | '.
-          \ 'else | '.
-          \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base1.' ctermfg='.g:sol.cterm.base1.' | '.
-          \ 'endif'
-          elseif color == 'emphasize'
-              exec 'autocmd FileType nerdtree,startify if &background == ''dark'' | '.
-                  \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base1.' ctermfg='.g:sol.cterm.base1.' | '.
-                  \ 'else | '.
-                  \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base01.' ctermfg='.g:sol.cterm.base01.' | '.
-                  \ 'endif'
-          else
-              exec 'autocmd FileType nerdtree,startify highlight devicons_'.color.' guifg='.g:sol.gui[color].' ctermfg='.g:sol.cterm[color]
-          endif
-          exec 'autocmd FileType nerdtree,startify syntax match devicons_'.color.' /\v'.join(a:config[color], '|').'/ containedin=ALL'
-      endfor
-  augroup END
-endfunction
-let g:devicons_colors = {
-	\'normal': ['', ''],
-	\'emphasize': ['', '', '', '', '', '', '', ''],
-	\'yellow': ['', '', '', '', ''],
-    \'wheat': [''],
-	\'orange': ['', '', '', 'λ', '', ''],
-	\'red': ['', '', '', '', '', '', '', '', ''],
-	\'magenta': [''],
-	\'violet': ['', '', '', ''],
-	\'blue': ['', '', '', '', '', '', '', '', '', '', '', ''],
-	\'cyan': ['', '', '', ''],
-	\'green': ['', '', '', ''],
-    \'cream': ['', '', ''],
-    \'dark_blue': ['',''],
-    \'dark_green': [''],
-    \'dark_violet': ['']
-\}
-call DeviconsColors(g:devicons_colors)
+" :hi Directory guifg=#FFFFFF ctermfg=white
+" let g:sol = {
+" 	\"gui": {
+" 		\"base03": "#002b36",
+" 		\"base02": "#073642",
+" 		\"base01": "#586e75",
+" 		\"base00": "#657b83",
+" 		\"base0": "#839496",
+" 		\"base1": "#93a1a1",
+" 		\"base2": "#eee8d5",
+" 		\"base3": "#fdf6e3",
+" 		\"yellow": "#ffd500",
+"         \'wheat': "#b5a867",
+" 		\"orange": "#cb4b16",
+" 		\"red": "#dc322f",
+" 		\"magenta": "#d33682",
+" 		\"violet": "#ba89f3",
+"         \"dark_violet": "#b55cb1",
+" 		\"blue": "#268bd2",
+"         \"dark_blue": "#009aeb",
+" 		\"cyan": "#2aa198",
+" 		\"green": "#719e07",
+"         \"dark_green": "#3d9939",
+"         \"cream": "#ffc56b"
+" 	\},
+" 	\"cterm": {
+" 		\"base03": 8,
+" 		\"base02": 0,
+" 		\"base01": 10,
+" 		\"base00": 11,
+" 		\"base0": 12,
+" 		\"base1": 14,
+" 		\"base2": 7,
+" 		\"base3": 15,
+" 		\"yellow": 3,
+"         \'wheat': 3,
+" 		\"orange": 9,
+" 		\"red": 1,
+" 		\"magenta": 5,
+" 		\"violet": 13,
+"         \"dark_violet": 13,
+"         \"dark_blue": 13,
+" 		\"blue": 4,
+" 		\"cyan": 6,
+" 		\"green": 2,
+"         \"dark_green": 2,
+"         \"cream": 10
+" 	\}
+" \}
+" function! DeviconsColors(config)
+"   let colors = keys(a:config)
+"   augroup devicons_colors
+"     autocmd!
+" 	for color in colors
+"       if color == 'normal'
+"         exec 'autocmd FileType nerdtree,startify if &background == ''dark'' | '.
+"           \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base01.' ctermfg='.g:sol.cterm.base01.' | '.
+"           \ 'else | '.
+"           \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base1.' ctermfg='.g:sol.cterm.base1.' | '.
+"           \ 'endif'
+"           elseif color == 'emphasize'
+"               exec 'autocmd FileType nerdtree,startify if &background == ''dark'' | '.
+"                   \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base1.' ctermfg='.g:sol.cterm.base1.' | '.
+"                   \ 'else | '.
+"                   \ 'highlight devicons_'.color.' guifg='.g:sol.gui.base01.' ctermfg='.g:sol.cterm.base01.' | '.
+"                   \ 'endif'
+"           else
+"               exec 'autocmd FileType nerdtree,startify highlight devicons_'.color.' guifg='.g:sol.gui[color].' ctermfg='.g:sol.cterm[color]
+"           endif
+"           exec 'autocmd FileType nerdtree,startify syntax match devicons_'.color.' /\v'.join(a:config[color], '|').'/ containedin=ALL'
+"       endfor
+"   augroup END
+" endfunction
+" let g:devicons_colors = {
+" 	\'normal': ['', ''],
+" 	\'emphasize': ['', '', '', '', '', '', '', ''],
+" 	\'yellow': ['', '', '', '', ''],
+"     \'wheat': [''],
+" 	\'orange': ['', '', '', 'λ', '', ''],
+" 	\'red': ['', '', '', '', '', '', '', '', ''],
+" 	\'magenta': [''],
+" 	\'violet': ['', '', '', ''],
+" 	\'blue': ['', '', '', '', '', '', '', '', '', '', '', ''],
+" 	\'cyan': ['', '', '', ''],
+" 	\'green': ['', '', '', ''],
+"     \'cream': ['', '', ''],
+"     \'dark_blue': ['',''],
+"     \'dark_green': [''],
+"     \'dark_violet': ['']
+" \}
+" call DeviconsColors(g:devicons_colors)
 
 " }
 
