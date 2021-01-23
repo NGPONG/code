@@ -19,8 +19,8 @@ static int arrary[] = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48 }
 static int len = sizeof(arrary) / sizeof(*arrary);
 
 void heapify(int n, int idx) {
-  int c_1 = 2 * idx + 1;
-  int c_2 = 2 * idx + 2;
+  int c_1 = idx * 2 + 1; // Complute the left child node idx from current node.
+  int c_2 = idx * 2 + 2; // Complute the right child node idx from current node.
 
   int max = idx;
   if (c_1 < n && arrary[c_1] > arrary[max]) {
@@ -30,6 +30,10 @@ void heapify(int n, int idx) {
     max = c_2;
   }
 
+  /**
+   * This means that some child node is bigger than the
+   * current one, so we need to replace them.
+  */
   if (max != idx) {
     SWAP(arrary[idx], arrary[max]);
     heapify(n, max);

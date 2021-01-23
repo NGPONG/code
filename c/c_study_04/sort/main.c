@@ -42,23 +42,6 @@ void heap_sort() {
 
 
 void merge_sort(int L, int M, int R) {
-  int l_size = M - L;
-  int r_size = R - M + 1;
-
-  int *left = malloc(sizeof(int) * l_size);
-  bzero(left, sizeof(int) * l_size);
-  int *right = malloc(sizeof(int) * r_size);
-  bzero(right, sizeof(int) * r_size);
-
-  for (int i = L; i < M; ++i) {
-    left[i - L] = arrary[i];
-  }
-  for (int i = M; i <= R; ++i) {
-    right[i - M] = arrary[i];
-  }
-
-  int i = 0, j = 0, k = L;
-  
 }
 void merge_split(int low, int high) {
 }
@@ -87,10 +70,10 @@ int main(int argc, char *argv[]) {
   /* bubble_sort(); */
   /* select_sort(); */
   /* insert_sort(); */
-  shell_sort();
+  /* shell_sort(); */
   /* merge_split(0, len - 1); */
   /* heap_sort(); */
-  /* quick_sort(0, len - 1); */
+  quick_sort(0, len - 1);
   /* counting_sort(); */
   /* bucket_sort(); */
   
