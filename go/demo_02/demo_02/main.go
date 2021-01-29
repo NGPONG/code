@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/spf13/pflag"
-)
-
-var (
-	env = pflag.StringP("env", "e", "", "Please input env.")
+	"time"
 )
 
 func main() {
-	pflag.Parse()
+	dt, err := time.Parse("2006-01-02 15:04", "2018-01-20 04:35")
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	fmt.Println(*env)
+	fmt.Println(dt)
 }
 

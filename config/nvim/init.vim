@@ -23,6 +23,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'Yggdroot/indentLine'
   Plug 'luochen1990/rainbow'
   Plug 'psliwka/vim-smoothie'
+  Plug 'qpkorr/vim-bufkill'
   
   " Intelligent
   Plug 'neoclide/coc.nvim', {'brnch': 'release'}
@@ -687,7 +688,8 @@ vnoremap w e
 nnoremap q b
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
-nnoremap <silent> <C-Del> :setl bufhidden=delete<bar>bprevious<Esc>
+" setl bufhidden=delete<bar>bprevious<Esc>
+nnoremap <silent> <C-Del> :BW<CR>
 nnoremap <silent> <C-S-Left> <C-w><Left>
 nnoremap <silent> <C-S-Right> <C-w><Right>
 nnoremap <silent> <C-S-Up> <C-w><Up>

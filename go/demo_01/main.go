@@ -10,6 +10,7 @@ type User struct {
     ID       int64  `gorm:"column:id;primary_key"` 
     Username string `gorm:"column:username"`
     Password string `gorm:"column:password"`
+	Test_01  string `gorm:"column:test_01"`
 }
 
 func (User) TableName() string {
@@ -31,10 +32,11 @@ func main() {
 
 	var ret []User
 
-	query := db.Table("users")
- 	query = query.Offset((page_idx - 1) * page_size).Limit(page_size)
-	query = query.Raw(`select id, username, ` + "password, now() as dt " + `from ` + "users where id in (?,?)", 1, 10)
-	query = query.Order("`id` asc")
+	query := db.Table("users, count(1) as num")
+	query = query.Group("username")
+	query = query.Where("username in (?)", "ngpong")
+	query = query.Select("username, password, test_01")
+
 	query.Find(&ret)
 
 	fmt.Println(ret)
