@@ -1,0 +1,31 @@
+# typedef struct {
+#   int first;
+#   a_struct a[CNT];
+#   int last;
+# } b_struct;
+# 
+# void test(long i, b_struct *bp) {
+#   int n = bp->first + bp->last;
+#   a_struct *ap = &bp->a[i];
+#   ap->x[ap->idx] = n;
+# }
+
+# void test(long i, b_struct *bp)
+# i in %rdi, bp in %rsi
+test:
+  mov 0x120(%rsi), %ecx         # %ecx = last; bp->last, skip [first] and [a] offset 0x120(288)
+  add (%rsi), %ecx              # %ecx = bp->first + bp->last
+  lea (%rdi,%rdi,4), %rax       # %rax = 5 * i
+  lea (%rsi,%rax,8), %rax       # %rax = 40(5 * 8) * i + bp;
+
+  mov 0x8(%rax), %rdx           # 1. %rdx = *(bp + 8 + 40i) 
+                                # 2. offset+8 意味着跳过了 [first]，这其中产生了内存对齐，所以需要 offset+8
+                                # 3. 意味着这时候 %rdx 为 &bp->a[i]->idx，因为是读取内存的指令，结合下面的指令可以推断出 a_struct 第一个元素为 idx，且为 long 类型
+                                # 4. 能够看出，a 每个元素的步长为 [40]
+                                # 5. 结合前面的 offset 0x120，(0x120 - 0x08) / 40 = 7，确定 CNT = 7
+
+  movslq %ecx, %rcx             # convert n int to long
+
+  mov %rcx, 0x10(%rax,%rdx,8)   # 8(推断出 x 为 long 类型数组) * ap->idx(*(bp + 8 + 40i)) + bp + 40i + 0x8(skip b_struct.first) + 0x8(skip a_struct.idx)
+
+                                # 又因为 a 每个元素的步长为 40，且第一个元素为 long，故数组 x 的类型为 long[4]

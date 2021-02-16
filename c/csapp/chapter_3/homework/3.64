@@ -1,0 +1,25 @@
+A: 
+TYPE D[R][S][T]
+&D[i][j][k] = Xd + L(S*T*i + T*j + k)
+
+PS: Xd means address of D
+
+
+B:
+# i in %rdi, j in %rsi, k in %rdx, dest in %rcx
+store_ele:
+  leaq (%rsi, %rsi, 2), %rax    # %rax = 3j
+  leaq (%rsi, %rax, 4), %rax    # %rax = 4(3j) + j = 13j
+  movq %rdi, %rsi               # %rsi  = i
+  salq $6, %rsi                 # %rsi  = i << 6 = i * 2^6 = i * 64
+  addq %rsi, %rdi               # %rdi  = i + i * 2^6
+  addq %rax, %rdi               # %rdi  = i + 64i + 13j
+  addq %rdi, %rdx               # %rdx = i + 64i + 13j + k = 65i + 13j + k
+  movq A(,%rdx,8), %rax         
+  movq %rax, (%rcx)             
+  movl $3640, %eax              # sizeof(A) = 3640
+  ret
+
+1. 依据公式，得: T = 13
+2. 因为 65i = S*T*i，故带入 T = 13 得 S = 5
+3. 因为总长度为 3640，故 R = 7
