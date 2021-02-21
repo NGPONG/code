@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 
 int main(int argc, char *argv[]) {
-  int i = 1;
-  printf("%d\n", 1 << 31);
+  int x = 1;
+  printf("%d\n", x);
   
   return EXIT_SUCCESS;
 }
