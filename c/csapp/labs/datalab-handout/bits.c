@@ -166,9 +166,7 @@ int tmin(void) {
   /**
    * Tmin = -2^w-1
   */
-
-  int i = 1;
-  return i << 31;
+  return 1 << 31;
 }
 //2
 /*
@@ -179,7 +177,14 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return 2;
+  /**
+   * Asume x is Tmax.
+   *
+   * ~Tmax = Tmin
+   * ~Tmin + Tmax = -1
+   * -1 + 1 = 0
+  */
+  return !((x + 1) + x) + !x;
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
