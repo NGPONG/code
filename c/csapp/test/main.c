@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 int main(int argc, char *argv[]) {
-  int i = 1;
-  printf("%d\n", 1 << 31);
+  int i = 0x80000000;
+  printf("%d\n", i * -1);
 
   return EXIT_SUCCESS;
 }
