@@ -307,22 +307,21 @@ function! Open_tree()
   wincmd p
   call Refresh_tree()
 endfunction
-map <silent> <C-e> :call Open_tree()<CR>
+map <silent> <C-S-e> :call Open_tree()<CR>
 autocmd BufWritePost * call Refresh_tree()
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
-let NERDTreeShowBookmarks=0
+let g:NERDTreeShowBookmarks=0
 let g:NERDTreeGitStatusUpdateOnWrite = 1
-let g:NERDTreeHighlightCursorline = 0
-let NERDTreeMinimalUI = 1
+let g:NERDTreeHighlightCursorline=0
+let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=23
 let g:Tlist_WinWidth=60
-let NERDTreeShowHidden=1
-let NERDTreeDirArrows = 1
-let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeShowHidden=1
+let g:NERDTreeDirArrows=1
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeQuitOnOpen=0
 let g:NERDTreeGitStatusIndicatorMapCustom = {
          \ "Modified"  : "M",
          \ "Staged"    : "A",
@@ -332,7 +331,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
          \ "Deleted"   : "D",
          \ "Dirty"     : "X",
  \}
-let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1}, 'dir': {}}
+let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1, 'keepopen': 1}, 'dir': {}}
 
 "autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
