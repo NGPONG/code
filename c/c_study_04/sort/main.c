@@ -33,11 +33,36 @@ void quick_sort(int left, int right) {
 
 
 void heapify(int n, int idx) {
+  int c_1 = idx * 2 + 1;
+  int c_2 = idx * 2 + 2;
+
+  int max = idx;
+  if (c_1 < n && arrary[c_1] > arrary[max]) max = c_1;
+  if (c_2 < n && arrary[c_2] > arrary[max]) max = c_2;
+
+  if (max != idx) {
+    SWAP(arrary[max], arrary[idx]);
+    heapify(n, max);
+  }
 }
 void built_heap() {
+  int last_idx = len - 1;
+  int parent = (last_idx - 1) / 2;
+
+  for (; parent >= 0; --parent) {
+    heapify(last_idx, parent);
+  }
 }
 void heap_sort() {
   printf("start heap sort\n");
+
+  built_heap();
+
+  int i = len - 1;
+  for (; i >= 0; --i) {
+    SWAP(arrary[0], arrary[i]);
+    heapify(i, 0);
+  }
 }
 
 
@@ -72,8 +97,8 @@ int main(int argc, char *argv[]) {
   /* insert_sort(); */
   /* shell_sort(); */
   /* merge_split(0, len - 1); */
-  /* heap_sort(); */
-  quick_sort(0, len - 1);
+  heap_sort();
+  /* quick_sort(0, len - 1); */
   /* counting_sort(); */
   /* bucket_sort(); */
   

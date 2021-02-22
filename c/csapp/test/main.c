@@ -1,9 +1,9 @@
-#include <math.h>
 #include <stdio.h>
-
-float my_foo(float a, float b) { return fmax(a, b); }
+#include <stdlib.h>
 
 int main() {
-  printf("%f\n", my_foo(4.5, 3.1));
-  return 0;
+  long local;
+  printf("0x%p\n", &local);
+
+  return EXIT_SUCCESS;
 }
