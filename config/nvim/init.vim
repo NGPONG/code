@@ -42,8 +42,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'itchyny/lightline.vim'
   "Plug 'mengelbrecht/lightline-bufferline'
   
-  " file
+  " pattern search
   Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+  Plug 'mg979/vim-visual-multi'
   
   " debug
   Plug 'puremourning/vimspector'
@@ -493,10 +494,10 @@ let g:coc_global_extensions = [
 let g:Lf_PreviewResult = {
   \ 'line': 1
 \}
-let g:Lf_HideHelp = 1
-let g:Lf_UseCache = 1
-let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 1
+let g:Lf_HideHelp=1
+let g:Lf_UseCache=0
+let g:Lf_UseVersionControlTool=0
+let g:Lf_IgnoreCurrentBufferName=0
 let g:Lf_ReverseOrder = 0
 let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 let g:Lf_WindowHeight = 0.2
@@ -656,6 +657,20 @@ let g:go_fmt_command = "gopls"
 
 " }
 
+
+" vim-visual-multi() {
+  
+" Ugly mapping, disable by default.
+let g:VM_default_mappings=0
+let g:VM_mouse_mappings=0
+let g:VM_maps = {}
+
+" customization key-bind mapping
+let g:VM_maps['Find Under'] = '<C-d>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
+
+" }
+
 "--------------------------------------------------------------------------------
 
 
@@ -706,7 +721,7 @@ nnoremap <silent>bl :Leaderf buffer --bottom<CR>
 noremap <silent><C-f> :call Find_current()<CR>
 noremap <silent><C-g> :call Find_file()<CR>
 nnoremap <F36> <C-o>
-nnoremap <silent><C-d> :CocList --normal diagnostics<CR>
+nnoremap <silent><C-m> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
