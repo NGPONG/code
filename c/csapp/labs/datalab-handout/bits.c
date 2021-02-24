@@ -258,7 +258,15 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  /**
+   * 如果 x 的低四位为 0 ~ 7，则:
+   *  1. x ^ (x & 0x37) = 0
+   * 唯一关键因素在于第四位，如果第 4 位为 1，则: 
+   *  2. x > 7, x ^ (x & 0x37) >= 1
+   * 
+   *
+   * */
+  return !(!(3 ^ (x >> 4)) + !((!(x ^ (x & 0x37))) | (!(x ^ (x & 0x39)))));
 }
 /* 
  * conditional - same as x ? y : z 
