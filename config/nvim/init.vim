@@ -43,8 +43,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'mengelbrecht/lightline-bufferline'
   
   " pattern search
-  Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+  " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
   Plug 'mg979/vim-visual-multi'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   
   " debug
   Plug 'puremourning/vimspector'
@@ -491,31 +493,72 @@ let g:coc_global_extensions = [
 
 " Leaderf() {
 
-let g:Lf_PreviewResult = {
-  \ 'line': 1
-\}
-let g:Lf_HideHelp=1
-let g:Lf_UseCache=0
-let g:Lf_UseVersionControlTool=0
-let g:Lf_IgnoreCurrentBufferName=0
-let g:Lf_ReverseOrder = 0
-let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
-let g:Lf_WindowHeight = 0.2
-let g:Lf_PreviewHorizontalPosition = 'right'
-let g:Lf_DefaultMode = 'Fuzzy'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_PreviewResult = { 'rg': 1 }
-function! Find_current()
-  execute 'Leaderf rg --current-buffer --bottom --regexMode'
-endfunction
-function! Find_file()
-  execute 'Leaderf rg --bottom'
-endfunction
-let g:Lf_NormalMap = {
-    \ "_": [ 
-    \   ["<C-p>", "p"]
-    \ ]
-\}
+" let g:Lf_PreviewResult = {
+"   \ 'line': 1
+" \}
+" let g:Lf_HideHelp=1
+" let g:Lf_UseCache=0
+" let g:Lf_UseVersionControlTool=0
+" let g:Lf_IgnoreCurrentBufferName=0
+" let g:Lf_ReverseOrder = 0
+" let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+" let g:Lf_WindowHeight = 0.2
+" let g:Lf_PreviewHorizontalPosition = 'right'
+" let g:Lf_DefaultMode = 'Fuzzy'
+" let g:Lf_PreviewInPopup = 1
+" let g:Lf_PreviewResult = { 'rg': 1 }
+" function! Find_current()
+"   execute 'Leaderf rg --current-buffer --bottom --regexMode'
+" endfunction
+" function! Find_file()
+"   execute 'Leaderf rg --bottom'
+" endfunction
+" let g:Lf_NormalMap = {
+"     \ "_": [ 
+"     \   ["<C-p>", "p"]
+"     \ ]
+" \}
+
+" This is the default extra key bindings
+" let g:fzf_action = {
+"   \ 'ctrl-t': 'tab split',
+"   \ 'ctrl-x': 'split',
+"   \ 'ctrl-v': 'vsplit' }
+
+" - down / up / left / right
+let g:fzf_layout = { 'down': '40%' }
+
+" Customize fzf colors to match your color scheme
+" - fzf#wrap translates this to a set of `--color` options
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" When fzf starts in a terminal buffer, the file type of the buffer is set to fzf. 
+" So you can set up FileType fzf autocmd to customize the settings of the window.
+" For example, if you use a non-popup layout (e.g. {'down': '40%'}) on Neovim, you might want to temporarily disable the statusline for a cleaner look.
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
+
+"   - Preview window on the right with 50% width
+"   - CTRL-/ will toggle preview window.
+" - Note that this array is passed as arguments to fzf#vim#with_preview function.
+" - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+let g:fzf_preview_window = ['right:50%', 'ctrl-p']
 
 " }
 
@@ -717,11 +760,14 @@ nnoremap <C-a> gg<S-v>G
 inoremap <silent><C-s> <Esc>:w<CR>
 nnoremap <silent><C-s> :w<CR>
 "nnoremap <C-S-p> :
-nnoremap <silent>bl :Leaderf buffer --bottom<CR>
-noremap <silent><C-f> :call Find_current()<CR>
-noremap <silent><C-g> :call Find_file()<CR>
+
+" Leaderf key-bind, disabled for now.
+" nnoremap <silent>bl :Leaderf buffer --bottom<CR>
+" noremap <silent><C-f> :call Find_current()<CR>
+" noremap <silent><C-g> :call Find_file()<CR>
+
 nnoremap <F36> <C-o>
-nnoremap <silent><C-m> :CocList --normal diagnostics<CR>
+nnoremap <silent><C-n> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
@@ -744,7 +790,6 @@ map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
 inoremap <C-Space> <Nop>
 nnoremap <C-Space> <Nop>
-
 tnoremap <Esc> <C-\><C-n>
 
 "---------------------------------------------------------------------------------
