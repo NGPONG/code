@@ -4,9 +4,8 @@
 #include <stdbool.h>
 
 int main(int argc, char *argv[]) {
-  int i = 3;
-  int y = 0;
-  printf("%d\n", (y - i) >> 31);
+  int x = -49;
+  printf("%d\n", !((!(x ^ (x & 0x37))) | (!(x ^ (x & 0x39)))));
 
   return EXIT_SUCCESS;
 }

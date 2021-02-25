@@ -65,7 +65,7 @@ call plug#end()
 
 "------------------------------BY_GLOBAL-------------------------------------------
 
-" no-wrap for myslq cli
+" no-wrap for mysql cli
 set nowrap
 
 " remember_postion() {
