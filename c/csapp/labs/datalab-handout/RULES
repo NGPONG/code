@@ -45,3 +45,22 @@
   * 在函数开始时声明所有变量
   * } 应该在第一列
 
+
+
+
+/* 
+ * conditional - same as x ? y : z 
+ *   Example: conditional(2,4,5) = 4
+ *   Legal ops: ! ~ & ^ | + << >>
+ *   Max ops: 16
+ *   Rating: 3
+ */
+
+int cond = !(0 ^ x);
+
+如果 conditional 为 0，那么 y 和它使用某个运算也会成为 0，否则
+原样输出 y
+
+(cond | y)
+
+

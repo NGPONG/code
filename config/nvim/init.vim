@@ -47,6 +47,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mg979/vim-visual-multi'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'chengzeyi/fzf-preview.vim'
   
   " debug
   Plug 'puremourning/vimspector'
@@ -519,6 +520,11 @@ let g:coc_global_extensions = [
 "     \ ]
 " \}
 
+" }
+
+
+" fzf.vim() {
+
 " This is the default extra key bindings
 " let g:fzf_action = {
 "   \ 'ctrl-t': 'tab split',
@@ -530,20 +536,20 @@ let g:fzf_layout = { 'down': '40%' }
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+" let g:fzf_colors =
+" \ { 'fg':      ['fg', 'Normal'],
+"   \ 'bg':      ['bg', 'Normal'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'border':  ['fg', 'Ignore'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'Comment'] }
 
 " When fzf starts in a terminal buffer, the file type of the buffer is set to fzf. 
 " So you can set up FileType fzf autocmd to customize the settings of the window.
@@ -558,7 +564,15 @@ endif
 "   - CTRL-/ will toggle preview window.
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
-let g:fzf_preview_window = ['right:50%', 'ctrl-p']
+let g:fzf_preview_window = ['right:45%', 'ctrl-p']
+
+
+" Lines preview
+command! -bang -nargs=* Lines
+      \ call fzf#vim#buffer_lines(<q-args>,
+      \     fzf_preview#p(<bang>0, {'placeholder': fzf#shellescape(expand('%')) . ':{1}',
+      \                 'options': '--preview-window +{1}-/2',}),
+      \     <bang>0)
 
 " }
 
@@ -790,6 +804,6 @@ map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
 inoremap <C-Space> <Nop>
 nnoremap <C-Space> <Nop>
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n> " this key-bind make strange with fzf closing behavior.
 
 "---------------------------------------------------------------------------------
