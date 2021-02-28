@@ -63,4 +63,23 @@
 
 是否为 0 的情况
 
+- +
+1 0
 
+
+
+int is_negative = (x >> 31) & 1; 1
+int TMax = (1 << 31) + (~0);
+int is_positive = ((x + TMax) >> 31 & 1);
+
+return (is_negative | is_positive) ^ 1;
+
+Score   Rating  Errors  Function
+ERROR: Test logicalNeg(-2147483648[0x80000000]) failed...
+...Gives 1[0x1]. Should be 0[0x0]
+Total points: 0/4
+
+
+
+-2147483648
+ 2147483647

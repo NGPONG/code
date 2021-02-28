@@ -362,8 +362,23 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
+  /**
+   * 依据题解，当返回 0 时分为两种情况:
+   *   1. 负数
+   *     - 判断符号位是否为 1: (x >> 31) & 1
+   *   2. 正数
+   *     - 任意整数 + TMax 会导致溢出: ((x + TMax) >> 31 & 1)
+   *
+   * 当情景 1 和 情景 2 做逻辑或，这有当二者条件都不满足时(返回0)才得到0，否则为1，再对
+   * 结果进行取反即可: 
+   *   3. (is_negative | is_positive) ^ 1
+  */
+  int is_negative = (x >> 31) & 1;
 
-  return 2;
+  int TMax = (1 << 31) + (~0);
+  int is_positive = ((x + TMax) >> 31 & 1);
+  
+  return (is_negative | is_positive) ^ 1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -378,6 +393,7 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
+
   return 0;
 }
 //float
