@@ -46,21 +46,21 @@
   * } 应该在第一列
 
 
-
-
 /* 
- * conditional - same as x ? y : z 
- *   Example: conditional(2,4,5) = 4
- *   Legal ops: ! ~ & ^ | + << >>
- *   Max ops: 16
- *   Rating: 3
- */
+ * logicalNeg - implement the ! operator, using all of 
+ *              the legal operators except !
+ *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
+ *   Legal ops: ~ & ^ | + << >>
+ *   Max ops: 12
+ *   Rating: 4 
+*/
 
-int cond = !(0 ^ x);
+是否为 1 可以拆分为两种情况
+  1. 负数
+    * 判断符号位即可
+  2. 正数
+    * 先获取一个 TMax，然后任意正数+TMax都会造成溢出，得到一个负数，继续判断符号位
 
-如果 conditional 为 0，那么 y 和它使用某个运算也会成为 0，否则
-原样输出 y
-
-(cond | y)
+是否为 0 的情况
 
 

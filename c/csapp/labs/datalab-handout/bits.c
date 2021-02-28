@@ -297,9 +297,23 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  
-
-  return 2;
+  /**
+   * 首先查看表达式:
+   *  - (cond & y) | (~cond & z)
+   * 在这里，cond 仅有两种情况: 
+   *  - -1: true
+   *  -  0: false
+   * 因为当 cond = -1 时也代表着 true，那么当它与任意数进行逻辑与的时候也会获得被操作数的结果，反之，使用它作位反，则能够获得 0，那么 0 与任意数做逻辑与则会获得 0，也对应着 false 条件
+   *
+   * 故，需要考虑，如何将原有的 x:
+   *  - 非0: true
+   *  -   0: false
+   * 转换为上述的 true/false 结果
+   *
+   * 这里仅考虑 true 的条件，我们让它左移 31(0x1F) 位是为了达到 int 的符号位，再右移 31 位，由于做的是算数右移，故就能够获取到 -1 的结果
+  */
+  int cond = (((!!x) << 0x1F) >> 0x1F);
+  return (cond & y) | (~cond & z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -309,7 +323,34 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  /**
+   * 求得 x == y 可以利用一下表达式实现:
+   *   !(x ^ y)
+   *
+   * 这里需要重点关注 x < y 的情况，我们可以把这种情况细分为以下两种解决场景:
+   *   1. 当 x 和 y 的 sign-bit 相同时，可以依据表达式: [x - y < 0] 获得 x < y 的结果，它对应
+   *   了表达式: 
+   *     !(sign_x ^ sign_y) & !(((x + (~y + 1)) >> 31) ^ (~0))
+   *     ------------------   --------------------------------
+   *              |                            |
+   *              |                            |
+   *              ↓                            ↓
+   *     判断 x, y sign-bit               x + -y 的计算表达式
+   *     不相同的 mask，它
+   *     和逻辑与相连
+   *
+   *   2. 因为情景1可能发生算数溢出的情况，当发生算数溢出时，x - y 就难以得到正确的结果，经过
+   *   观察可知，发生算数溢出的场景都为 x 和 y 的 sign-bit 不相同的情景，故利用这一条件，我们
+   *   只需要判断如果 x 的 sign-bit 为 1，y 的sign-bit 为 0 时，就证明了 x < y，它对应了表达式: 
+   *     !((sign_x ^ 1) | (sign_y ^ 0))
+   *
+   * 因为这两种场景仅取一种即可，故使用位或相连
+  */
+
+  int sign_x = !!(x >> 31);
+  int sign_y = !!(y >> 31);
+
+  return ((!(sign_x ^ sign_y) & !(((x + (~y + 1)) >> 31) ^ (~0))) | (!((sign_x ^ 1) | (sign_y ^ 0)))) | !(x ^ y);
 }
 //4
 /* 
@@ -321,6 +362,7 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
+
   return 2;
 }
 /* howManyBits - return the minimum number of bits required to represent x in

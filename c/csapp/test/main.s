@@ -1,9 +1,5 @@
 	.file	"main.c"
 	.text
-	.section	.rodata
-.LC0:
-	.string	"%d\n"
-	.text
 	.globl	main
 	.type	main, @function
 main:
@@ -15,26 +11,15 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$32, %rsp
 	movl	%edi, -20(%rbp)
 	movq	%rsi, -32(%rbp)
-	movl	$-49, -4(%rbp)
-	movl	-4(%rbp), %eax
-	andl	$-56, %eax
-	testl	%eax, %eax
-	setne	%dl
-	movl	-4(%rbp), %eax
-	andl	$-58, %eax
-	testl	%eax, %eax
-	setne	%al
-	andl	%edx, %eax
+	movl	$-2147483648, -8(%rbp)
+	cmpl	$0, -8(%rbp)
+	sete	%al
 	movzbl	%al, %eax
-	movl	%eax, %esi
-	leaq	.LC0(%rip), %rdi
+	movl	%eax, -4(%rbp)
 	movl	$0, %eax
-	call	printf@PLT
-	movl	$0, %eax
-	leave
+	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
