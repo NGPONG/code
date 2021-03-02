@@ -393,32 +393,58 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
-  int sign = (x >> 31) & 1;
-  int f = ~(!sign) + 1; /* if sign = 0, f = -1, if sign = 1, f = 0 */
-  int of = ~f;
+  /** Solution
+   * 我们可以观察 [负数] 和 [正数] 其二进制位的表示情况，不妨得出结论: 
+   *   - 负数: 寻找最高 bit 为 [0] 的过程
+   *   - 正数: 寻找最高 bit 为 [1] 的过程
+   * 所以，为了保证负数结果的计算方便，我们需要完成以下表达式: 
+   *   - x < 0 ? ~x : x
+   * 这样，针对 [负数] 的算数我们也同样可以使用寻找最高 bit 为 [1] 来实现，这对赢了表达式
+   *   - sign = (x >> 31) & 1;
+   *   - cond = (sign << 0x1F) >> 0x1F;
+   *   - x = (cond & ~x) | (~cond & x);
+   * 
+   * 
+   * 再思考，我们到底如何求一个数到底需要几个有效 bit？
+   * 在这里运用了二分法的思想，即: 
+   *   1. 先右移一个数的一半 bit (初始为 32 bit，即这里第一步需要右移 16 位)
+   *     - 如果移位的取反结果为 [1]: 证明所 [移出去的 16 bit] 都是有效位，那么我们就可以在此次移动算出前 16 bit 都属
+   *     于有效位，并且，由于我们是能够确定 [移出去的 16 bit] 属于 [完全 16 bit 的有效位]，故为了防止下一次移位计算了
+   *     重复的数，我们要对原数真正右移 16 位
+   *     - 如果移位的取反结果为 [0]: 证明 [后 16 bit(不是移出去的 16 bit)] 都不属于有效位，那么我们就需要继续缩减移位
+   *     的范围，并且由于 [移出去的 16 bit] 我们无法判断是否是 [完全 16 bit 的有效位]，故我们不能改变原数的结果
+   *
+   *   2. 继续缩小移位的范围，第二次为移动 8 位，继续依照第一步的步骤进行判断
+   *
+   *   3. .....
+   *
+   * 那么在最终我们就可以计算出一共有多少个有效位，当然，最终的结果我们还要 [加上一个符号位]
+  */
 
-  /*
-   * NOTing x to remove the effect of the sign bit.
-   * x = x < 0 ? ~x : x
-   */
-  x = ((f ^ ~x) & of) | ((of ^ x) & f);
+  int b_16, b_8, b_4, b_2, b_1, b_0;
+  int sign, cond;
+  /**
+   * x < 0 ? ~x : x 
+   * see: 
+   *   conditional - same as x ? y : z 
+  */
+  sign = (x >> 31) & 1;
+  cond = (sign << 0x1F) >> 0x1F;
+  x = (cond & ~x) | (~cond & x);
 
-  /*
-   * We need to get the index of the highest bit 1.
-   * Easy to find that if it's even-numbered, `n` will lose the length of 1.
-   * But the odd-numvered won't.
-   * So let's left shift 1 (for the first 1) to fix this.
-   */
-  x |= (x << 1);
-  int n = 0;
-  // Get index with bisection.
-  n += (!!(x & (~0 << (n + 16)))) << 4;
-  n += (!!(x & (~0 << (n + 8)))) << 3;
-  n += (!!(x & (~0 << (n + 4)))) << 2;
-  n += (!!(x & (~0 << (n + 2)))) << 1;
-  n += !!(x & (~0 << (n + 1)));
-  // Add one more for the sign bit.
-  return n + 1;
+  b_16 = (!!(x >> 16)) << 4;
+  x >>= b_16;
+  b_8 = (!!(x >> 8)) << 3;
+  x >>= b_8;
+  b_4 = (!!(x >> 4)) << 2;
+  x >>= b_4;
+  b_2 = (!!(x >> 2)) << 1;
+  x >>= b_2;
+  b_1 = (!!(x >> 1)) << 0;
+  x >>= b_1;
+  b_0 = x;
+
+  return b_0 + b_1 + b_2 + b_4 + b_8 + b_16 + 1;
 }
 //float
 /* 
@@ -433,6 +459,7 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
+
   return 2;
 }
 /* 
