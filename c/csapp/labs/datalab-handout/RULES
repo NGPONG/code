@@ -45,41 +45,8 @@
   * 在函数开始时声明所有变量
   * } 应该在第一列
 
+0x4995CF2B
 
-/* 
- * logicalNeg - implement the ! operator, using all of 
- *              the legal operators except !
- *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
- *   Legal ops: ~ & ^ | + << >>
- *   Max ops: 12
- *   Rating: 4 
-*/
-
-是否为 1 可以拆分为两种情况
-  1. 负数
-    * 判断符号位即可
-  2. 正数
-    * 先获取一个 TMax，然后任意正数+TMax都会造成溢出，得到一个负数，继续判断符号位
-
-是否为 0 的情况
-
-- +
-1 0
+100 1001 1001 0101 1100 1111 0010 1011
 
 
-
-int is_negative = (x >> 31) & 1; 1
-int TMax = (1 << 31) + (~0);
-int is_positive = ((x + TMax) >> 31 & 1);
-
-return (is_negative | is_positive) ^ 1;
-
-Score   Rating  Errors  Function
-ERROR: Test logicalNeg(-2147483648[0x80000000]) failed...
-...Gives 1[0x1]. Should be 0[0x0]
-Total points: 0/4
-
-
-
--2147483648
- 2147483647
