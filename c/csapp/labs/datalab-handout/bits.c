@@ -459,6 +459,15 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
+  /**
+   * 返回浮点参数 f 等同于表达式 2*f 的位级表示.
+   * 所有参数和返回值都依照 unsigned int 来传输，但是它们需要被解释为单精度浮点数的位级表示.
+   * 当参数为 NaN 时，返回原参数值.
+   *
+   * 可以用逻辑运算符和循环，可以使用 signed int/unsigned int
+  */
+
+  
 
   return 2;
 }
