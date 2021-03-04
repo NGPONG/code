@@ -1,0 +1,25 @@
+0x01: READY
+  * gdb:
+    * type [help] at the gdb command prompt to get more helpful information.
+    * type [man gdb] or [info gdb] at a unix terimal to get more helpful information.
+
+  * objdump -t:
+    * print out the binary executable [symbol table], The symbol table includes the 
+    names of all functions and global variables in the binary, the names of all the 
+    functions the binary calls, and their addresses.
+
+  * objdump -d:
+    * Use this to disassemble all of the code in the binary executable, it's can al
+    so just look at individual functions.
+    * Although objdump -d gives you a lot of information, it doesn’t tell you the w
+    hole story. Calls to system-level functions are displayed in a cryptic form. Fo
+    r example, a call to sscanf might appearas:
+      - 8048c36:  e8 99 fc ff ff  call   80488d4 <_init+0x1a0>
+    To determine that the call was tosscanf, you would need to disassemble within gdb.
+  
+  * strings:
+    * This utility will display the printable strings in your binary executable.
+
+
+0x02: START-UP
+  
