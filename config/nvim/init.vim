@@ -214,6 +214,19 @@ set updatetime=100
 
 " }
 
+" vim_defualt_search() {
+
+" see: https://harttle.land/2016/08/08/vim-search-in-file.html
+
+set incsearch
+" set wrapscan
+
+" highlight Search ctermbg=yellow ctermfg=black 
+" highlight IncSearch ctermbg=black ctermfg=yellow 
+" highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE
+
+" }
+
 "--------------------------------------------------------------------------------
 
 
@@ -531,8 +544,9 @@ let g:coc_global_extensions = [
 "   \ 'ctrl-x': 'split',
 "   \ 'ctrl-v': 'vsplit' }
 
-" - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
+" layout setting.
+" see: https://github.com/junegunn/fzf/blob/master/README-VIM.md
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -564,7 +578,7 @@ endif
 "   - CTRL-/ will toggle preview window.
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
-let g:fzf_preview_window = ['right:45%', 'ctrl-p']
+let g:fzf_preview_window = ['right:50%', 'ctrl-p']
 
 
 " Lines preview
@@ -575,7 +589,6 @@ command! -bang -nargs=* Lines
       \     <bang>0)
 
 " }
-
 
 " vimspector() {
 
