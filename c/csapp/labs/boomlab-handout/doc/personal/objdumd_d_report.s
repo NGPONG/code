@@ -343,6 +343,7 @@ Disassembly of section .text:
   400ede:	90                   	nop
   400edf:	90                   	nop
 
+# This function read string that user input from %rdi
 0000000000400ee0 <phase_1>:
   400ee0:	48 83 ec 08          	sub    $0x8,%rsp
   400ee4:	be 00 24 40 00       	mov    $0x402400,%esi
@@ -353,11 +354,14 @@ Disassembly of section .text:
   400ef7:	48 83 c4 08          	add    $0x8,%rsp
   400efb:	c3                   	retq   
 
+# parms:
+#		* rdi: string that user input
+#		* rax: string that user input
 0000000000400efc <phase_2>:
   400efc:	55                   	push   %rbp
   400efd:	53                   	push   %rbx
   400efe:	48 83 ec 28          	sub    $0x28,%rsp
-  400f02:	48 89 e6             	mov    %rsp,%rsi
+  400f02:	48 89 e6             	mov    %rsp,%rsi # rsi = rsp
   400f05:	e8 52 05 00 00       	callq  40145c <read_six_numbers>
   400f0a:	83 3c 24 01          	cmpl   $0x1,(%rsp)
   400f0e:	74 20                	je     400f30 <phase_2+0x34>
@@ -656,6 +660,7 @@ Disassembly of section .text:
   40129e:	90                   	nop
   40129f:	90                   	nop
 
+
 00000000004012a0 <sig_handler>:
   4012a0:	48 83 ec 08          	sub    $0x8,%rsp
   4012a4:	bf c0 24 40 00       	mov    $0x4024c0,%edi
@@ -685,6 +690,10 @@ Disassembly of section .text:
   401311:	bf 08 00 00 00       	mov    $0x8,%edi
   401316:	e8 05 f9 ff ff       	callq  400c20 <exit@plt>
 
+# params: 
+#   * rdi: src string
+# ret:
+#   * eax: src string length
 000000000040131b <string_length>:
   40131b:	80 3f 00             	cmpb   $0x0,(%rdi)
   40131e:	74 12                	je     401332 <string_length+0x17>
@@ -698,13 +707,16 @@ Disassembly of section .text:
   401332:	b8 00 00 00 00       	mov    $0x0,%eax
   401337:	c3                   	retq   
 
+# parms
+#   * rdi: dest string(user input)
+#   * rsi: src string(need defused)
 0000000000401338 <strings_not_equal>:
   401338:	41 54                	push   %r12
   40133a:	55                   	push   %rbp
   40133b:	53                   	push   %rbx
-  40133c:	48 89 fb             	mov    %rdi,%rbx
-  40133f:	48 89 f5             	mov    %rsi,%rbp
-  401342:	e8 d4 ff ff ff       	callq  40131b <string_length>
+  40133c:	48 89 fb             	mov    %rdi,%rbx # rbx = dest string
+  40133f:	48 89 f5             	mov    %rsi,%rbp # rbp = src string
+  401342:	e8 d4 ff ff ff       	callq  40131b <string_length> 
   401347:	41 89 c4             	mov    %eax,%r12d
   40134a:	48 89 ef             	mov    %rbp,%rdi
   40134d:	e8 c9 ff ff ff       	callq  40131b <string_length>
@@ -738,6 +750,8 @@ Disassembly of section .text:
   40139f:	41 5c                	pop    %r12
   4013a1:	c3                   	retq   
 
+# initialize_bomb
+# 设置了一个定时器信号
 00000000004013a2 <initialize_bomb>:
   4013a2:	48 83 ec 08          	sub    $0x8,%rsp
   4013a6:	be a0 12 40 00       	mov    $0x4012a0,%esi
@@ -801,17 +815,19 @@ Disassembly of section .text:
   401452:	bf 08 00 00 00       	mov    $0x8,%edi
   401457:	e8 c4 f7 ff ff       	callq  400c20 <exit@plt>
 
+# parms:
+#		* rsi: caller stack frame pointer
 000000000040145c <read_six_numbers>:
   40145c:	48 83 ec 18          	sub    $0x18,%rsp
   401460:	48 89 f2             	mov    %rsi,%rdx
-  401463:	48 8d 4e 04          	lea    0x4(%rsi),%rcx
-  401467:	48 8d 46 14          	lea    0x14(%rsi),%rax
-  40146b:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  401463:	48 8d 4e 04          	lea    0x4(%rsi),%rcx  # rcx: caller stack frame pointer + 0x4
+  401467:	48 8d 46 14          	lea    0x14(%rsi),%rax # rax: caller stack frame pointer + 0x14
+  40146b:	48 89 44 24 08       	mov    %rax,0x8(%rsp)  # 
   401470:	48 8d 46 10          	lea    0x10(%rsi),%rax
   401474:	48 89 04 24          	mov    %rax,(%rsp)
-  401478:	4c 8d 4e 0c          	lea    0xc(%rsi),%r9
-  40147c:	4c 8d 46 08          	lea    0x8(%rsi),%r8
-  401480:	be c3 25 40 00       	mov    $0x4025c3,%esi
+  401478:	4c 8d 4e 0c          	lea    0xc(%rsi),%r9   # r9 : caller stack frame pointer + 0xc
+  40147c:	4c 8d 46 08          	lea    0x8(%rsi),%r8   # r8 : caller stack frame pointer + 0x8
+  401480:	be c3 25 40 00       	mov    $0x4025c3,%esi  # esi: "%d %d %d %d %d %d"
   401485:	b8 00 00 00 00       	mov    $0x0,%eax
   40148a:	e8 61 f7 ff ff       	callq  400bf0 <__isoc99_sscanf@plt>
   40148f:	83 f8 05             	cmp    $0x5,%eax

@@ -2,13 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
+#include <unistd.h>
+
+int func(int a) {
+  if (a == 1)
+    return 1;
+  else
+    return a + func(a - 1);
+}
 
 int main(int argc, char *argv[]) {
-  int x = 0x7FFFFFFF;
+  char str[1024] = { 0 };
 
-  int sign = (x >> 31) & 1;
-  int cond = (sign << 0x1F) >> 0x1F;
-  x = (cond & ~x) | (~cond & x);
+  for (int i = 0; i < 1023; ++i) {
+    str[i] = 'a';
+  }
 
-  return EXIT_SUCCESS;
+  printf("%s\n", str);
+
+  return 0;
 }

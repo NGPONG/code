@@ -47,7 +47,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mg979/vim-visual-multi'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'chengzeyi/fzf-preview.vim'
+  Plug 'google/vim-searchindex'
   
   " debug
   Plug 'puremourning/vimspector'
@@ -167,8 +167,9 @@ set display+=lastline
 
 " hide_status_bar_in_bottom() {
 
-set shortmess=F
+set shortmess+=F
 set shortmess+=c
+set shortmess-=S
 set noshowmode
 set noruler
 set laststatus=0
@@ -219,7 +220,10 @@ set updatetime=100
 " see: https://harttle.land/2016/08/08/vim-search-in-file.html
 
 set incsearch
-" set wrapscan
+set wrapscan
+
+" 这里还可以制定清空 command line 的功能，暂时还不想搞
+nnoremap <silent>oh :let @/ = ""<CR>
 
 " highlight Search ctermbg=yellow ctermfg=black 
 " highlight IncSearch ctermbg=black ctermfg=yellow 
@@ -579,14 +583,6 @@ endif
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
 let g:fzf_preview_window = ['right:50%', 'ctrl-p']
-
-
-" Lines preview
-command! -bang -nargs=* Lines
-      \ call fzf#vim#buffer_lines(<q-args>,
-      \     fzf_preview#p(<bang>0, {'placeholder': fzf#shellescape(expand('%')) . ':{1}',
-      \                 'options': '--preview-window +{1}-/2',}),
-      \     <bang>0)
 
 " }
 

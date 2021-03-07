@@ -1,0 +1,4 @@
+break *0x400da0
+break *0x400ee9
+break *0x400e3f
+break *0x40145c
