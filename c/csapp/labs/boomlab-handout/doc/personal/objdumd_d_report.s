@@ -793,9 +793,11 @@ Disassembly of section .text:
   4013f9:	53                   	push   %rbx
   4013fa:	48 63 05 5f 23 20 00 	movslq 0x20235f(%rip),%rax        # 603760 <num_input_strings>
 																																	# rax -> static char* num_input_strings
-  401401:	48 8d 3c 80          	lea    (%rax,%rax,4),%rdi         # 跳过字符？这是个二维数组偏移元素的算法？
-  401405:	48 c1 e7 04          	shl    $0x4,%rdi
-  401409:	48 81 c7 80 37 60 00 	add    $0x603780,%rdi
+																																	# 该变量用于存储用户的输入
+
+  401401:	48 8d 3c 80          	lea    (%rax,%rax,4),%rdi         # rdi = rax * 5
+  401405:	48 c1 e7 04          	shl    $0x4,%rdi									# 使 rdi 成为最接近 16 的倍数
+  401409:	48 81 c7 80 37 60 00 	add    $0x603780,%rdi             # rdi += 0x603780
   401410:	48 8b 15 51 23 20 00 	mov    0x202351(%rip),%rdx        # 603768 <infile>
   401417:	be 50 00 00 00       	mov    $0x50,%esi
   40141c:	e8 5f f7 ff ff       	callq  400b80 <fgets@plt>

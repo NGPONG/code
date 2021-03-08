@@ -2,5 +2,14 @@
 
 1. Border relations with Canada have never been better.
 
+第二题: 
+找出为什么:
+  x/3xg 0x7ffffffedca0
+为输入的字符串？
+在哪里设置的？
+
+估计 readline 的逻辑要看懂才行
+
+0x6037d0
 
 0x7ffffffedcb0
