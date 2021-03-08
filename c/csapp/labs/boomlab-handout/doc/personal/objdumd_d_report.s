@@ -360,8 +360,8 @@ Disassembly of section .text:
 0000000000400efc <phase_2>:
   400efc:	55                   	push   %rbp
   400efd:	53                   	push   %rbx
-  400efe:	48 83 ec 28          	sub    $0x28,%rsp
-  400f02:	48 89 e6             	mov    %rsp,%rsi # rsi = rsp
+  400efe:	48 83 ec 28          	sub    $0x28,%rsp # allocate space to phase_2 stack frame
+  400f02:	48 89 e6             	mov    %rsp,%rsi  # rsi = rsp
   400f05:	e8 52 05 00 00       	callq  40145c <read_six_numbers>
   400f0a:	83 3c 24 01          	cmpl   $0x1,(%rsp)
   400f0e:	74 20                	je     400f30 <phase_2+0x34>
@@ -751,7 +751,10 @@ Disassembly of section .text:
   4013a1:	c3                   	retq   
 
 # initialize_bomb
-# 设置了一个定时器信号
+#
+# 设置一个键盘中断(ctrl-c)的信号捕获 handler，
+# handler 为 4012a0 <sig_handler>，用于提示一
+# 些用户信息而已
 00000000004013a2 <initialize_bomb>:
   4013a2:	48 83 ec 08          	sub    $0x8,%rsp
   4013a6:	be a0 12 40 00       	mov    $0x4012a0,%esi
@@ -789,7 +792,8 @@ Disassembly of section .text:
 00000000004013f9 <skip>:
   4013f9:	53                   	push   %rbx
   4013fa:	48 63 05 5f 23 20 00 	movslq 0x20235f(%rip),%rax        # 603760 <num_input_strings>
-  401401:	48 8d 3c 80          	lea    (%rax,%rax,4),%rdi
+																																	# rax -> static char* num_input_strings
+  401401:	48 8d 3c 80          	lea    (%rax,%rax,4),%rdi         # 跳过字符？这是个二维数组偏移元素的算法？
   401405:	48 c1 e7 04          	shl    $0x4,%rdi
   401409:	48 81 c7 80 37 60 00 	add    $0x603780,%rdi
   401410:	48 8b 15 51 23 20 00 	mov    0x202351(%rip),%rdx        # 603768 <infile>
@@ -817,21 +821,40 @@ Disassembly of section .text:
 
 # parms:
 #		* rsi: caller stack frame pointer
+#
+#									caller stack frame
+#                +------------------+
+#                |0x0000000000000000|
+# 0x7ffffffee050 +------------------+
+#                |0x00000000006037d0|
+# 0x7ffffffee048 +------------------+
+#                |0x0000000000000000|
+# 0x7ffffffee040 +------------------+
+#                |0x0000000000400f0a| <--- caller rip
+# 0x7ffffffee038 +------------------+
+#									callee stack frame
+#                +------------------+
+#                |0x0000000000000028|
+# 0x7ffffffee030 +------------------+
+#                |0x00007ffffffee054|
+# 0x7ffffffee028 +------------------+
+#                |0x0000000000000000|
+# 0x7ffffffee020 +------------------+
 000000000040145c <read_six_numbers>:
   40145c:	48 83 ec 18          	sub    $0x18,%rsp
-  401460:	48 89 f2             	mov    %rsi,%rdx
-  401463:	48 8d 4e 04          	lea    0x4(%rsi),%rcx  # rcx: caller stack frame pointer + 0x4
-  401467:	48 8d 46 14          	lea    0x14(%rsi),%rax # rax: caller stack frame pointer + 0x14
-  40146b:	48 89 44 24 08       	mov    %rax,0x8(%rsp)  # 
+  401460:	48 89 f2             	mov    %rsi,%rdx											# %rsi, %rdx = 0x7ffffffee040
+  401463:	48 8d 4e 04          	lea    0x4(%rsi),%rcx									# %rcx = %rsi + 0x4  = 0x7ffffffee044
+  401467:	48 8d 46 14          	lea    0x14(%rsi),%rax 								# %rax = %rsi + 0x14 = 0x7ffffffee054
+  40146b:	48 89 44 24 08       	mov    %rax,0x8(%rsp)									# 
   401470:	48 8d 46 10          	lea    0x10(%rsi),%rax
   401474:	48 89 04 24          	mov    %rax,(%rsp)
-  401478:	4c 8d 4e 0c          	lea    0xc(%rsi),%r9   # r9 : caller stack frame pointer + 0xc
-  40147c:	4c 8d 46 08          	lea    0x8(%rsi),%r8   # r8 : caller stack frame pointer + 0x8
-  401480:	be c3 25 40 00       	mov    $0x4025c3,%esi  # esi: "%d %d %d %d %d %d"
+  401478:	4c 8d 4e 0c          	lea    0xc(%rsi),%r9									# r9 : caller stack frame pointer + 0xc
+  40147c:	4c 8d 46 08          	lea    0x8(%rsi),%r8   								# r8 : caller stack frame pointer + 0x8
+  401480:	be c3 25 40 00       	mov    $0x4025c3,%esi  								# esi: "%d %d %d %d %d %d"
   401485:	b8 00 00 00 00       	mov    $0x0,%eax
   40148a:	e8 61 f7 ff ff       	callq  400bf0 <__isoc99_sscanf@plt>
   40148f:	83 f8 05             	cmp    $0x5,%eax
-  401492:	7f 05                	jg     401499 <read_six_numbers+0x3d>
+  401492:	7f 05                	jg     401499 <read_six_numbers+0x3d> # if eax > 0x5 then goto *0x41499
   401494:	e8 a1 ff ff ff       	callq  40143a <explode_bomb>
   401499:	48 83 c4 18          	add    $0x18,%rsp
   40149d:	c3                   	retq   
