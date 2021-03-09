@@ -8,17 +8,9 @@ void foo() {
 }
 
 int main(int argc, char *argv[]) {
-  int idx = 0x400;
-  idx += 20;
-
-  /* stack test */
-  __asm__(
-      "movq $0xFFFF, %rax\n"
-      "pushq %rax\n"
-      "pushq %rax\n"
-  );
-
-  foo();
+  char str[80] = { 1 };
+  int len = 80;
+  fgets(str, 80, stdin);
 
   return 0;
 }

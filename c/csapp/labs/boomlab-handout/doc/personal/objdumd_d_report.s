@@ -766,6 +766,8 @@ Disassembly of section .text:
 00000000004013ba <initialize_bomb_solve>:
   4013ba:	f3 c3                	repz retq 
 
+# parms:
+#		* rdi: source string
 00000000004013bc <blank_line>:
   4013bc:	55                   	push   %rbp
   4013bd:	53                   	push   %rbx
@@ -789,6 +791,7 @@ Disassembly of section .text:
   4013f7:	5d                   	pop    %rbp
   4013f8:	c3                   	retq   
 
+# this function seem to be important.
 00000000004013f9 <skip>:
   4013f9:	53                   	push   %rbx
   4013fa:	48 63 05 5f 23 20 00 	movslq 0x20235f(%rip),%rax        # 603760 <num_input_strings>
@@ -800,6 +803,14 @@ Disassembly of section .text:
   401409:	48 81 c7 80 37 60 00 	add    $0x603780,%rdi             # rdi += 0x603780
   401410:	48 8b 15 51 23 20 00 	mov    0x202351(%rip),%rdx        # 603768 <infile>
   401417:	be 50 00 00 00       	mov    $0x50,%esi
+																
+																# fgets_parms:
+																#  * esi: length
+																#	 * rdi: dest buffer
+																#  * rdx: source buffer
+																#
+																# NOTE:
+																#  * this function will reset rdx register(看后面的使用，难道不是？ see: *0x4015ab, *0x4015a0)
   40141c:	e8 5f f7 ff ff       	callq  400b80 <fgets@plt>
   401421:	48 89 c3             	mov    %rax,%rbx
   401424:	48 85 c0             	test   %rax,%rax
@@ -828,7 +839,7 @@ Disassembly of section .text:
 #                +------------------+
 #                |0x0000000000000000|
 # 0x7ffffffee050 +------------------+
-#                |0x00000000006037d0|
+#                |0x00000000006037d0| <--- how do this block stored the user input string?
 # 0x7ffffffee048 +------------------+
 #                |0x0000000000000000|
 # 0x7ffffffee040 +------------------+
@@ -861,6 +872,7 @@ Disassembly of section .text:
   401499:	48 83 c4 18          	add    $0x18,%rsp
   40149d:	c3                   	retq   
 
+# This piece of logic seem to be important?
 000000000040149e <read_line>:
   40149e:	48 83 ec 08          	sub    $0x8,%rsp
   4014a2:	b8 00 00 00 00       	mov    $0x0,%eax
@@ -898,13 +910,20 @@ Disassembly of section .text:
   401537:	48 89 f7             	mov    %rsi,%rdi
   40153a:	b8 00 00 00 00       	mov    $0x0,%eax
   40153f:	48 c7 c1 ff ff ff ff 	mov    $0xffffffffffffffff,%rcx
+
+																# 计算字符串长度
+																#		see: https://blog.csdn.net/abc_670/article/details/79479364
   401546:	f2 ae                	repnz scas %es:(%rdi),%al
   401548:	48 f7 d1             	not    %rcx
   40154b:	48 83 e9 01          	sub    $0x1,%rcx
   40154f:	83 f9 4e             	cmp    $0x4e,%ecx
+
+	# important==========================================================
   401552:	7e 46                	jle    40159a <read_line+0xfc>
   401554:	bf fe 25 40 00       	mov    $0x4025fe,%edi
   401559:	e8 b2 f5 ff ff       	callq  400b10 <puts@plt>
+
+	# ================================================================
   40155e:	8b 05 fc 21 20 00    	mov    0x2021fc(%rip),%eax        # 603760 <num_input_strings>
   401564:	8d 50 01             	lea    0x1(%rax),%edx
   401567:	89 15 f3 21 20 00    	mov    %edx,0x2021f3(%rip)        # 603760 <num_input_strings>
@@ -917,6 +936,8 @@ Disassembly of section .text:
   40158b:	2a 2a 00 
   40158e:	48 89 b8 88 37 60 00 	mov    %rdi,0x603788(%rax)
   401595:	e8 a0 fe ff ff       	callq  40143a <explode_bomb>
+	# ================================================================
+
   40159a:	83 e9 01             	sub    $0x1,%ecx
   40159d:	48 63 c9             	movslq %ecx,%rcx
   4015a0:	48 63 c2             	movslq %edx,%rax
@@ -927,6 +948,8 @@ Disassembly of section .text:
   4015b3:	83 c2 01             	add    $0x1,%edx
   4015b6:	89 15 a4 21 20 00    	mov    %edx,0x2021a4(%rip)        # 603760 <num_input_strings>
   4015bc:	48 89 f0             	mov    %rsi,%rax
+	# important==========================================================
+
   4015bf:	48 83 c4 08          	add    $0x8,%rsp
   4015c3:	c3                   	retq   
 
