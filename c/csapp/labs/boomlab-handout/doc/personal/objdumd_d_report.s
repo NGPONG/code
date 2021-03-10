@@ -774,15 +774,18 @@ Disassembly of section .text:
   4013be:	48 83 ec 08          	sub    $0x8,%rsp
   4013c2:	48 89 fb             	mov    %rdi,%rbx
   4013c5:	eb 17                	jmp    4013de <blank_line+0x22>
+
   4013c7:	e8 94 f8 ff ff       	callq  400c60 <__ctype_b_loc@plt>
   4013cc:	48 83 c3 01          	add    $0x1,%rbx
   4013d0:	48 0f be ed          	movsbq %bpl,%rbp
   4013d4:	48 8b 00             	mov    (%rax),%rax
   4013d7:	f6 44 68 01 20       	testb  $0x20,0x1(%rax,%rbp,2)
   4013dc:	74 0f                	je     4013ed <blank_line+0x31>
+	
   4013de:	0f b6 2b             	movzbl (%rbx),%ebp
   4013e1:	40 84 ed             	test   %bpl,%bpl
   4013e4:	75 e1                	jne    4013c7 <blank_line+0xb>
+
   4013e6:	b8 01 00 00 00       	mov    $0x1,%eax
   4013eb:	eb 05                	jmp    4013f2 <blank_line+0x36>
   4013ed:	b8 00 00 00 00       	mov    $0x0,%eax
@@ -794,28 +797,35 @@ Disassembly of section .text:
 # this function seem to be important.
 00000000004013f9 <skip>:
   4013f9:	53                   	push   %rbx
+	
+	# =======================================================================================================
+	# 读取静态变量 num_input_strings 中的第一个字符 ch，
+	# ch *= 5 并使之成为 16 的倍数(左移4位)，这个值在加上 0x603780 作为 fgets 的目标 buffer
   4013fa:	48 63 05 5f 23 20 00 	movslq 0x20235f(%rip),%rax        # 603760 <num_input_strings>
 																																	# rax -> static char* num_input_strings
 																																	# 该变量用于存储用户的输入
-
   401401:	48 8d 3c 80          	lea    (%rax,%rax,4),%rdi         # rdi = rax * 5
   401405:	48 c1 e7 04          	shl    $0x4,%rdi									# 使 rdi 成为最接近 16 的倍数
   401409:	48 81 c7 80 37 60 00 	add    $0x603780,%rdi             # rdi += 0x603780
+	# =======================================================================================================
+
   401410:	48 8b 15 51 23 20 00 	mov    0x202351(%rip),%rdx        # 603768 <infile>
   401417:	be 50 00 00 00       	mov    $0x50,%esi
-																
 																# fgets_parms:
 																#  * esi: length
 																#	 * rdi: dest buffer
 																#  * rdx: source buffer
-																#
+																# fgets_return:
+																#	 * rax: dest buffer
 																# NOTE:
 																#  * this function will reset rdx register(看后面的使用，难道不是？ see: *0x4015ab, *0x4015a0)
   40141c:	e8 5f f7 ff ff       	callq  400b80 <fgets@plt>
+
   401421:	48 89 c3             	mov    %rax,%rbx
   401424:	48 85 c0             	test   %rax,%rax
   401427:	74 0c                	je     401435 <skip+0x3c>
   401429:	48 89 c7             	mov    %rax,%rdi
+
   40142c:	e8 8b ff ff ff       	callq  4013bc <blank_line>
   401431:	85 c0                	test   %eax,%eax
   401433:	75 c5                	jne    4013fa <skip+0x1>

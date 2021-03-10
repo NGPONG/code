@@ -334,7 +334,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeShowBookmarks=0
-let g:NERDTreeGitStatusUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=23
@@ -343,6 +342,8 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeDirArrows=1
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=0
+let g:NERDTreeGitStatusUpdateOnWrite = 1
+let g:NERDTreeGitStatusConcealBrackets = 0
 let g:NERDTreeGitStatusIndicatorMapCustom = {
          \ "Modified"  : "M",
          \ "Staged"    : "A",

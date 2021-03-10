@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-void foo() {
-  
-}
+#include <ctype.h>
 
 int main(int argc, char *argv[]) {
-  char str[80] = { 1 };
-  int len = 80;
-  fgets(str, 80, stdin);
+  int flag = isblank('B');
+  if (flag) {
+    printf("is blank");
+  } else {
+    printf("correct!");
+  }
 
   return 0;
 }
