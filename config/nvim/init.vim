@@ -334,6 +334,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeIgnore = ['^.ccls-cache$']
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeShowBookmarks=0
+let g:NERDTreeGitStatusUpdateOnWrite = 1
 let g:NERDTreeHighlightCursorline=0
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeWinSize=23
@@ -342,8 +343,6 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeDirArrows=1
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=0
-let g:NERDTreeGitStatusUpdateOnWrite = 1
-let g:NERDTreeGitStatusConcealBrackets = 0
 let g:NERDTreeGitStatusIndicatorMapCustom = {
          \ "Modified"  : "M",
          \ "Staged"    : "A",
@@ -761,7 +760,6 @@ nnoremap p P
 vnoremap p pgvy
 nmap a i
 vmap a I
-" vmap i I
 vmap q b
 " 这种映射方式可以直接选中一个单词，但是会出现前后不定的情况
 " vnoremap w iw 
