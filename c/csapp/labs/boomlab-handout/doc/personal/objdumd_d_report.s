@@ -782,6 +782,7 @@ Disassembly of section .text:
   4013d7:	f6 44 68 01 20       	testb  $0x20,0x1(%rax,%rbp,2)
   4013dc:	74 0f                	je     4013ed <blank_line+0x31>
 	
+																
   4013de:	0f b6 2b             	movzbl (%rbx),%ebp
   4013e1:	40 84 ed             	test   %bpl,%bpl
   4013e4:	75 e1                	jne    4013c7 <blank_line+0xb>
@@ -794,13 +795,15 @@ Disassembly of section .text:
   4013f7:	5d                   	pop    %rbp
   4013f8:	c3                   	retq   
 
-# this function seem to be important.
+# 这个函数到底是干啥的
 00000000004013f9 <skip>:
   4013f9:	53                   	push   %rbx
 	
 	# =======================================================================================================
 	# 读取静态变量 num_input_strings 中的第一个字符 ch，
-	# ch *= 5 并使之成为 16 的倍数(左移4位)，这个值在加上 0x603780 作为 fgets 的目标 buffer
+	#  1. ch *= 5
+	#  2. 使之成为 16 的倍数(左移4位)
+	# 这个值在加上 0x603780 作为 fgets 的目标 buffer，在这里，即 %rdi
   4013fa:	48 63 05 5f 23 20 00 	movslq 0x20235f(%rip),%rax        # 603760 <num_input_strings>
 																																	# rax -> static char* num_input_strings
 																																	# 该变量用于存储用户的输入

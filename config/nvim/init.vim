@@ -814,6 +814,7 @@ map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
 inoremap <C-Space> <Nop>
 nnoremap <C-Space> <Nop>
+nnoremap <C-f> /
 " tnoremap <Esc> <C-\><C-n> " this key-bind make strange with fzf closing behavior.
 
 "---------------------------------------------------------------------------------
