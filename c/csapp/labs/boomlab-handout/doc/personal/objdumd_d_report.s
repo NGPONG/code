@@ -775,13 +775,16 @@ Disassembly of section .text:
   4013c2:	48 89 fb             	mov    %rdi,%rbx
   4013c5:	eb 17                	jmp    4013de <blank_line+0x22>
 
+	# ==============================================================
+	# The purpose of this code is found the blank line.
+	# The syntax see: https://stackoverflow.com/a/50296176/11215250
   4013c7:	e8 94 f8 ff ff       	callq  400c60 <__ctype_b_loc@plt>
   4013cc:	48 83 c3 01          	add    $0x1,%rbx
   4013d0:	48 0f be ed          	movsbq %bpl,%rbp
   4013d4:	48 8b 00             	mov    (%rax),%rax
   4013d7:	f6 44 68 01 20       	testb  $0x20,0x1(%rax,%rbp,2)
-  4013dc:	74 0f                	je     4013ed <blank_line+0x31>
-	
+  4013dc:	74 0f                	je     013ed <blank_line+0x31>
+	# ==============================================================
 																
   4013de:	0f b6 2b             	movzbl (%rbx),%ebp
   4013e1:	40 84 ed             	test   %bpl,%bpl
