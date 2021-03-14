@@ -1,19 +1,27 @@
-%rax = infile
+* PREREQUEST
+  1. 需要弄清楚的函数，see: ./doc/personal/objdumd_d_report.s
+    1_1. <skip>
+    1_2. <read_line>
 
-1. Border relations with Canada have never been better.
+* phase_1
+  * 该题只需要 si 跟着步骤走，看到一个字符串 cmp 的对比，再读取字符串的值即可得到答案: 
+  * Border relations with Canada have never been better.
 
-第二题: 
-找出为什么:
-  x/3xg 0x7ffffffedca0
-为输入的字符串？
-在哪里设置的？
+* phase_2
+  * 该题较为复杂，前置条件:
+    1. 搞清楚 scanf 在栈中所构造的存储空间
+    2. 组织了一个循环语义以读取输入的 6 位数，其中，n 作为数字的偏移，要求满足: %(n + 1) = 2 * %(n)
+  * 1 2 4 8 16 32
 
-估计 readline 的逻辑要看懂才行
+* phase_3
+  * 该题其实就是一个 switch 语义的跳转表，要求:
+    1. 找准 sscanf 在当前栈帧中所构造的存储空间(see rsp)
+    2. 找准跳转表的具体构造，see: x/8xg 0x402470
+    3. switch 语义仅有 8 个跳转，要求第一个输入的字符作为跳转的基准，故第一个输入的字符不能够大于 8
+  * 7 327
 
-0x6037d0
+* phase_4
+  
+13 6
 
-0x7ffffffedcb0
-
-
-
-0x603780: pa
+0x603870

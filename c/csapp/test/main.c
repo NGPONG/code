@@ -5,14 +5,13 @@
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-  char *str = "hello,world";
+  int a = 10;
+  int b = 20;
 
-  int flag = isblank(str[3]);
-  if (flag) { 
-    printf("is blank");
-  } else {
-    printf("correct!");
-  }
+  a = 1;
+  b = 2;
+  b = 3;
+  a = 4;
 
   return 0;
 }
