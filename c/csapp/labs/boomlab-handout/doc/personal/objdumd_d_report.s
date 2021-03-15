@@ -460,30 +460,46 @@ Disassembly of section .text:
 	# conditional of success:
 	#   * eax = 0
 	#   * 0xc(%rsp) = 0
-  400fd2:	89 d0                	mov    %edx,%eax							# eax = edx;
-  400fd4:	29 f0                	sub    %esi,%eax  						# eax = eax - esi;
-  400fd6:	89 c1                	mov    %eax,%ecx  						# ecx = eax;
-  400fd8:	c1 e9 1f             	shr    $0x1f,%ecx 						# ecx = eax >> 31;
-  400fdb:	01 c8                	add    %ecx,%eax  						# eax = eax + ecx;
-  400fdd:	d1 f8                	sar    %eax										# eax = eax >> 1;
-  400fdf:	8d 0c 30             	lea    (%rax,%rsi,1),%ecx 		# ecx = rax + rsi * 1;
-  400fe2:	39 f9                	cmp    %edi,%ecx          		# 
-  400fe4:	7e 0c                	jle    400ff2 <func4+0x24>  	# if(ecx <= edi) {
-																															#		func4(edx, esi, rdi, rcx);
-																															# }
-																															#
-  400fe6:	8d 51 ff             	lea    -0x1(%rcx),%edx      	# edx = rcx - 1;
-  400fe9:	e8 e0 ff ff ff       	callq  400fce <func4>       	# func4(edx, esi, rdi, rcx);
-  400fee:	01 c0                	add    %eax,%eax            	# eax += eax;
-  400ff0:	eb 15                	jmp    401007 <func4+0x39>  	# return;
-																															# 
-  400ff2:	b8 00 00 00 00       	mov    $0x0,%eax            	# eax = 0;
-  400ff7:	39 f9                	cmp    %edi,%ecx							# 
-  400ff9:	7d 0c                	jge    401007 <func4+0x39>  	# if(ecx >= edi) {
-  400ffb:	8d 71 01             	lea    0x1(%rcx),%esi       	#		esi = rcx + 1;
-  400ffe:	e8 cb ff ff ff       	callq  400fce <func4>					# }
-  401003:	8d 44 00 01          	lea    0x1(%rax,%rax,1),%eax	# eax = rax + rax * 1 + 1;
-  401007:	48 83 c4 08          	add    $0x8,%rspa             # return;
+	# 
+	#
+	# int func4(int edx, int esi, int edi) {
+	#   int t = (edx - esi) / 2;
+	#   int k = t + rsi;
+	#   if (k > edi) {
+	#     edx = t - 1;
+	#     return func4(edx, esi, rdi) * 2;
+	#   } else {
+	#     t = 0;
+	#     if(k < edi) {
+	#       esi = k + 1;
+	#       t = 2 * func4(edx, esi, edi) + 1;
+	#     }
+	# 
+	#     return t;
+	#   }
+	# }
+  400fd2:	89 d0                	mov    %edx,%eax							
+  400fd4:	29 f0                	sub    %esi,%eax  						
+  400fd6:	89 c1                	mov    %eax,%ecx  						
+  400fd8:	c1 e9 1f             	shr    $0x1f,%ecx 						
+  400fdb:	01 c8                	add    %ecx,%eax  						
+  400fdd:	d1 f8                	sar    %eax										
+  400fdf:	8d 0c 30             	lea    (%rax,%rsi,1),%ecx 		
+  400fe2:	39 f9                	cmp    %edi,%ecx          		
+  400fe4:	7e 0c                	jle    400ff2 <func4+0x24>  	
+																															
+  400fe6:	8d 51 ff             	lea    -0x1(%rcx),%edx      	
+  400fe9:	e8 e0 ff ff ff       	callq  400fce <func4>       	
+  400fee:	01 c0                	add    %eax,%eax            	
+  400ff0:	eb 15                	jmp    401007 <func4+0x39>  	
+																															
+  400ff2:	b8 00 00 00 00       	mov    $0x0,%eax            	
+  400ff7:	39 f9                	cmp    %edi,%ecx							
+  400ff9:	7d 0c                	jge    401007 <func4+0x39>  	
+  400ffb:	8d 71 01             	lea    0x1(%rcx),%esi       	
+  400ffe:	e8 cb ff ff ff       	callq  400fce <func4>					
+  401003:	8d 44 00 01          	lea    0x1(%rax,%rax,1),%eax	
+  401007:	48 83 c4 08          	add    $0x8,%rspa             
   40100b:	c3                   	retq   
 
 
