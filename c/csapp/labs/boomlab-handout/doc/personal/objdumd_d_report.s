@@ -541,24 +541,46 @@ Disassembly of section .text:
   40105d:	48 83 c4 18          	add    $0x18,%rsp
   401061:	c3                   	retq   
 
+
+#									callee stack frame
+#								 +------------------+ 
+#                |0x0000000000000000| <-- canary
+# 0x7ffffffedcc8 +------------------+
+#                |0x00007575|
+# 0x7ffffffedcc4 +----------+
+#                |0x64646161|
+# 0x7ffffffedcc0 +----------+
+#                |0x00000000|
+# 0x7ffffffedcbc +----------+
+#                |0x00000000|
+# 0x7ffffffedcb8 +----------+
+#                |0x00000000|
+# 0x7ffffffedcb4 +----------+
+#                |0x00000061|
+# 0x7ffffffedcb0 +----------+					<-- rsp
 0000000000401062 <phase_5>:
   401062:	53                   	push   %rbx
   401063:	48 83 ec 20          	sub    $0x20,%rsp
   401067:	48 89 fb             	mov    %rdi,%rbx
-  40106a:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+
+  40106a:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax					# canary start
   401071:	00 00 
   401073:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
   401078:	31 c0                	xor    %eax,%eax
-  40107a:	e8 9c 02 00 00       	callq  40131b <string_length>
-  40107f:	83 f8 06             	cmp    $0x6,%eax
+
+  40107a:	e8 9c 02 00 00       	callq  40131b <string_length> # return the length of string to %rax
+
+  40107f:	83 f8 06             	cmp    $0x6,%eax              # the length of the input string must be equal to 6.
   401082:	74 4e                	je     4010d2 <phase_5+0x70>
   401084:	e8 b1 03 00 00       	callq  40143a <explode_bomb>
+
   401089:	eb 47                	jmp    4010d2 <phase_5+0x70>
-  40108b:	0f b6 0c 03          	movzbl (%rbx,%rax,1),%ecx
-  40108f:	88 0c 24             	mov    %cl,(%rsp)
+  40108b:	0f b6 0c 03          	movzbl (%rbx,%rax,1),%ecx     # read 1 bytes for user input to %rcx
+  40108f:	88 0c 24             	mov    %cl,(%rsp)							# and set to (%rsp + 0x0)
+
   401092:	48 8b 14 24          	mov    (%rsp),%rdx
-  401096:	83 e2 0f             	and    $0xf,%edx
-  401099:	0f b6 92 b0 24 40 00 	movzbl 0x4024b0(%rdx),%edx
+  401096:	83 e2 0f             	and    $0xf,%edx							# only keep on low 4 bit.
+  401099:	0f b6 92 b0 24 40 00 	movzbl 0x4024b0(%rdx),%edx    # "maduiersnfotvbylSo you think you can stop the bomb with ctrl-c, do you?"
   4010a0:	88 54 04 10          	mov    %dl,0x10(%rsp,%rax,1)
   4010a4:	48 83 c0 01          	add    $0x1,%rax
   4010a8:	48 83 f8 06          	cmp    $0x6,%rax
@@ -572,8 +594,10 @@ Disassembly of section .text:
   4010c6:	e8 6f 03 00 00       	callq  40143a <explode_bomb>
   4010cb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
   4010d0:	eb 07                	jmp    4010d9 <phase_5+0x77>
+
   4010d2:	b8 00 00 00 00       	mov    $0x0,%eax
   4010d7:	eb b2                	jmp    40108b <phase_5+0x29>
+
   4010d9:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
   4010de:	64 48 33 04 25 28 00 	xor    %fs:0x28,%rax
   4010e5:	00 00 
