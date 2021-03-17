@@ -618,19 +618,26 @@ Disassembly of section .text:
   401100:	49 89 e5             	mov    %rsp,%r13
   401103:	48 89 e6             	mov    %rsp,%rsi
 
+
+	#								 +----------+ 
+	#                |0x00000006|         
+	# 0x7ffffffedc80 +----------+ 
+	#                    ...
 	#								 +----------+
 	#                |0x00000006|         
-	# 0x7ffffffee004 +----------+
+	# 0x7ffffffedc78 +----------+ <-- %rsi
+	#                |0x00000006|         
+	# 0x7ffffffedc74 +----------+ <-- %rbp
 	#                |0x00000005|
-	# 0x7ffffffee000 +----------+
+	# 0x7ffffffedc70 +----------+
 	#                |0x00000004|
-	# 0x7ffffffedffc +----------+         
+	# 0x7ffffffedc6c +----------+         
 	#								 |0x00000003| 
-	# 0x7ffffffedff8 +----------+ 
+	# 0x7ffffffedc68 +----------+ 
 	#								 |0x00000002|
-	# 0x7ffffffedff4 +----------+ <-- %r13
+	# 0x7ffffffedc64 +----------+ 
 	#                |0x00000001|
-	# 0x7ffffffedff0 +----------+ <-- %rsp, %rbp, %r14, %r13
+	# 0x7ffffffedc60 +----------+ <-- %rsp, %r14, %rax
   401106:	e8 51 03 00 00       	callq  40145c <read_six_numbers>
 
   40110b:	49 89 e6             	mov    %rsp,%r14
@@ -665,7 +672,6 @@ Disassembly of section .text:
 	 
   401151:	eb c1                	jmp    401114 <phase_6+0x20>
 
-																# cycle end?
   401153:	48 8d 74 24 18       	lea    0x18(%rsp),%rsi
   401158:	4c 89 f0             	mov    %r14,%rax
   40115b:	b9 07 00 00 00       	mov    $0x7,%ecx
@@ -675,24 +681,50 @@ Disassembly of section .text:
   401166:	48 83 c0 04          	add    $0x4,%rax
   40116a:	48 39 f0             	cmp    %rsi,%rax
   40116d:	75 f1                	jne    401160 <phase_6+0x6c>
+	
+
+
+
+
+
   40116f:	be 00 00 00 00       	mov    $0x0,%esi
   401174:	eb 21                	jmp    401197 <phase_6+0xa3>
-  401176:	48 8b 52 08          	mov    0x8(%rdx),%rdx
+
+  401176:	48 8b 52 08          	mov    0x8(%rdx),%rdx         # cycle start
   40117a:	83 c0 01             	add    $0x1,%eax
   40117d:	39 c8                	cmp    %ecx,%eax
-  40117f:	75 f5                	jne    401176 <phase_6+0x82>
+  40117f:	75 f5                	jne    401176 <phase_6+0x82>  # cycle end
   401181:	eb 05                	jmp    401188 <phase_6+0x94>
+
   401183:	ba d0 32 60 00       	mov    $0x6032d0,%edx
-  401188:	48 89 54 74 20       	mov    %rdx,0x20(%rsp,%rsi,2)
+																# 由 rsi 决定具体的偏移
+																# 
+																# 而写入的数据由 ecx 决定
+																# 
+																# ecx 作为数组 arr 的某一个元素的偏移而存在，具体由 rsi 所决定
+																# 
+																# 而 rsi 在以下两行确定具体的值
+																# 
+																# 也就是说，rsi 决定了这段存储空间的具体偏移，并且这段存储空间具体要存储的值
+  401188:	48 89 54 74 20       	mov    %rdx,0x20(%rsp,%rsi,2) 
   40118d:	48 83 c6 04          	add    $0x4,%rsi
   401191:	48 83 fe 18          	cmp    $0x18,%rsi
   401195:	74 14                	je     4011ab <phase_6+0xb7>
+																
+																# 用于初始化 cx, ax, dx?
   401197:	8b 0c 34             	mov    (%rsp,%rsi,1),%ecx
   40119a:	83 f9 01             	cmp    $0x1,%ecx
-  40119d:	7e e4                	jle    401183 <phase_6+0x8f>
+  40119d:	7e e4                	jle    401183 <phase_6+0x8f> # NOTE THAT
   40119f:	b8 01 00 00 00       	mov    $0x1,%eax
   4011a4:	ba d0 32 60 00       	mov    $0x6032d0,%edx
   4011a9:	eb cb                	jmp    401176 <phase_6+0x82>
+
+
+
+
+
+
+
   4011ab:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
   4011b0:	48 8d 44 24 28       	lea    0x28(%rsp),%rax
   4011b5:	48 8d 74 24 50       	lea    0x50(%rsp),%rsi
@@ -716,6 +748,7 @@ Disassembly of section .text:
   4011f2:	83 ed 01             	sub    $0x1,%ebp
   4011f5:	75 e8                	jne    4011df <phase_6+0xeb>
   4011f7:	48 83 c4 50          	add    $0x50,%rsp
+
   4011fb:	5b                   	pop    %rbx
   4011fc:	5d                   	pop    %rbp
   4011fd:	41 5c                	pop    %r12
