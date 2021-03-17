@@ -620,17 +620,17 @@ Disassembly of section .text:
 
 	#								 +----------+
 	#                |0x00000006|         
-	# 0x7ffffffedc74 +----------+
+	# 0x7ffffffee004 +----------+
 	#                |0x00000005|
-	# 0x7ffffffedc70 +----------+
+	# 0x7ffffffee000 +----------+
 	#                |0x00000004|
-	# 0x7ffffffedc6c +----------+         
+	# 0x7ffffffedffc +----------+         
 	#								 |0x00000003| 
-	# 0x7ffffffedc68 +----------+ 
+	# 0x7ffffffedff8 +----------+ 
 	#								 |0x00000002|
-	# 0x7ffffffedc64 +----------+ <-- %r13
+	# 0x7ffffffedff4 +----------+ <-- %r13
 	#                |0x00000001|
-	# 0x7ffffffedc60 +----------+ <-- %rsp, %r14, %rbp
+	# 0x7ffffffedff0 +----------+ <-- %rsp, %rbp, %r14, %r13
   401106:	e8 51 03 00 00       	callq  40145c <read_six_numbers>
 
   40110b:	49 89 e6             	mov    %rsp,%r14
@@ -645,6 +645,7 @@ Disassembly of section .text:
   40111e:	83 f8 05             	cmp    $0x5,%eax
   401121:	76 05                	jbe    401128 <phase_6+0x34> # if (first number - 1) <= 5
   401123:	e8 12 03 00 00       	callq  40143a <explode_bomb>
+																# ========================================
 
 																# r12d set 0 by default, it's not decide by user input.
 	401128:	41 83 c4 01          	add    $0x1,%r12d
@@ -664,6 +665,7 @@ Disassembly of section .text:
 	 
   401151:	eb c1                	jmp    401114 <phase_6+0x20>
 
+																# cycle end?
   401153:	48 8d 74 24 18       	lea    0x18(%rsp),%rsi
   401158:	4c 89 f0             	mov    %r14,%rax
   40115b:	b9 07 00 00 00       	mov    $0x7,%ecx
