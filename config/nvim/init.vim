@@ -629,6 +629,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 let g:gitgutter_close_preview_on_escape=1
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_sign_allow_clobber = 1
+let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_use_location_list = 1
 let g:gitgutter_sign_added = '▌'
 let g:gitgutter_sign_modified = '▌'
