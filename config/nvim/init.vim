@@ -635,6 +635,9 @@ let g:gitgutter_sign_modified = '▌'
 let g:gitgutter_sign_removed = '▸ '
 let g:gitgutter_sign_modified_removed = '▌'
 
+" https://github.com/airblade/vim-gitgutter/issues/772
+nmap hp <Plug>(GitGutterPreviewHunk):wincmd P<CR>
+
 "let g:gitgutter_sign_removed_first_line = '^^'
 "nnoremap <silent> <Esc> :pclose<CR>
 
@@ -793,7 +796,6 @@ nnoremap <silent><C-n> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
-nmap hp <Plug>(GitGutterPreviewHunk)
 map <F1> <Esc>
 imap <F1> <Esc>
 nnoremap <S-Up> <C-y>
