@@ -690,6 +690,8 @@ Disassembly of section .text:
   40116f:	be 00 00 00 00       	mov    $0x0,%esi
   401174:	eb 21                	jmp    401197 <phase_6+0xa3>
 
+																# ax 在进入该语义块之前初始化为 0.
+																# 依照输入的具体数字(起始状态下，从0开始，由 rsi 所决定)去决定要往下寻路多少次 node
   401176:	48 8b 52 08          	mov    0x8(%rdx),%rdx         # cycle start
   40117a:	83 c0 01             	add    $0x1,%eax
   40117d:	39 c8                	cmp    %ecx,%eax
@@ -714,9 +716,13 @@ Disassembly of section .text:
 																# 用于初始化 cx, ax, dx?
   401197:	8b 0c 34             	mov    (%rsp,%rsi,1),%ecx
   40119a:	83 f9 01             	cmp    $0x1,%ecx
-  40119d:	7e e4                	jle    401183 <phase_6+0x8f> # NOTE THAT
+  40119d:	7e e4                	jle    401183 <phase_6+0x8f> # 读取到输入的数字如果小于等于 1 的话就跳
+																														 # 过 0x401176~0x401181 语义块，直接将 rdx 初始化为
+																														 # 指向第一个 node
   40119f:	b8 01 00 00 00       	mov    $0x1,%eax
-  4011a4:	ba d0 32 60 00       	mov    $0x6032d0,%edx
+  4011a4:	ba d0 32 60 00       	mov    $0x6032d0,%edx        # 0x6032d0 作为 node1 的起始
+																														 # 前 0~7bit 作为数据域，8~15bit 作为指针域，指向下一个 node
+																														 # see: x/12xg 0x6032d0
   4011a9:	eb cb                	jmp    401176 <phase_6+0x82>
 
 
