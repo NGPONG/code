@@ -618,26 +618,42 @@ Disassembly of section .text:
   401100:	49 89 e5             	mov    %rsp,%r13
   401103:	48 89 e6             	mov    %rsp,%rsi
 
-
-	#								 +----------+ 
-	#                |0x00000006|         
-	# 0x7ffffffedc80 +----------+ 
-	#                    ...
+	
+	
+	#	函数开始时保存完被调用者保存寄存器后 rsp 所处的位置，该位置也存储着 rbx 的原始值
+	#								 +------------------+
+	#                |0x0000000000000000| 
+	# 0x7ffffffedcd0 +------------------+ 
+	#                |0x00000000006032d0|         
+	# 0x7ffffffedcc8 +------------------+
+	#                |0x00000000006032e0|
+	# 0x7ffffffedcc0 +------------------+
+	#                |0x00000000006032f0|
+	# 0x7ffffffedcb8 +------------------+         
+	#								 |0x0000000000603300| 
+	# 0x7ffffffedcb0 +------------------+ 
+	#								 |0x0000000000603310|
+	# 0x7ffffffedca8 +------------------+ 
+	#                |0x0000000000603320|
+	# 0x7ffffffedca0 +------------------+ <-- nodes
+	#                     .
+	#										  .
+	#                     .
 	#								 +----------+
 	#                |0x00000006|         
-	# 0x7ffffffedc78 +----------+ <-- %rsi
+	# 0x7ffffffedc98 +----------+
 	#                |0x00000006|         
-	# 0x7ffffffedc74 +----------+ <-- %rbp
+	# 0x7ffffffedc94 +----------+
 	#                |0x00000005|
-	# 0x7ffffffedc70 +----------+
+	# 0x7ffffffedc90 +----------+
 	#                |0x00000004|
-	# 0x7ffffffedc6c +----------+         
+	# 0x7ffffffedc8c +----------+         
 	#								 |0x00000003| 
-	# 0x7ffffffedc68 +----------+ 
+	# 0x7ffffffedc88 +----------+ 
 	#								 |0x00000002|
-	# 0x7ffffffedc64 +----------+ 
+	# 0x7ffffffedc84 +----------+ 
 	#                |0x00000001|
-	# 0x7ffffffedc60 +----------+ <-- %rsp, %r14, %rax
+	# 0x7ffffffedc80 +----------+ <-- %rsp
   401106:	e8 51 03 00 00       	callq  40145c <read_six_numbers>
 
   40110b:	49 89 e6             	mov    %rsp,%r14
@@ -734,6 +750,7 @@ Disassembly of section .text:
   4011ab:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
   4011b0:	48 8d 44 24 28       	lea    0x28(%rsp),%rax
   4011b5:	48 8d 74 24 50       	lea    0x50(%rsp),%rsi
+
   4011ba:	48 89 d9             	mov    %rbx,%rcx
   4011bd:	48 8b 10             	mov    (%rax),%rdx
   4011c0:	48 89 51 08          	mov    %rdx,0x8(%rcx)
@@ -742,9 +759,12 @@ Disassembly of section .text:
   4011cb:	74 05                	je     4011d2 <phase_6+0xde>
   4011cd:	48 89 d1             	mov    %rdx,%rcx
   4011d0:	eb eb                	jmp    4011bd <phase_6+0xc9>
+
+
   4011d2:	48 c7 42 08 00 00 00 	movq   $0x0,0x8(%rdx)
   4011d9:	00 
   4011da:	bd 05 00 00 00       	mov    $0x5,%ebp
+
   4011df:	48 8b 43 08          	mov    0x8(%rbx),%rax
   4011e3:	8b 00                	mov    (%rax),%eax
   4011e5:	39 03                	cmp    %eax,(%rbx)
@@ -753,8 +773,9 @@ Disassembly of section .text:
   4011ee:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
   4011f2:	83 ed 01             	sub    $0x1,%ebp
   4011f5:	75 e8                	jne    4011df <phase_6+0xeb>
-  4011f7:	48 83 c4 50          	add    $0x50,%rsp
 
+
+  4011f7:	48 83 c4 50          	add    $0x50,%rsp
   4011fb:	5b                   	pop    %rbx
   4011fc:	5d                   	pop    %rbp
   4011fd:	41 5c                	pop    %r12

@@ -42,11 +42,12 @@ int main(int argc, char *argv[]) {
   }
   /* 0x40116d */
 
+
   /* 0x40116f */
   /* 假设 node list 已初始化完毕 */
   t_node *list = 0x6032d0;
   /* 模拟 0x20(%rsp,%rsi,2) 所分配的栈帧空间 */
-  long nodes_data[6] = { 0 };
+  t_node *nodes[6] = { 0 };
 
   t_node *rdx = list;
   for (int rsi = 0; rsi < 6; ++rsi) {
@@ -59,9 +60,36 @@ int main(int argc, char *argv[]) {
       }
     }
 
-    nodes_data[rsi] = rdx->data;
+    nodes[rsi] = rdx->next;
   }
   /* 0x4011a9 */
+  
+  /* 0x4011ab */ 
+  /**
+   * 该段循环遍历上一段代码段中所构造的存储 6 个节点的栈空间，其
+   * 中，每一个栈空间中所存储的节点指针改变其 next 的指向，指向为
+   * 当前栈段空间的下一块空间中所存储的节点指针，最后一块栈空间会
+   * 所存储的节点其指向直接初始化为 NULL
+  */
+  t_node *end = nodes + 7;
+
+  t_node *rcx = nodes[0];
+  t_node **rax = &nodes[1];
+  while (true) {
+    t_node *rdx = *rax;
+    rcx->next = rdx;
+
+    rax += 1;
+    if (rax == end) {
+      break;
+    }
+
+    rcx = rdx;
+  }
+  nodes[6]->next = NULL;
+  /* 0x4011d2 */
+  
+  t_node *rbx = nodes[0];
   
   
 
