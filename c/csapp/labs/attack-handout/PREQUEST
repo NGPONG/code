@@ -1,0 +1,14 @@
+FILES:
+  * ctarget: involes three code injection attack.
+
+  * rtarget: involes two return-oriented programming attack.
+
+  * hex2rax: Encode each exploit string as a sequence of hex digit pairs separa-
+             ted by whitespace, where each hex digit pair represents a byte in 
+             the exploit string. The program "hex2raw" converts these strings i-
+             nto a sequence of raw bytes, which can then be fed to the target:
+
+                unix> cat exploit.txt | ./hex2raw | ./ctarget
+
+
+
