@@ -40,6 +40,13 @@ EXPOLIT STRINGS:
   * ctarget 和 rtarget 从 [标准输入?] 中获取数据，其内部存在一个函数 getbuf，它的行为类似于 <gets> 的实现，即
   不保证读取字符串的长度是否超出目标缓冲区，当字符长度超出给定的缓冲区长度(长度由 BUFFER_SIZE 所声明的宏定义)
   时，程序将返回错误，否则程序返回 0x1 表示成功.
+
+    unsigned getbuf() {
+      char buf[BUFFER_SIZE];
+      Gets(buf);
+      return 1;
+    }
+
   * BUFFER_SIZE 的定义依赖于 GCC 的分配策略，要想具体了解它的大小，我们需要逆向拆解代码去查看
   * 引用上一点，我们要保证我的所录入的字符串要足够的 '聪明'，这就是 expolit strings.
   * 保证我们所的 expolit string 包含的字节并不会跟任意一个 ASCII 字符所对应，程序 [HEX2RAW] 将会检测这一行为
@@ -50,15 +57,7 @@ CODE INJECTION ATTACKS
   * 该程序设置了一种属性使得每次执行都能够保证栈上的地址不存在随机性，简而言之，栈上的数据我们完全可以视为
   可执行代码. 该易受攻击的特性也促使我们能够使用 expolit string 来插入可执行的恶意代码
 
-  * LEVEL 1
-    * 本关不需要注入任何新的代码，我们只用保证程序能执行到指定的为止即可
-    * 检查 <test> 函数其语义可大致使用以下代码表示(并不属于完整片段):
 
-        void test() {
-          int val;
-          val = getbuf();
-          printf("No exploit.  Getbuf returned 0x%x\n", val);
-        }
-      
-      本关要求，在 getbuf 返回前能够执行到 <touch1> 函数，而不是打印接下来的 printf
 
+
+0x59b997fa
