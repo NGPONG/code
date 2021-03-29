@@ -1,7 +1,7 @@
 FILES:
-  * ctarget: involes three code injection attack.
+  * ctarget: involes three code injection attack about buffer overflow.
 
-  * rtarget: involes two return-oriented programming attack.
+  * rtarget: involes two ROP(return-oriented programming) attack.
 
   * hex2rax: Encode each exploit string as a sequence of hex digit pairs separa-
              ted by whitespace, where each hex digit pair represents a byte in 
@@ -30,8 +30,7 @@ IMPORTANT POINTS:
     * Your exploit strings will typically contain byte values that do not correspond to the ASCII values for printing characters. 
     The program HEX2RAW will enable you to generate these raw strings. 
 
-    * Your exploit string must not contain byte value 0x0a at any intermediate position, since this is theASCII code for newline (‘\n’).
-      When Gets encount this byte, it will assume you intended terminate the string.
+    * Your exploit string must not contain byte value 0x0a at any intermediate position, since this is the ASCII code for newline (‘\n’).  WhenGetsencounters this byte, it will assume you intended terminate the string.
 
     * HEX2RAW expects two-digit hex values separated by one or more white spaces.
     So if you want to create a byte with a hex value of 0, you need to write it as 00. 
@@ -41,19 +40,18 @@ IMPORTANT POINTS:
 
 
 EXPOLIT STRINGS:
-  * ctarget 和 rtarget 从 <getbuf()>
+  * ctarget 和 rtarget 默认情况下从 [标准输入] 中获取数据，其内部存在一个函数 getbuf，它的行为类似于 <gets> 的实现，即
+  不保证读取字符串的长度是否超出目标缓冲区，当字符长度超出给定的缓冲区长度(长度由 BUFFER_SIZE 所声明的宏定义)
+  时，程序将返回错误，否则程序返回 0x1 表示成功.
 
-      unsigned getbuf() {
-        char buf[BUFFER_SIZE];
-        Gets(buf);
-        return 1;
-      }
+    unsigned getbuf() {
+      char buf[BUFFER_SIZE];
+      Gets(buf);
+      return 1;
+    }
 
-    中获取数据，其内部存在一个函数 <Gets>，它的行为类似于 stdlib - <gets> 的实现，即不保证读取字符串的长度是否超出目标缓冲区，当字符长度超出
-    给定的缓冲区长度(长度由 BUFFER_SIZE 所声明的宏定义)时，程序将返回错误，否则程序返回 0x1 表示成功.
-
+  * BUFFER_SIZE 的定义依赖于 GCC 的分配策略，要想具体了解它的大小，我们需要逆向拆解代码去查看
   * 引用上一点，我们要保证我的所录入的字符串要足够的 '聪明'，这就是 expolit strings.
-
   * 保证我们所的 expolit string 包含的字节并不会跟任意一个 ASCII 字符所对应，程序 [HEX2RAW] 将
     会检测这一行为
 
@@ -61,8 +59,5 @@ EXPOLIT STRINGS:
 
 CODE INJECTION ATTACKS
   * 最初始的三个阶段，我们的 expolit string 将要攻击 [ctarget]
-
-  * 该程序设置了一种属性使得每次执行都能够保证栈上的地址不存在随机性，简而言之，栈上的数据我们完全可以视为可执行代码. 该易受攻击的特性也促使我
-    们能够使用 expolit string 来插入可执行的恶意代码.
-
-  * 
+  * 该程序设置了一种属性使得每次执行都能够保证栈上的地址不存在随机性，简而言之，栈上的数据我们完全可以视为
+  可执行代码. 该易受攻击的特性也促使我们能够使用 expolit string 来插入可执行的恶意代码
