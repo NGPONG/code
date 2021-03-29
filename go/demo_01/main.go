@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 
@@ -23,18 +22,23 @@ func main() {
         fmt.Printf("mysql connect error %v", err)
     }
 
-	ret := []ChannelCodeGroup{}
-	query := db.Table("ingame_qywechat_activity.channel_code_group")
-	if err = query.Find(&ret).Error; err != nil {
-		log.Printf("%v\n", err)
-		return
+	tx := db.Begin()
+
+	ent := ChannelCodeGroup {
+		GroupName: "NGPONG",
+		ParentGroupId: 1,
 	}
 
-	retMap := make(map[uint]ChannelCodeGroup)
-	for _, v := range ret {
-		retMap[v.ID] = v
+	err = tx.Table("ingame_qywechat_activity.channel_code_group").Create(&ent).Error
+	if err != nil {
+		log.Printf("create err %v", err)
+		tx.Rollback()
 	}
 
-	jsonStr, _ := json.Marshal(retMap)
-	fmt.Printf("%s", jsonStr)
+	err = tx.Commit().Error
+	if err != nil {
+		log.Printf("create err %v", err)
+	}
+
+	log.Printf("create success!")
 }
