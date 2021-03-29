@@ -29,6 +29,8 @@ void foo_2(void) {
 }
 
 int main(int argc, char *argv[]) {
+  char *str = "59b997fa";
+  printf("%s\n", str);
 
   return EXIT_SUCCESS;
 }

