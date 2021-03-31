@@ -917,13 +917,9 @@ Disassembly of section .text:
   401999:	c3                   	retq   
 
 
-# 0x4019a2: 
-#   * 48 89 c7 c3: movq %rax, %rdi; retq
-# 
-# 0x4019cc:
-#   * 58 90 c3: pop %rax; nop; retq
-# 
-# 
+1. mov %rsp, xxx 这种代码按照目前已有的条件只能以一个独立的 gadget 存在，无法 stitching 其它 code.
+2. 没有内存修改指令
+3. 
 
 
 000000000040199a <getval_142>:
