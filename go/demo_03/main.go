@@ -1,36 +1,34 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
+	"log"
+	"net/http"
 )
 
 
-type MyStruct struct {
-	Id int `json:"id"`
-	Name string `json:"name"`
-}
-
-
 func main() {
-	var str string = "[{\"id\":1041,\"name\":\"鸿图之友\"}, {\"id\":2,\"name\":\"\"}]";
-
-	data := []byte(str)
-	
-	ret := []struct{
-		Id int;
-		Name string
-	}{}
-
-	// ret := []MyStruct{}
-
-	// var ret []map[string]interface{}
-
-	err := json.Unmarshal(data, &ret)
-	if err != nil {
-		fmt.Printf("error %v\n", err)
+	httpClient := &http.Client {
+			Transport: &http.Transport {
+				Proxy: http.ProxyFromEnvironment,
+			},
 	}
 
-	fmt.Printf("len = %d\n", len(ret))
-	fmt.Printf("%v\n", ret)
+	req, err := http.NewRequest("GET", "https://tgl-images-1254960240.cos.ap-guangzhou.myqcloud.com/sy/qmqj2/ingame/images/20210401/2440737335_1617267884532.png", nil)	
+	if err != nil {
+		log.Printf("Create http request err: %v", err)
+		return
+	}
+		
+    resp, err := httpClient.Do(req)
+	if err != nil {
+		log.Printf("Do http request err: %v", err)
+		return
+	}
+
+	if resp.StatusCode == http.StatusForbidden || resp.StatusCode == http.StatusNotFound {
+		log.Printf("Dirty picture detected, url")
+		return
+	}
+
+    resp.Body.Close()
 }
