@@ -353,6 +353,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
          \ "Dirty"     : "X",
  \}
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1, 'keepopen': 1}, 'dir': {}}
+let NERDTreeNaturalSort=0
 
 "autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
