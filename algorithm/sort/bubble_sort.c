@@ -6,7 +6,7 @@
 
 int main(void) {
   int arrary[] = { 8, 1, 6, 3, 9, 4, 7, 2, 5 };
-  int len = sizeof(arrary) / sizeof(arrary[0]);
+  int len = sizeof(arrary) / sizeof(*arrary);
 
   for (size_t i = 0; i < len; i++)
     for (size_t j = 0; j < len - 1 - i; j++) {
@@ -20,7 +20,6 @@ int main(void) {
        * 1,3,2		          (4,5,6,7,8,9)
        * 1,2		            (3,4,5,6,7,8,9)
        * 1		              (2,3,4,5,6,7,8,9)
-       *                    (1,2,3,4,5,6,7,8,9)
       */
       if (DESC(arrary[j], arrary[j + 1])) {
         int num_Temp = arrary[j + 1];
