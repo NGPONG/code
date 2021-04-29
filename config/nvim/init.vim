@@ -3,7 +3,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
   " themes
-  "Plug 'NGPONG/vim-code-dark'
+  Plug 'NGPONG/vim-code-dark'
   "Plug 'tomasiser/vim-code-dark'
   "Plug 'w0ng/vim-hybrid'
   Plug 'rakr/vim-one'
@@ -262,13 +262,14 @@ nnoremap <silent>oh :let @/ = ""<CR>
 
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_italic=0
-let g:gruvbox_bold=1
-let g:gruvbox_italicize_strings=0
-let g:gruvbox_italicize_comments=1
-let g:gruvbox_improved_strings=0
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_italicize_strings = 0
+let g:gruvbox_italicize_comments = 1
+let g:gruvbox_improved_strings = 0
 colorscheme gruvbox 
 set background=dark
+let g:gruvbox_sign_column = 'bg0'
 
 " }
 
