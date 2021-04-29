@@ -15,7 +15,7 @@
     printf("%d\n", arr[i]);                              \
   }
 
-static int arrary[] = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48 };
+static int arrary[] = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 48, 50 };
 static int len = sizeof(arrary) / sizeof(*arrary);
 
 void heapify(int n, int idx) {
@@ -31,7 +31,7 @@ void heapify(int n, int idx) {
   }
 
   /**
-   * This means that some child node is bigger than the
+   * This means that some childs node is bigger than the
    * current one, so we need to replace them.
   */
   if (max != idx) {

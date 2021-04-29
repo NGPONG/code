@@ -48,18 +48,18 @@ void merge_sort(int L, int M, int R) {
   }
 }
 
-void merge_split(int low, int high) {
-  if (low == high) {
+void merge_split(int low_idx, int high_idx) {
+  if (low_idx == high_idx) {
     return;
   } else {
-    int mid = (low + high) / 2;
+    int mid = (low_idx + high_idx) / 2;
 
     /* split left sub arrary */
-    merge_split(low, mid);
+    merge_split(low_idx, mid);
     /* split right sub arrary */
-    merge_split(mid + 1, high);
+    merge_split(mid + 1, high_idx);
 
-    merge_sort(low, mid + 1, high);
+    merge_sort(low_idx, mid + 1, high_idx);
   }
 }
 
