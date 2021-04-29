@@ -23,10 +23,10 @@ void heapify(int n, int idx) {
   int c_2 = idx * 2 + 2; // Complute the right child node idx from current node.
 
   int max = idx;
-  if (c_1 < n && arrary[c_1] > arrary[max]) {
+  if (c_1 <= n && arrary[c_1] > arrary[max]) {
     max = c_1;
   }
-  if (c_2 < n && arrary[c_2] > arrary[max]) {
+  if (c_2 <= n && arrary[c_2] > arrary[max]) {
     max = c_2;
   }
 
@@ -50,9 +50,10 @@ void built_heap() {
 }
 
 void heap_sort() {
+  /* built max-heap */
   built_heap();
 
-  for (int i = len - 1; i >= 0; --i) {
+  for (int i = len - 1; i > 0; --i) {
     SWAP(arrary[0], arrary[i]);
     heapify(i, 0);
   }

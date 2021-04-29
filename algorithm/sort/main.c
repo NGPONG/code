@@ -50,11 +50,6 @@ void quick_sort(int left, int right) {
 
 
 void heapify(int n, int cur_node_idx) {
-  int c_1_idx = cur_node_idx * 2 + 1;
-  int c_2_idx = cur_node_idx * 2 + 2;
-  
-  int max = cur_node_idx;
-  if (c_1_idx < n )
 }
 void built_heap() {
 }
@@ -63,109 +58,28 @@ void heap_sort() {
 
 
 void merge_sort(int L, int M, int R) {
-  int L_SIZE = M - L;
-  int left[L_SIZE];
-  for (int i = L; i < M; ++i) {
-    left[i - L] = arrary[i];
-  }
-
-  int R_SIZE = R - M + 1;
-  int right[R_SIZE];
-  for (int i = M; i <= R; ++i) {
-    right[i - M] = arrary[i];
-  }
-
-  int i = 0, j = 0, k = L;
-  while (i < L_SIZE && j < R_SIZE) {
-    if (left[i] < right[j]) {
-      arrary[k++] = left[i++];
-    } else {
-      arrary[k++] = right[j++];
-    }
-  }
-
-  while (i < L_SIZE) {
-    arrary[k++] = left[i++];
-  }
-
-  while (j < R_SIZE) {
-    arrary[k++] = right[j++];
-  }
 }
 void merge_split(int low_idx, int high_idx) {
-  if (low_idx == high_idx) {
-    return;
-  } else {
-    int mid = (low_idx + high_idx) / 2;
-    merge_split(low_idx, mid);
-    merge_split(mid + 1, high_idx);
-    merge_sort(low_idx, mid + 1, high_idx);
-  }
 }
 
 
 void shell_sort(void) {
   printf("start shell sort\n");
-
-  for (int inc = len / 2; inc > 0; inc /= 2) {
-
-    for (int i = inc; i < len; ++i) {
-      int flg = arrary[i];
-
-      int j = i;
-      for (; j >= inc && arrary[j - inc] > flg; j -= inc) {
-        arrary[j] = arrary[j - inc];
-      }
-      arrary[j] = flg;
-    }
-
-  }
 }
 
 
 void insert_sort(void) {
   printf("start insert sort\n");
-
-  for (int i = 1; i < len; ++i) {
-    int flg = arrary[i];
-
-    int j = i - 1;
-    for (; j >= 0 && arrary[j] > flg; --j) {
-      arrary[j + 1] = arrary[j];
-    }
-    arrary[j + 1] = flg;
-  }
 }
 
 
 void select_sort(void) {
   printf("start select sort\n");
-
-  for (int i = 0; i < len; ++i) {
-    int flg = i;
-    for (int j = i + 1; j < len; ++j) {
-      if (arrary[j] < arrary[flg]) {
-        flg = j;
-      }
-    }
-
-    if (flg != i) {
-      SWAP(arrary[i], arrary[flg]);
-    }
-  }
 }
 
 
 void bubble_sort(void) {
   printf("start bubble sort\n");
-
-  for (int i = 0; i < len; ++i) {
-    for (int j = 0; j < len - 1 - i; ++j) {
-      if (arrary[j] > arrary[j + 1]) {
-        SWAP(arrary[j], arrary[j + 1]);
-      }
-    }
-  }
 }
 
 int main(int argc, char *argv[]) {
