@@ -3,5 +3,6 @@ clang
 %cpp -std=c++2a
 %c %cpp -D_DEFAULT_SOURCE
 %c %cpp -pthread
+%h %hpp --include=Global.h
 -Iinc
 -DMACRO

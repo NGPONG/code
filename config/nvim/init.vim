@@ -3,7 +3,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
   " themes
-  "Plug 'NGPONG/vim-code-dark'
+  Plug 'NGPONG/vim-code-dark'
   "Plug 'tomasiser/vim-code-dark'
   "Plug 'w0ng/vim-hybrid'
   Plug 'rakr/vim-one'
@@ -47,7 +47,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mg979/vim-visual-multi'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'chengzeyi/fzf-preview.vim'
+  Plug 'google/vim-searchindex'
   
   " debug
   Plug 'puremourning/vimspector'
@@ -167,8 +167,9 @@ set display+=lastline
 
 " hide_status_bar_in_bottom() {
 
-set shortmess=F
+set shortmess+=F
 set shortmess+=c
+set shortmess-=S
 set noshowmode
 set noruler
 set laststatus=0
@@ -214,6 +215,22 @@ set updatetime=100
 
 " }
 
+" vim_defualt_search() {
+
+" see: https://harttle.land/2016/08/08/vim-search-in-file.html
+
+set incsearch
+set wrapscan
+
+" 这里还可以制定清空 command line 的功能，暂时还不想搞
+nnoremap <silent>oh :let @/ = ""<CR>
+
+" highlight Search ctermbg=yellow ctermfg=black 
+" highlight IncSearch ctermbg=black ctermfg=yellow 
+" highlight MatchParen cterm=underline ctermbg=NONE ctermfg=NONE
+
+" }
+
 "--------------------------------------------------------------------------------
 
 
@@ -245,13 +262,14 @@ set updatetime=100
 
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg0'
-let g:gruvbox_italic=0
-let g:gruvbox_bold=1
-let g:gruvbox_italicize_strings=0
-let g:gruvbox_italicize_comments=1
-let g:gruvbox_improved_strings=0
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_italicize_strings = 0
+let g:gruvbox_italicize_comments = 1
+let g:gruvbox_improved_strings = 0
 colorscheme gruvbox 
 set background=dark
+let g:gruvbox_sign_column = 'bg0'
 
 " }
 
@@ -336,6 +354,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
          \ "Dirty"     : "X",
  \}
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'stay': 1, 'keepopen': 1}, 'dir': {}}
+let NERDTreeNaturalSort=0
 
 "autocmd VimEnter * if argc() == 1 | call Open_tree() | endif
 
@@ -531,8 +550,9 @@ let g:coc_global_extensions = [
 "   \ 'ctrl-x': 'split',
 "   \ 'ctrl-v': 'vsplit' }
 
-" - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
+" layout setting.
+" see: https://github.com/junegunn/fzf/blob/master/README-VIM.md
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -564,18 +584,9 @@ endif
 "   - CTRL-/ will toggle preview window.
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
-let g:fzf_preview_window = ['right:45%', 'ctrl-p']
-
-
-" Lines preview
-command! -bang -nargs=* Lines
-      \ call fzf#vim#buffer_lines(<q-args>,
-      \     fzf_preview#p(<bang>0, {'placeholder': fzf#shellescape(expand('%')) . ':{1}',
-      \                 'options': '--preview-window +{1}-/2',}),
-      \     <bang>0)
+let g:fzf_preview_window = ['right:50%', 'ctrl-p']
 
 " }
-
 
 " vimspector() {
 
@@ -620,11 +631,15 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 let g:gitgutter_close_preview_on_escape=1
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_sign_allow_clobber = 1
+let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_use_location_list = 1
 let g:gitgutter_sign_added = '▌'
 let g:gitgutter_sign_modified = '▌'
 let g:gitgutter_sign_removed = '▸ '
 let g:gitgutter_sign_modified_removed = '▌'
+
+" https://github.com/airblade/vim-gitgutter/issues/772
+nmap hp <Plug>(GitGutterPreviewHunk):wincmd P<CR>
 
 "let g:gitgutter_sign_removed_first_line = '^^'
 "nnoremap <silent> <Esc> :pclose<CR>
@@ -751,7 +766,6 @@ nnoremap p P
 vnoremap p pgvy
 nmap a i
 vmap a I
-" vmap i I
 vmap q b
 " 这种映射方式可以直接选中一个单词，但是会出现前后不定的情况
 " vnoremap w iw 
@@ -785,7 +799,6 @@ nnoremap <silent><C-n> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
-nmap hp <Plug>(GitGutterPreviewHunk)
 map <F1> <Esc>
 imap <F1> <Esc>
 nnoremap <S-Up> <C-y>
@@ -804,6 +817,7 @@ map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
 inoremap <C-Space> <Nop>
 nnoremap <C-Space> <Nop>
+nnoremap <C-f> /
 " tnoremap <Esc> <C-\><C-n> " this key-bind make strange with fzf closing behavior.
 
 "---------------------------------------------------------------------------------
