@@ -39,21 +39,22 @@ void DES(int _i, n_graph *_G) {
   visted[_i] = true;
   printf("[info] search: %c\n", _G->vexs[_i]);
 
-  for (size_t j = 0; j < _G->vertexs_num; ++j) {
-    if(!visted[j] &&
-       _G->arc[_i][j] != 0 &&
-       _G->arc[_i][j] != G_INFINITY) {
-      DES(j, _G);
-    }
+  for (int j = 0; j < _G->vertexs_num; ++j) {
+    if (_G->arc[_i][j] == G_INFINITY ||
+        _G->arc[_i][j] == 0 ||
+        visted[j]) 
+      continue;
+
+    DES(j, _G);
   }
 }
 
 void DES_traverse(n_graph *_G) {
   memset(visted, false, sizeof(visted));
 
-  for (size_t i = 0; i < _G->vertexs_num; ++i) {
-    if (visted[i]) continue;
-    DES(i, _G);
+  for (int i = 0; i < _G->vertexs_num; ++i) {
+    if (!visted[i]) 
+      DES(i, _G);
   }
 }
 

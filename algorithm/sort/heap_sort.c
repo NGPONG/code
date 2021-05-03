@@ -19,8 +19,8 @@ static int arrary[] = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 48, 50 }
 static int len = sizeof(arrary) / sizeof(*arrary);
 
 void heapify(int n, int idx) {
-  int c_1 = idx * 2 + 1; // Complute the left child node idx from current node.
-  int c_2 = idx * 2 + 2; // Complute the right child node idx from current node.
+  int c_1 = idx * 2 + 1; /* Complute the left child node idx from current node. */
+  int c_2 = idx * 2 + 2; /* Complute the right child node idx from current node. */
 
   int max = idx;
   if (c_1 <= n && arrary[c_1] > arrary[max]) {
@@ -52,10 +52,16 @@ void built_heap() {
 void heap_sort() {
   /* built max-heap */
   built_heap();
-
-  for (int i = len - 1; i > 0; --i) {
+  
+  /* When the loop reaches the root element, the only eleme
+   * nt left to heapify proves to be the root element, so w
+   * e can just skip it, so the conditional expression her
+   * e is i >= 1 */
+  for (int i = len - 1; i >= 1; --i) {
     SWAP(arrary[0], arrary[i]);
-    heapify(i, 0);
+    heapify(i - 1, 0); /* Previous code has already moved the maximum elemen
+                        * t to i, so we should not take that position into a-
+                        * ccount in this heapify, we need i - 1 here. */
   }
 }
 

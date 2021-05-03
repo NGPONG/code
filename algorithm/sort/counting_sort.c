@@ -14,9 +14,9 @@ static int len = sizeof(arrary) / sizeof(*arrary);
 void counting_sort(int max_val) {
   max_val += 1;
 
-  int *count_arrary = malloc(sizeof(int) * max_val);
-  int *sorted_arrary = malloc(sizeof(int) * len);
+  int count_arrary[max_val];
   bzero(count_arrary, sizeof(int) * max_val);
+  int sorted_arrary[len];
   bzero(sorted_arrary, sizeof(int) * len);
 
   for (int i = 0; i < len; ++i) count_arrary[arrary[i]] += 1;
@@ -28,7 +28,6 @@ void counting_sort(int max_val) {
   }
 
   memcpy(arrary, sorted_arrary, sizeof(int) * len);
-  free(count_arrary); free(sorted_arrary);
 }
 
 int main(int argc, char *argv[]) {

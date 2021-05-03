@@ -102,7 +102,7 @@ void DES(int i, vertext_node *adj_list) {
 void DES_traverse(graph_adj *G) {
   memset(visted, false, sizeof(visted));
 
-  for (size_t i = 0; i < G->vertexs_num; ++i) {
+  for (int i = 0; i < G->vertexs_num; ++i) {
     if (visted[i]) continue;
     DES(i, G->adj_list);
   }

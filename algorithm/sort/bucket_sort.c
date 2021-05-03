@@ -24,7 +24,8 @@ int main(int argc, char *argv[]) {
 
   int idx = 0;
   for (int i = 0; i < max_val; ++i) {
-    for (int j = 0; j < counted_arr[i]; ++j) {
+    int count = counted_arr[i];
+    for (int j = 0; j < count; ++j) {
       arrary[idx] = i;
       ++idx;
     }

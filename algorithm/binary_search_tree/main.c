@@ -4,7 +4,6 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 typedef struct bi_node {
   int data;
@@ -152,23 +151,22 @@ bool delete_BST(bi_node **cur_node, int key) {
 int main(void) {
   bi_tree *tree = init();
 
-  /* bi_node *node = NULL;
-  if((node = search_BST(tree, 42)) != NULL) {
-    printf("Data detected %d\n", node->data);
-  } else {
-    printf("Search error\n");
-  } */
+  /* bi_node *node = NULL;                       */
+  /* if((node = search_BST(tree, 42)) != NULL) { */
+  /*   printf("Data detected %d\n", node->data); */
+  /* } else {                                    */
+  /*   printf("Search error\n");                 */
+  /* }                                           */
 
-  /* int val = 42;
+  int val = 42;
   bool flg;
   if((flg = insert_BST(tree, val, NULL)) == false) {
     printf("[error] Repeact insert %d\n", val);
   } else {
     printf("[info] Success insert %d\n", val);
-  } */
+  }
 
-  delete_BST(&tree, 73);
+  /* delete_BST(&tree, 73); */
 
-  system("pause");
   return EXIT_SUCCESS;
 }
