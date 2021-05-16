@@ -1,5 +1,5 @@
 #include "binary_tree.h"
-#include "queue.h"
+#include <queue>
 
 /* Perfect Binary Tree
  *                                (A)
@@ -33,21 +33,43 @@ binary_tree *postorder_create_binaryTree(binary_tree *parent) {
   if (ch == '#') {
     return NULL;
   } else {
-    binary_tree *tree = (binary_tree *)malloc(sizeof(struct binary_node));
-    if (tree == 0x0)  return NULL;
+    binary_node *node = (binary_node *)malloc(sizeof(struct binary_node));
+    if (node == NULL)
+      return NULL;
 
-    memset(tree, 0, sizeof(struct binary_node));
+    memset(node, 0, sizeof(struct binary_node));
 
-    tree->left = postorder_create_binaryTree(tree);
-    tree->right = postorder_create_binaryTree(tree);
+    node->left = postorder_create_binaryTree(node);
+    node->right = postorder_create_binaryTree(node);
 
-    tree->data = ch;
-    tree->parent = parent;
+    node->data = ch;
+    node->parent = parent;
 
-    return tree;
+    return node;
   }
 }
 
-void travel_tree_by_level_order(binary_tree *root) {
-  queue *q = new_queue();
+void travel_tree_by_level_order(binary_tree *tree) {
+  binary_node *root = tree;
+
+  std::queue<binary_node *> queue;
+  queue.push(root);
+
+  while (!queue.empty()) {
+    int size = queue.size();
+    while (size > 0) {
+      binary_node *cur = queue.front(); queue.pop();
+      printf("%c ", cur->data); fflush(stdout); sleep(1);
+
+      if (cur->left != nullptr) {
+        queue.push(cur->left);
+      }
+      if (cur->right != nullptr) {
+        queue.push(cur->right);
+      }
+
+      --size;
+    }
+    putchar('\n');
+  }
 }

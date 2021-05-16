@@ -1,0 +1,52 @@
+Breakpoint 1 at 0x55c80c9a7330: file /home/ngpong/ccls/src/sema_manager.cc, line 610.
+
+Program received signal SIGSTOP, Stopped (signal).
+raise (sig=19) at ../sysdeps/unix/sysv/linux/raise.c:46
+46	in ../sysdeps/unix/sysv/linux/raise.c
+
+Program received signal SIGSTOP, Stopped (signal).
+raise (sig=19) at ../sysdeps/unix/sysv/linux/raise.c:46
+46	in ../sysdeps/unix/sysv/linux/raise.c
+[New Thread 0x7fc017b3f700 (LWP 13542)]
+[New Thread 0x7fc01733e700 (LWP 13543)]
+[New Thread 0x7fc016b3d700 (LWP 13544)]
+[New Thread 0x7fc01633c700 (LWP 13545)]
+[New Thread 0x7fc015b3b700 (LWP 13546)]
+[New Thread 0x7fc01533a700 (LWP 13547)]
+[New Thread 0x7fc014b39700 (LWP 13548)]
+[New Thread 0x7fc007fff700 (LWP 13549)]
+[New Thread 0x7fc0077fe700 (LWP 13550)]
+[New Thread 0x7fc006ffd700 (LWP 13551)]
+[New Thread 0x7fc0067fc700 (LWP 13552)]
+[New Thread 0x7fc005ffb700 (LWP 13553)]
+[New Thread 0x7fc0057fa700 (LWP 13554)]
+[New Thread 0x7fc004ff9700 (LWP 13555)]
+[New Thread 0x7fbfe3fff700 (LWP 13556)]
+[New Thread 0x7fbfe37fe700 (LWP 13557)]
+[New Thread 0x7fbfe2ffd700 (LWP 13558)]
+[New Thread 0x7fbfe27fc700 (LWP 13559)]
+[New Thread 0x7fbfe1ffb700 (LWP 13560)]
+[New Thread 0x7fbfe17fa700 (LWP 13561)]
+[New Thread 0x7fbfe0ff9700 (LWP 13562)]
+
+Thread 1 "ccls" received signal SIGINT, Interrupt.
+futex_wait_cancelable (private=<optimized out>, expected=0, futex_word=0x55c80eae0ffc) at ../sysdeps/nptl/futex-internal.h:183
+183	../sysdeps/nptl/futex-internal.h: No such file or directory.
+[NGPONG][INFO] *clang
+A syntax error in expression, near `'.
+
+[NGPONG][INFO] *session
+No symbol "session" in current context.
+
+[NGPONG][INFO] *ci
+No symbol "ci" in current context.
+
+[NGPONG][INFO] dc
+No symbol "dc" in current context.
+
+[NGPONG][INFO] *preamble
+No symbol "preamble" in current context.
+
+[NGPONG][INFO] task.path
+No symbol "task" in current context.
+

@@ -46,7 +46,7 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      // "trace.server": "verbose",
+       // "trace.server": "verbose",
       "rootPatterns": [".ccls-root", ".ccls", "compile_commands.json",".vim/", ".git/", ".hg/"],
       "initializationOptions": {
         "cache": {
@@ -69,6 +69,12 @@
           "onChange": true
         }
       }
+      //,
+      //"args": [
+      //  "--log-file=./ccls.log",
+      //  "--log-file-append=true",
+      //  "-v=1"
+      //]
     }
     ,
     "golang": {

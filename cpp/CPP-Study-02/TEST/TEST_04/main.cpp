@@ -1,26 +1,9 @@
 #include <iostream>
-#include <string>
-using namespace std;
-
-class FOO {
-public:
-  FOO() {
-    printf("hello,world!");
-  }
-
-  FOO(const FOO &foo) {
-    printf("hello,NGPONG!");
-  }
-
-  ~FOO() {
-    printf("destructor!");
-  }
-};
-
-FOO foo;
+#include <signal.h>
 
 int main(void) {
-  
+  qdwqwdqwd
+  std::cout << "hello,world" << std::endl;
 
   return EXIT_SUCCESS;
 }
