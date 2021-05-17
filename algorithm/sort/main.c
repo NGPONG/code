@@ -53,12 +53,9 @@ void bucket_sort() {
   }
 
   int idx = 0;
-  for (int i = 0; i < max_val; ++i) {
-    int count = counted_arr[i];
-    for (int j = 0; j < count; ++j) {
+  for (int i = 0; i < max_val; ++i) 
+    for (int j = counted_arr[i]; j > 0; --j) 
       arrary[idx++] = i;
-    }
-  }
 }
 
 
@@ -95,16 +92,14 @@ void quick_sort(int left, int right) {
 
   int i = left, j = right, pivot = arrary[left];
   while (i != j) {
-    while (i < j && arrary[j] >= pivot) {
-      --j;
-    }
-    while (i < j && arrary[i] <= pivot) {
-      ++i;
-    }
+    while (i < j && arrary[j] >= pivot) --j;
+    while (i < j && arrary[i] <= pivot) ++i;
+
     if (i < j) {
-      SWAP(arrary[i], arrary[j]);
+      SWAP(arrary[j], arrary[i]);
     }
   }
+
   int mid = i;
   arrary[left] = arrary[mid];
   arrary[mid] = pivot;
@@ -128,7 +123,7 @@ void heapify(int last_idx, int cur_node_idx) {
   }
 
   if (max != cur_node_idx) {
-    SWAP(arrary[cur_node_idx], arrary[max]);
+    SWAP(arrary[max], arrary[cur_node_idx]);
     heapify(last_idx, max);
   }
 }
@@ -220,28 +215,50 @@ void insert_sort(void) {
     for (; j >= 0 && arrary[j] > pivot; --j) {
       arrary[j + 1] = arrary[j];
     }
-    arrary[j + 1] = pivot;
+    arrary[j + 1] = pivot; 
   }
 }
 
 
+
 void select_sort(void) {
   printf("start select sort\n");
+
+  for (int i = 0; i < len; ++i) {
+    int min = i;
+    for (int j = i + 1; j < len; ++j) {
+      if (arrary[j] < arrary[min]) {
+        min = j;
+      }
+    }
+
+    if (min != i) {
+      SWAP(arrary[min], arrary[i]);
+    }
+  }
 }
 
 
 void bubble_sort(void) {
   printf("start bubble sort\n");
+
+  for (int i = 0; i < len; ++i) {
+    for (int j = 0; j < len - i - 1; ++j) {
+      if (arrary[j] > arrary[j + 1]) {
+        SWAP(arrary[j], arrary[j + 1]);
+      }
+    }
+  }
 }
 
 int main(int argc, char *argv[]) {
   RESET;
 
-  /* bubble_sort();        */
-  /* PRINT(arrary); RESET; */
+  bubble_sort();
+  PRINT(arrary); RESET;
 
-  /* select_sort();        */
-  /* PRINT(arrary); RESET; */
+  select_sort();
+  PRINT(arrary); RESET;
 
   insert_sort();
   PRINT(arrary); RESET;
