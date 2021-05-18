@@ -163,7 +163,8 @@ void merge_sort(int L, int M, int R) {
     right[i - M] = arrary[i];
   }
 
-  int i = 0, j = 0, k = L;
+  int i = 0, j = 0;
+  int k = L;
   while (i < left_size && j < right_size) {
     if (left[i] < right[j]) {
       arrary[k++] = left[i++];
@@ -184,6 +185,7 @@ void merge_split(int low_idx, int high_idx) {
     return;
   } else {
     int mid = (low_idx + high_idx) / 2;
+
     merge_split(low_idx, mid);
     merge_split(mid + 1, high_idx);
     merge_sort(low_idx, mid + 1, high_idx);
@@ -227,21 +229,42 @@ void insert_sort(void) {
 
 void select_sort(void) {
   printf("start select sort\n");
+
+  for (int i = 0; i < len; ++i) {
+    int min = i;
+    for (int j = i + 1; j < len; ++j) {
+      if (arrary[j] < arrary[min]) {
+        min = j;
+      }
+    }
+
+    if (min != i) {
+      SWAP(arrary[min], arrary[i]);
+    }
+  }
 }
 
 
 void bubble_sort(void) {
   printf("start bubble sort\n");
+
+  for (int i = 0; i < len; ++i) {
+    for (int j = 0; j < len - i - 1; ++j) {
+      if (arrary[j + 1] < arrary[j]) {
+        SWAP(arrary[j + 1], arrary[j]);
+      }
+    }
+  } 
 }
 
 int main(int argc, char *argv[]) {
   RESET;
 
-  /* bubble_sort();        */
-  /* PRINT(arrary); RESET; */
+  bubble_sort();
+  PRINT(arrary); RESET;
 
-  /* select_sort();        */
-  /* PRINT(arrary); RESET; */
+  select_sort();
+  PRINT(arrary); RESET;
 
   insert_sort();
   PRINT(arrary); RESET;
@@ -253,18 +276,18 @@ int main(int argc, char *argv[]) {
   merge_split(0, len - 1);
   PRINT(arrary); RESET;
 
-  heap_sort();
-  PRINT(arrary); RESET;
+  /* heap_sort();                  */
+  /* PRINT(arrary); RESET;         */
 
-  printf("start quick sort\n");
-  quick_sort(0, len - 1);
-  PRINT(arrary); RESET;
+  /* printf("start quick sort\n"); */
+  /* quick_sort(0, len - 1);       */
+  /* PRINT(arrary); RESET;         */
 
-  counting_sort();
-  PRINT(arrary); RESET;
+  /* counting_sort();              */
+  /* PRINT(arrary); RESET;         */
 
-  bucket_sort();
-  PRINT(arrary); RESET;
+  /* bucket_sort();                */
+  /* PRINT(arrary); RESET;         */
 
   return EXIT_SUCCESS;
 }
