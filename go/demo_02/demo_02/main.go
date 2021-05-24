@@ -2,36 +2,22 @@ package main
 
 import (
 	"fmt"
-	"net/url"
+	"strings"
 )
 
-func init_params_map(length int) ([]map[string]string) {
-	params := make([]map[string]string, length)
-	for idx, _ := range params {
-		params[idx] = make(map[string]string)
-	}
-
-	return params
+type yybtaskconditionRespData struct {
+	Status int   `json:"status"`
+	UserId int64 `json:"userId"`
+}
+type yybtaskconditionResp struct {
+	Result	   int    `json:"result"`
+	ReturnCode int    `json:"returnCode"`
+	ReturnMsg  string `json:"returnMsg"`
+	Data []yybtaskconditionRespData `json:"data"`
 }
 
 func main() {
-	params := init_params_map(2)
-
-	params[0] = make(map[string]string)
-	params[0]["123"] = "qwe"
-	params[0]["qwe"] = "qwe"
-	params[0]["asd"] = "qwe"
-	
-	fmt.Println("2")
-
-	values := url.Values{}
-	for _, param := range params {
-		for key, val := range param {
-			values.Add(key, val)
-		}
-	}
-	query := values.Encode()
-
-	fmt.Println(query)
+	strSource := "{\"result\":1,\"returnCode\":0,\"returnMsg\":\"\u7528\u6237\u4e0d\u5b58\u5728\",\"time\":\"3.8\",\"data\":[]}"
+	contain := strings.Contains(strSource, "\"returnCode\":0")
+	fmt.Println(contain)
 }
-

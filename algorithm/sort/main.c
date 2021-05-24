@@ -44,18 +44,17 @@ void bucket_sort() {
       max_val = arrary[i];
   }
   max_val += 1;
-  
-  int counted_arr[max_val];
-  bzero(counted_arr, sizeof(int) * max_val);
+
+  int counting_arr[max_val];
+  bzero(counting_arr, sizeof(int) * max_val);
 
   for (int i = 0; i < len; ++i) {
-    counted_arr[arrary[i]] += 1;
+    counting_arr[arrary[i]] += 1;
   }
 
   int idx = 0;
   for (int i = 0; i < max_val; ++i) {
-    int count = counted_arr[i];
-    for (int j = 0; j < count; ++j) {
+    for (int j = counting_arr[i]; j > 0; --j) {
       arrary[idx++] = i;
     }
   }
@@ -71,18 +70,23 @@ void counting_sort() {
       max_val = arrary[i];
   }
   max_val += 1;
-  
-  int counted_arr[max_val];
-  bzero(counted_arr, sizeof(int) * max_val);
+
+  int counting_arr[max_val];
+  bzero(counting_arr, sizeof(int) * max_val);
   int sorted_arr[len];
   bzero(sorted_arr, sizeof(int) * len);
 
-  for (int i = 0; i < len; ++i) counted_arr[arrary[i]] += 1;
-  for (int i = 1; i < max_val; ++i) counted_arr[i] += counted_arr[i - 1];
+  for (int i = 0; i < len; ++i) {
+    counting_arr[arrary[i]] += 1;
+  }
+
+  for (int i = 1; i < max_val; ++i) {
+    counting_arr[i] += counting_arr[i - 1];
+  }
 
   for (int i = 0; i < len; ++i) {
-    counted_arr[arrary[i]] -= 1;
-    sorted_arr[counted_arr[arrary[i]]] = arrary[i];
+    counting_arr[arrary[i]] -= 1;
+    sorted_arr[counting_arr[arrary[i]]] = arrary[i];
   }
   memcpy(arrary, sorted_arr, sizeof(int) * len);
 }
@@ -95,16 +99,13 @@ void quick_sort(int left, int right) {
 
   int i = left, j = right, pivot = arrary[left];
   while (i != j) {
-    while (i < j && arrary[j] >= pivot) {
-      --j;
-    }
-    while (i < j && arrary[i] <= pivot) {
-      ++i;
-    }
+    while (i < j && arrary[j] >= pivot) --j;
+    while (i < j && arrary[i] <= pivot) ++i;
     if (i < j) {
       SWAP(arrary[i], arrary[j]);
     }
   }
+
   int mid = i;
   arrary[left] = arrary[mid];
   arrary[mid] = pivot;
@@ -128,7 +129,7 @@ void heapify(int last_idx, int cur_node_idx) {
   }
 
   if (max != cur_node_idx) {
-    SWAP(arrary[cur_node_idx], arrary[max]);
+    SWAP(arrary[max], arrary[cur_node_idx]);
     heapify(last_idx, max);
   }
 }
@@ -143,9 +144,11 @@ void heap_sort() {
   printf("start heap sort\n");
 
   built_heap();
-  for (int i = len - 1; i > 0; --i) {
-    SWAP(arrary[0], arrary[i]);
-    heapify(i - 1, 0);
+
+  int last_idx = len - 1;
+  for (; last_idx > 0; --last_idx) {
+    SWAP(arrary[0], arrary[last_idx]);
+    heapify(last_idx - 1, 0);
   }
 }
 
@@ -163,8 +166,7 @@ void merge_sort(int L, int M, int R) {
     right[i - M] = arrary[i];
   }
 
-  int i = 0, j = 0;
-  int k = L;
+  int i = 0, j = 0, k = L;
   while (i < left_size && j < right_size) {
     if (left[i] < right[j]) {
       arrary[k++] = left[i++];
@@ -185,7 +187,6 @@ void merge_split(int low_idx, int high_idx) {
     return;
   } else {
     int mid = (low_idx + high_idx) / 2;
-
     merge_split(low_idx, mid);
     merge_split(mid + 1, high_idx);
     merge_sort(low_idx, mid + 1, high_idx);
@@ -200,7 +201,6 @@ void shell_sort(void) {
 
     for (int i = inc; i < len; ++i) {
       int pivot = arrary[i];
-
       int j = i;
       for (; j >= inc && arrary[j - inc] > pivot; j -= inc) {
         arrary[j] = arrary[j - inc];
@@ -217,7 +217,6 @@ void insert_sort(void) {
 
   for (int i = 1; i < len; ++i) {
     int pivot = arrary[i];
-
     int j = i - 1;
     for (; j >= 0 && arrary[j] > pivot; --j) {
       arrary[j + 1] = arrary[j];
@@ -254,7 +253,7 @@ void bubble_sort(void) {
         SWAP(arrary[j + 1], arrary[j]);
       }
     }
-  } 
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -276,18 +275,18 @@ int main(int argc, char *argv[]) {
   merge_split(0, len - 1);
   PRINT(arrary); RESET;
 
-  /* heap_sort();                  */
-  /* PRINT(arrary); RESET;         */
+  heap_sort();
+  PRINT(arrary); RESET;
 
-  /* printf("start quick sort\n"); */
-  /* quick_sort(0, len - 1);       */
-  /* PRINT(arrary); RESET;         */
+  printf("start quick sort\n");
+  quick_sort(0, len - 1);
+  PRINT(arrary); RESET;
 
-  /* counting_sort();              */
-  /* PRINT(arrary); RESET;         */
+  counting_sort();
+  PRINT(arrary); RESET;
 
-  /* bucket_sort();                */
-  /* PRINT(arrary); RESET;         */
+  bucket_sort();
+  PRINT(arrary); RESET;
 
   return EXIT_SUCCESS;
 }
