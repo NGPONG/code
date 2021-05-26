@@ -1,7 +1,6 @@
 clang
 %c -std=c11
-%cpp -std=c++2a
+%cpp -std=c++17
 %c %cpp -D_DEFAULT_SOURCE
 %c %cpp -pthread
--Iinc
--DMACRO
+-I/usr/lib/llvm-11/include/c++/v1

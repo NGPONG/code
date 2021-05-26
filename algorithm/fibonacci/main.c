@@ -6,18 +6,21 @@
 #include <time.h>
 
 int fibonacci(unsigned int n) {
-  if (n < 2) return n == 0 ? 0 : 1;
+  if (n <= 2) return n == 0 ? 0 : 1;
 
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 void foo_recursion(void) {
+  printf("fibonacci recursion implement\n");
   for (int i = 0; i < 10; ++i) {
     printf("%d(%d)\n", fibonacci(i), i);
   }
 }
 
 void foo_unrecursion(void) {
+  printf("fibonacci unrecursion implement\n");
+
   int arrary[10] = { 0 };
   arrary[0] = 0;
   arrary[1] = 1;
