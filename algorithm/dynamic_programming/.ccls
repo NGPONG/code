@@ -1,6 +1,9 @@
 clang
 %c -std=c11
 %cpp -std=c++17
-%c %cpp -D_DEFAULT_SOURCE
 %c %cpp -pthread
+%c %cpp -Wall
+%c %cpp -Werror
+%c %cpp -Wno-unused-result
+%c %cpp -Wno-unused-parameter
 -I/usr/lib/llvm-11/include/c++/v1

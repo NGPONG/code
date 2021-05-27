@@ -34,7 +34,7 @@ int main(void) {
 	printf("%x\n", &(((struct Person *)0)->score));
 
 	char *ptr = &per;
-	*((double *)(ptr + offsetof(struct Person, score))) = 20;
+	*((double *)(ptr + offsetof(struct Person, age))) = 20;
 
 	system("pause");
 	return EXIT_SUCCESS;
