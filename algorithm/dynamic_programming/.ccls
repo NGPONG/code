@@ -3,7 +3,4 @@ clang
 %cpp -std=c++17
 %c %cpp -pthread
 %c %cpp -Wall
-%c %cpp -Werror
-%c %cpp -Wno-unused-result
-%c %cpp -Wno-unused-parameter
 -I/usr/lib/llvm-11/include/c++/v1
