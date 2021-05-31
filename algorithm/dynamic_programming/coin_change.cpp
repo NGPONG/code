@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <algorithm>
 #include <limits.h>
 #include <time.h>
@@ -74,8 +75,16 @@ int coin_change_2(int value, std::vector<int> &coins) {
   return coin_change_2_imp(value, dp, coins);
 }
 
+void coin_change_3(int value, std::vector<int> &coins) {
+  std::vector<int> dp(value + 1, INT_MIN);
+  dp[0] = 0;
 
-
+  for (int i = 1; i <= value; ++i) {
+    for (auto coin = coins.begin(); coin != coins.end(); ++coin) {
+      
+    }
+  }
+}
 
 int main(void) {
   clock_t start,end;
@@ -93,5 +102,5 @@ int main(void) {
   end = clock();
   print_res(ret, start, end);
 
-  return EXIT_SUCCESS;
+  return 1;
 }
