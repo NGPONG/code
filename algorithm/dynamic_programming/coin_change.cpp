@@ -25,17 +25,15 @@ void print_res(int ret, clock_t t_start, clock_t t_end) {
   std::cout << t_end - t_start << std::endl;
 }
 
+// 暴力递归解法
 int coin_change_1_impl(int value, std::vector<int> &coins) {
   if (value == 0) {
     return value;
   }
-  if (value < 0) {
-    return INT_MAX;
-  }
 
   int res = INT_MAX;
   for (auto coin = coins.begin(); coin != coins.end(); ++coin) {
-    int opt = coin_change_1_impl(value - *coin, coins);
+    int opt = value >= *coin ? coin_change_1_impl(value - *coin, coins) : INT_MAX;
     res = std::min(res, opt);
   }
 
@@ -45,20 +43,18 @@ int coin_change_1(int value, std::vector<int> &coins) {
   return coin_change_1_impl(value, coins);
 }
 
-int coin_change_2_imp(int value, int *dp, std::vector<int> &coins) {
+// 自顶向下记忆优化递归解法
+int coin_change_2_imp(int value, std::vector<int> &dp, std::vector<int> &coins) {
   if (value == 0) {
     return value;
   }
-  if (value < 0) {
-    return INT_MAX;
-  }
-  if (dp[value] != INT_MIN) {
+  if (dp[value] != INT_MAX) {
     return dp[value];
   }
 
   int res = INT_MAX;
   for (auto coin = coins.begin(); coin != coins.end(); ++coin) {
-    int opt = coin_change_2_imp(value - *coin, dp, coins);
+    int opt = value >= *coin ? coin_change_2_imp(value - *coin, dp, coins) : INT_MAX;
     res = std::min(res, opt);
   }
 
@@ -66,28 +62,34 @@ int coin_change_2_imp(int value, int *dp, std::vector<int> &coins) {
   return dp[value];
 }
 int coin_change_2(int value, std::vector<int> &coins) {
-  int dp[value + 1];
-  dp[0] = 0;
-  for (int i = 1; i <= value; ++i) {
-    dp[i] = INT_MIN;
-  }
+  std::vector<int> dp(value + 1, INT_MAX);
+  dp[0];
 
   return coin_change_2_imp(value, dp, coins);
 }
 
-void coin_change_3(int value, std::vector<int> &coins) {
-  std::vector<int> dp(value + 1, INT_MIN);
+// 自底向上动态递归解法
+int coin_change_3(int value, std::vector<int> &coins) {
+  std::vector<int> dp(value + 1, INT_MAX);
   dp[0] = 0;
 
   for (int i = 1; i <= value; ++i) {
     for (auto coin = coins.begin(); coin != coins.end(); ++coin) {
-      
+      int coin_value = *coin;
+
+      if (i >= coin_value) {
+        int opt = dp[i - coin_value];
+        dp[i] = std::min(dp[i], opt == INT_MAX ? INT_MAX : opt + 1);
+      }
     }
   }
+
+  return dp[value];
 }
 
 int main(void) {
   clock_t start,end;
+
   int N = 50, ret = 0;
 
   std::vector<int> coins = { 2, 5 ,7 };
@@ -101,6 +103,12 @@ int main(void) {
   ret = coin_change_2(N, coins);
   end = clock();
   print_res(ret, start, end);
+
+  start = clock();
+  ret = coin_change_3(N, coins);
+  end = clock();
+  print_res(ret, start, end);
+
 
   return 1;
 }
