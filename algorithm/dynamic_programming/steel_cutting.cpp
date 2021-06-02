@@ -2,6 +2,7 @@
 #include <vector>
 #include <math.h>
 #include <time.h>
+#include <limits.h>
 
 int cut_steel_1_impl(int length, std::vector<int> &prices) {
   if (length == 0) {
@@ -31,7 +32,7 @@ int cut_steel_2_impl(int length, std::vector<int> &prices, std::vector<int> &dp)
   if (length == 0) {
     return 0;
   }
-  if (dp[length] != -1) {
+  if (dp[length] != INT_MAX) {
     return dp[length];
   }
 
@@ -44,7 +45,7 @@ int cut_steel_2_impl(int length, std::vector<int> &prices, std::vector<int> &dp)
   return opt;
 }
 void cut_steel_2(std::vector<int> &prices) {
-  std::vector<int> dp(27, -1);
+  std::vector<int> dp(27, INT_MAX);
 
   clock_t start,end;
   start = clock();
