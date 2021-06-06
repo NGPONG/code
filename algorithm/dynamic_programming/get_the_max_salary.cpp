@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string.h>
-#include <math.h>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
 //       ---------------------------------------------------------------------
 //       |     |     |     |     |     |     |     |     |     |      |      |
@@ -54,7 +54,7 @@ using namespace std;
 //  * 选择的每一个任务的最优报酬的情况是多少
 //
 // 我们把每一个任务的最优报酬设为: OPT(i)，首先要明确一点，选择的当前任务其最优报酬的计算肯定不能将当前任务以后的任务算在内的，那么求得最优解则只有两种情况
-//  * 我选择该任务: 那么这种情况要在该任务所获得报酬的基础之上，加上重点量和当前任务起始量相同的任务的其 OPT(i)，为了更明确这一定义，我们把这种情况拟定为 OPT(prev(i))
+//  * 我选择该任务: 那么这种情况要在该任务所获得报酬的基础之上，加上终点量和当前任务起始量相同的任务的其 OPT(i)，为了更明确这一定义，我们把这种情况拟定为 OPT(prev(i))
 //  * 我们不选择该任务: 那么这种情况也就意味着我们只能以当前任务的上一个任务的最优解作为参考
 // 那么将二者对比，即可得到公式: 
 //          * 选择: p_i + OPT(prev(i))
@@ -70,15 +70,16 @@ using namespace std;
 // 是可以作为叠加参数来使用的，因为我们的计算是自底向上来进行的
 
 
-typedef struct task {
+struct task {
   int begin;
   int end;
   int price;
-} task_t;
+};
 
-void foo(task_t *ts, int task_count) {
-  int prev[task_count];
-  bzero(prev, sizeof(int) * task_count);
+void get_the_max_salary(std::vector<task> &ts) {
+  size_t task_count = ts.size() + 1;
+
+  std::vector<int> prev(task_count, 0);
 
   // 为了针对 [选择] 的情况，我们首先需要计算出 prev 数组，该数组所反馈的情况则为
   // 某个任务编号(数组的下标)下，在该任务开始时间之前、不和当前任务存在重叠关系的
@@ -92,28 +93,22 @@ void foo(task_t *ts, int task_count) {
     }
   }
 
-  int opt[task_count];
-  bzero(opt, sizeof(int) * task_count);
-
+  std::vector<int> opts(task_count, 0);
   // 对于第一个任务，他的上面是没有其他任务可以选择的，所以我们就任务这必定是一种
   // 选择的情况，故直接获取第一个任务的价格即可
-  opt[1] = ts[1].price; 
-  for (int i = 2; i <= task_count; ++i) {
-    if (prev[i] == 0) {
-      opt[i] = max(opt[i - 1], ts[i].price);
-    } else {
-      opt[i] = max(opt[i - 1], ts[i].price + opt[prev[i]]);
-    }
+  opts[1] = ts[1].price; 
+  for (int i = 2; i < task_count; ++i) {
+    opts[i] = std::max(opts[i - 1], ts[i].price + opts[prev[i]]);
   }
 
   // 打印选择的每个任务最大可获取薪酬
-  for (int i = 0; i < task_count + 1; ++i) {
-    std::cout << opt[i] << std::endl;
+  for (auto opt = opts.begin(); opt != opts.end(); ++opt) {
+    std::cout << *opt << std::endl;
   }
 }
 
 int main(void) {
-  task_t ts[] = {
+  std::vector<task> ts = {
     { 0, 0, 0 },
     { 1, 4, 5 },
     { 3, 5, 1 },
@@ -125,7 +120,7 @@ int main(void) {
     { 8, 11, 4 }
   };
 
-  foo(ts, 9);
+  get_the_max_salary(ts);
 
   return 0;
 }
