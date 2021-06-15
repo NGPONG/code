@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include <iostream>
+#include <vector>
 
 #define SWAP(x, y) \
   if (x != y) {    \
@@ -10,45 +8,32 @@
     x = x ^ y;     \
   }
 
-#define PRINT(arr)                               \
-  printf("-------------------------------\n");   \
-  for (int i = 0; i < len; ++i) {                \
-    printf("%d\n", arr[i]);                      \
-  }                                              \
-  printf("-------------------------------\n\n"); \
+static std::vector<int> arrary;
 
-#define RESET reset_arrary();
-
-static int *arrary;
-static int len;
-
+void print_arrary() {
+  std::cout << "-------------------------------" << std::endl;  
+  for (auto val = arrary.begin(); val != arrary.end(); ++val) {      
+    std::cout << *val << std::endl;                            
+  }                                                            
+  std::cout << "-------------------------------" << std::endl << std::endl; 
+}
 void reset_arrary() {
-  int tmp[] = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48 };
-  len = sizeof(tmp) / sizeof(*tmp);
-
-  if (arrary == NULL) {
-    arrary = malloc(sizeof(tmp));
-  }
-
-  for (int i = 0; i < len; ++i) {
-    arrary[i] = tmp[i];
-  }
+  std::vector<int> temp = { 3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48 };
+  temp.swap(arrary);
 }
 
 void bucket_sort() {
-  printf("start bucket sort\n");
+  std::cout << "start bucket sort" << std::endl;
 
   int max_val = arrary[0];
-  for (int i = 1; i < len; ++i) {
-    if (arrary[i] > max_val) 
+  for (int i = 1; i < arrary.size(); ++i) {
+    if (arrary[i] > max_val)
       max_val = arrary[i];
   }
   max_val += 1;
 
-  int counting_arr[max_val];
-  bzero(counting_arr, sizeof(int) * max_val);
-
-  for (int i = 0; i < len; ++i) {
+  std::vector<int> counting_arr(max_val, 0);
+  for (int i = 0; i < arrary.size(); ++i) {
     counting_arr[arrary[i]] += 1;
   }
 
@@ -62,33 +47,31 @@ void bucket_sort() {
 
 
 void counting_sort() {
-  printf("start counting sort\n");
+  std::cout << "start counting sort" << std::endl;
 
   int max_val = arrary[0];
-  for (int i = 1; i < len; ++i) {
-    if (arrary[i] > max_val) 
+  for (int i = 1; i < arrary.size(); ++i) {
+    if (arrary[i] > max_val)
       max_val = arrary[i];
   }
   max_val += 1;
 
-  int counting_arr[max_val];
-  bzero(counting_arr, sizeof(int) * max_val);
-  int sorted_arr[len];
-  bzero(sorted_arr, sizeof(int) * len);
+  std::vector<int> counting_arr(max_val, 0);
+  std::vector<int> sorted_arr(arrary.size(), 0);
 
-  for (int i = 0; i < len; ++i) {
+  for (int i = 0; i < arrary.size(); ++i) {
     counting_arr[arrary[i]] += 1;
   }
-
   for (int i = 1; i < max_val; ++i) {
     counting_arr[i] += counting_arr[i - 1];
   }
 
-  for (int i = 0; i < len; ++i) {
+  for (int i = 0; i < arrary.size(); ++i) {
     counting_arr[arrary[i]] -= 1;
     sorted_arr[counting_arr[arrary[i]]] = arrary[i];
   }
-  memcpy(arrary, sorted_arr, sizeof(int) * len);
+
+  arrary.swap(sorted_arr);
 }
 
 
@@ -134,18 +117,19 @@ void heapify(int last_idx, int cur_node_idx) {
   }
 }
 void built_heap() {
-  int last_idx = len - 1;
+  int last_idx = arrary.size() - 1;
   int parent = (last_idx - 1) / 2;
+
   for (; parent >= 0; --parent) {
     heapify(last_idx, parent);
   }
 }
 void heap_sort() {
-  printf("start heap sort\n");
+  std::cout << "start heap sort" << std::endl;
 
   built_heap();
 
-  int last_idx = len - 1;
+  int last_idx = arrary.size() - 1;
   for (; last_idx > 0; --last_idx) {
     SWAP(arrary[0], arrary[last_idx]);
     heapify(last_idx - 1, 0);
@@ -155,13 +139,13 @@ void heap_sort() {
 
 void merge_sort(int L, int M, int R) {
   int left_size = M - L;
-  int left[left_size];
+  std::vector<int> left(left_size);
   for (int i = L; i < M; ++i) {
     left[i - L] = arrary[i];
   }
 
   int right_size = R - M + 1;
-  int right[right_size];
+  std::vector<int> right(right_size);
   for (int i = M; i <= R; ++i) {
     right[i - M] = arrary[i];
   }
@@ -195,11 +179,11 @@ void merge_split(int low_idx, int high_idx) {
 
 
 void shell_sort(void) {
-  printf("start shell sort\n");
+  std::cout << "start shell sort" << std::endl;
 
-  for (int inc = len / 2; inc > 0; inc /= 2) {
+  for (int inc = arrary.size() / 2; inc > 0; inc /= 2) {
 
-    for (int i = inc; i < len; ++i) {
+    for (int i = inc; i < arrary.size(); ++i) {
       int pivot = arrary[i];
       int j = i;
       for (; j >= inc && arrary[j - inc] > pivot; j -= inc) {
@@ -213,9 +197,9 @@ void shell_sort(void) {
 
 
 void insert_sort(void) {
-  printf("start insert sort\n");
+  std::cout << "start insert sort" << std::endl;
 
-  for (int i = 1; i < len; ++i) {
+  for (int i = 1; i < arrary.size(); ++i) {
     int pivot = arrary[i];
     int j = i - 1;
     for (; j >= 0 && arrary[j] > pivot; --j) {
@@ -227,11 +211,11 @@ void insert_sort(void) {
 
 
 void select_sort(void) {
-  printf("start select sort\n");
+  std::cout << "start select sort" << std::endl;
 
-  for (int i = 0; i < len; ++i) {
+  for (int i = 0; i < arrary.size(); ++i) {
     int min = i;
-    for (int j = i + 1; j < len; ++j) {
+    for (int j = i + 1; j < arrary.size(); ++j) {
       if (arrary[j] < arrary[min]) {
         min = j;
       }
@@ -245,10 +229,10 @@ void select_sort(void) {
 
 
 void bubble_sort(void) {
-  printf("start bubble sort\n");
+  std::cout << "start bubble sort" << std::endl;
 
-  for (int i = 0; i < len; ++i) {
-    for (int j = 0; j < len - i - 1; ++j) {
+  for (int i = 0; i < arrary.size(); ++i) {
+    for (int j = 0; j < arrary.size() - i - 1; ++j) {
       if (arrary[j + 1] < arrary[j]) {
         SWAP(arrary[j + 1], arrary[j]);
       }
@@ -257,36 +241,36 @@ void bubble_sort(void) {
 }
 
 int main(int argc, char *argv[]) {
-  RESET;
+  reset_arrary();
 
   bubble_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
   select_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
   insert_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
   shell_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
-  printf("start merge sort\n");
-  merge_split(0, len - 1);
-  PRINT(arrary); RESET;
+  std::cout << "start merge sort" << std::endl;
+  merge_split(0, arrary.size() - 1);
+  print_arrary(); reset_arrary();
 
   heap_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
-  printf("start quick sort\n");
-  quick_sort(0, len - 1);
-  PRINT(arrary); RESET;
+  std::cout << "start quick sort" << std::endl;
+  quick_sort(0, arrary.size() - 1);
+  print_arrary(); reset_arrary();
 
   counting_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
   bucket_sort();
-  PRINT(arrary); RESET;
+  print_arrary(); reset_arrary();
 
   return EXIT_SUCCESS;
 }

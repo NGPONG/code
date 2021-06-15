@@ -50,7 +50,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'google/vim-searchindex'
   
   " debug
-  Plug 'puremourning/vimspector'
+  " Plug 'puremourning/vimspector'
   
   " git
   Plug 'airblade/vim-gitgutter'
@@ -590,33 +590,33 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-p']
 
 " vimspector() {
 
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-function! s:PrintVariable(_val)
-  silent execute 'VimspectorEval '. a:_val
-  "call feedkeys("G")
-endfunction
-command! -nargs=1 C call s:PrintVariable(<f-args>)
-function! s:WatchVariable(_val)
-  silent execute 'VimspectorWatch '. a:_val
-endfunction
-command! -nargs=1 W call s:WatchVariable(<f-args>)
-
-command! Debug :call vimspector#Continue()
-command! Exit :call vimspector#Reset()
-command! Restart :call vimspector#Restart()
-
-sign define vimspectorBP text=● texthl=dbg_break_point
-sign define vimspectorBPDisabled text=◌ texthl=Normal
-sign define vimspectorPC text=➤ texthl=dbg_current_pos
-
-highlight dbg_break_point guibg=#none guifg=red
-highlight dbg_current_pos guibg=#none guifg=#ffc56b
-
-let g:vimspector_install_gadgets = [ 'vscode-cpptools' ]
-
-let g:vimspector_code_minwidth = 90
-let g:vimspector_terminal_maxwidth = 75
-let g:vimspector_terminal_minwidth = 20
+" let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+" function! s:PrintVariable(_val)
+"   silent execute 'VimspectorEval '. a:_val
+    "call feedkeys("G")
+" endfunction
+" command! -nargs=1 C call s:PrintVariable(<f-args>)
+" function! s:WatchVariable(_val)
+"   silent execute 'VimspectorWatch '. a:_val
+" endfunction
+" command! -nargs=1 W call s:WatchVariable(<f-args>)
+" 
+" command! Debug :call vimspector#Continue()
+" command! Exit :call vimspector#Reset()
+" command! Restart :call vimspector#Restart()
+" 
+" sign define vimspectorBP text=● texthl=dbg_break_point
+" sign define vimspectorBPDisabled text=◌ texthl=Normal
+" sign define vimspectorPC text=➤ texthl=dbg_current_pos
+" 
+" highlight dbg_break_point guibg=#none guifg=red
+" highlight dbg_current_pos guibg=#none guifg=#ffc56b
+" 
+" let g:vimspector_install_gadgets = [ 'vscode-cpptools' ]
+" 
+" let g:vimspector_code_minwidth = 90
+" let g:vimspector_terminal_maxwidth = 75
+" let g:vimspector_terminal_minwidth = 20
 
 " }
 

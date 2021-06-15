@@ -13,7 +13,7 @@ int cut_steel_1_impl(int length, std::vector<int> &prices) {
   for (int i = 1; i <= length; ++i) {
     opt = std::max(opt, prices[i] + cut_steel_1_impl(length - i, prices));
   }
-  
+
   return opt;
 }
 void cut_steel_1(std::vector<int> &prices) {
