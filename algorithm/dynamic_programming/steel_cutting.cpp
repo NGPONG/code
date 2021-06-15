@@ -3,6 +3,7 @@
 #include <math.h>
 #include <time.h>
 #include <limits.h>
+#include <algorithm>
 
 int cut_steel_1_impl(int length, std::vector<int> &prices) {
   if (length == 0) {
@@ -13,6 +14,10 @@ int cut_steel_1_impl(int length, std::vector<int> &prices) {
   for (int i = 1; i <= length; ++i) {
     opt = std::max(opt, prices[i] + cut_steel_1_impl(length - i, prices));
   }
+  if (opt == -1) {
+    int i = 10;
+  }
+
   return opt;
 }
 void cut_steel_1(std::vector<int> &prices) {
