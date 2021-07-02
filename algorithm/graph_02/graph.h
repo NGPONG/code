@@ -11,7 +11,6 @@ typedef struct edge_node {
   struct edge_node *next; /* 指向下一个邻接点 */
 } edge_node;
 
-
 /* 顶点表节点 */
 typedef struct {
   vertext_type data;
