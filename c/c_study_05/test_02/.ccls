@@ -1,4 +1,2 @@
 clang
-%c -std=c11
-%cpp -std=c++17
-%c %cpp -pthread
+%c -pthread
