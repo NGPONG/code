@@ -1,0 +1,5 @@
+clang++
+%cpp -std=c++1z
+%c %cpp -pthread
+%c %cpp -Wall
+-isystem/usr/lib/llvm-11/include/c++/v1
