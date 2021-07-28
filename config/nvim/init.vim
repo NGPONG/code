@@ -106,7 +106,7 @@ endif
 " tabwidth() {
 
 set expandtab
-set tabstop=2 softtabstop=2 shiftwidth=2
+set tabstop=4 softtabstop=4 shiftwidth=4
 
 autocmd Filetype go set tabstop=4 softtabstop=4 shiftwidth=4
 
@@ -181,7 +181,7 @@ set cmdheight=1
 
 " encoding() {
 
-set encoding=UTF-8
+set encoding=utf-8
 set fileencoding=utf-8
 
 " }
