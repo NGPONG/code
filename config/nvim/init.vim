@@ -274,7 +274,6 @@ let g:gruvbox_sign_column = 'bg0'
 
 " }
 
-
 " air_line() {
 let g:airline_extensions = ['tabline','branch','hunks']
 let g:airline#extensions#tabline#enabled = 1
@@ -288,8 +287,10 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
-let g:airline#extensions#hunks#enabled=0 " 该设置能够追踪当前文件修改了多少行
+let g:airline#extensions#hunks#enabled=0 " 该设置能够在 statusline 中展示当前文件的修改情况(追踪 git)
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#branch#vcs_checks = ['untracked']
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
