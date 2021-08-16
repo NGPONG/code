@@ -2,19 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
-void fun_1() {
-  int i = 10;
-  i += 1024;
-
-  int *p = NULL;
-  *p = i;
-
-  printf("%d\n", *p);
-}
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
-  fun_1();
+  char cmd_buf[16] = "ls";
+  printf("%s\n", getcwd(cmd_buf, strlen(cmd_buf)));
   
   return EXIT_SUCCESS;
 }
