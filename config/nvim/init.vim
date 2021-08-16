@@ -3,13 +3,13 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
   " themes
-  Plug 'NGPONG/vim-code-dark'
+  Plug 'morhetz/gruvbox'
+  "Plug 'NGPONG/vim-code-dark'
   "Plug 'tomasiser/vim-code-dark'
   "Plug 'w0ng/vim-hybrid'
-  Plug 'rakr/vim-one'
+  "Plug 'rakr/vim-one'
   "Plug 'sonph/onehalf', {'rtp': 'vim/'}
   "Plug 'ayu-theme/ayu-vim'
-  Plug 'morhetz/gruvbox'
   "Plug 'srcery-colors/srcery-vim'
   "Plug 'dunstontc/vim-vscode-theme'
 
@@ -37,6 +37,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " airline
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'tpope/vim-fugitive'
   
   " lightline
   "Plug 'itchyny/lightline.vim'
@@ -56,7 +57,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
   
   " async
-  Plug 'skywind3000/asyncrun.vim'
+  "Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -273,24 +274,36 @@ let g:gruvbox_sign_column = 'bg0'
 
 " }
 
-
 " air_line() {
-
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#branch#enabled=1
+let g:airline_extensions = ['tabline','branch','hunks']
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'jsformatter'
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#fnametruncate = 16
+let g:airline#extensions#tabline#fnametruncate = 128
 let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_section_x=''
+let g:airline_skip_empty_sections = 1
+
+let g:airline#extensions#hunks#enabled=0 " 该设置能够在 statusline 中展示当前文件的修改情况(追踪 git)
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#branch#vcs_checks = ['untracked']
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_section_x=''
-let g:airline_skip_empty_sections = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' :'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
 
 " }
 
