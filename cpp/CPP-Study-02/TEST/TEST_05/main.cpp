@@ -1,38 +1,28 @@
 #include <iostream>
-#include <vector>
-#include <deque>
+#include <thread>
+#include <atomic>
+#include <chrono>
+#include <functional>
+#include <future>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <thread>
+#include <time.h>
+#include <utility>
+#include <time.h>
 
-class BASE {
-public:
-  virtual void foo() {
-    std::cout << "BASE foo" << std::endl;
-    std::cout << *(int *)((char *)this + 8) << std::endl;
-  }
+void foo() {
+  std::cout << "hello,world!" << std::endl;
+}
 
-  virtual ~BASE() {
-    foo();
-    std::cout << "BASE destructor" << std::endl;
-  }
-};
-
-class CHILD : public BASE {
-int var = 1024;
-
-public:
-  void foo() override {
-    std::cout << "CHILD foo" << std::endl;
-  }
-
-  ~CHILD() override {
-    std::cout << "CHILD destructor" << std::endl;
-  }
-};
+void func() {
+  auto f = std::async(std::launch::deferred, std::bind(foo));
+  f.get();
+}
 
 int main(void) {
-  BASE *b = new CHILD();
-  b->foo();
-
-  delete b;
+  func();
 
   return EXIT_SUCCESS;
 }

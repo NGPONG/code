@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
   bzero(&serv, sizeof(serv));
   serv.sin_family = AF_INET;
   serv.sin_port = htons(8886);
-  inet_pton(AF_INET, "127.0.0.1", &serv.sin_addr.s_addr);
+  inet_pton(AF_INET, "0.0.0.0", &serv.sin_addr.s_addr);
   int bflg = bind(sfd, (const struct sockaddr *)&serv, sizeof(serv));
   if (bflg < 0) {
     perror("socket bind error");
