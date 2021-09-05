@@ -3,6 +3,7 @@
 #include <vector>
 #include <stdint.h>
 #include <chrono>
+#include <assert.h>
 
 class base {
 public:
@@ -25,6 +26,10 @@ public:
 
   ~base() {
     std::cout << "destructor" << std::endl;
+  }
+
+  bool operator==(base &per_) {
+    return true;
   }
 };
 
@@ -52,7 +57,15 @@ void test() {
 }
 
 int main(void) {
-  test();
+  // test();
+  assert(1);
+  std::cout << "hello,world" << std::endl;
+  
+  base b(10);
+  base c(20);
+  if (b == c) {
+    
+  }
 
-  return EXIT_SUCCESS;
+  return 0;
 }
