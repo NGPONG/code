@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <utility>
 #include <stdint.h>
-#include <chrono>
+#include <memory>
 
 class base {
 public:
@@ -10,7 +11,6 @@ public:
 
   base(int _num) {
     this->num = _num;
-    std::cout << "constructor" << std::endl;
   }
 
   base(const base &b) {
@@ -24,35 +24,37 @@ public:
   }
 
   ~base() {
-    std::cout << "destructor" << std::endl;
   }
 };
 
-base foo(void) {
-  int num = 0;
-  for (int i = 0; i < 10; ++i) {
-    num += i;
-  }
+void foo(const base &b) {
+    std::cout << "left" << std::endl;
 
-  num *= 10;
-
-  base b(num);
-  std::cout << &b << std::endl;
-
-  return b;
+    base a(b);
 }
 
-void test() {
-  base b = foo();
-  std::cout << &b << std::endl;
+void foo(base &&b) {
+    std::cout << "right" << std::endl;
 
-  for (int i = 0; i < 10; ++i) {
-    std::cout << b.num << std::endl;
-  }
+    base a(std::forward<base>(b));
 }
 
 int main(void) {
-  test();
+    // base b(1);
 
-  return EXIT_SUCCESS;
+    // foo(b);
+    // foo(base(2));
+
+    bool flg = false;
+    if (flg) {
+#define D_TEST
+    } else {
+        std::cout << "hello,world" << std::endl;
+    }
+
+#ifdef D_TEST
+    std::cout << "hello,NGPONG" << std::endl;
+#endif
+
+    return EXIT_SUCCESS;
 }

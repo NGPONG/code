@@ -45,9 +45,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   " pattern search
   " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-  Plug 'mg979/vim-visual-multi'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'mg979/vim-visual-multi'
   Plug 'google/vim-searchindex'
   
   " debug
@@ -275,9 +275,9 @@ let g:gruvbox_sign_column = 'bg0'
 " }
 
 " air_line() {
-let g:airline_extensions = ['tabline','branch','hunks']
+let g:airline_extensions = ['tabline','branch', 'hunks'] ",'branch', 'hunks'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
@@ -288,7 +288,6 @@ let g:airline_section_x=''
 let g:airline_skip_empty_sections = 1
 
 let g:airline#extensions#hunks#enabled=0 " 该设置能够在 statusline 中展示当前文件的修改情况(追踪 git)
-let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#branch#vcs_checks = ['untracked']
 if !exists('g:airline_symbols')

@@ -169,7 +169,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # some useful env variable
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export WIN_HOME='/mnt/c/Users/NGPONG/Desktop/'
+export WIN_HOME='/mnt/c/Users/Administrator/Desktop/'
 
 # custom commands
 # alias netstat='/mnt/c/Windows/System32/netstat.exe'
@@ -186,10 +186,3 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # set proxy
 HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 WSL2_IP=$(hostname -I | awk '{print $1}')
-
-export PROXY_HTTP="http://${HOST_IP}:10809"
-export http_proxy="${PROXY_HTTP}"
-export https_proxy="${PROXY_HTTP}"
-
-git config --global http.proxy ${PROXY_HTTP}
-git config --global https.proxy ${PROXY_HTTP}
