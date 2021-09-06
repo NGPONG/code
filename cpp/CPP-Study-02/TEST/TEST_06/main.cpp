@@ -3,7 +3,12 @@
 #include <vector>
 #include <utility>
 #include <stdint.h>
+<<<<<<< HEAD
 #include <memory>
+=======
+#include <chrono>
+#include <assert.h>
+>>>>>>> 61a111507049e9b286349976c858c8fcb80823ab
 
 class base {
 public:
@@ -24,6 +29,10 @@ public:
   }
 
   ~base() {
+  }
+
+  bool operator==(base &per_) {
+    return true;
   }
 };
 
