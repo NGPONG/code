@@ -171,7 +171,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # some useful env variable
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export WIN_HOME='/mnt/c/Users/Administrator/Desktop/'
+export WIN_HOME='/mnt/c/Users/NGPONG/Desktop/'
 
 # custom commands
 # alias netstat='/mnt/c/Windows/System32/netstat.exe'

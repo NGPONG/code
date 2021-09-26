@@ -1,23 +1,15 @@
 #include <iostream>
-#include <set>
-#include <map>
+#include <functional>
 
-int main(void) {
-  std::map<int, std::set<int>> m;
+void test(int a) {
+  std::cout << a << std::endl;
+}
 
-  m[0].insert(100);
-  m[0].insert(200);
-  m[0].insert(300);
+template<class... Args>
+void foo(Args... b, std::function<void(Args...)> handler) {
+  handler(b...);
+}
 
-  m[1].insert(1000);
-  m[1].insert(2000);
-  m[1].insert(3000);
-
-  for (const auto& [key, value] : m) {
-    for (auto it = value.begin(); it != value.end(); ++it) {
-      std::cout << *it << std::endl;
-    }
-  }
-
-  return 0;
+int main() {
+  foo<int>(1, test);
 }
