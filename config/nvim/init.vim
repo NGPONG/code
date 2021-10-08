@@ -4,7 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " themes
   Plug 'morhetz/gruvbox'
-  "Plug 'NGPONG/vim-code-dark'
+  Plug 'NGPONG/vim-code-dark'
   "Plug 'tomasiser/vim-code-dark'
   "Plug 'w0ng/vim-hybrid'
   "Plug 'rakr/vim-one'
@@ -257,13 +257,13 @@ nnoremap <silent>oh :let @/ = ""<CR>
 "            let g:gruvbox_improved_strings = 0
 "            gruvbox 
 "            set background=dark
-"let g:gruvbox_sign_column = 'bg0'
+"            let g:gruvbox_sign_column = 'bg0'
 "    srcery: let g:srcery_italic = 1
 "            srcery
 
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_sign_column = 'bg0'
-" let g:gruvbox_italic = 1
+let g:gruvbox_italic = 1
 let g:gruvbox_bold = 1
 let g:gruvbox_italicize_strings = 0
 let g:gruvbox_italicize_comments = 1
@@ -564,7 +564,9 @@ let g:coc_global_extensions = [
 
 " layout setting.
 " see: https://github.com/junegunn/fzf/blob/master/README-VIM.md
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
+
+let g:fzf_layout = { 'down': '60%' }
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -597,6 +599,12 @@ endif
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
 let g:fzf_preview_window = ['right:50%', 'ctrl-p']
+
+" -g \"pattern\"
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \ "rg --column --line-number --no-heading --color=always --smart-case " .
+  \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
 
 " }
 
