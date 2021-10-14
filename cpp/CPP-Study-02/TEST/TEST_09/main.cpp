@@ -1,47 +1,17 @@
 #include <iostream>
-#include <algorithm>
-#include <deque>
-#include <functional>
-
-template<typename F>
-class KWQueueUpLogScopeExit 
-{
-public:
-    KWQueueUpLogScopeExit(const F& f) : func(f) {}
-    ~KWQueueUpLogScopeExit() {
-        func();
-    }
-
-private:
-    F func;
-};
-
-template<typename S>
-class BASE 
-{
-public:
-  BASE(S str): mStr(str) {
-    std::cout << "hello,world" << std::endl;
-  }
-
-  BASE(std::string&& str): mStr(str) {
-    std::cout << "hello,world" << std::endl;
-  }
-
-  ~BASE() {
-    std::cout << "NGPONG" << std::endl;
-  }
-
-private:
-  S mStr;
-};
+#include <random>
 
 int main(void) {
-  KWQueueUpLogScopeExit ([&]() {
-    std::cout << "hello,world!" << std::endl;
-  });
+    std::random_device dev;
+    std::mt19937 rng(dev());
 
-  std::cout << "NGPOPNG"  << std::endl;
+    for (int i = 0; i < 10; ++i) {
+        std::uniform_int_distribution<std::mt19937::result_type> dist(0, 10); // distribution random number in [1, playerData.size()]
+        int postion = dist(rng);
+      
+        std::cout << postion << std::endl;
+    }
+
 
   return -1;
 }

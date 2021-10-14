@@ -277,7 +277,7 @@ let g:gruvbox_sign_column = 'bg0'
 " air_line() {
 let g:airline_extensions = ['tabline','branch', 'hunks'] ",'branch', 'hunks'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
@@ -594,13 +594,13 @@ if has('nvim') && !exists('g:fzf_layout')
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 endif
 
-"   - Preview window on the right with 50% width
-"   - CTRL-/ will toggle preview window.
+" - Preview window on the right with 50% width
+" - CTRL-/ will toggle preview window.
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
 let g:fzf_preview_window = ['right:50%', 'ctrl-p']
 
-" -g \"pattern\"
+" Rg -g \"pattern\"
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \ "rg --column --line-number --no-heading --color=always --smart-case " .
@@ -608,41 +608,7 @@ command! -bang -nargs=* Rg
 
 " }
 
-" vimspector() {
-
-" let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-" function! s:PrintVariable(_val)
-"   silent execute 'VimspectorEval '. a:_val
-    "call feedkeys("G")
-" endfunction
-" command! -nargs=1 C call s:PrintVariable(<f-args>)
-" function! s:WatchVariable(_val)
-"   silent execute 'VimspectorWatch '. a:_val
-" endfunction
-" command! -nargs=1 W call s:WatchVariable(<f-args>)
-" 
-" command! Debug :call vimspector#Continue()
-" command! Exit :call vimspector#Reset()
-" command! Restart :call vimspector#Restart()
-" 
-" sign define vimspectorBP text=● texthl=dbg_break_point
-" sign define vimspectorBPDisabled text=◌ texthl=Normal
-" sign define vimspectorPC text=➤ texthl=dbg_current_pos
-" 
-" highlight dbg_break_point guibg=#none guifg=red
-" highlight dbg_current_pos guibg=#none guifg=#ffc56b
-" 
-" let g:vimspector_install_gadgets = [ 'vscode-cpptools' ]
-" 
-" let g:vimspector_code_minwidth = 90
-" let g:vimspector_terminal_maxwidth = 75
-" let g:vimspector_terminal_minwidth = 20
-
-" }
-
-
 " gitgutter() {
-
 "set foldtext=gitgutter#fold#foldtext()
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#c4c421 ctermfg=3
@@ -665,29 +631,6 @@ nmap hp <Plug>(GitGutterPreviewHunk):wincmd P<CR>
 "nnoremap <silent> <Esc> :pclose<CR>
 
 " }
-
-
-" compile() {
-
-function! s:open_coc_quickfix()
-  silent execute 'CocList --normal --no-quit quickfix'
-endfunction
-autocmd User AsyncRunStop call s:open_coc_quickfix()
-let g:asyncrun_bell = 1
-
-nnoremap <silent> <C-S-b> :AsyncRun gcc -Wall -g -O0 -static-libgcc -std=c11 -pthread -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <CR>
-
-function! Quick_run_c_program()
-  silent execute "AsyncRun gcc -Wall -O0 -static-libgcc -std=c11 -pthread -D_DEFAULT_SOURCE -Wno-unused-variable -Wunused-result \"$(VIM_FILEPATH)\" -o \"$(VIM_FILEDIR)/$(VIM_FILENOEXT)\" && echo -e \"-------------------------------------------------------------------result-------------------------------------------------------------------\n\" && ./$(VIM_FILENOEXT) && rm ./$(VIM_FILENOEXT)"
-endfunction
-autocmd Filetype c command! Run :call Quick_run_c_program()
-
-
-"nnoremap <C-m> :call asyncrun#quickfix_toggle(6)<cr>
-"nnoremap <silent> <F7> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-
-" }
-
 
 " nerd_commenter() {
 
