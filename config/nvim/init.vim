@@ -59,6 +59,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " async
   "Plug 'skywind3000/asyncrun.vim'
 
+  " markdown
+  " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
 
 "----------------------------------------------------------------------------------
@@ -277,7 +280,7 @@ let g:gruvbox_sign_column = 'bg0'
 " air_line() {
 let g:airline_extensions = ['tabline','branch', 'hunks'] ",'branch', 'hunks'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
