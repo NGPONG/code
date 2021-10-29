@@ -764,7 +764,7 @@ int GetMonthResetTs(const NFDateTime& triggerDate)
 }
 
 int main(void) {
-    NFDateTime d1(1, 1, 1);
+    NFDateTime d1(29, 1, 1);
     d1.AddHours(4);
     std::cout << GetMonthResetTs(d1) << std::endl;
 
