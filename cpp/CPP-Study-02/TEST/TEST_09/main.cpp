@@ -30,6 +30,19 @@ bool SetAvailableFlag(const unsigned char Type, const char flag = 1) {
 }
 
 int main(void) {
+    std::cout << (int)awardSchedule << std::endl;
+
+  
+    SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+  SetAvailableFlag(PVPPOINT);
   SetAvailableFlag(PVPPOINT);
 
   if (IsAvailableFlag(UPGRADETOP)) {
