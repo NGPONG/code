@@ -1,36 +1,64 @@
 #include <iostream>
+#include <time.h>
+#include <ctime>
+#include <string>
+#include <string.h>
 
-class BASE {
-public:
-  BASE() {
-    std::cout << "BASE constructor" << std::endl;
-  }
-  ~BASE() {
-    std::cout << "BASE destructor" << std::endl;
-  }
-  BASE(const BASE &b) {
-    std::cout << "BASE copy constructor" << std::endl;
-  }
-  BASE(BASE &&b) {
-    std::cout << "BASE move constructor" << std::endl;
-  }
+unsigned char awardSchedule = 0;
 
-  int age;
+enum {
+  UPGRADETOP,
+  PVPPOINT,
+  SEASONAWARD,
+  MAXTYPE = 7
 };
 
-BASE foo() {
-  BASE b;
-  b.age = 18;
-  std::cout << b.age << std::endl;
-  std::cout << &b << std::endl;
+bool IsAvailableFlag(const unsigned char Type) {
+  return Type < MAXTYPE && awardSchedule & ((unsigned char)(1) << Type);
+}
 
-  return b;
+bool SetAvailableFlag(const unsigned char Type, const char flag = 1) {
+  if (Type >= MAXTYPE) {
+    return false;
+  }
+  if (1 == flag) {
+    awardSchedule |= ((unsigned char)(1) << Type);
+  } else {
+    awardSchedule &= ~((unsigned char)(1) << Type);
+  }
+  return true;
 }
 
 int main(void) {
-  BASE b = foo();
-  std::cout << b.age << std::endl;
-  std::cout << &b << std::endl;
+    std::cout << (int)awardSchedule << std::endl;
 
-  return -1;
+  
+    SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+std::cout << (int)awardSchedule << std::endl;
+  SetAvailableFlag(PVPPOINT);
+  SetAvailableFlag(PVPPOINT);
+  SetAvailableFlag(PVPPOINT);
+
+  if (IsAvailableFlag(UPGRADETOP)) {
+    std::cout << "1" << std::endl;
+  }
+  SetAvailableFlag(UPGRADETOP);
+  if (IsAvailableFlag(UPGRADETOP)) {
+    std::cout << "2" << std::endl;
+  }
+  SetAvailableFlag(UPGRADETOP, 0);
+  if (IsAvailableFlag(UPGRADETOP)) {
+    std::cout << "3" << std::endl;
+  }
+  if (IsAvailableFlag(PVPPOINT)) {
+    std::cout << "4" << std::endl;
+  }
+
+  return 0;
 }
