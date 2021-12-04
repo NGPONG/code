@@ -134,7 +134,6 @@ set clipboard^=unnamed,unnamedplus
 
 " }
 
-
 " use_terminal_color_policy() {
 
 if (empty($TMUX))
