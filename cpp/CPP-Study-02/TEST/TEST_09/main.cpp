@@ -10,7 +10,7 @@ enum {
   UPGRADETOP,
   PVPPOINT,
   SEASONAWARD,
-  MAXTYPE = 7
+  MAXTYPE = 3
 };
 
 bool IsAvailableFlag(const unsigned char Type) {
@@ -30,35 +30,16 @@ bool SetAvailableFlag(const unsigned char Type, const char flag = 1) {
 }
 
 int main(void) {
-    std::cout << (int)awardSchedule << std::endl;
+  std::cout << (int)awardSchedule << std::endl;
 
-  
-    SetAvailableFlag(PVPPOINT);
-std::cout << (int)awardSchedule << std::endl;
-  SetAvailableFlag(PVPPOINT);
-std::cout << (int)awardSchedule << std::endl;
-  SetAvailableFlag(PVPPOINT);
-std::cout << (int)awardSchedule << std::endl;
-  SetAvailableFlag(PVPPOINT);
-std::cout << (int)awardSchedule << std::endl;
-  SetAvailableFlag(PVPPOINT);
-  SetAvailableFlag(PVPPOINT);
-  SetAvailableFlag(PVPPOINT);
+  // SetAvailableFlag(UPGRADETOP);
+  // std::cout << (int)awardSchedule << std::endl;
 
-  if (IsAvailableFlag(UPGRADETOP)) {
-    std::cout << "1" << std::endl;
-  }
-  SetAvailableFlag(UPGRADETOP);
-  if (IsAvailableFlag(UPGRADETOP)) {
-    std::cout << "2" << std::endl;
-  }
-  SetAvailableFlag(UPGRADETOP, 0);
-  if (IsAvailableFlag(UPGRADETOP)) {
-    std::cout << "3" << std::endl;
-  }
-  if (IsAvailableFlag(PVPPOINT)) {
-    std::cout << "4" << std::endl;
-  }
+  SetAvailableFlag(PVPPOINT);
+  std::cout << (int)awardSchedule << std::endl;
+
+  SetAvailableFlag(SEASONAWARD);
+  std::cout << (int)awardSchedule << std::endl;
 
   return 0;
 }

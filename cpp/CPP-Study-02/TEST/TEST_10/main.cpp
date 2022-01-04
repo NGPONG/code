@@ -754,24 +754,49 @@ int GetMonthResetTs(const NFDateTime& triggerDate)
     const int nowTS = NFDateTime::Now().GetTimestamp();
     NFDateTime nowDate = NFDateTime(nowTS - (triggerDate.GetHour() * NF_HOUR + triggerDate.GetMinute() * NF_MINUTE + triggerDate.GetSecond())); // 调整重置时间点的偏移
 
-    NFDateTime curMonthReset = NFDateTime(triggerDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear(), triggerDate.GetHour(), triggerDate.GetMinute(), triggerDate.GetSecond());
+    int64_t curMonthTs = NFDateTime(1, nowDate.GetMonth(), nowDate.GetYear(), triggerDate.GetHour(), triggerDate.GetMinute(), triggerDate.GetSecond()).GetTimestamp();
+    NFDateTime curMonthReset = NFDateTime(curMonthTs + triggerDate.GetDay() * NF_DAY);
     const int nextIntervalDays = nowDate.GetDaysOfMonth(nowDate.GetMonth());
 
     const int lastResetTs = curMonthReset.GetTimestamp();
     const int nextResetTs = lastResetTs + nextIntervalDays * NF_DAY;
 
+    if (nowTS < lastResetTs) {
+        std::cout << lastResetTs - nowTS << std::endl;
+    } else {
+        std::cout << nextResetTs - nowTS << std::endl;
+    }
+
     return nextResetTs - nowTS;
 }
 
+int GetWeekResetTs(int64_t nowTs, int triggerDay, int triggerSec)
+{
+    NFDateTime nowDate = NFDateTime(nowTs);
+
+    NFDateTime triggerDate(nowDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear());
+    triggerDate.AddSeconds(triggerSec);
+
+    int nowDay = nowDate.GetDayOfWeek() == 0 ? 7 : nowDate.GetDayOfWeek();
+    if (triggerDay > nowDay) 
+        triggerDate.AddDays(triggerDay - nowDay);
+    else if (triggerDay < nowDay || triggerDate.GetTimestamp() < nowDate.GetTimestamp()) 
+        triggerDate.AddDays(7 - nowDay + triggerDay);
+
+    return triggerDate.GetTimestamp() - nowDate.GetTimestamp();
+}
+
 int main(void) {
-    NFDateTime d1(29, 1, 1);
-    d1.AddHours(4);
-    std::cout << GetMonthResetTs(d1) << std::endl;
+  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 2, 36000) << std::endl;
+  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 2, 72000) << std::endl;
 
-    NFDateTime d2(30, 1, 1);
-    d2.AddHours(12);
-    std::cout << GetMonthResetTs(d2) << std::endl;
+  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 1, 72000) << std::endl;
 
+  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 7, 72000) << std::endl;
+
+  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 5, 36000) << std::endl;
+
+  std::cout << GetWeekResetTs(1636423200, 2, 36000) << std::endl;
 
   return EXIT_SUCCESS;
 }

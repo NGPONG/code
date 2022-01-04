@@ -32,8 +32,8 @@ int main(int argc, char *argv[]) {
   struct sockaddr_in serv;
   bzero(&serv, sizeof(serv));
   serv.sin_family = AF_INET;
-  serv.sin_port = htons(8886);
-  inet_pton(AF_INET, "127.0.0.1", &serv.sin_addr.s_addr);
+  serv.sin_port = htons(13001);
+
   int bflg = bind(sfd, (const struct sockaddr *)&serv, sizeof(serv));
   if (bflg < 0) {
     perror("socket bind error");

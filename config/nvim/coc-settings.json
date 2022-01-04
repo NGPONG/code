@@ -50,7 +50,7 @@
       "rootPatterns": [".ccls-root", ".ccls", "compile_commands.json",".vim/", ".git/", ".hg/"],
       "initializationOptions": {
         "cache": {
-          "directory": "/tmp/ccls-cache" // stored in memory
+          "directory": "" // /tmp/ccls-cache
         },
         "client": {
           "snippetSupport": false
