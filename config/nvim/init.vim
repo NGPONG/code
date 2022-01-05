@@ -110,8 +110,12 @@ endif
 " tabwidth() {
 
 set expandtab
-set tabstop=2 softtabstop=2 shiftwidth=2
 
+set tabstop=2 softtabstop=2 shiftwidth=2
+if expand('%:p:h') =~ 'project_w_server' || expand('%:p:h') =~ 'game301_server' || expand('%:e') == 'go'
+  echo "hahahahahhahaha"
+  set tabstop=4 softtabstop=4 shiftwidth=4
+endif
 autocmd Filetype go set tabstop=4 softtabstop=4 shiftwidth=4
 
 " }
