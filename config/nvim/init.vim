@@ -4,7 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " themes
   Plug 'morhetz/gruvbox'
-  Plug 'NGPONG/vim-code-dark'
+  "Plug 'NGPONG/vim-code-dark'
   "Plug 'tomasiser/vim-code-dark'
   "Plug 'w0ng/vim-hybrid'
   "Plug 'rakr/vim-one'
