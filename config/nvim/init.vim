@@ -53,7 +53,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " debug
   " Plug 'puremourning/vimspector'
   
-  " git
+  " git 
   Plug 'airblade/vim-gitgutter'
   
   " async
@@ -619,8 +619,8 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#c4c421 ctermfg=3
 highlight GitGutterChangeDelete guifg=#c4c421 ctermfg=4
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
-let g:gitgutter_close_preview_on_escape=1
-let g:gitgutter_preview_win_floating = 0
+" let g:gitgutter_close_preview_on_escape=1
+" let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_use_location_list = 1
@@ -630,7 +630,7 @@ let g:gitgutter_sign_removed = '▸ '
 let g:gitgutter_sign_modified_removed = '▌'
 
 " https://github.com/airblade/vim-gitgutter/issues/772
-nmap hp <Plug>(GitGutterPreviewHunk):wincmd P<CR>
+nmap hp <Plug>(GitGutterPreviewHunk)
 
 "let g:gitgutter_sign_removed_first_line = '^^'
 "nnoremap <silent> <Esc> :pclose<CR>
