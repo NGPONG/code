@@ -67,7 +67,7 @@
         },
         "index": {
           "onChange": true,
-          // "threads": 8,
+          "threads": 8,
           "initialBlacklist": ["."]
         }
       }
