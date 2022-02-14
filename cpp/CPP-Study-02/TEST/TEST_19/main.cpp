@@ -4,18 +4,75 @@
 
 // #include <benchmark/benchmark.h>
 
+class FOO {
+public:
+  std::string name;
+  int32_t level;
+  int32_t members;
+  int32_t join_description;
+};
+
 class BASE {
 public:
-  std::string m1;
-  int m2;
+  FOO f;
+  int32_t score;
 
   bool operator>(const BASE &b) const {
-    if (this->m2 != b.m2)
-      return this->m2 > b.m2;
+    std::cout << __func__ << std::endl;
 
-    return m1.compare(b.m2);
+    return score > b.score;
   }
 };
+
+int main(void) {
+  BASE b1;
+  b1.score = 10;
+  b1.f.name = "b1";
+  b1.f.level = 1;
+  b1.f.members = 1;
+  b1.f.join_description = -1;
+
+  BASE b2;
+  b2.score = 9;
+  b2.f.name = "b2";
+  b2.f.level = 2;
+  b2.f.members = 2;
+  b2.f.join_description = -1;
+
+  BASE b3;
+  b3.score = 8;
+  b3.f.name = "b3";
+  b3.f.level = 3;
+  b3.f.members = 3;
+  b3.f.join_description = -1;
+
+  BASE b4;
+  b4.score = 7;
+  b4.f.name = "b4";
+  b4.f.level = 4;
+  b4.f.members = 4;
+  b4.f.join_description = -1;
+
+  BASE b5;
+  b5.score = 6;
+  b5.f.name = "b5";
+  b5.f.level = 5;
+  b5.f.members = 5;
+  b5.f.join_description = -1;
+
+  std::set<BASE, std::greater<>> s;
+  s.insert(b2);
+  s.insert(b5);
+  s.insert(b1);
+  s.insert(b4);
+  s.insert(b3);
+
+  for (const auto &e : s) {
+    std::cout << e.f.name << std::endl;
+  }
+
+  return EXIT_SUCCESS;
+}
 
 // static void BM_1(benchmark::State& state) {
 //   std::set<BASE> s;
@@ -44,46 +101,3 @@ public:
 // }
 // BENCHMARK(BM_2);
 // BENCHMARK_MAIN();
-
-int main(void) {
-  BASE b1;
-  b1.m1 = "a";
-  b1.m2 = 4;
-
-  BASE b2;
-  b2.m1 = "b";
-  b2.m2 = 3;
-
-  BASE b3;
-  b3.m1 = "c";
-  b3.m2 = 2;
-
-  BASE b4;
-  b4.m1 = "d";
-  b4.m2 = 1;
-
-  std::set<BASE, std::greater<>> s;
-  s.insert(b1);
-  s.insert(b2);
-  s.insert(b3);
-  s.insert(b4);
-
-  for (const auto &e : s) {
-    std::cout << e.m1 << std::endl;
-  }
-
-  BASE b5;
-  b5.m1 = "e";
-  b5.m2 = 0;
-
-  s.insert(b5);
-
-  BASE b6;
-  b6.m1 = "f";
-  b6.m2 = -1;
-
-  s.insert(b6);
-  s.insert(b5);
-
-  return EXIT_SUCCESS;
-}
