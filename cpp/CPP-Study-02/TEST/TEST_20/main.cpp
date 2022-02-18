@@ -1,30 +1,20 @@
 #include <iostream>
+#include <chrono>
 
-class FOO {
-public:
-  std::string name;
-  int32_t level;
-  int32_t members;
-  int32_t join_description;
-};
+using f_minutes = std::chrono::duration<double, std::chrono::minutes::period>;
 
-class BASE {
-  class NG {
-  public:
-    FOO f;
-    int32_t score;
+int main() {
 
-    bool operator>(const NG &b) const;
-  };
-};
+  //get the starting number of minutes
+  double input;
+  std::cout << "Enter number of minutes: ";
+  std::cin >> input;
 
-bool BASE::NG::operator>(const NG &b) const {
-  std::cout << __func__ << std::endl;
+  f_minutes decimalMinutes(input);
 
-  return score > b.score;
-}
+  auto mins = duration_cast<std::chrono::minutes>(decimalMinutes);
+  decimalMinutes -= mins;
 
-int main(void) {
-
-  return EXIT_SUCCESS;
+  //output days, hours, minutes and seconds
+  std::cout << mins.count() << "h " << std::endl;
 }

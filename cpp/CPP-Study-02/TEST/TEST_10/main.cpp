@@ -770,33 +770,57 @@ int GetMonthResetTs(const NFDateTime& triggerDate)
     return nextResetTs - nowTS;
 }
 
-int GetWeekResetTs(int64_t nowTs, int triggerDay, int triggerSec)
-{
-    NFDateTime nowDate = NFDateTime(nowTs);
+int GetWeekResetTs(int64_t nowTs, int triggerDay, int triggerSec) {
+  NFDateTime nowDate = NFDateTime(nowTs);
 
-    NFDateTime triggerDate(nowDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear());
-    triggerDate.AddSeconds(triggerSec);
+  NFDateTime triggerDate(nowDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear());
+  triggerDate.AddSeconds(triggerSec);
 
-    int nowDay = nowDate.GetDayOfWeek() == 0 ? 7 : nowDate.GetDayOfWeek();
-    if (triggerDay > nowDay) 
-        triggerDate.AddDays(triggerDay - nowDay);
-    else if (triggerDay < nowDay || triggerDate.GetTimestamp() < nowDate.GetTimestamp()) 
-        triggerDate.AddDays(7 - nowDay + triggerDay);
+  int nowDay = nowDate.GetDayOfWeek() == 0 ? 7 : nowDate.GetDayOfWeek();
+  if (triggerDay > nowDay)
+    triggerDate.AddDays(triggerDay - nowDay);
+  else if (triggerDay < nowDay || triggerDate.GetTimestamp() < nowDate.GetTimestamp())
+    triggerDate.AddDays(7 - nowDay + triggerDay);
 
-    return triggerDate.GetTimestamp() - nowDate.GetTimestamp();
+  return triggerDate.GetTimestamp() - nowDate.GetTimestamp();
+}
+
+int GetResetTs(int64_t nowTs) {
+  NFDateTime nowDate = NFDateTime(nowTs);
+  std::cout << nowDate.GetAsString() << std::endl;
+
+  NFDateTime triggerDate(nowDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear(), 4, 0, 0);
+  
+  if (triggerDate >= nowDate)
+    std::cout << triggerDate.GetTimestamp() << std::endl;
+  else {
+    triggerDate.AddDays(1);
+    std::cout << triggerDate.GetTimestamp() << std::endl;;
+  }
+
+  return 0;
 }
 
 int main(void) {
-  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 2, 36000) << std::endl;
-  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 2, 72000) << std::endl;
+  {
+    // std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 2, 36000) << std::endl;
+    // std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 2, 72000) << std::endl;
 
-  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 1, 72000) << std::endl;
+    // std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 1, 72000) << std::endl;
 
-  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 7, 72000) << std::endl;
+    // std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 7, 72000) << std::endl;
 
-  std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 5, 36000) << std::endl;
+    // std::cout << GetWeekResetTs(NFDateTime::Now().GetTimestamp(), 5, 36000) << std::endl;
 
-  std::cout << GetWeekResetTs(1636423200, 2, 36000) << std::endl;
+    // std::cout << GetWeekResetTs(1636423200, 2, 36000) << std::endl;
+  }
 
+  {
+    NFDateTime nowDate = NFDateTime(28, 2, 2022, 13, 11, 11);
+
+    GetResetTs(nowDate.GetTimestamp());
+    GetResetTs(NFDateTime(nowDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear(), 1, 55, 00).GetTimestamp());
+    GetResetTs(NFDateTime(nowDate.GetDay(), nowDate.GetMonth(), nowDate.GetYear(), 4, 0, 0).GetTimestamp());
+  }
   return EXIT_SUCCESS;
 }
