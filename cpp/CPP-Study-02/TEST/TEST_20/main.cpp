@@ -1,20 +1,30 @@
 #include <iostream>
-#include <chrono>
+#include <set>
+#include <vector>
+#include <string>
 
-using f_minutes = std::chrono::duration<double, std::chrono::minutes::period>;
+void foo() {
+  constexpr int32_t N = 9;
 
-int main() {
+  std::set<std::string> s;
+  for (int i = 0; i < 10; ++i) {
+    s.insert(std::to_string(i));
+  }
 
-  //get the starting number of minutes
-  double input;
-  std::cout << "Enter number of minutes: ";
-  std::cin >> input;
+  using T = typename std::decay<decltype(*s.begin())>::type;
 
-  f_minutes decimalMinutes(input);
+  int32_t dis = s.size() > N ? N : s.size();
 
-  auto mins = duration_cast<std::chrono::minutes>(decimalMinutes);
-  decimalMinutes -= mins;
+  std::cout << dis << std::endl;
 
-  //output days, hours, minutes and seconds
-  std::cout << mins.count() << "h " << std::endl;
+  std::vector<T> range(s.cbegin(), std::next(s.cbegin(), dis));
+  for (const auto &str : range) {
+    std::cout << str << std::endl;
+  }
+}
+
+int main(int argc, char *argv[]) {
+  foo();
+
+  return EXIT_SUCCESS;
 }
