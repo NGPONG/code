@@ -395,7 +395,7 @@ std::string foo(std::string account, bool verify) {
 
 int main(void) {
   for (int i = 0; i < 10; ++i) {
-    foo("xxtest_" + std::to_string(i), true);
+    std::cout << foo("xxtest_" + std::to_string(i), true) << std::endl;
   }
 
   // std::string str = std::to_string(false);
