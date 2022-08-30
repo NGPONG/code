@@ -1,25 +1,30 @@
 #include <iostream>
-#include <algorithm>
-#include <set>
-#include <string>
-#include <iterator>
-#include <random>
-#include <chrono>
+#include <bits/c++config.h>
+
+struct A {
+  int m;
+};
+
+struct B {
+  B(B const &) {}
+};
+
+struct C {
+  virtual void foo();
+};
+
+struct D {
+  int m;
+
+  D(D const &) = default;  // -> trivially copyable
+  D(int x)
+    : m(x + 1) {}
+};
 
 int main() {
-  std::vector<int32_t> v = { 1,2,3,4,5,6,7,8,9,10 };
-
-  for (int i = 0; i < 3; ++i) {
-    std::cout << "------------------------------" << std::endl;
-
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::shuffle(v.begin(), v.end(), std::default_random_engine { seed });
-
-    for (auto& i : v)
-      std::cout << i << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-  }
-
-  return 0;
+  std::cout << std::boolalpha;
+  std::cout << std::is_trivially_copyable<A>::value << '\n';
+  std::cout << std::is_trivially_copyable<B>::value << '\n';
+  std::cout << std::is_trivially_copyable<C>::value << '\n';
+  std::cout << std::is_trivially_copyable<D>::value << '\n';
 }
