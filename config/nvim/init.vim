@@ -749,7 +749,7 @@ nnoremap <silent> <C-S-Up> <C-w><Up>
 nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
-noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
+" noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent><C-F12> <C-o>
 noremap <silent><C-k><C-d> :<C-u>call CocActionAsync('formatSelected',visualmode())<CR>
 nnoremap <C-a> gg<S-v>G

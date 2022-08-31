@@ -1,18 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <time.h>
 
-#define ZBX_UNUSED(var) (void)(var)
-
-
-
-void foo(int i, int b) {
-  (void)(i);
-  (void)(b);
+char* foo(int32_t rdi, const char* rsi, int64_t rdx, int32_t* rcx) {
+  return "hello,world!";
 }
 
 int main(int argc, char *argv[]) {
+  const char* str = foo(0x400, NULL, 0x100, NULL);
+  printf("%s\n", str);
 
   return EXIT_SUCCESS;
 }

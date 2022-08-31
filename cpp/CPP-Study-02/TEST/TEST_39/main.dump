@@ -1,0 +1,141 @@
+
+main.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z3foov>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 89 c7             	mov    %rax,%rdi
+  26:	e8 00 00 00 00       	callq  2b <_Z3foov+0x2b>
+  2b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  2f:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  36:	00 00 
+  38:	74 05                	je     3f <_Z3foov+0x3f>
+  3a:	e8 00 00 00 00       	callq  3f <_Z3foov+0x3f>
+  3f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  43:	c9                   	leaveq 
+  44:	c3                   	retq   
+
+0000000000000045 <main>:
+  45:	f3 0f 1e fa          	endbr64 
+  49:	55                   	push   %rbp
+  4a:	48 89 e5             	mov    %rsp,%rbp
+  4d:	53                   	push   %rbx
+  4e:	48 83 ec 18          	sub    $0x18,%rsp
+  52:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  59:	00 00 
+  5b:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  5f:	31 c0                	xor    %eax,%eax
+  61:	48 8d 45 e7          	lea    -0x19(%rbp),%rax
+  65:	48 89 c7             	mov    %rax,%rdi
+  68:	e8 00 00 00 00       	callq  6d <main+0x28>
+  6d:	bb 00 00 00 00       	mov    $0x0,%ebx
+  72:	48 8d 45 e7          	lea    -0x19(%rbp),%rax
+  76:	48 89 c7             	mov    %rax,%rdi
+  79:	e8 00 00 00 00       	callq  7e <main+0x39>
+  7e:	89 d8                	mov    %ebx,%eax
+  80:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  84:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  8b:	00 00 
+  8d:	74 05                	je     94 <main+0x4f>
+  8f:	e8 00 00 00 00       	callq  94 <main+0x4f>
+  94:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+  98:	c9                   	leaveq 
+  99:	c3                   	retq   
+
+000000000000009a <_Z41__static_initialization_and_destruction_0ii>:
+  9a:	f3 0f 1e fa          	endbr64 
+  9e:	55                   	push   %rbp
+  9f:	48 89 e5             	mov    %rsp,%rbp
+  a2:	48 83 ec 10          	sub    $0x10,%rsp
+  a6:	89 7d fc             	mov    %edi,-0x4(%rbp)
+  a9:	89 75 f8             	mov    %esi,-0x8(%rbp)
+  ac:	83 7d fc 01          	cmpl   $0x1,-0x4(%rbp)
+  b0:	75 3b                	jne    ed <_Z41__static_initialization_and_destruction_0ii+0x53>
+  b2:	81 7d f8 ff ff 00 00 	cmpl   $0xffff,-0x8(%rbp)
+  b9:	75 32                	jne    ed <_Z41__static_initialization_and_destruction_0ii+0x53>
+  bb:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # c2 <_Z41__static_initialization_and_destruction_0ii+0x28>
+  c2:	48 89 c7             	mov    %rax,%rdi
+  c5:	e8 00 00 00 00       	callq  ca <_Z41__static_initialization_and_destruction_0ii+0x30>
+  ca:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # d1 <_Z41__static_initialization_and_destruction_0ii+0x37>
+  d1:	48 89 c2             	mov    %rax,%rdx
+  d4:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # db <_Z41__static_initialization_and_destruction_0ii+0x41>
+  db:	48 89 c6             	mov    %rax,%rsi
+  de:	48 8b 05 00 00 00 00 	mov    0x0(%rip),%rax        # e5 <_Z41__static_initialization_and_destruction_0ii+0x4b>
+  e5:	48 89 c7             	mov    %rax,%rdi
+  e8:	e8 00 00 00 00       	callq  ed <_Z41__static_initialization_and_destruction_0ii+0x53>
+  ed:	90                   	nop
+  ee:	c9                   	leaveq 
+  ef:	c3                   	retq   
+
+00000000000000f0 <_GLOBAL__sub_I__Z3foov>:
+  f0:	f3 0f 1e fa          	endbr64 
+  f4:	55                   	push   %rbp
+  f5:	48 89 e5             	mov    %rsp,%rbp
+  f8:	be ff ff 00 00       	mov    $0xffff,%esi
+  fd:	bf 01 00 00 00       	mov    $0x1,%edi
+ 102:	e8 93 ff ff ff       	callq  9a <_Z41__static_initialization_and_destruction_0ii>
+ 107:	5d                   	pop    %rbp
+ 108:	c3                   	retq   
+
+Disassembly of section .text._ZN4BASEC2Ev:
+
+0000000000000000 <_ZN4BASEC1Ev>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 10          	sub    $0x10,%rsp
+   c:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+  10:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 17 <_ZN4BASEC1Ev+0x17>
+  17:	48 89 c6             	mov    %rax,%rsi
+  1a:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 21 <_ZN4BASEC1Ev+0x21>
+  21:	48 89 c7             	mov    %rax,%rdi
+  24:	e8 00 00 00 00       	callq  29 <_ZN4BASEC1Ev+0x29>
+  29:	48 89 c2             	mov    %rax,%rdx
+  2c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  30:	48 89 c6             	mov    %rax,%rsi
+  33:	48 89 d7             	mov    %rdx,%rdi
+  36:	e8 00 00 00 00       	callq  3b <_ZN4BASEC1Ev+0x3b>
+  3b:	48 8b 15 00 00 00 00 	mov    0x0(%rip),%rdx        # 42 <_ZN4BASEC1Ev+0x42>
+  42:	48 89 d6             	mov    %rdx,%rsi
+  45:	48 89 c7             	mov    %rax,%rdi
+  48:	e8 00 00 00 00       	callq  4d <_ZN4BASEC1Ev+0x4d>
+  4d:	90                   	nop
+  4e:	c9                   	leaveq 
+  4f:	c3                   	retq   
+
+Disassembly of section .text._ZN4BASED2Ev:
+
+0000000000000000 <_ZN4BASED1Ev>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 10          	sub    $0x10,%rsp
+   c:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+  10:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 17 <_ZN4BASED1Ev+0x17>
+  17:	48 89 c6             	mov    %rax,%rsi
+  1a:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 21 <_ZN4BASED1Ev+0x21>
+  21:	48 89 c7             	mov    %rax,%rdi
+  24:	e8 00 00 00 00       	callq  29 <_ZN4BASED1Ev+0x29>
+  29:	48 89 c2             	mov    %rax,%rdx
+  2c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  30:	48 89 c6             	mov    %rax,%rsi
+  33:	48 89 d7             	mov    %rdx,%rdi
+  36:	e8 00 00 00 00       	callq  3b <_ZN4BASED1Ev+0x3b>
+  3b:	48 8b 15 00 00 00 00 	mov    0x0(%rip),%rdx        # 42 <_ZN4BASED1Ev+0x42>
+  42:	48 89 d6             	mov    %rdx,%rsi
+  45:	48 89 c7             	mov    %rax,%rdi
+  48:	e8 00 00 00 00       	callq  4d <_ZN4BASED1Ev+0x4d>
+  4d:	90                   	nop
+  4e:	c9                   	leaveq 
+  4f:	c3                   	retq   
