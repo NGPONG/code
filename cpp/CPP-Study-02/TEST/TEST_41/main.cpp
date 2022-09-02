@@ -1,113 +1,63 @@
-#include <algorithm>
-#include <cstdint>
-#include <forward_list>
-#include <array>
-#include <chrono>
 #include <iostream>
-#include <iterator>
-#include <cstdlib>
-#include <memory>
 
-using namespace std;
-using namespace std::chrono;
+class ClassName {
+public:
+  explicit ClassName(int Member)
+    : member_(Member) {}
 
-template<bool is_array>
-struct timer {
-  high_resolution_clock::time_point beg;
-  timer()
-    : beg(high_resolution_clock::now()) {
+  int FunctionName(int one, int two) {
+    return (++member_ + one) * two;
   }
-  ~timer() {
-    if constexpr (is_array) {
-      std::cout << "Array: ";
-    } else {
-      std::cout << "List: ";
-    }
-    std::cout << (high_resolution_clock::now() - beg) / 1us << "us" << std::endl;
-  }
+
+private:
+  int member_;
 };
 
-template<size_t test_size>
-void prepare_data(std::forward_list<int> &list, std::array<int, test_size> &ar) {
-  for (int i = test_size - 1; i >= 0; --i) {
-    int value = rand();
-    ar[i] = value;
-    list.emplace_front(value);
+// class to capture the caller and print it.
+class ClassNameDecorator {
+public:
+  ClassNameDecorator(int Member)
+    : className_(Member) {}
+
+  ClassNameDecorator &FunctionName(std::string Caller, std::string File, int Line) {
+    std::cout
+      << "Reporter: ClassName::FunctionName() is being called by "
+      << Caller << "() in " << File << ":" << Line << std::endl;
+    return *this;
   }
+  int operator()(int one, int two) {
+    return className_.FunctionName(one, two);
+  }
+
+private:
+  ClassName className_;
+};
+
+// remove the symbol for the function, then define a new version that instead
+// creates a stack temporary instance of ClassNameDecorator.
+// FunctionName is then replaced with a version that takes the caller information
+// and uses Method Chaining to allow operator() to be invoked with the original
+// parameters.
+#undef ClassName
+#define ClassName ClassNameDecorator
+#undef FunctionName
+#define FunctionName FunctionName(__FUNCTION__, __FILE__, __LINE__)
+
+
+void Caller1() {
+  ClassName foo(21);
+  int val = foo.FunctionName(7, 9);  // <-- works for captured return value
+  std::cout << "Mystery Function got " << val << std::endl;
 }
 
-template<size_t test_size>
-void do_nothing() {
-  std::forward_list<int> list;
-  auto ar = make_unique<std::array<int, test_size>>();
-  prepare_data(list, *ar);
-  std::cout << "Do nothing.\n";
-  {
-    timer<true> clk;
-    int i = 0;
-    for (auto &e : *ar) {
-      i += 1;
-    }
-    std::cout << i << std::endl;
-  }
-  {
-    timer<false> clk;
-    int i = 0;
-    for (auto &e : list) {
-      i += 1;
-    }
-    std::cout << i << std::endl;
-  }
+void Caller2() {
+  ClassName foo(42);
+  // Works for inline as well.
+  std::cout << "Mystery Function got " << foo.FunctionName(11, 13) << std::endl;
 }
 
-
-template<size_t test_size>
-void sum() {
-  std::forward_list<int> list;
-  auto ar = make_unique<std::array<int, test_size>>();
-  prepare_data(list, *ar);
-  std::cout << "Calculate sum.\n";
-  {
-    int64_t sum = 0;
-    timer<true> clk;
-    for (auto &e : *ar) {
-      sum += e;
-    };
-    std::cout << "sum: " << sum << std::endl;
-  }
-  {
-    int64_t sum = 0;
-    timer<false> clk;
-    for (auto &e : list) {
-      sum += e;
-    };
-    std::cout << "sum: " << sum << std::endl;
-  }
-}
-template<size_t test_size>
-void copy() {
-  std::forward_list<int> list, list2;
-  auto ar = make_unique<std::array<int, test_size>>(), ar2 = make_unique<std::array<int, test_size>>();
-  std::cout << "Copy.\n";
-
-  prepare_data(list, *ar);
-  prepare_data(list2, *ar2);
-
-  {
-    timer<true> clk;
-    std::copy(ar->begin(), ar->end(), ar2->begin());
-    cout << (*ar2)[rand() % ar2->size()] << std::endl;
-  }
-  {
-    timer<false> clk;
-    std::copy(list.begin(), list.end(), list2.begin());
-    cout << "hello,world" << std::endl;
-  }
-}
-
-int main() {
-  copy<1'000'000>();
-  sum<1'000'000>();
-  do_nothing<1'000'000>();
+int main(int argc, char **argv) {
+  Caller1();
+  Caller2();
   return 0;
 }
