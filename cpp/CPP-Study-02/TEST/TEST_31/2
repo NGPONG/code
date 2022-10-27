@@ -1,0 +1,104 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <iomanip>
+#include <time.h>
+#include <vector>
+#include <chrono>
+#include <iterator>
+#include <memory>
+
+// #include <google/protobuf/text_format.h>
+// #include <benchmark/benchmark.h>
+
+#include "cron.hpp"
+#include "datetime.hpp"
+#include "ccronexpr.h"
+#include "croncpp.h"
+
+// static void BM_1(benchmark::State& state) {
+//   KWCron cron("0 4 * * *");
+
+//   for (auto _ : state) {
+//     int64_t now = KWDateTime::KWGetTimeMS();
+//     for (int i = 0; i < 1000; ++i) {
+//       now = cron.CronToNext(now);
+//     }
+//   }
+// }
+// BENCHMARK(BM_1);
+
+// static void BM_2(benchmark::State& state) {
+//   cron_expr expr;
+//   memset(&expr, 0, sizeof(cron_expr));
+
+//   const char* err = nullptr;
+//   cron_parse_expr("0 0 4 * * *", &expr, &err);
+
+//   for (auto _ : state) {
+//     int32_t now = time(0);
+//     for (int i = 0; i < 1000; ++i) {
+//       now = cron_prev(&expr, now);
+//     }
+//   }
+// }
+// BENCHMARK(BM_2);
+
+// static void BM_3(benchmark::State& state) {
+//   auto cron = cron::make_cron("0 0 4 * * *");
+
+//   for (auto _ : state) {
+//     std::time_t now = std::time(0);
+//     for (int i = 0; i < 1000; ++i) {
+//       now = cron::cron_next(cron, now);
+//     }
+//   }
+// }
+// BENCHMARK(BM_3);
+
+// BENCHMARK_MAIN();
+
+auto get_time(time_t unix_timestamp) {
+  auto time_buf = std::make_unique<char[]>(80);
+  struct tm ts;
+  ts = *localtime(&unix_timestamp);
+  strftime(time_buf.get(), 80, "%a %Y-%m-%d %H:%M:%S %Z", &ts);
+
+  return time_buf;
+}
+
+int main(void) {
+  while (true) {
+    std::string exp;
+
+    getline(std::cin, exp);
+    KWCron cron(exp);
+
+    int64_t now = KWDateTime::KWGetTimeMS();
+
+    std::cout << "Start to get next 10 time schedule.: " << std::endl;
+    int64_t next_now = now;
+    for (int i = 0; i < 10; ++i) {
+      next_now = cron.CronToNext(next_now);
+      std::cout << "\t" << get_time(next_now / 1000).get() << std::endl;
+    }
+
+    std::cout << "Start to get prev 10 time schedule.: " << std::endl;
+    int64_t prev_now = now;
+    for (int i = 0; i < 10; ++i) {
+      prev_now = cron.CronToPrevious(prev_now);
+      std::cout << "\t" << get_time(prev_now / 1000).get() << std::endl;
+    }
+
+    // std::cout << "Start to get previous 10 time schedule.: " << std::endl;
+    // int64_t prev_now = now;
+    // for (int i = 0; i < 10; ++i) {
+    //   prev_now = cron.CronToPrevious(prev_now);
+    //   std::cout << "\t" << get_time(prev_now / 1000).get() << std::endl;
+    // }
+  }
+
+  return EXIT_SUCCESS;
+}

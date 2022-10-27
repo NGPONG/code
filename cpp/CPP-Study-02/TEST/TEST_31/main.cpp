@@ -10,8 +10,8 @@
 #include <iterator>
 #include <memory>
 
-#include <google/protobuf/text_format.h>
-#include <benchmark/benchmark.h>
+// #include <google/protobuf/text_format.h>
+// #include <benchmark/benchmark.h>
 
 #include "cron.hpp"
 #include "datetime.hpp"
@@ -72,17 +72,25 @@ auto get_time(time_t unix_timestamp) {
 int main(void) {
   while (true) {
     std::string exp;
-    getline(std::cin, exp);
 
+    getline(std::cin, exp);
     KWCron cron(exp);
 
-    int64_t now = KWDateTime::KWGetTimeMS();
+    int64_t now = 0;// KWDateTime::KWGetTimeMS();
 
     std::cout << "Start to get next 10 time schedule.: " << std::endl;
     int64_t next_now = now;
     for (int i = 0; i < 10; ++i) {
       next_now = cron.CronToNext(next_now);
       std::cout << "\t" << get_time(next_now / 1000).get() << std::endl;
+    }
+
+    std::cout << "Start to get prev 10 time schedule.: " << std::endl;
+    int64_t prev_now = now;
+    for (int i = 0; i < 10; ++i) {
+      prev_now = cron.CronToPrevious(prev_now);
+      std::cout << prev_now << std::endl;
+      std::cout << "\t" << get_time(prev_now / 1000).get() << std::endl;
     }
 
     // std::cout << "Start to get previous 10 time schedule.: " << std::endl;

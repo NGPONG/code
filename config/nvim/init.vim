@@ -26,7 +26,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'qpkorr/vim-bufkill'
   
   " Intelligent
-  Plug 'neoclide/coc.nvim', {'brnch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   
   " visual tree
@@ -346,7 +346,7 @@ function! Open_tree()
   wincmd p
   call Refresh_tree()
 endfunction
-map <silent> <C-S-e> :call Open_tree()<CR>
+map <C-e> :call Open_tree()<CR>
 autocmd BufWritePost * call Refresh_tree()
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIgnore = ['^.ccls-cache$']
@@ -739,15 +739,21 @@ vmap q b
 " vnoremap w iw 
 vnoremap w e
 nnoremap q b
+
+" 关于 buffer 之前的切换 keys
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
-" setl bufhidden=delete<bar>bprevious<Esc>
 nnoremap <silent> <C-Del> :BW<CR>
+"
+
+" 关于 window 之间的切换 keys
 nnoremap <silent> <C-S-Left> <C-w><Left>
 nnoremap <silent> <C-S-Right> <C-w><Right>
 nnoremap <silent> <C-S-Up> <C-w><Up>
 nnoremap <silent> <C-S-Down> <C-w><Down>
 nnoremap <silent> <C-S-Del> <C-w>q
+"
+
 noremap <silent><F12> :<C-u>call CocActionAsync('jumpDefinition')<CR>
 " noremap <silent>sf :<C-u>call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent><C-F12> <C-o>

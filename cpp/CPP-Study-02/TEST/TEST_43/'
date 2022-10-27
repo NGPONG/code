@@ -1,0 +1,15 @@
+#include <iostream>
+
+class BASE 
+{
+public:
+  bool foo(int i) { 
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    return true;
+  };
+};
+
+int main() {
+  BASE b;
+  b.foo();
+}
