@@ -502,17 +502,9 @@ function! s:show_documentation()
 endfunction
 nnoremap <silent><C-p> :call <SID>show_documentation()<CR>
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-let g:coc_snippet_next = '<tab>'
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 "autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
@@ -785,8 +777,6 @@ map <silent> <C-Up> <cmd>call smoothie#upwards()<CR>
 map <silent> <C-Down> <cmd>call smoothie#downwards()<CR>
 map <silent> <PageDown> <cmd>call smoothie#forwards()<CR>
 map <silent> <PageUp> <cmd>call smoothie#backwards()<CR>
-inoremap <silent><c-z> <Esc>:u<CR>i
-nnoremap <silent><c-z> u
 map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
 inoremap <C-Space> <Nop>
