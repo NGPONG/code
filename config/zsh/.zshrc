@@ -189,4 +189,4 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 WSL2_IP=$(hostname -I | awk '{print $1}')
 
-export DISPLAY=192.168.3.26:0.0
+export DISPLAY=192.168.1.3:0.0
