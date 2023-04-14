@@ -37,8 +37,18 @@
     "cpp": ["c"]
   },
   "snippets.priority": 999,
-
   "snippets.userSnippetsDirectory": "~/.config/nvim/ultisnips",
+
+  // 等有时间在尝试 clangd 的配置
+  //clangd
+  // "clangd.arguments": ["--pch-storage=memory", "-j", "20", "--completion-style=detailed", "--background-index", "--all-scopes-completion=true"],
+  // "clangd.disableProgressNotifications":false,
+  // "clangd.disableSnippetCompletion":false,
+  // "clangd.disableDiagnostics":false,
+  // "clangd.disableCompletion":false,
+  // "semanticTokens.filetypes":["c", "cpp"],
+  // "clangd.inlayHints.enable":false,
+  // "inlayHint.enable":false,
 
   // languageserver
   "languageserver": {
@@ -67,7 +77,7 @@
         },
         "index": {
           "onChange": true,
-          "threads": 8,
+          "threads": 4,
           "initialBlacklist": ["."]
         },
         "capabilities": {

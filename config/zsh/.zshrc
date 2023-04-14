@@ -169,9 +169,11 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # some useful env variable
-export VISUAL=vim
+export VISUAL=nvim
+export GIT_EDITOR=nvim
 export EDITOR="$VISUAL"
-export WIN_HOME='/mnt/c/Users/NGPONG/Desktop/'
+export win_home='/mnt/c/Users/Administrator/Desktop/'
+alias explorer="explorer.exe"
 
 # custom commands
 # alias netstat='/mnt/c/Windows/System32/netstat.exe'
@@ -183,10 +185,12 @@ ulimit -c unlimited
 export GO111MODULE=""
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/home/ngpong/.local/bin
 
 # set proxy
 HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 WSL2_IP=$(hostname -I | awk '{print $1}')
 
-export DISPLAY=192.168.1.3:0.0
+export DISPLAY=10.2.49.61:0.0
+
+BASH_ENV=""

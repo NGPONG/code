@@ -70,6 +70,9 @@ call plug#end()
 
 "------------------------------BY_GLOBAL-------------------------------------------
 
+" 禁用鼠标模式
+set mouse=
+
 " no-wrap for mysql cli
 set nowrap
 
@@ -732,13 +735,13 @@ vmap q b
 vnoremap w e
 nnoremap q b
 
-" 关于 buffer 之前的切换 keys
+" 映射 buffer 之前的切换的按键
 nnoremap <silent> <C-Left> :bp<Esc>
 nnoremap <silent> <C-Right> :bn<Esc>
 nnoremap <silent> <C-Del> :BW<CR>
 "
 
-" 关于 window 之间的切换 keys
+" 映射 window 之间的切换的按键
 nnoremap <silent> <C-S-Left> <C-w><Left>
 nnoremap <silent> <C-S-Right> <C-w><Right>
 nnoremap <silent> <C-S-Up> <C-w><Up>
@@ -765,23 +768,36 @@ nnoremap <silent><C-n> :CocList --normal diagnostics<CR>
 nnoremap <silent><C-j> :CocList --normal quickfix<CR>
 "nnoremap <silent><C-b> :call vimspector#ToggleBreakpoint()<CR>
 vmap <C-k><C-s> <plug>NERDCommenterToggle
+
+" 不知道
 map <F1> <Esc>
 imap <F1> <Esc>
+
+" 映射光标不动的情况下上下滚动的按键
 nnoremap <S-Up> <C-y>
 nnoremap <S-Down> <C-e>
 vnoremap <S-Up> <C-y>
 vnoremap <S-Down> <C-e>
-" nnoremap <C-Up> <C-u>
+
+" 映射平滑使用上下滚动的按键
 map <silent> <C-Up> <cmd>call smoothie#upwards()<CR>
-" nnoremap <C-Down> <C-d>
 map <silent> <C-Down> <cmd>call smoothie#downwards()<CR>
 map <silent> <PageDown> <cmd>call smoothie#forwards()<CR>
 map <silent> <PageUp> <cmd>call smoothie#backwards()<CR>
+"
+
+" 不知道
 map <S-Insert> <C-r>"
 map! <S-Insert> <C-r>"
+"
+
+" 映射 windows 下切换输入法的按键
 inoremap <C-Space> <Nop>
 nnoremap <C-Space> <Nop>
-nnoremap <C-f> /
-" tnoremap <Esc> <C-\><C-n> " this key-bind make strange with fzf closing behavior.
+"
+
+" this key-bind make strange with fzf closing behavior.
+" tnoremap <Esc> <C-\><C-n> 
+"
 
 "---------------------------------------------------------------------------------

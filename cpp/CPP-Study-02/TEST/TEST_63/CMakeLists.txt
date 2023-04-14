@@ -1,0 +1,7 @@
+ADD_DEFINITIONS(-D_THREAD_SAFE)
+
+BUILD_STATIC_PLUGIN(
+    PROJECT_NAME "kwprotocol"
+    FOLDER_NAME "kwcommon/kwprotocol"
+    LINK_LIBRARIES_LIST protobuf
+)

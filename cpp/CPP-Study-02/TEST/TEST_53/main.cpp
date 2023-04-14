@@ -1,6 +1,7 @@
 #include <iostream>
 #include <tuple>
 #include <vector>
+#include <algorithm>
 
 using DataList = std::tuple<std::string, int32_t, int32_t>;
 
