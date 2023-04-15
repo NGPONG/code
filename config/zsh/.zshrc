@@ -168,16 +168,57 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# some useful env variable
-export VISUAL=nvim
-export GIT_EDITOR=nvim
-export EDITOR="$VISUAL"
+# user_setting() {
+
+export BASH_ENV=""
+export HOST_IP=$(ipconfig.exe | grep IPv4 | head -1 | rev | awk '{print $1}' | rev | tr -d '\r')
+export WSL2_IP=$(hostname -I | awk '{print $1}')
+export SOCKS5_ADDR="socks5://$HOST_IP:7890"
+export HTTP_ADDR="http://$HOST_IP:7890"
 export win_home='/mnt/c/Users/Administrator/Desktop/'
-alias explorer="explorer.exe"
 
 # custom commands
 # alias netstat='/mnt/c/Windows/System32/netstat.exe'
 alias lss='ls -la --color=always | sort -r'
+alias show_my_proxy="curl -i cip.cc"
+alias explorer="/mnt/c/Windows/explorer.exe"
+
+# proxy
+function setproxy() {
+    export all_proxy="$SOCKS5_ADDR"
+    export http_proxy="$HTTP_ADDR"
+    export https_proxy="$HTTP_ADDR"
+    export ALL_PROXY="$SOCKS5_ADDR"
+    export HTTP_PROXY="$HTTP_ADDR"
+    export HTTPS_PROXY="$HTTP_ADDR"
+
+    # git
+    git config --global http.proxy "$HTTP_ADDR"
+    git config --global https.proxy "$HTTP_ADDR"
+
+    # declare
+    show_my_proxy
+}
+function unsetproxy() {
+    unset all_proxy
+    unset http_proxy
+    unset https_proxy
+    unset ALL_PROXY
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+
+    # git
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+
+    # declare
+    show_my_proxy
+}
+
+# some useful env variable
+export VISUAL=nvim
+export GIT_EDITOR=nvim
+export EDITOR="$VISUAL"
 
 ulimit -c unlimited
 
@@ -187,10 +228,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/home/ngpong/.local/bin
 
-# set proxy
-HOST_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-WSL2_IP=$(hostname -I | awk '{print $1}')
+# x11
+export DISPLAY=$HOST_IP:0.0
 
-export DISPLAY=10.2.49.61:0.0
-
-BASH_ENV=""
+# }
