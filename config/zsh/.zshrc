@@ -171,6 +171,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # user_setting() {
 
 export BASH_ENV=""
+export PATH=$PATH:/mnt/c/Windows/:/mnt/c/Windows/system32:/mnt/c/WINDOWS/:/mnt/c/WINDOWS/system32:/mnt/c/Users/NGPONG/AppData/Local/Programs/'Microsoft VS Code'/bin:/mnt/c/windows/System32/WindowsPowerShell/v1.0
 export HOST_IP=$(ipconfig.exe | grep IPv4 | head -1 | rev | awk '{print $1}' | rev | tr -d '\r')
 export WSL2_IP=$(hostname -I | awk '{print $1}')
 export SOCKS5_ADDR="socks5://$HOST_IP:7890"
@@ -178,9 +179,8 @@ export HTTP_ADDR="http://$HOST_IP:7890"
 export win_home='/mnt/c/Users/Administrator/Desktop/'
 
 # custom commands
-# alias netstat='/mnt/c/Windows/System32/netstat.exe'
 alias lss='ls -la --color=always | sort -r'
-alias show_my_proxy="curl -i cip.cc"
+alias ipinfo="curl http://ip-api.com/json/ | jq"
 alias explorer="/mnt/c/Windows/explorer.exe"
 
 # proxy
@@ -197,7 +197,7 @@ function setproxy() {
     git config --global https.proxy "$HTTP_ADDR"
 
     # declare
-    show_my_proxy
+    ipinfo
 }
 function unsetproxy() {
     unset all_proxy
@@ -212,7 +212,7 @@ function unsetproxy() {
     git config --global --unset https.proxy
 
     # declare
-    show_my_proxy
+    ipinfo
 }
 
 # some useful env variable
@@ -229,6 +229,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/home/ngpong/.local/bin
 
 # x11
-export DISPLAY=$HOST_IP:0.0
+# export DISPLAY=$HOST_IP:0.0
 
 # }
