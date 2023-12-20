@@ -20,9 +20,9 @@ public:
     std::cout << "======================" << std::endl;
 
     for (int i = 0; i < bufferBlockCount; i++) {
-      unsigned char *buffer = new unsigned char[MAX_NULTI_BUFF_SIZE]; // MIN_NULTI_BUFF_SIZE
-      printf("%p\n", buffer);
-      v.push_back(buffer);
+      unsigned char *bu = new unsigned char[MAX_NULTI_BUFF_SIZE]; // MIN_NULTI_BUFF_SIZE
+      printf("%p\n", bu);
+      v.push_back(bu);
     }
 
     std::cout << "======================" << std::endl;
@@ -41,6 +41,12 @@ private:
 
 void foo() {
   auto buffer = Buffer(MAX_BUFF_BLOCK_COUNT, MIN_NULTI_BUFF_SIZE);
+
+  auto b2 = Buffer(MAX_BUFF_BLOCK_COUNT, MIN_NULTI_BUFF_SIZE);
+}
+
+void bar(const std::string& str, const std::size_t idx) {
+  
 }
 
 int main(void) {
