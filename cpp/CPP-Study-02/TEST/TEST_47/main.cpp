@@ -25,36 +25,62 @@ enum class NGPONG : int32_t {
 // template <>
 // struct Map< NGPONG::b > { static constexpr std::array<HELLO, 1> value = { HELLO::d }; };
 
-class BASE {
-public:
-  template<typename... T>
-  static constexpr bool always_false_v = false;
+// class BASE {
+// public:
+//   template<typename... T>
+//   static constexpr bool always_false_v = false;
+// 
+//   template<size_t N>
+//   static constexpr auto str(const std::string_view sv) {
+//     std::array<char, N> arr;
+//     for (std::size_t i = 0; i < N; ++i)
+//       arr[i] = sv[i];
+//     return arr;
+//   }
+// 
+//   template<size_t N>
+//   static constexpr auto str(char const (&cstr)[N]) {
+//     std::array<char, N - 1> arr;
+//     for (std::size_t i = 0; i < N - 1; ++i)
+//       arr[i] = cstr[i];
+//     return arr;
+//   }
+// 
+//   template<auto key>
+//   struct Map;
+//   template<auto key>
+//   struct Map { static_assert(always_false_v<decltype(key)>, "hello,world"); };
+//   template<>
+//   struct Map<str("i am string")> { static constexpr std::array<HELLO, 2> value = { HELLO::w, HELLO::r }; };
+//   // template<>
+//   // struct Map<::str("hahahahah")> { static constexpr std::array<HELLO, 2> value = { HELLO::w, HELLO::r }; };
+// };
 
-  template<size_t N>
-  static constexpr auto str(const std::string_view sv) {
-    std::array<char, N> arr;
-    for (std::size_t i = 0; i < N; ++i)
-      arr[i] = sv[i];
-    return arr;
-  }
+template<typename... T>
+static constexpr bool always_false_v = false;
 
-  template<size_t N>
-  static constexpr auto str(char const (&cstr)[N]) {
-    std::array<char, N - 1> arr;
-    for (std::size_t i = 0; i < N - 1; ++i)
-      arr[i] = cstr[i];
-    return arr;
-  }
+template<size_t N>
+static constexpr auto str(const std::string_view sv) {
+  std::array<char, N> arr;
+  for (std::size_t i = 0; i < N; ++i)
+    arr[i] = sv[i];
+  return arr;
+}
 
-  template<auto key>
-  struct Map;
-  template<auto key>
-  struct Map { static_assert(always_false_v<decltype(key)>, "hello,world"); };
-  template<>
-  struct Map<str("i am string")> { static constexpr std::array<HELLO, 2> value = { HELLO::w, HELLO::r }; };
-  // template<>
-  // struct Map<::str("hahahahah")> { static constexpr std::array<HELLO, 2> value = { HELLO::w, HELLO::r }; };
-};
+template<size_t N>
+static constexpr auto str(char const (&cstr)[N]) {
+  std::array<char, N - 1> arr;
+  for (std::size_t i = 0; i < N - 1; ++i)
+    arr[i] = cstr[i];
+  return arr;
+}
+
+template<auto key>
+struct Map;
+template<auto key>
+struct Map { static_assert(always_false_v<decltype(key)>, "hello,world"); };
+template<>
+struct Map<str("i am string")> { static constexpr std::array<HELLO, 2> value = { HELLO::w, HELLO::r }; };
 
 int main(void) {
   constexpr std::string_view sv = "hahahahah";

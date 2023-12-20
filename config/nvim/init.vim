@@ -2,65 +2,69 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-  " themes
-  Plug 'morhetz/gruvbox'
-  "Plug 'NGPONG/vim-code-dark'
-  "Plug 'tomasiser/vim-code-dark'
-  "Plug 'w0ng/vim-hybrid'
-  "Plug 'rakr/vim-one'
-  "Plug 'sonph/onehalf', {'rtp': 'vim/'}
-  "Plug 'ayu-theme/ayu-vim'
-  "Plug 'srcery-colors/srcery-vim'
-  "Plug 'dunstontc/vim-vscode-theme'
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  " more syntax
-  Plug 'jackguo380/vim-lsp-cxx-highlight'
-  
-  " common
-  "Plug 'bronson/vim-trailing-whitespace'
-  "Plug 'lyokha/vim-xkbswitch'
-  Plug 'preservim/nerdcommenter'
-  Plug 'Yggdroot/indentLine'
-  Plug 'luochen1990/rainbow'
-  Plug 'psliwka/vim-smoothie'
-  Plug 'qpkorr/vim-bufkill'
-  
-  " Intelligent
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  
-  " visual tree
-  Plug 'preservim/nerdtree'
-  " Plug 'ryanoasis/vim-devicons'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  
-  " airline
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'tpope/vim-fugitive'
-  
-  " lightline
-  "Plug 'itchyny/lightline.vim'
-  "Plug 'mengelbrecht/lightline-bufferline'
-  
-  " pattern search
-  " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'mg979/vim-visual-multi'
-  Plug 'google/vim-searchindex'
-  
-  " debug
-  " Plug 'puremourning/vimspector'
-  
-  " git 
-  Plug 'airblade/vim-gitgutter'
-  
-  " async
-  "Plug 'skywind3000/asyncrun.vim'
+ " 颜色主题
+ Plug 'morhetz/gruvbox'
 
-  " markdown
-  " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+ " 语法高亮
+ "Plug 'jackguo380/vim-lsp-cxx-highlight'
+ 
+ " 代码注释行为
+ Plug 'preservim/nerdcommenter'
+
+ " 代码缩进后会有虚线的效果
+ Plug 'Yggdroot/indentLine'
+
+ " 代码花括号效果
+ Plug 'luochen1990/rainbow'
+
+ " 平滑上下滚动效果
+ Plug 'psliwka/vim-smoothie'
+
+ " 
+ Plug 'qpkorr/vim-bufkill'
+ 
+ " Intelligent
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+ 
+ " visual tree
+ Plug 'preservim/nerdtree'
+ " Plug 'ryanoasis/vim-devicons'
+ Plug 'Xuyuanp/nerdtree-git-plugin'
+ 
+ " airline
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+ Plug 'tpope/vim-fugitive'
+ 
+ " lightline
+ "Plug 'itchyny/lightline.vim'
+ "Plug 'mengelbrecht/lightline-bufferline'
+ 
+ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+ Plug 'junegunn/fzf.vim'
+ Plug 'mg979/vim-visual-multi'
+ Plug 'google/vim-searchindex'
+ 
+ " git 
+ Plug 'airblade/vim-gitgutter'
+ 
+ " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+ " Plug 'puremourning/vimspector'
+ " Plug 'skywind3000/asyncrun.vim'
+ " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+ " Plug 'bronson/vim-trailing-whitespace'
+ " Plug 'lyokha/vim-xkbswitch'
+ " Plug 'NGPONG/vim-code-dark'
+ " Plug 'tomasiser/vim-code-dark'
+ " Plug 'w0ng/vim-hybrid'
+ " Plug 'rakr/vim-one'
+ " Plug 'sonph/onehalf', {'rtp': 'vim/'}
+ " Plug 'ayu-theme/ayu-vim'
+ " Plug 'srcery-colors/srcery-vim'
+ " Plug 'dunstontc/vim-vscode-theme'
 
 call plug#end()
 
@@ -74,7 +78,7 @@ call plug#end()
 set mouse=
 
 " no-wrap for mysql cli
-set nowrap
+set nowrap sidescroll=1
 
 " remember_postion() {
 
@@ -136,7 +140,7 @@ set autoindent
 
 " share_cliboard_by_sys() {
 
-set clipboard^=unnamed,unnamedplus
+set clipboard=unnamedplus
 
 " }
 
@@ -165,7 +169,6 @@ set mousehide
 
 " display() {
 
-set wrap
 set breakindent
 set breakindentopt=sbr
 set showbreak=➥►
@@ -282,7 +285,7 @@ let g:gruvbox_sign_column = 'bg0'
 
 " }
 
-" air_line() {
+" vim-airline/vim-airline {
 let g:airline_extensions = ['tabline','branch', 'hunks'] ",'branch', 'hunks'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -313,28 +316,6 @@ let g:airline_symbols.maxlinenr = '☰ '
 let g:airline_symbols.dirty='⚡'
 
 " }
-
-
-" light_line() {
-
-"let g:lightline = {
-"      \ 'colorscheme': 'powerline',
-"      \ 'active': {
-"      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
-"      \ },
-"      \ 'tabline': {
-"      \   'left': [ ['buffers'] ],
-"      \   'right': [ ['close'] ]
-"      \ },
-"      \ 'component_expand': {
-"      \   'buffers': 'lightline#bufferline#buffers'
-"      \ },
-"      \ 'component_type': {
-"      \   'buffers': 'tabsel'
-"      \ }
-"      \ }
-
-"}
 
 
 " nerd tree() {
@@ -632,15 +613,23 @@ nmap hp <Plug>(GitGutterPreviewHunk)
 
 " }
 
-" nerd_commenter() {
+" preservim/nerdcommenter {
 
+" Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'both'
+" Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 0
+" Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+" Use placeholders when nesting comments.
 let g:NERDUsePlaceHolders = 0
 
 " }
@@ -718,15 +707,15 @@ vnoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') 
 inoremap <silent><expr> <Home> (char2nr(matchstr(getline('.'), '\%' . (col('.') == 1 ? 1 : col('.') - 1) . 'c.'))) != 32 ? '<Esc>^i' : '<Esc>0i'
 vnoremap <End> $h
 nnoremap <End> $l
-"nnoremap <BS> "_X
-"vnoremap <BS> "_X
+"" nnoremap <BS> "_X
+"" vnoremap <BS> "_X
 "nnoremap <Space> i<Space><Esc>l
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
-nnoremap p P
-vnoremap p pgvy
+
+" vnoremap p pgvy
 nmap a i
 vmap a I
 vmap q b
@@ -736,8 +725,8 @@ vnoremap w e
 nnoremap q b
 
 " 映射 buffer 之前的切换的按键
-nnoremap <silent> <C-Left> :bp<Esc>
-nnoremap <silent> <C-Right> :bn<Esc>
+nnoremap <silent> <C-Left> :bp<CR>
+nnoremap <silent> <C-Right> :bn<CR>
 nnoremap <silent> <C-Del> :BW<CR>
 "
 
@@ -784,7 +773,6 @@ map <silent> <C-Up> <cmd>call smoothie#upwards()<CR>
 map <silent> <C-Down> <cmd>call smoothie#downwards()<CR>
 map <silent> <PageDown> <cmd>call smoothie#forwards()<CR>
 map <silent> <PageUp> <cmd>call smoothie#backwards()<CR>
-"
 
 " 不知道
 map <S-Insert> <C-r>"
@@ -795,7 +783,6 @@ map! <S-Insert> <C-r>"
 inoremap <C-Space> <Nop>
 nnoremap <C-Space> <Nop>
 "
-
 " this key-bind make strange with fzf closing behavior.
 " tnoremap <Esc> <C-\><C-n> 
 "

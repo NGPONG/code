@@ -1,0 +1,508 @@
+#include <iostream>
+#include <memory>
+#include <vector>
+#include <functional>
+#include <unordered_set>
+#include <variant>
+#include <type_traits>
+#include <map>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <chrono>
+#include <algorithm>
+
+#define KW_ENUM_RANGE_MAX 128
+
+template<typename E>
+concept KWEnumType = std::is_enum_v<E>;
+
+template <typename T>
+inline constexpr bool KWIsEnum = std::is_enum_v<T> && std::is_same_v<T, std::decay_t<T>>;
+
+template <typename E, E V>
+constexpr auto PrettyName()
+{
+    std::string_view name{__PRETTY_FUNCTION__, sizeof(__PRETTY_FUNCTION__) - 2};
+    name.remove_prefix(name.find_last_of(" ") + 1);
+    if (name.front() == '(') name.remove_prefix(name.size());
+    return name;
+}
+
+template <typename E, E V>
+constexpr bool IsValidEnum()
+{
+    return !PrettyName<E, V>().empty();
+}
+
+template <int... Seq>
+constexpr auto MakeIntegerSequence(std::integer_sequence<int, Seq...>)
+{
+    return std::integer_sequence<int, (Seq)...>();
+}
+
+constexpr auto NormalIntegerSequence = MakeIntegerSequence(std::make_integer_sequence<int, KW_ENUM_RANGE_MAX>());
+
+template <typename E, int... Seq>
+constexpr size_t GetEnumSize(std::integer_sequence<int, Seq...>)
+{
+    constexpr std::array<bool, sizeof...(Seq)> valid{IsValidEnum<E, static_cast<E>(Seq)>()...};
+    constexpr std::size_t count = [](decltype((valid)) v) constexpr noexcept->std::size_t
+    {
+        auto cnt = std::size_t{0};
+        for (auto b : v) if (b) ++cnt;
+        return cnt;
+    }(valid);
+    return count;
+}
+
+template <typename E, int... Seq>
+constexpr auto GetAllValidValues(std::integer_sequence<int, Seq...>)
+{
+    constexpr std::size_t count = sizeof...(Seq);
+    constexpr std::array<bool, count> valid{IsValidEnum<E, static_cast<E>(Seq)>()...};
+    constexpr std::array<int, count> seq{Seq...};
+
+    std::array<E, GetEnumSize<E>(NormalIntegerSequence)> values{};
+    for (std::size_t i = 0, v = 0; i < count; ++i)
+        if (valid[i])
+            values[v++] = static_cast<E>(seq[i]);
+
+    return values;
+}
+
+template <typename E, int... Seq>
+constexpr auto GetAllValidNames(std::integer_sequence<int, Seq...>)
+{
+    constexpr std::array<std::string_view, sizeof...(Seq)> names{PrettyName<E, static_cast<E>(Seq)>()...};
+    std::array<std::string_view, GetEnumSize<E>(NormalIntegerSequence)> validNames{};
+
+    for (std::size_t i = 0, v = 0; i < names.size(); ++i) if (!names[i].empty()) { validNames[v++] = names[i]; }
+    return validNames;
+}
+
+template <typename E>
+constexpr std::string_view Enum2String(E V)
+{
+    constexpr auto names = GetAllValidNames<E>(NormalIntegerSequence);
+    constexpr auto values = GetAllValidValues<E>(NormalIntegerSequence);
+    constexpr auto size = GetEnumSize<E>(NormalIntegerSequence);
+
+    for (size_t i = 0; i < size; ++i) if (V == static_cast<E>(values[i])){ return names[i]; }
+    return { std::to_string(static_cast<int>(V)) };
+}
+
+class KWEnum
+{
+public:
+    template<typename U>
+    struct TypeDeducer
+    {
+        U val;
+
+        TypeDeducer(U _val): val(_val) {}
+
+        template<typename T>
+        operator T()
+        {
+            return static_cast<T>(val);
+        }
+
+        template<typename T>
+        bool operator==(T t)
+        {
+            return static_cast<T>(val) == t;
+        }
+
+        template<typename T>
+        bool operator!=(T t)
+        {
+            return static_cast<T>(val) != t;
+        }
+    };
+
+    template<typename U>
+    struct FlagDeducer
+    {
+        U val;
+
+        constexpr FlagDeducer(U _val): val(_val) {}
+
+        constexpr operator U() const { return val; }
+        constexpr operator bool() const { return KWEnum::GetVal(val); }
+    };
+
+public:
+    explicit KWEnum() {}
+    ~KWEnum() {}
+
+    template<typename T>
+    static auto GetName(T e)
+    {
+        static_assert(KWIsEnum<T>);
+        return Enum2String<T>(e);
+    }
+
+    template<typename T>
+    static constexpr auto GetSeq()
+    {
+        static_assert(KWIsEnum<T>);
+        return GetAllValidValues<T>(NormalIntegerSequence);
+    }
+
+    template <typename T>
+    static constexpr typename std::underlying_type<T>::type GetVal(T t) noexcept
+    {
+        static_assert(KWIsEnum<T>);
+        return static_cast<typename std::underlying_type<T>::type>(t);
+    }
+
+private:
+    enum class Color { RED, GREEN, BLUE, };
+
+    static void Example()
+    {
+        for (auto color : KWEnum::GetSeq<Color>())
+        {
+            std::cout << KWEnum::GetName(color) << std::endl;
+        }
+    }
+};
+
+template<class T, std::size_t N>
+constexpr T calc_bitmask() {
+    if constexpr (N == sizeof(unsigned long long) * CHAR_BIT) return ~T{};
+    else return static_cast<T>((1ull << N) - 1);
+}
+
+enum class RewardFlag : uint64_t {
+  N = 1u << 0,
+  A = 1u << 1,
+  B = 1u << 2,
+  C = 1u << 3,
+  D = 1u << 4,
+  E = 1u << 5,
+};
+
+enum class RewardFlagLevel {
+  L1 = 0,
+  L2 = 1,
+};
+
+class Reward
+{
+private:
+  static constexpr uint64_t GetInitRewardFlag() {
+      constexpr std::size_t level_size = KWEnum::GetSeq<RewardFlagLevel>().size();
+      constexpr std::size_t flags_size = KWEnum::GetSeq<RewardFlag>().size();
+      
+      uint64_t ret = 0;
+  
+      for (int32_t level = 0; level < level_size; ++level) {
+          ret |= (1 << (level * flags_size));
+      }
+  
+      return ret;
+  }
+
+public:
+  void SetRewardFlag(RewardFlag flg) {
+      constexpr std::size_t level_size = KWEnum::GetSeq<RewardFlagLevel>().size();
+      constexpr std::size_t flags_size = KWEnum::GetSeq<RewardFlag>().size();
+      constexpr uint64_t bit_mask = calc_bitmask<uint64_t, flags_size>();
+  
+      for (std::size_t i = static_cast<std::size_t>(RewardFlagLevel::L1); i < level_size; ++i) {
+          const std::size_t step = flags_size * i;
+  
+          const uint64_t raw_flag = reward_flag & (bit_mask << step);
+  
+          if ((raw_flag >> step) & static_cast<uint64_t>(RewardFlag::N)) {
+              const uint64_t new_flag = static_cast<uint64_t>(flg) << step;
+  
+              reward_flag = (reward_flag & ~raw_flag) | new_flag;
+  
+              break;
+          }
+      }
+  }
+  
+  void SetRewardFlag(RewardFlag flg, RewardFlagLevel level) {
+      constexpr std::size_t flags_size = KWEnum::GetSeq<RewardFlag>().size();
+      constexpr uint64_t bit_mask = calc_bitmask<uint64_t, flags_size>();
+  
+      const std::size_t step = flags_size * static_cast<std::size_t>(level);
+  
+      const uint64_t raw_flag = reward_flag & (bit_mask << step);
+  
+      const uint64_t new_flag = static_cast<uint64_t>(flg) << step;
+  
+      reward_flag = (reward_flag & ~raw_flag) | new_flag;
+  }
+  
+  uint64_t GetRewardFlag() const {
+      return reward_flag;
+  }
+  
+  RewardFlag GetRewardFlag(const RewardFlagLevel level) const {
+      constexpr std::size_t flags_size = KWEnum::GetSeq<RewardFlag>().size();
+      constexpr uint64_t bit_mask = calc_bitmask<uint64_t, flags_size>();
+  
+      const std::size_t step = flags_size * static_cast<std::size_t>(level);
+  
+      const uint64_t raw_flag = reward_flag & (bit_mask << step);
+  
+      return static_cast<RewardFlag>(raw_flag >> step);
+  }
+
+  std::string GetRewardId() const { return reward_id; };
+  int32_t GetRewardCount() const { return reward_count; };
+  bool GetRewardGuid() const { return reward_guid; };
+  int32_t GetRewardIdx() const { return reward_idx; };
+  
+  std::string reward_id = "";
+  int32_t reward_count = 0;
+  uint64_t reward_flag = GetInitRewardFlag();
+  bool reward_guid = false;
+  int32_t reward_idx = 0;
+};
+
+
+void print(const std::string& key, std::vector<Reward>& rewards) {
+    std::cout << key << "=====================================================================================" << std::endl;
+
+    for (auto& reward : rewards) {
+        std::cout << "l1_reward_flag [" << KWEnum::GetName(reward.GetRewardFlag(RewardFlagLevel::L1)) << "], " <<
+                     "l2_reward_flag [" << KWEnum::GetName(reward.GetRewardFlag(RewardFlagLevel::L2)) << "], " <<
+                     "reward_idx [" << reward.reward_idx << "], " <<
+                     "reward_id [" << reward.reward_id << "], " <<
+                     "reward_guid [" << reward.reward_guid << "], " <<
+                     "reward_count [" << reward.reward_count << "]" <<std::endl;
+    }
+
+    std::cout << key << "=====================================================================================" << std::endl;
+}
+
+auto merge3(std::vector<Reward>& rewards) {
+    auto cmp1 = [] (const Reward& lhs, const Reward& rhs) {
+        return std::forward_as_tuple(lhs.GetRewardFlag(RewardFlagLevel::L1), lhs.GetRewardFlag(RewardFlagLevel::L2), lhs.GetRewardId(), lhs.GetRewardGuid()) <
+               std::forward_as_tuple(rhs.GetRewardFlag(RewardFlagLevel::L1), rhs.GetRewardFlag(RewardFlagLevel::L2), rhs.GetRewardId(), rhs.GetRewardGuid());
+    };
+
+    std::sort(rewards.begin(), rewards.end(), cmp1);
+
+    print("merge_sort", rewards);
+
+    // std::vector<Reward> newRewards;
+    // for (auto first = rewards.begin(), last = rewards.begin(); last != rewards.end();) {
+    //     auto reward = *first;
+
+    //     last = std::upper_bound(first++, rewards.end(), reward, cmp1);
+    //     for (; first != last; ++first)
+    //     {
+    //         reward.reward_count = reward.reward_count + first->reward_count;
+
+    //         if (reward.reward_idx > first->reward_idx)
+    //           reward.reward_idx = first->reward_idx;
+    //     }
+
+    //     newRewards.push_back(std::move(reward));
+    // }
+
+    // rewards.swap(newRewards);
+
+    // print("after_merge", rewards);
+
+    auto cmp2 = [] (const Reward& lhs, const Reward& rhs) {
+        return std::forward_as_tuple(lhs.GetRewardFlag(RewardFlagLevel::L1), lhs.GetRewardIdx(), lhs.GetRewardId(), lhs.GetRewardFlag(RewardFlagLevel::L2), lhs.GetRewardGuid()) <
+               std::forward_as_tuple(rhs.GetRewardFlag(RewardFlagLevel::L1), rhs.GetRewardIdx(), rhs.GetRewardId(), rhs.GetRewardFlag(RewardFlagLevel::L2), rhs.GetRewardGuid());
+    };
+
+    std::sort(rewards.begin(), rewards.end(), cmp2);
+
+    print("after_sort", rewards);
+}
+
+std::vector<Reward> foo()
+{
+    // A
+    // Gold   , 10 , 0
+    // Exp    , 3  , 1
+    // Diamond, 5  , 2
+    // Exp    , 10 , 2
+    // Gold   , 20 , 3
+    // Token  , 7  , 4
+    // Exp    , 10 , 5
+    // Gold   , 10 , 0 --
+    // Diamond, 199, 2 --
+    // Token  , 38,  4 --
+
+    // B
+    // Exp  , 27, 0
+    // Gold , 1 , 1
+    // Gold , 20, 2
+    // Token, 3 , 2
+
+    std::vector<Reward> v;
+
+    Reward reward1;
+    reward1.reward_id = "Gold";
+    reward1.reward_count = 10;
+    reward1.reward_guid = false;
+    reward1.SetRewardFlag(RewardFlag::A);
+    reward1.reward_idx = 0;
+
+    Reward reward2;
+    reward2.reward_id = "Exp";
+    reward2.reward_count = 3;
+    reward2.reward_guid = false;
+    reward2.SetRewardFlag(RewardFlag::A);
+    reward2.reward_idx = 1;
+
+    Reward reward3;
+    reward3.reward_id = "Diamond";
+    reward3.reward_count = 5;
+    reward3.reward_guid = false;
+    reward3.SetRewardFlag(RewardFlag::A);
+    reward3.reward_idx = 2;
+
+    Reward reward4;
+    reward4.reward_id = "Exp";
+    reward4.reward_count = 10;
+    reward4.reward_guid = false;
+    reward4.SetRewardFlag(RewardFlag::A);
+    reward4.reward_idx = 2;
+
+    Reward reward5;
+    reward5.reward_id = "Gold";
+    reward5.reward_count = 20;
+    reward5.reward_guid = false;
+    reward5.SetRewardFlag(RewardFlag::A);
+    reward5.reward_idx = 3;
+
+    Reward reward6;
+    reward6.reward_id = "Token";
+    reward6.reward_count = 7;
+    reward6.reward_guid = false;
+    reward6.SetRewardFlag(RewardFlag::A);
+    reward6.reward_idx = 4;
+
+    Reward reward7;
+    reward7.reward_id = "Exp";
+    reward7.reward_count = 10;
+    reward7.reward_guid = false;
+    reward7.SetRewardFlag(RewardFlag::A);
+    reward7.reward_idx = 5;
+
+    Reward reward8;
+    reward8.reward_id = "Gold";
+    reward8.reward_count = 10;
+    reward8.reward_guid = true;
+    reward8.SetRewardFlag(RewardFlag::A);
+    reward8.reward_idx = 5;
+
+    Reward reward9;
+    reward9.reward_id = "Diamond";
+    reward9.reward_count = 199;
+    reward9.reward_guid = true;
+    reward9.SetRewardFlag(RewardFlag::A);
+    reward9.reward_idx = 6;
+
+    Reward reward10;
+    reward10.reward_id = "Token";
+    reward10.reward_count = 38;
+    reward10.reward_guid = true;
+    reward10.SetRewardFlag(RewardFlag::A);
+    reward10.reward_idx = 7;
+
+    Reward reward11;
+    reward11.reward_id = "Exp";
+    reward11.reward_count = 27;
+    reward11.reward_guid = false;
+    reward11.SetRewardFlag(RewardFlag::B);
+    reward11.reward_idx = 0;
+
+    Reward reward12;
+    reward12.reward_id = "Gold";
+    reward12.reward_count = 1;
+    reward12.reward_guid = false;
+    reward12.SetRewardFlag(RewardFlag::B);
+    reward12.reward_idx = 1;
+
+    Reward reward13;
+    reward13.reward_id = "Gold";
+    reward13.reward_count = 20;
+    reward13.reward_guid = false;
+    reward13.SetRewardFlag(RewardFlag::B);
+    reward13.reward_idx = 3;
+
+    Reward reward14;
+    reward14.reward_id = "Token";
+    reward14.reward_count = 3;
+    reward14.reward_guid = false;
+    reward14.SetRewardFlag(RewardFlag::B);
+    reward14.reward_idx = 2;
+
+    Reward reward15;
+    reward15.reward_id = "Gold";
+    reward15.reward_count = 1024;
+    reward15.reward_guid = false;
+    reward15.SetRewardFlag(RewardFlag::A);
+    reward15.SetRewardFlag(RewardFlag::C);
+    reward15.reward_idx = 0;
+
+    Reward reward16;
+    reward16.reward_id = "Gold";
+    reward16.reward_count = 2048;
+    reward16.reward_guid = false;
+    reward16.SetRewardFlag(RewardFlag::A);
+    reward16.SetRewardFlag(RewardFlag::C);
+    reward16.reward_idx = 3;
+
+    Reward reward17;
+    reward17.reward_id = "Hello,world";
+    reward17.reward_count = 1111;
+    reward17.reward_guid = false;
+    reward17.SetRewardFlag(RewardFlag::A);
+    reward17.reward_idx = 0;
+
+    v.push_back(reward1);
+    v.push_back(reward2);
+    v.push_back(reward3);
+    v.push_back(reward4);
+    v.push_back(reward5);
+    v.push_back(reward6);
+    v.push_back(reward7);
+    v.push_back(reward8);
+    v.push_back(reward9);
+    v.push_back(reward10);
+    v.push_back(reward11);
+    v.push_back(reward12);
+    v.push_back(reward13);
+    v.push_back(reward14);
+    v.push_back(reward15);
+    v.push_back(reward16);
+    v.push_back(reward17);
+
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine e(seed);
+
+    std::shuffle(v.begin(), v.end(), e);
+
+    return v;
+}
+
+int32_t main(void) {
+    auto src_rewards = foo();
+    print("original", src_rewards);
+
+    // auto merge1_rewards = foo();
+    // merge1(merge1_rewards);
+
+    // auto merge2_rewards = foo();
+    // merge2(merge2_rewards);
+
+    auto merge3_rewards = foo();
+    merge3(merge3_rewards);
+
+    return 0;
+}
