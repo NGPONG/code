@@ -1,5 +1,8 @@
+#include <exception>
 #include <iostream>
+#include <iterator>
 #include <set>
+#include <string>
 #include <unordered_map>
 #include <memory>
 #include <vector>
@@ -18,7 +21,7 @@ class Buffer {
 public:
   Buffer(int bufferBlockCount, const int initBufferSize) {
     std::cout << "======================" << std::endl;
-
+    
     for (int i = 0; i < bufferBlockCount; i++) {
       unsigned char *bu = new unsigned char[MAX_NULTI_BUFF_SIZE]; // MIN_NULTI_BUFF_SIZE
       printf("%p\n", bu);
@@ -39,6 +42,7 @@ private:
   std::vector<unsigned char *> v;
 };
 
+// qwddq
 void foo() {
   auto buffer = Buffer(MAX_BUFF_BLOCK_COUNT, MIN_NULTI_BUFF_SIZE);
 
@@ -57,6 +61,14 @@ int main(void) {
   for (;;) {
     sleep(1);
   }
+
+  sleep(1024);
+
+      sleep(0x400);
+
+  const std::string& str = "hello,world!";
+
+  str.size();
 
   return EXIT_SUCCESS;
 }
