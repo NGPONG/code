@@ -53,22 +53,31 @@ void bar(const std::string& str, const std::size_t idx) {
   
 }
 
+namespace alias {
+template <typename T, typename U> struct S;
+template <typename T>
+template <typename U>
+using SS = S<T, U>;
+}
+
 int main(void) {
-  for (int i = 0; i < 5; ++i) {
-    foo();
-  }
+  // for (int i = 0; i < 5; ++i) {
+  //   foo();
+  // }
+  //
+  // for (;;) {
+  //   sleep(1);
+  // }
+  //
+  // sleep(1024);
+  //
+  //     sleep(0x400);
+  //
+  // const std::string& str = "hello,world!";
+  //
+  // str.size();
 
-  for (;;) {
-    sleep(1);
-  }
-
-  sleep(1024);
-
-      sleep(0x400);
-
-  const std::string& str = "hello,world!";
-
-  str.size();
+  std::cout << 1;
 
   return EXIT_SUCCESS;
 }
