@@ -1,0 +1,7 @@
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/MathFunctions.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/edit_cache.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/rebuild_cache.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/list_install_components.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/install.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/install/local.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/build/CMakeFiles/install/strip.dir

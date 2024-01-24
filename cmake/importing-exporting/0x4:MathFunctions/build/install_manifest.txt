@@ -1,0 +1,6 @@
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/../install_4/lib/libMathFunctions.a
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/../install_4/include/MathFunctions.h
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/../install_4/lib/cmake/MathFunctions/MathFunctionsTargets.cmake
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/../install_4/lib/cmake/MathFunctions/MathFunctionsTargets-noconfig.cmake
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/../install_4/lib/cmake/MathFunctions/MathFunctionsConfig.cmake
+/home/ngpong/CMake/Help/guide/importing-exporting/0x4:MathFunctions/../install_4/lib/cmake/MathFunctions/MathFunctionsConfigVersion.cmake

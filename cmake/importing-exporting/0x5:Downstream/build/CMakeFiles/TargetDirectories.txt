@@ -1,0 +1,3 @@
+/home/ngpong/CMake/Help/guide/importing-exporting/0x5:Downstream/build/CMakeFiles/myexe.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x5:Downstream/build/CMakeFiles/edit_cache.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x5:Downstream/build/CMakeFiles/rebuild_cache.dir

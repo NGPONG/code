@@ -1,0 +1,6 @@
+/home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles/Tutorial.dir
+/home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles/edit_cache.dir
+/home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles/rebuild_cache.dir
+/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah/CMakeFiles/MathFunctions.dir
+/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah/CMakeFiles/edit_cache.dir
+/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step1/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/tutorial/Step1/build -std=gnu++11 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step1/tutorial.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step1/tutorial.cxx"
+}
+]

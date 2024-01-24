@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mynewexe.dir/main.cc.o -o mynewexe  /home/ngpong/CMake/Help/guide/importing-exporting/install_4/lib/libMathFunctions.a 

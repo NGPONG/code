@@ -1,0 +1,7 @@
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/mynewexe.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/edit_cache.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/rebuild_cache.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/list_install_components.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/install.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/install/local.dir
+/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build/CMakeFiles/install/strip.dir

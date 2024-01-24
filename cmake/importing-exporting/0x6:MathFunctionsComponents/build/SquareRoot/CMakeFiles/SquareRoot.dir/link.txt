@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSquareRoot.a CMakeFiles/SquareRoot.dir/SquareRoot.cxx.o
+/usr/bin/ranlib libSquareRoot.a

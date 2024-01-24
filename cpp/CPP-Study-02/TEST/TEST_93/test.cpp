@@ -2,6 +2,6 @@
 
 #include "test.h"
 
-void BASE::foo() {
-  std::co ut << "hello,world!" << std::endl;
+void BASE::foo() {    
+  std::cout << "hello,world!" << std::endl;
 }

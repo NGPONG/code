@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/../install_4/include -isystem /home/ngpong/CMake/Help/guide/importing-exporting/install_4/include -std=gnu++11 -o CMakeFiles/mynewexe.dir/main.cc.o -c /home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/main.cc",
+  "file": "/home/ngpong/CMake/Help/guide/importing-exporting/0x3:importing_cmake_static/main.cc"
+}
+]

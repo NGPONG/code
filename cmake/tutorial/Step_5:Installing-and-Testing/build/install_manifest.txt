@@ -1,0 +1,6 @@
+/home/ngpong/testinstaller/lib/libMathFunctions.a
+/home/ngpong/testinstaller/lib/libSqrtLibrary.a
+/home/ngpong/testinstaller/include/MathFunctions.h
+/home/ngpong/testinstaller/include/mysqrt.h
+/home/ngpong/testinstaller/bin/Tutorial
+/home/ngpong/testinstaller/include/TutorialConfig.h

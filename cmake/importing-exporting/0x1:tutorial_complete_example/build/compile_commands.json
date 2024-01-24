@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/build -I/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions -Wall -Wextra -Wshadow -Wformat=2 -Wunused -std=gnu++20 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/tutorial.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/tutorial.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/build/MathFunctions",
+  "command": "/usr/bin/c++   -Wall -Wextra -Wshadow -Wformat=2 -Wunused -std=gnu++20 -o CMakeFiles/MakeTable.dir/MakeTable.cxx.o -c /home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions/MakeTable.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions/MakeTable.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/build/MathFunctions",
+  "command": "/usr/bin/c++ -DHAVE_EXP -DHAVE_LOG -I/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/build/MathFunctions -fPIC -Wall -Wextra -Wshadow -Wformat=2 -Wunused -std=gnu++20 -o CMakeFiles/SqrtLibrary.dir/mysqrt.cxx.o -c /home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions/mysqrt.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions/mysqrt.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/build/MathFunctions",
+  "command": "/usr/bin/c++ -DEXPORTING_MYMATH -DMathFunctions_EXPORTS -DUSE_MYMATH  -fPIC -Wall -Wextra -Wshadow -Wformat=2 -Wunused -std=gnu++20 -o CMakeFiles/MathFunctions.dir/MathFunctions.cxx.o -c /home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions/MathFunctions.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/importing-exporting/0x1:tutorial_complete_example/MathFunctions/MathFunctions.cxx"
+}
+]

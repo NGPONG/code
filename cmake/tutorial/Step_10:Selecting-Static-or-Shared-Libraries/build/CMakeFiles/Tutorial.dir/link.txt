@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Tutorial.dir/tutorial.cxx.o -o Tutorial  -Wl,-rpath,/home/ngpong/CMake/Help/guide/tutorial/Step_10:Selecting-Static-or-Shared-Libraries/build: libMathFunctions.so 

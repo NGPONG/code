@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
   BASE b;
   b.foo();
 
-  const st d::size_t size = 1024;
+  const std::size_t size = 1024;
 
   // foo(size);
 

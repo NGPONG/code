@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/tutorial/Step2/MathFunctions -I/home/ngpong/CMake/Help/guide/tutorial/Step2/build -std=gnu++11 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/tutorial.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/tutorial.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build/MathFunctions",
+  "command": "/usr/bin/c++   -std=gnu++11 -o CMakeFiles/MathFunctions.dir/MathFunctions.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/MathFunctions/MathFunctions.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/MathFunctions/MathFunctions.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build/MathFunctions",
+  "command": "/usr/bin/c++   -std=gnu++11 -o CMakeFiles/MathFunctions.dir/mysqrt.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/MathFunctions/mysqrt.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/MathFunctions/mysqrt.cxx"
+}
+]

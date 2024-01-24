@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/tutorial/Step2/build -I/home/ngpong/CMake/Help/guide/tutorial/Step2/hahah -std=gnu++11 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/tutorial.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/tutorial.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah",
+  "command": "/usr/bin/c++   -std=gnu++11 -o CMakeFiles/MathFunctions.dir/MathFunctions.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/hahah/MathFunctions.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/hahah/MathFunctions.cxx"
+}
+]

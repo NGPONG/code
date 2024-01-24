@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/build -I/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/MathFunctions -Wall -Wextra -Wshadow -Wformat=2 -Wunused -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/tutorial.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/tutorial.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/build/MathFunctions",
+  "command": "/usr/bin/c++ -DHAVE_EXP -DHAVE_LOG  -Wall -Wextra -Wshadow -Wformat=2 -Wunused -o CMakeFiles/SqrtLibrary.dir/mysqrt.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/MathFunctions/mysqrt.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/MathFunctions/mysqrt.cxx"
+},
+{
+  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/build/MathFunctions",
+  "command": "/usr/bin/c++ -DUSE_MYMATH  -Wall -Wextra -Wshadow -Wformat=2 -Wunused -o CMakeFiles/MathFunctions.dir/MathFunctions.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/MathFunctions/MathFunctions.cxx",
+  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step_7:Adding-System-Introspection/MathFunctions/MathFunctions.cxx"
+}
+]

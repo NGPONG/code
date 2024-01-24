@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/myexe.dir/main.cc.o -o myexe  -Wl,-rpath,/home/ngpong/CMake/Help/guide/importing-exporting/install_1/lib /home/ngpong/CMake/Help/guide/importing-exporting/install_1/lib/libMathFunctions.so 

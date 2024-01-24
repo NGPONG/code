@@ -1,0 +1,2 @@
+/usr/bin/ar qc libAddition.a CMakeFiles/Addition.dir/Addition.cxx.o
+/usr/bin/ranlib libAddition.a
