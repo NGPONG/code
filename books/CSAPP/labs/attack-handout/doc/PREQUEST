@@ -1,0 +1,101 @@
+FILES:
+  * ctarget: involes three code injection attack about buffer overflow.
+
+  * rtarget: involes two ROP(return-oriented programming) attack.
+
+  * hex2rax: Encode each exploit string as a sequence of hex digit pairs separa-
+             ted by whitespace, where each hex digit pair represents a byte in 
+             the exploit string. The program "hex2raw" converts these strings i-
+             nto a sequence of raw bytes, which can then be fed to the target:
+
+                unix> cat exploit.txt | ./hex2raw | ./ctarget
+
+  * cookie.txt: An 8-digit hex code that you will use as a unique identifier in your attacks.
+
+
+IMPORTANT POINTS:
+  * Here is a summary of some important rules regarding valid solutions for this lab. 
+  These points will not make much sense when you read this document for the first time. 
+  They are presented here as a central reference of rules once you get started.
+    * You must do the assignment on a machine that is similar to the one that generated your targets.
+
+    * Your solutions may not use attacks to circumvent the validation code in the programs. Specifically, any address you incorpor-
+      ate into an attack string for use by a ret instruction should be to one of the following destinations:
+      * The addresses for functions touch1, touch2, ortouch3. (unix> cat ./ctarget_dump_d)
+      * The address of your injected code
+      * The address of one of your gadgets from the gadget farm.
+
+    * You may only construct gadgets from filer target with addresses ranging between those for functions start_farm and end_farm.
+
+    * Your exploit strings will typically contain byte values that do not correspond to the ASCII values for printing characters. 
+    The program HEX2RAW will enable you to generate these raw strings. 
+
+    * Your exploit string must not contain byte value 0x0a at any intermediate position, since this is the ASCII code for newline (‘\n’).  WhenGetsencounters this byte, it will assume you intended terminate the string.
+
+    * HEX2RAW expects two-digit hex values separated by one or more white spaces.
+    So if you want to create a byte with a hex value of 0, you need to write it as 00. 
+    To create the word [0xdeadbeef] you should pass 'ef be ad de' to HEX2RAW(note the reversal required for little-endian byte ordering).
+
+    * Note that the value of the cookie shown will differ from yours.
+
+
+EXPOLIT STRINGS:
+  * ctarget 和 rtarget 默认情况下从 [标准输入] 中获取数据，其内部存在一个函数 getbuf，它的行为类似于 <gets> 的实现，即
+  不保证读取字符串的长度是否超出目标缓冲区，当字符长度超出给定的缓冲区长度(长度由 BUFFER_SIZE 所声明的宏定义)
+  时，程序将返回错误，否则程序返回 0x1 表示成功.
+
+    unsigned getbuf() {
+      char buf[BUFFER_SIZE];
+      Gets(buf);
+      return 1;
+    }
+
+  * BUFFER_SIZE 的定义依赖于 GCC 的分配策略，要想具体了解它的大小，我们需要逆向拆解代码去查看
+  * 引用上一点，我们要保证我的所录入的字符串要足够的 '聪明'，这就是 expolit strings.
+  * 保证我们所的 expolit string 包含的字节并不会跟任意一个 ASCII 字符所对应，程序 [HEX2RAW] 将
+    会检测这一行为
+
+
+
+CODE INJECTION ATTACKS
+  * 最初始的三个阶段，我们的 expolit string 将要攻击 [ctarget]
+  * 该程序设置了一种属性使得每次执行都能够保证栈上的地址不存在随机性，简而言之，栈上的数据我们完全可以视为
+  可执行代码. 该易受攻击的特性也促使我们能够使用 expolit string 来插入可执行的恶意代码
+
+
+
+ROP ATTACKS
+  * ROP 攻击实验由 rtarget 所提供
+  * rtarget 区别与 ctarget，它提供了栈随机机制以预防缓冲区溢出攻击，这使得单纯的从缓冲区溢出现象中注入
+  代码攻击这一件事变为不可能，因为我们不可能确定每一次栈随机的位置
+  * rtarget 将栈区中的数据设置为不可执行的属性，所以哪怕我们能够确定某一次栈随机的位置并且注入了相应的
+  代码也无法执行，一旦执行将会引发 [seagmentation fault]
+  * 幸运的是，聪明的前人设计了一种策略能够仅只是通过现有的代码去完成攻击行为，而不是依赖于新的被注入的
+  攻击代码，这种方式也称为 ROP(return-oriented programming) 攻击.
+
+  ROP 攻击的策略，是从已有程序中确定一块由一组指令组成并由 ret 指令作为结尾的字节序列，这一段特殊的序列
+  我们通常称之为 [gadget]. 我们提前找到我们所需要的 gadgets 并得到每一个 gadget 其实所对应的内存地址，我
+  我们把这些内存地址整合起来写入栈中，当提前做好这些准备后，程序执行 ret 指令时，我们所构造的 gadgets 就
+  会发起一条 gadget 请求链，每一个 gadget 的 ret 执行都会继续抵达下一个 gadget 的开头部分.
+
+  在这里，每一个 gadget 所执行的具体指令操作成为了关键. 由于我们并不能直接插入可执行代码部分，只能利用目
+  前程序以有的指令列表去构造出我们所需要的每一个 gadget，然而事实是，我们总不能拿到我们所满意的一种 gadget，
+  但是依赖于 x86 指令字节序的特性，我们可以从中提取一部分来构造出一些新的指令，例如:
+
+    400f15:  c7 07 d4 48 89 c7  movl $0xc78948d4,(%rdi)
+    400f1b:  c3                 retq
+
+  我们是完全可以从中截取一部分作为我们所预定的 gadget 的开头部分，也就是从: 0x400f18 位置开始，那么所构造出
+  的指令为:
+
+    400f15:  48 89 c7  movq %rax, %rdi
+    400f1b:  c3        retq
+
+  在这里，第一部分的代码是 rtarget 中的一个函数，可喜的是，在 rtaget 中还有许许多多诸如此类的函数拱我们去构
+  造 gadget，我们称这种环境为 gadget farm.
+
+  我们在 ROP ATTACKS LAB 部分的工作就是去找出这种函数，并封装为我们所需要的 gadget 并像 LEVEL123 一样执行攻
+  击行为.
+
+  需要注意的是，gadget farm 在 rtaget 中由函数 start_farm 和 end_farm 所划分(see: start_farm, end_farm)，不要尝试在其它其余中封装属于您
+  的 gadget. 并且，gadget farm 中可利用的 gadget 已经使用源文件 ../farm.c 标注了出来.

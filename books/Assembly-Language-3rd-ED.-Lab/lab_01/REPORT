@@ -1,0 +1,16 @@
+Report
+  1. 本实验重要用于熟悉 debug 的命令和 debug 的安装方式
+
+Config
+  1. 安装 DOSBox ( 建议放在 C 盘，且文件路径尽量保持简洁，这里的安装路径为 C:\DOSBox\ )
+  2. 解压 [DEBUG.zip] 并将文件置于 DOSBox\Tool 目录下 
+  3. 运行 DOSBox
+  4. 打开 DOSBox 根目录，双击 DOSBox 0.74-3 Options.bat 并运行，并在最后加入以下两段话
+    MOUNT c C:\DOSBox\Tool
+    set PATH=$PATH$;C:\DOSBox\Tool
+  作用如下:
+    4.1 输入 mount c c:\
+    4.2 输入 c:
+    4.3 输入 cd DOSBox ( DOSBox安装目录，也是 debug.exe 所存放的目录 )
+  5. 输入 c:
+  7. 输入 debug

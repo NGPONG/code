@@ -1,0 +1,55 @@
+限制:
+  * common features
+    * 只允许使用这八种操作符: ! ~ & ^ | + << >>，并且存在操作符数量的使用限制，具体查看函数中的注释要求
+    * 不允许使用全局变量
+    * 禁止定义额外附加的函数
+    * 禁止使用宏
+    * 调用其它函数(其它的 puzzles)
+  * integer puzzles
+    * 只允许使用线性代码(不包含条件跳转和循环)
+    * 不允许使用大于 8bit 的数
+    * 整数常数只能使用 -1 ~ 255 在内的数
+    * 只能使用 int 类型
+    * 无法使用逻辑运算符和三元运算符
+    * 如果移位量小于0或大于31，移位时有不可预测的行为
+  * floationg-point puzzles
+    * 允许时候标准控制结构(条件跳转和循环)
+    * 允许使用 int 和 unsigned 两种数据类型，包括任意的无符号和整数常量
+    * 不允许使用 union struct arrary
+    * 不允许使用任意浮点类型、操作符和常量
+    * 向函数传递的任意浮点数类型都应转换为 unsigned 接受，返回值类型同逻辑
+
+
+测试:
+  * dlc: 编码规范校验
+    * dlc -e ./xxx 
+  * btest: 单元测试
+    * 每当修改了 bits.c 文件，该源程序需重新编译
+    * examples:
+      Test all functions for correctness and print out error messages:
+      unix> ./btest
+
+      Test all functions in a compact form with no error messages:
+      unix> ./btest -g
+
+      Test function foo for correctness:
+      unix> ./btest -f foo
+
+      Test function foo for correctness with specific arguments:
+      unix> ./btest -f foo -1 27 -2 0xf
+  * BBD CHECKER: Ignore for now.
+
+
+建议: 
+  * 不要在 bits.c 文件中包含 <stdio.h> 头文件，因为 dlc 检测工具会与之发生冲突，并返回一些未知的错误信息，但是我们仍然可以使用 printf() 函数去 debug 我们预期的值(虽然 gcc 在编译时会提示警告信息)
+  * 在函数开始时声明所有变量
+  * } 应该在第一列
+
+0x4995CF2B
+
+100 1001 1001 0101 1100 1111 0010 1011
+
+
+
+1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1010 1010
+

@@ -1,0 +1,2 @@
+mbr_end: 0x7d36
+kernel_start: 0x40dcf

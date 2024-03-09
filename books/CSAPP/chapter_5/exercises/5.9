@@ -1,0 +1,10 @@
+while(i1 < n && i2 < n) {
+  long v1 = src1[i1];
+  long v2 = src2[i2];
+
+  long take = v1 < v2;
+  
+  dest[id++] = take ? v1 : v2;
+  i1 += take;
+  i2 += (1 - take);
+}

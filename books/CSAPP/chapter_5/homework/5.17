@@ -1,0 +1,38 @@
+/* 该题想偷懒，就是总结了下网上被人代码的思想
+ * 
+ * 在这里，K 为需要跨越的指针偏移，在这里依据题意设置为 8
+ * 
+ * 该解法的主要思想初略一看只是看到一点循环展开的影子(对比书上的乘法示例)，可能
+ * 在这里所谓的加法循环展开就是 '跨度变长' 了吧？
+ * 没错，正是因为每次赋值的跨度变长(假设原来赋值 8 byte 的数据需要 8 次循环，在这里一次就可以搞定了)才导致了该函数的
+ * CPE 得到了显著的下降，主要是因为指令所需执行的次数变少了可能？
+ * 
+ * 思想很简单，但是这里最主要是要考虑异常行为，异常行为在书本上已经表明了，大体上无非就是要考虑所需赋值内存尺寸未满或者
+ * 无法达到倍数的标准等等一些情况，在这里代码已经考虑进去了，有想法的话再看下吧 */
+void *new_memset(void *s, int c, size_t n) {
+    unsigned long w;
+    unsigned char *pw = (unsigned char *)&w;
+    size_t cnt = 0;
+    while (cnt < K) {
+        *pw++ = (unsigned char)c;
+        cnt++;
+    }
+
+    size_t i;
+    unsigned char *schar = s;
+    for (i = 0; (size_t)schar % K != 0 || i == n; i++) {
+        *schar++ = (unsigned char)c;
+    }
+
+    size_t limit = n - K + 1;
+    for (; i < limit && (int)limit > 0; i += K) {
+        *(unsigned long *)schar = w;
+        schar += K;
+    }
+
+    for (; i < n; i++) {
+        *schar++ = (unsigned char)c;
+    }
+
+    return s;
+}
