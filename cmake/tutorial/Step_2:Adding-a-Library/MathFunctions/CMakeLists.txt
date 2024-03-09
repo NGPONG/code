@@ -5,7 +5,7 @@
 option(USE_MYMATH "ngpong helper message" ON)
 
 # 0x2: 指定构建库(STATIC)与源文件
-add_library(MathFunctions STATIC MathFunctions.cxx)
+add_library(MathFunctions STATIC MathFunctions.cxx MathFunctions.h)
 
 # 0x3: 条件表达式
 if (USE_MYMATH)

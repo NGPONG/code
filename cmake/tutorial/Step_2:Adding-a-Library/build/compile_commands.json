@@ -1,12 +1,17 @@
 [
 {
-  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build",
-  "command": "/usr/bin/c++  -I/home/ngpong/CMake/Help/guide/tutorial/Step2/build -I/home/ngpong/CMake/Help/guide/tutorial/Step2/hahah -std=gnu++11 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/tutorial.cxx",
-  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/tutorial.cxx"
+  "directory": "/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build",
+  "command": "/usr/bin/c++  -I/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build -I/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/MathFunctions -std=gnu++11 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/tutorial.cxx",
+  "file": "/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/tutorial.cxx"
 },
 {
-  "directory": "/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah",
-  "command": "/usr/bin/c++   -std=gnu++11 -o CMakeFiles/MathFunctions.dir/MathFunctions.cxx.o -c /home/ngpong/CMake/Help/guide/tutorial/Step2/hahah/MathFunctions.cxx",
-  "file": "/home/ngpong/CMake/Help/guide/tutorial/Step2/hahah/MathFunctions.cxx"
+  "directory": "/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/MathFunctions",
+  "command": "/usr/bin/c++   -std=gnu++11 -o CMakeFiles/SqrtLibrary.dir/mysqrt.cxx.o -c /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/MathFunctions/mysqrt.cxx",
+  "file": "/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/MathFunctions/mysqrt.cxx"
+},
+{
+  "directory": "/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/MathFunctions",
+  "command": "/usr/bin/c++ -DUSE_MYMATH  -std=gnu++11 -o CMakeFiles/MathFunctions.dir/MathFunctions.cxx.o -c /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/MathFunctions/MathFunctions.cxx",
+  "file": "/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/MathFunctions/MathFunctions.cxx"
 }
 ]

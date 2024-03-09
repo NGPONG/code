@@ -85,6 +85,11 @@
 #   * https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX
 #   * https://cmake.org/cmake/help/latest/envvar/DESTDIR.html#envvar:DESTDIR
 
+# add_definitions: 添加编译宏定义
+#   * 需要注意作用域的问题
+#     * 在当前 cmake 文件下(不包括 include, add_subdirectory, etc...)所创建的 target 都享用这个定义的设置
+#     * 通过当前 cmake 文件所引入(include, add_subdirectory, etc..)的其它文件仅当该命令出现在调用它们之前才能够继承这个定义，简而言之在引入文件后再声明定义的情景则无效
+
 # add_custom_command: 创建自定义命令
 #   * OUTPUT:
 #     * 这里的 OUTPUT 文件仅在 build prase 阶段才会执行
@@ -214,3 +219,5 @@ set(CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
 set(CPACK_SOURCE_GENERATOR "TGZ")
 include(CPack)
 # )
+
+add_definitions(-DWOCAOWOCAO)

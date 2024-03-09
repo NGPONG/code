@@ -31,6 +31,9 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -57,10 +60,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ngpong/CMake/Help/guide/tutorial/Step2
+CMAKE_SOURCE_DIR = /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ngpong/CMake/Help/guide/tutorial/Step2/build
+CMAKE_BINARY_DIR = /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +90,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles /home/ngpong/CMake/Help/guide/tutorial/Step2/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/CMakeFiles /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -139,8 +142,21 @@ MathFunctions: cmake_check_build_system
 
 # fast build rule for target.
 MathFunctions/fast:
-	$(MAKE) $(MAKESILENT) -f hahah/CMakeFiles/MathFunctions.dir/build.make hahah/CMakeFiles/MathFunctions.dir/build
+	$(MAKE) $(MAKESILENT) -f MathFunctions/CMakeFiles/MathFunctions.dir/build.make MathFunctions/CMakeFiles/MathFunctions.dir/build
 .PHONY : MathFunctions/fast
+
+#=============================================================================
+# Target rules for targets named SqrtLibrary
+
+# Build rule for target.
+SqrtLibrary: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SqrtLibrary
+.PHONY : SqrtLibrary
+
+# fast build rule for target.
+SqrtLibrary/fast:
+	$(MAKE) $(MAKESILENT) -f MathFunctions/CMakeFiles/SqrtLibrary.dir/build.make MathFunctions/CMakeFiles/SqrtLibrary.dir/build
+.PHONY : SqrtLibrary/fast
 
 tutorial.o: tutorial.cxx.o
 .PHONY : tutorial.o
@@ -175,6 +191,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MathFunctions"
+	@echo "... SqrtLibrary"
 	@echo "... Tutorial"
 	@echo "... tutorial.o"
 	@echo "... tutorial.i"

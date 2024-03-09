@@ -28,15 +28,17 @@ if(USE_MYMATH)
   # 设置编译目标时，编译器附带的 -DUSE_MYMATH 定义
   target_compile_definitions(MathFunctions PRIVATE "USE_MYMATH")
 
+  # 创建一个静态库
+  add_library(
+    SqrtLibrary STATIC
+    mysqrt.cxx
+  )
+
   # 包含 MakeTable.cmake 文件，即执行里面的内容
   include(MakeTable.cmake)
 
-  # 创建一个静态库，这里依赖了 MakeTable.cmake 中 add_custom_command 的 OUTPUT 文件引用
-  #   * 由于 Table.h 的生成并没有其它特殊的设置，所以它会生成在 BINARY_DIR 中，所以我们头文件路径需要包含这个路径
-  add_library(
-    SqrtLibrary STATIC
-    mysqrt.cxx ${CMAKE_CURRENT_BINARY_DIR}/Table.h
-  )
+  # 添加依赖关系，SqrtLibrary 的编译必须为 Table.h 这个 target 完成之后
+  add_dependencies(SqrtLibrary Table.h)
 
   # 检查代码是否能够执行，可以的话就设置变量为 1(True) 否则为 0(False)
   include(CheckCXXSourceCompiles)
@@ -102,7 +104,7 @@ if(TARGET SqrtLibrary)
   list(APPEND installable_libs SqrtLibrary)
 endif()
 
-# 安装 targets 到 ${CMAKE_INSTALL_PREFIX}/bin 目录下
+# 安装 targets 到 ${CMAKE_INSTALL_PREFIX}/lib 目录下
 #   * 这里将 INTERFACE library 也设置为安装规则，并不是真正安装它(因为它没有源文件)，它包含一些配置型的设置，是为了别的 cmake 项目想使用我们项目的时候，就可以用导入到这个规则
 #   * https://cmake.org/cmake/help/latest/guide/tutorial/Adding%20Export%20Configuration.html
 install(

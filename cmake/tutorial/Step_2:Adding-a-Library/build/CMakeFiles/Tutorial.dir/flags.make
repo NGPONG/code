@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ngpong/CMake/Help/guide/tutorial/Step2/build -I/home/ngpong/CMake/Help/guide/tutorial/Step2/hahah
+CXX_INCLUDES = -I/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build -I/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/MathFunctions
 
 CXX_FLAGS = -std=gnu++11
 

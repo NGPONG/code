@@ -1,6 +1,7 @@
-/home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles/Tutorial.dir
-/home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles/edit_cache.dir
-/home/ngpong/CMake/Help/guide/tutorial/Step2/build/CMakeFiles/rebuild_cache.dir
-/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah/CMakeFiles/MathFunctions.dir
-/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah/CMakeFiles/edit_cache.dir
-/home/ngpong/CMake/Help/guide/tutorial/Step2/build/hahah/CMakeFiles/rebuild_cache.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/CMakeFiles/Tutorial.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/CMakeFiles/edit_cache.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/CMakeFiles/rebuild_cache.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/MathFunctions/CMakeFiles/MathFunctions.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/MathFunctions/CMakeFiles/SqrtLibrary.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/MathFunctions/CMakeFiles/edit_cache.dir
+/home/ngpong/code/cmake/tutorial/Step_2:Adding-a-Library/build/MathFunctions/CMakeFiles/rebuild_cache.dir

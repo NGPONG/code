@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-o",
+      "main",
+      "main.c"
+    ],
+    "directory": "/home/ngpong/code/c/c_study_02/Test/Test_09",
+    "file": "/home/ngpong/code/c/c_study_02/Test/Test_09/main.c",
+    "output": "/home/ngpong/code/c/c_study_02/Test/Test_09/main"
+  }
+]

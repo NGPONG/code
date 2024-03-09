@@ -15,7 +15,7 @@ configure_file(TutorialConfig.h.in TutorialConfig.h)
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} DIR_LIB_SRCS)
 
 # 0x1: 添加子目录，即解析子目录下的 CMakeLists.txt 文件
-add_subdirectory(hahah)
+add_subdirectory(MathFunctions)
 
 add_executable(Tutorial ${DIR_LIB_SRCS})
 
