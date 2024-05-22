@@ -1,0 +1,15 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++20",
+      "-o",
+      "main",
+      "main.cpp"
+    ],
+    "directory": "/home/ngpong/code/algorithm/sort",
+    "file": "/home/ngpong/code/algorithm/sort/main.cpp",
+    "output": "/home/ngpong/code/algorithm/sort/main"
+  }
+]

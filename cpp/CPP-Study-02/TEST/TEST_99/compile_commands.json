@@ -1,0 +1,16 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++20",
+      "-g",
+      "-o",
+      "main",
+      "main.cpp"
+    ],
+    "directory": "/home/ngpong/code/cpp/CPP-Study-02/TEST/TEST_99",
+    "file": "/home/ngpong/code/cpp/CPP-Study-02/TEST/TEST_99/main.cpp",
+    "output": "/home/ngpong/code/cpp/CPP-Study-02/TEST/TEST_99/main"
+  }
+]
