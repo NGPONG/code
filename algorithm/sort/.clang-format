@@ -1,0 +1,1203 @@
+# yaml-language-server: $schema=https://json.schemastore.org/clang-format.json
+
+---
+Language: Cpp
+
+# 类类型访问修饰符对齐左侧的偏移量
+#
+# ------------------------------------------------
+# class Base {
+# public:
+#   Base() {}
+# }
+# ------------------------------------------------
+AccessModifierOffset: -2
+
+# 开括号范围内的内容过长后对齐的样式
+# 
+# ------------------------------------------------
+# someLongFunction(argument1,
+#                  argument2)
+# ------------------------------------------------
+AlignAfterOpenBracket: Align
+
+# 初始化结构体数组时的对齐模式
+#
+# ------------------------------------------------
+# struct test demo[] =
+# {
+#     {56, 23,    "hello"},
+#     {-1, 93463, "world"},
+#     {7,  5,     "!!"   }
+# };
+# ------------------------------------------------
+AlignArrayOfStructures: Left
+
+# 连续赋值对齐样式
+#
+# ------------------------------------------------
+# int a            = 1;
+# int somelongname = 2;
+# double c         = 3;
+#
+# a          >>= 2;
+# somelongname = 2;
+# ------------------------------------------------
+AlignConsecutiveAssignments:
+  Enabled: true # 是否启用
+  AcrossEmptyLines: false # 是否应用跨越空行的格式
+  AcrossComments: true # 是否应用跨越注释的格式
+  AlignCompound: true # 是否应用符合分配的格式
+  PadOperators: false # 短赋值运算符是否与长赋值运算符长度相同，以便将所有赋值运算符放在左侧的右边
+
+# 连续比特字段对齐样式
+#
+# ------------------------------------------------
+# int aaaa : 1;
+# int b    : 12;
+# int ccc  : 8;
+# ------------------------------------------------
+AlignConsecutiveBitFields:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: true
+
+# 连续声明对齐样式 
+# 
+# ------------------------------------------------
+# unsigned i;
+# int     &r;
+# int     *p;
+# int     (*f)();
+# ------------------------------------------------
+AlignConsecutiveDeclarations:
+  Enabled: false
+  AcrossEmptyLines: false
+  AcrossComments: true
+  AlignFunctionPointers: true # 是否应用于函数指针的格式
+
+# 连续宏对齐样式
+# ------------------------------------------------
+# #define SHORT_NAME       42
+# #define LONGER_NAME      0x007f
+# #define EVEN_LONGER_NAME (2)
+# #define foo(x)           (x * x)
+# #define bar(y, z)        (y + z)
+# ------------------------------------------------
+AlignConsecutiveMacros:
+  Enabled: false
+  AcrossEmptyLines: false
+  AcrossComments: true
+
+# 连续case对齐样式
+#
+# ------------------------------------------------
+# switch (level) {
+# case log::info   : return "info:";
+# case log::warning: return "warning:";
+# default          : return "";
+# }
+# ------------------------------------------------
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: true
+  AlignCaseColons: true
+
+# 是否将标有短case的规则合并为一行
+#
+# ------------------------------------------------
+# switch (a) {
+# case 1 -> 1;
+# default -> 0;
+# };
+# ------------------------------------------------
+AllowShortCaseExpressionOnASingleLine: true
+
+# 对齐反斜线转移换行符的样式
+#
+# ------------------------------------------------
+# #define A         \
+#   int aaaa;       \
+#   int b;          \
+#   int dddddddddd; \
+#   int hahah
+# ------------------------------------------------
+AlignEscapedNewlines: Right
+
+# 水平对齐二元和三元表达式的操作数的样式；该参数的行为与 BreakBeforeBinaryOperators 相关联
+#
+# ------------------------------------------------
+# int aaa = bbbbbbbbbbbbbbb +
+#           ccccccccccccccc;
+# ------------------------------------------------
+AlignOperands: Align
+
+# 控制尾部注释的样式
+# 
+# ------------------------------------------------
+# int a;  // comment
+# int ab; // comment
+# 
+# int abcdf;   // comment
+# int abcdefg; // comment
+# ------------------------------------------------
+AlignTrailingComments:
+  Kind:            Always
+  OverEmptyLines:  0
+
+# 当函数调用或带括号的初始化器列表在一行中不够用，是否允许将所有参数放到下一行
+#
+# ------------------------------------------------
+# callFunction(a,
+#              b,
+#              c,
+#              d);
+# ------------------------------------------------
+AllowAllArgumentsOnNextLine: true
+
+# 如果函数声明不适合放在一行中，是否允许将参数放入到下一行（允许时无视 BinPackParameters 的设置）
+#
+# ------------------------------------------------
+# void myFunction(int a,
+#                 int b,
+#                 int c,
+#                 int d,
+#                 int e) {
+# }
+# ------------------------------------------------
+AllowAllParametersOfDeclarationOnNextLine: true
+
+# 控制 noexcept 关键字前是否允许有换行符；简单语句不允许，复杂语句则视实际的代码格式而决定
+#
+# ------------------------------------------------
+# void foo(int arg1, double arg2) noexcept;
+# 
+# void bar(int arg1, double arg2)
+#   noexcept(noexcept(baz(arg1)) && noexcept(baz(arg2)));
+# ------------------------------------------------
+AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
+
+# 是否允许合并仅有一行的区块
+# 
+# ------------------------------------------------
+# void foo() {}
+#
+# void foo() {
+#   ...   
+# }
+# ------------------------------------------------
+AllowShortBlocksOnASingleLine: Empty
+
+# 是否允许仅有单行的 case 标签合并为一行
+#
+# ------------------------------------------------
+# switch (aaaa) {
+# case 111 + 222 + 333 + 444:
+#   aaaaaaaaaaaaaaaaaaaaaaaaa += 10;
+#   break;
+# case 555 + 666 + 777 + 888: {
+#   break;
+# }
+# ------------------------------------------------
+AllowShortCaseLabelsOnASingleLine: true
+
+# 是否允许在单行中使用简短的符合requirement
+#
+# ------------------------------------------------
+# template <typename T>
+# concept c = requires(T x) {
+#   { x + 1 } -> std::same_as<int>;
+# };
+# ------------------------------------------------
+AllowShortCompoundRequirementOnASingleLine: true
+
+# 是否允许在单行中使用短枚举
+#
+# ------------------------------------------------
+# enum { A, B } myEnum;
+# ------------------------------------------------
+AllowShortEnumsOnASingleLine: true
+
+# 是否允许合并仅有单行的短函数；该参数受 AllowShortBlocksOnASingleLine 影响；由于该参数设置的值可能会产生混淆，故不设置它；实际的行为视代码结构而定
+# AllowShortFunctionsOnASingleLine: ??
+
+# 是否允许合并仅有单行的if语句；该参数受 AllowShortBlocksOnASingleLine 影响；由于该参数设置的值可能会产生混淆，故不设置它；实际的行为视代码结构而定
+# AllowShortIfStatementsOnASingleLine: ??
+
+# 是否允许合并仅有单行的lambda语句；该参数受 AllowShortBlocksOnASingleLine 影响；由于该参数设置的值可能会产生混淆，故不设置它；实际的行为视代码结构而定
+# AllowShortLambdasOnASingleLine: ??
+
+# 是否允许合并仅有单行 loop 语句；该参数受 AllowShortBlocksOnASingleLine 影响
+#
+# ------------------------------------------------
+# while (true)
+#   continue;
+# ------------------------------------------------
+AllowShortLoopsOnASingleLine: true
+
+# 用于定义函数返回类型换行方式；该参数已弃用
+# AlwaysBreakAfterDefinitionReturnType: None
+
+# 多行字符串的换行方式
+#
+# ------------------------------------------------
+# const std::string &str = "asdsad"
+#                          "asdasdas";
+# ------------------------------------------------
+AlwaysBreakBeforeMultilineStrings: false
+
+# 设置应该被解释为属性/限定符而不是标识符的字符串向量。这对于语言扩展或静态分析器注释非常有用。
+#
+# ------------------------------------------------
+# x = (char *__capability)&y;
+# int function(void) __unused;
+# void only_writes_to_buffer(char *__output buffer);
+# ------------------------------------------------
+AttributeMacros:
+  - __capability
+  - __output
+  - __unused
+
+# 函数调用参数的换行格式；此参数与 AllowAllArgumentsOnNextLine 相似，我们保留后者的格式
+#
+# ------------------------------------------------
+# callFunction(
+#   a, b, c, d
+# );
+# ------------------------------------------------
+BinPackArguments: false
+
+# 函数声明参数的换行格式；此参数与 AllowAllParametersOfDeclarationOnNextLine 相似
+#
+# ------------------------------------------------
+# void f() {
+#   f(aaaaaaaaaaaaaaaaaaaa,
+#     aaaaaaaaaaaaaaaaaaaa,
+#     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+# }
+# ------------------------------------------------
+BinPackParameters: false
+
+# 用于控制位域字段的样式格式
+#
+# int aaaa : 1;
+# int b    : 12;
+# int ccc  : 8;
+BitFieldColonSpacing: Before
+
+# 该参数用于控制大括号前/后的换行格式；仅当 BreakBeforeBraces: custom 的时候才会应用当前参数；暂时无用先注释掉
+# BraceWrapping:
+#   AfterCaseLabel:  false
+#   AfterClass:      false
+#   AfterControlStatement: Never
+#   AfterEnum:       false
+#   AfterExternBlock: true
+#   AfterFunction:   false
+#   AfterNamespace:  false
+#   AfterObjCDeclaration: false
+#   AfterStruct:     false
+#   AfterUnion:      false
+#   BeforeCatch:     false
+#   BeforeElse:      false
+#   BeforeLambdaBody: false
+#   BeforeWhile:     false
+#   IndentBraces:    false
+#   SplitEmptyFunction: true
+#   SplitEmptyRecord: true
+#   SplitEmptyNamespace: true
+
+# 控制相邻字符串之间是否需要换行
+#
+# ------------------------------------------------
+# return "Code"
+#        "\0\52\26\55\55\0"
+#        "x013"
+#        "\02\xBA";
+# ------------------------------------------------
+BreakAdjacentStringLiterals: true
+
+# 控制是否在属性声明后换行
+#
+# ------------------------------------------------
+# [[maybe_unused]] const int i;
+# [[gnu::const]] [[maybe_unused]] int j;
+# 
+# [[nodiscard]]
+# inline int f();
+# [[gnu::const]] [[nodiscard]]
+# int g();
+# ------------------------------------------------
+BreakAfterAttributes: Leave
+
+# 函数返回类型后的换行方式
+#
+# ------------------------------------------------
+# int
+# f() {}
+#
+# int f() {
+#   return 1; 
+# }
+# ------------------------------------------------
+BreakAfterReturnType: Automatic
+
+# 模板声明后的换行方式
+#
+# ------------------------------------------------
+# template <typename T>
+# T foo() {
+# }
+# template <typename T> T foo(int aaaaaaaaaaaaaaaaaaaaa, int bbbbbbbbbbbbbbbbbbbbb) {
+# }
+# ------------------------------------------------
+BreakTemplateDeclarations: Leave
+
+# 二元运算符前换行的格式；此参数与 AlignOperands 相关联，我们保留 AlignOperands 的格式
+#
+# ------------------------------------------------
+# int aaa = bbbbbbbbbbbbbbb +
+#           ccccccccccccccc;
+# ------------------------------------------------
+BreakBeforeBinaryOperators: None
+
+# concept关键字后换行的格式
+#
+# ------------------------------------------------
+# template <typename T>
+# concept C = ...;
+# 
+# template <typename T> concept D = ...;
+# ------------------------------------------------
+BreakBeforeConceptDeclarations: Allowed
+
+# 在大括号前换行的格式风格
+#
+# ------------------------------------------------
+# namespace N {
+# enum E {
+#   E1,
+#   E2,
+# };
+# 
+# class C {
+# public:
+#   C();
+# };
+# 
+# bool baz(int i) {
+#   try {
+#     do {
+#       switch (i) {
+#       case 1: {
+#         foobar();
+#         break;
+#       }
+#       default: {
+#         break;
+#       }
+#       }
+#     } while (--i);
+#     return true;
+#   } catch (...) {
+#     handleError();
+#     return false;
+#   }
+# }
+# ------------------------------------------------
+BreakBeforeBraces: Attach
+
+# 内联汇编冒号符的换行格式
+#
+# ------------------------------------------------
+# asm volatile("string", : : val);
+# asm("cmoveq %1, %2, %[result]"
+#     : [result] "=r"(result)
+#     : "r"(test), "r"(new), "[result]"(old));
+# ------------------------------------------------
+BreakBeforeInlineASMColon: Always
+
+# 控制三元运算符之后是否需要换行
+#
+# ------------------------------------------------
+# veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongDescription
+#     ? firstValue
+#     : SecondValueVeryVeryVeryVeryLong;
+# 
+# veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongDescription ? firstValue
+#      SecondValueVeryVeryVeryVeryLong;
+# ------------------------------------------------
+BreakBeforeTernaryOperators: true
+
+# 类类型构造函数初始化器格式化样式
+#
+# ------------------------------------------------
+# class Base2 : public Base1 {
+# public:
+#   Base2()
+#     : Base1(1024),
+#       val_1("hello,world"),
+#       val_3("hello,world") {
+#   }
+# 
+#   std::string val_1;
+#   std::string val_2;
+# }
+# ------------------------------------------------
+BreakConstructorInitializers: BeforeColon
+
+# 类类型继承列表格式化样式
+#
+# ------------------------------------------------
+# class Foo
+#   : Base1,
+#     Base2
+# {};
+# ------------------------------------------------
+BreakInheritanceList: BeforeColon
+
+# 长度受限时是否允许打破字符串格式的方式去执行格式化操作；该参数收到行宽的限制，故无用
+# BreakStringLiterals: false
+
+# 列宽度限制
+ColumnLimit: 0
+
+# 描述具有特殊含义的注释的正则表达式，不应拆分成行或以其他方式更改。
+#
+# ------------------------------------------------
+# // CommentPragmas: '^ FOOBAR pragma:'
+# // Will leave the following line unaffected
+# #include <vector> // FOOBAR pragma: keep
+# ------------------------------------------------
+CommentPragmas:  '^ IWYU pragma:'
+
+# 是否采用紧凑的命名空间
+#
+# ------------------------------------------------
+# namespace Foo {
+# namespace Bar {
+# }
+# }
+# ------------------------------------------------
+CompactNamespaces: false
+
+# 构造函数初始化列表和继承列表的缩进字符数
+#
+# ------------------------------------------------
+# class Base0
+#   : public Base1,
+#     public Base2 {
+# public:
+#   Base2()
+#     : Base1(1024), val_1("hello,world"), val_3("hello,world") {
+#   }
+# 
+#   std::string val_1;
+#   std::string val_2;
+# }
+# ------------------------------------------------
+ConstructorInitializerIndentWidth: 2
+
+# 持续缩进行时指定的宽度
+#
+# ------------------------------------------------
+# int i =         //  VeryVeryVeryVeryVeryLongComment
+#   longFunction( // Again a long comment
+#     arg
+#   );
+# ------------------------------------------------
+ContinuationIndentWidth: 2
+
+# 是否将大括号格式化为最符号 CPP11 的格式
+#
+# ------------------------------------------------
+# vector<int> x{ 1, 2, 3, 4 };
+# vector<T> x{ {}, {}, {}, {} };
+# f(MyMap[{ composite, key }]);
+# new int[3]{ 1, 2, 3 };
+# ------------------------------------------------
+Cpp11BracedListStyle: false
+
+# 指针格式化是否需要参考当前文件中最常用的形式
+DerivePointerAlignment: true
+
+# 禁用 formatter
+DisableFormat: false
+
+# 访问修饰符之前/之后的换行样式
+#
+# ------------------------------------------------
+# struct foo {
+# private:
+#   int i;
+# protected:
+#   int j;
+#   /* comment */
+# 
+# public:
+#   foo() {}
+# };
+# ------------------------------------------------
+EmptyLineAfterAccessModifier: Leave
+EmptyLineBeforeAccessModifier: Leave
+
+# 检测函数调用和定义是否按照每行一个参数的格式进行排版；这个是一个实验性参数，故暂时不启用
+# ExperimentalAutoDetectBinPacking: false
+
+# 修复长命名空间包装（小于 ShortNamespaceLines 指定的函数）的注释信息
+#
+# ------------------------------------------------
+# namespace longNamespace {
+# void foo();
+# void bar();
+# } // namespace longNamespace
+# 
+# namespace shortNamespace {
+# void baz();
+# }
+# ------------------------------------------------
+FixNamespaceComments: true
+
+# 应该被解释为 foreach 循环而不是函数调用的宏
+ForEachMacros:
+  - foreach
+  - Q_FOREACH
+  - BOOST_FOREACH
+  - RANGES_FOR
+  - FOREACH
+
+# 应该被解释为 IF 语句而不是函数调用的宏
+IfMacros:
+  - KJ_IF_MAYBE
+  - IF
+
+# 控制 include 语句的排序规则
+#
+# ------------------------------------------------
+# #include "b.h"
+# #include "c.h"
+# 
+# #include "a.h"
+# #include <lib/main.h>
+# ------------------------------------------------
+IncludeBlocks: Preserve 
+
+# 控制 include 语句的排序具体细节
+#
+# ------------------------------------------------
+# #include <aaaa>
+# #include <array>
+# #include <chrono>
+# #include <vector>
+# 
+# #include <llvm-10/InitializePasses.h>
+# #include <llvm-14/InitializePasses.h>
+# #include <llvm/InitializePasses.h>
+# #include <llvm/casasd.h>
+# 
+# #include <asdasd/asdasd/asdads>
+# #include <asdasd/asdasd>
+# 
+# #include "asczxczxc"
+# #include "asdasd"
+# #include "asdasdsd"
+# ------------------------------------------------
+IncludeCategories:
+  - Regex:           '^<[^/]+>'                                            # <任意字符>
+    Priority:        1
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '^((<|")(llvm(-[0-9]+)?|llvm|llvm-c|clang|clang-c)/)' # <llvm.../任意字符/..>
+    Priority:        2
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '^<.*/.*>'                                            # <任意字符/任意字符/..>
+    Priority:        3
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '^".*"'                                               # "任意字符"
+    Priority:        4
+    SortPriority:    0
+    CaseSensitive:   false
+
+# 控制索引为 main include 的规则，屏蔽掉是因为目前暂时无需求
+# IncludeIsMainRegex: ''
+# IncludeIsMainSourceRegex: ''
+
+# 设置访问修饰符是否应当拥有缩进级别
+#
+# ------------------------------------------------
+# class C {
+#   class D {
+#     void bar();
+#   protected:
+#     D();
+#   };
+# public:
+#   C();
+# };
+# 
+# struct foo {
+# private:
+#   int i;
+# protected:
+#   int j;
+# };
+# ------------------------------------------------
+IndentAccessModifiers: false
+
+# 设置 case 关键字是否应当换行
+#
+# ------------------------------------------------
+# switch (fool) {
+# case 1: {
+#   bar();
+# } break;
+# default: {
+#   plop();
+# }
+# }
+# ------------------------------------------------
+IndentCaseBlocks: false
+
+# 设置 case 关键字是否具备缩进
+#
+# ------------------------------------------------
+# switch (fool) {
+# case 1: {
+#   bar();
+# } break;
+# default: {
+#   plop();
+# }
+# }
+# ------------------------------------------------
+IndentCaseLabels: false
+
+# 控制 extern 关键字内部块是否需要缩进
+#
+# ------------------------------------------------
+# extern "C" {
+# void foo();
+# }
+# ------------------------------------------------
+IndentExternBlock: NoIndent
+
+# 控制是否要缩进 goto 标签
+#
+# ------------------------------------------------
+# int f() {
+#   if (foo()) {
+# label1:
+#     bar();
+#   }
+# label2:
+#   return 1;
+# }
+# ------------------------------------------------
+IndentGotoLabels: false
+
+# 控制预处理器的缩进样式
+#
+# ------------------------------------------------
+# #if FOO
+# #  if BAR
+# #    include <foo>
+# #  endif
+# #endif
+# ------------------------------------------------
+IndentPPDirectives: AfterHash
+
+# 控制模板中缩进子句的样式
+#
+# ------------------------------------------------
+# template <typename It>
+# requires Iterator<It>
+# void sort(It begin, It end) {
+#   //....
+# }
+# ------------------------------------------------
+IndentRequiresClause: false
+
+# 控制缩进的宽度；这是一个全局选项，影响较多的参数
+IndentWidth: 2
+
+# 控制控制函数返回值类型与函数名之间存在换行后的缩进样式
+# ------------------------------------------------
+# LooooReturnType
+# LooooFunctionDeclaration();
+# ------------------------------------------------
+IndentWrappedFunctionNames: true
+
+# 控制是否为所有的控制语句（if, for, while, ..）插入范围括号
+#
+# ------------------------------------------------
+# if (isa<FunctionDecl>(D))
+#   handleFunctionDecl(D);
+# else if (isa<VarDecl>(D))
+#   handleVarDecl(D);
+# else
+#   return;
+# 
+# while (i--)
+#   for (auto *A : D.attrs())
+#     handleAttr(A);
+# 
+# do
+#   --i;
+# while (i);
+# ------------------------------------------------
+InsertBraces: false
+
+# 格式化后是否要为文件尾部插入一个新行；遵顼 POSIX 标准
+InsertNewlineAtEOF: true
+
+# 格式化数字分隔符的样式行为
+#
+# ------------------------------------------------
+# binary  = 0b1101'1011'0110'1011;
+# decimal = not set;
+# hex     = not set;
+# ------------------------------------------------
+IntegerLiteralSeparator:
+  Binary:          4
+  BinaryMinDigits: 0
+  Decimal:         0
+  DecimalMinDigits: 0
+  Hex:             0
+  HexMinDigits:    0
+
+# 是否允许在块的首行保留一个空行
+#
+# ------------------------------------------------
+# if (foo) {
+# 
+#   bar();
+# }
+# if (foo) {
+#   bar();
+# }
+# ------------------------------------------------
+KeepEmptyLinesAtTheStartOfBlocks: true
+
+# 是否允许在文件结尾中保留一行空行；保持该参数与 InsertNewlineAtEOF 的行为一致
+KeepEmptyLinesAtEOF: false
+
+# 控制 lambda 函数体的缩进样式
+#
+# ------------------------------------------------
+# someMethod(
+#   [](SomeReallyLongLambdaSignatureArgument foo) {
+#     return;
+#   });
+# ------------------------------------------------
+LambdaBodyIndentation: Signature
+
+# 控制行的结束符的样式
+LineEnding: DeriveLF
+
+# 用于查询宏的开始与结束标记的 regex，如果找到则会为块内的语义添加缩进
+#
+# ------------------------------------------------
+# NS_MAP_BEGIN
+#   foo();
+# NS_MAP_END
+# 
+# NS_TABLE_HEAD
+#   bar();
+# NS_TABLE_FOO_END
+# ------------------------------------------------
+MacroBlockBegin: '^NS_MAP_BEGIN|\NS_TABLE_HEAD$'
+MacroBlockEnd: '^\NS_MAP_END|\NS_TABLE_.*_END$'
+
+# 设置保留空行之间的最大行数
+# 
+# ------------------------------------------------
+# const std::string &str = "asdaasdasdads"
+#                          "asdasd"
+#                          "asdasdqweqwe";
+#
+# 
+#
+# 
+# while (true) { }
+# ------------------------------------------------
+MaxEmptyLinesToKeep: 4
+
+# 设置命名空间块内部的代码是否需要缩进
+# ------------------------------------------------
+# namespace out {
+# int i;
+# namespace in {
+# int i;
+# }
+# }
+# ------------------------------------------------
+NamespaceIndentation: None
+
+# 设置构造函数初始化列表的换行样式
+#
+# ------------------------------------------------
+# Constructor() : a(), b()
+# 
+# Constructor()
+#     : aaaaaaaaaaaaaaaaaaaa(), bbbbbbbbbbbbbbbbbbbb(), ddddddddddddd()
+# 
+# Constructor()
+#     : aaaaaaaaaaaaaaaaaaaa(),
+#       bbbbbbbbbbbbbbbbbbbb(),
+#       cccccccccccccccccccc()
+# ------------------------------------------------
+PackConstructorInitializers: NextLine
+
+# 惩罚系的参数实际上没有效果，因为它与列限制有关，这里都设置一个最小值
+# 如果有这些参数的需求，则可以查看下面的链接
+#   * https://www.zhihu.com/question/22160085
+#   * https://stackoverflow.com/questions/26635370/in-clang-format-what-do-the-penalties-do
+PenaltyBreakAssignment: 0
+PenaltyBreakBeforeFirstCallParameter: 0
+PenaltyBreakComment: 0
+PenaltyBreakFirstLessLess: 0
+PenaltyBreakOpenParenthesis: 0
+PenaltyBreakScopeResolution: 0
+PenaltyBreakString: 0
+PenaltyBreakTemplateDeclaration: 0
+PenaltyExcessCharacter: 0
+PenaltyIndentedWhitespace: 0
+PenaltyReturnTypeOnItsOwnLine: 0
+
+# 设置指针符偏移位置
+#
+# ------------------------------------------------
+# int *p;
+# ------------------------------------------------
+PointerAlignment: Right
+
+# 控制预处理器的缩进样式
+#
+# ------------------------------------------------
+# #ifdef __linux__
+# #  define FOO
+# #else
+# #  define BAR
+# #endif
+# ------------------------------------------------
+PPIndentWidth: 2
+
+# 控制限定符的对齐样式
+#
+# ------------------------------------------------
+# int const a;
+# const int *a;
+# ------------------------------------------------
+QualifierAlignment: Left
+
+# 控制引用符的对齐样式；与指针保持一直
+#
+# ------------------------------------------------
+# int &r;
+# ------------------------------------------------
+ReferenceAlignment: Pointer
+
+# 是否按 ColumnLimit 的设置重新排版注释
+#
+# ------------------------------------------------
+# // veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of information
+# /* second veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of information */
+# ------------------------------------------------
+ReflowComments: false
+
+# 是否按照 LLVM 的风格删除控制语句中的大括号；该选项可能与 InsertBraces 产生冲突，故我们不启用它
+RemoveBracesLLVM: false
+
+# 控制是否删除多余的括号
+#
+# class __declspec((dllimport)) X {};
+# co_return (((0)));
+# return ((a + b) - ((c + d)));
+RemoveParentheses: Leave
+
+# 是否删除函数或构造函数在右大括号的分号
+#
+# ------------------------------------------------
+# int max(int a, int b) {
+#  return a > b ? a : b;
+# };
+# ------------------------------------------------
+RemoveSemicolon: false
+
+# FIX: 有问题
+# RequiresClausePosition: WithPreceding
+RequiresExpressionIndentation: OuterScope
+
+# 是否使用空行来分隔定义块，包括类、结构体、枚举和函数
+#
+# ------------------------------------------------
+# int max(int a, int b) {
+#  return a > b ? a : b;
+# }
+# int min(int a, int b) {
+#   return a < b ? a : b;
+# }
+#
+# int avg(...) {
+#   ...
+# }
+# ------------------------------------------------
+SeparateDefinitionBlocks: Leave
+
+# 用于指定短命名空间包装的长度，供给 FixNamespaceComments 参数所使用
+ShortNamespaceLines: 0
+
+# 是否跳过格式化宏内部主体的内容
+SkipMacroDefinitionBody: false
+
+# 指定 include header 的排序样式
+# ------------------------------------------------
+# #include "A/B.h"
+# #include "A/b.h"
+# #include "a/b.h"
+# #include "B/A.h"
+# #include "B/a.h"
+# ------------------------------------------------
+SortIncludes: CaseInsensitive
+
+# 指定 using 连续声明的排序方式
+#
+# ------------------------------------------------
+# using boost::regex;
+# using boost::regex_constants::icase;
+# using std::move;
+# using std::string;
+# using std::chrono::duration_cast;
+# ------------------------------------------------
+SortUsingDeclarations: LexicographicNumeric
+
+# 控制是否要在完成C风格类型转换后留下空格
+#
+# ------------------------------------------------
+# (int)i;
+# ------------------------------------------------
+SpaceAfterCStyleCast: false
+
+# 控制是否要在逻辑非后留下空格
+#
+# ------------------------------------------------
+# !someExpression();
+# ------------------------------------------------
+SpaceAfterLogicalNot: false
+
+# 控制是否要在 template 关键字后留下空格
+#
+# ------------------------------------------------
+# template<int> void foo();
+# ------------------------------------------------
+SpaceAfterTemplateKeyword: true
+
+# 控制指针限定为周围的空格样式；这里为不设置而使用 PointerAlignment 参数
+#
+# ------------------------------------------------
+# void *const *x = NULL;
+# ------------------------------------------------
+SpaceAroundPointerQualifiers: Default
+
+# 控制是否要在完成复制运算符之前添加空格
+#
+# ------------------------------------------------
+# int a = 5;
+# a += 42;
+# ------------------------------------------------
+SpaceBeforeAssignmentOperators: true
+
+# 控制是否要在完成 case 冒号之前添加空格
+#
+# ------------------------------------------------
+# switch (x) {
+#   case 1: break;
+# }
+# ------------------------------------------------
+SpaceBeforeCaseColon: false
+
+# 控制是否在初始化对象的大括号列表之前（在前面的标识符或类型之后）插入一个空格
+#
+# ------------------------------------------------
+# Foo foo{ bar };
+# Foo{};
+# vector<int>{ 1, 2, 3 };
+# new int[3]{ 1, 2, 3 };
+# ------------------------------------------------
+SpaceBeforeCpp11BracedList: false
+
+# 控制是否要再构造函数初始化列表调用冒号之前添加空格
+#
+# ------------------------------------------------
+# class Base_0 : public Base_1, Base_2, Base_3 {
+# public:
+#   Base_0() : Base_1(), Base_2(), Base_3() {
+#   }
+# };
+# ------------------------------------------------
+SpaceBeforeCtorInitializerColon: true
+
+# 控制是否要在继承列表调用冒号之前添加空格
+#
+# ------------------------------------------------
+# class Base_0 : public Base_1, Base_2, Base_3 {
+# };
+# ------------------------------------------------
+SpaceBeforeInheritanceColon: true
+
+# 控制是否要在括号之前添加空格
+#
+# ------------------------------------------------
+# if (...) {}
+#
+# FOREACH (...)
+# <loop-body>
+# 
+# void f();
+# 
+# void f() {}
+# 
+# IF (...)
+#   <conditional-body>
+# 
+# void operator++(int a);
+# object.operator++(10);
+# 
+# new(buf) T;
+# delete(buf) T;
+# 
+# template<typename T>
+# requires(A<T> && B<T>)
+# ...
+# 
+# template<typename T>
+# concept C = requires(T t) {
+#               ...
+#             }
+# 
+# void f();
+# f();
+# ------------------------------------------------
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterForeachMacros: true
+  AfterFunctionDefinitionName: false
+  AfterFunctionDeclarationName: false
+  AfterIfMacros: true
+  AfterOverloadedOperator: false
+  AfterPlacementOperator: true
+  AfterRequiresInClause: false
+  AfterRequiresInExpression: false
+  BeforeNonEmptyParentheses: false
+
+# 控制是否要在 for-range loop 的冒号完成前添加空格
+#
+# ------------------------------------------------
+# for (auto v : values) {}
+# ------------------------------------------------
+SpaceBeforeRangeBasedForLoopColon: true
+
+# 控制是否要在方括号之前添加空格
+#
+# ------------------------------------------------
+# int a[5];
+# int a[5][5];
+# ------------------------------------------------
+SpaceBeforeSquareBrackets: false
+
+# 控制是否要在空白块之间添加空格
+#
+# ------------------------------------------------
+# void f() {}
+# while (true) {}
+# ------------------------------------------------
+SpaceInEmptyBlock: false
+
+# 控制尾随行注释前的空格数
+#
+# ------------------------------------------------
+# void f() {
+#   if (true) { // foo1
+#     f();      // bar
+#   }
+# }
+# ------------------------------------------------
+SpacesBeforeTrailingComments: 1
+
+# 控制模板形参附近的空格样式
+#
+# ------------------------------------------------
+# static_cast<int>(arg);
+# std::function< void(int) > fct;
+# ------------------------------------------------
+SpacesInAngles: Leave
+
+# 控制行注释开头的空格数量；似乎没有效果
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+
+# 控制括号内的空格行为
+#
+# ------------------------------------------------
+# if (a) { ... }
+# while (i < 5) { ... }
+# 
+# x = (int32)y
+# 
+# void f() {
+# int x[] = { foo(), bar() };
+# if (true) {
+#     f();
+#   }
+# }
+# 
+# t f(Deleted &) & = delete;
+# ------------------------------------------------
+SpacesInParens: Custom
+SpacesInParensOptions:
+  InCStyleCasts: false
+  InConditionalStatements: false
+  InEmptyParentheses: false
+  Other: false
+
+# 控制 [] 内的空格行为
+#
+# ------------------------------------------------
+# int a[5];
+# std::unique_ptr<int[]> foo() {};
+# ------------------------------------------------
+SpacesInSquareBrackets: false
+
+# 依据 cpp 版本去控制某些行为的格式化样式
+#
+# ------------------------------------------------
+# c++03:                           latest:
+# vector<set<int> > x;     vs.     vector<set<int>> x;
+# ------------------------------------------------
+Standard: Latest
+
+# 设置不需要被解析格式化的标识符；有需要的时候再看看吧，暂时保持默认的格式
+StatementAttributeLikeMacros:
+  - Q_EMIT
+StatementMacros:
+  - Q_UNUSED
+  - QT_REQUIRE_VERSION
+
+# 设置 tab 的宽度
+TabWidth: 2
+
+# 设置是否使用 <Tab>
+UseTab: Never
+
+# 对空白敏感且不应触及的宏的向量；有需要的时候再看看吧，暂时保持默认的格式
+WhitespaceSensitiveMacros:
+  - BOOST_PP_STRINGIZE
+  - CF_SWIFT_NAME
+  - NS_SWIFT_NAME
+  - PP_STRINGIZE
+  - STRINGIZE
+...

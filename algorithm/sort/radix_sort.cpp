@@ -20,8 +20,8 @@ int main(int argc, char *argv[]) {
   }
 
   int bucket[10] = { 0 };
-  int *sorted_arr = malloc(sizeof(int) * len);
-  bzero(sorted_arr, sizeof(int) * len);
+  int *sorted_arr = malloc(sizeof(int) * len); bzero(sorted_arr, sizeof(int) * len);
+
   int base = 1;
   while (max_val / base > 0) {
     for (int i = 0; i < len; ++i) {
