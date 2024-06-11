@@ -17,6 +17,11 @@ public:
   }
 };
 
+class B;
+
+
+class B;
+
 int main (int argc, char *argv[]) {
   A *ap = new B();
   delete ap;

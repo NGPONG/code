@@ -8,6 +8,8 @@
 #include <iterator>
 #include <random>
 #include <vector>
+#include <stack>
+#include <list>
 #include <benchmark/benchmark.h>
 
 #define MAX_TEST_CASE 100
