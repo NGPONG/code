@@ -1,5 +1,19 @@
 #include "common.hpp"
 
+void insertsort(Array &datas, std::int32_t begin, std::int32_t end) {
+  for (std::int32_t i = begin; i <= end; ++i) {
+    std::int32_t min = i;
+
+    for (std::int32_t j = i + 1; j <= end; ++j) {
+      if (datas[min] > datas[j]) {
+        min = j;
+      }
+    }
+
+    std::swap(datas[min], datas[i]);
+  }
+}
+
 void solution_1(Array &datas) {
   auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t begin, std::int32_t end) -> void {
     if (begin >= end) {
@@ -87,15 +101,95 @@ void solution_2(Array &datas) {
   quick_sort(0, datas.size() - 1);
 }
 
+void solution_3(Array &datas) {
+  auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
+    if (low >= high) {
+      return;
+    }
+
+    std::int32_t P = datas[low];
+
+    std::int32_t lt = low;
+    std::int32_t i = low + 1;
+
+    while (i <= high) {
+      if (datas[i] <= P) {
+        std::swap(datas[i], datas[lt + 1]);
+        ++lt;
+      }
+
+      ++i;
+    }
+    for (std::int32_t i = lt + 1; i <= high; ++i) {
+      if (datas[i] <= P) {
+        std::swap(datas[i], datas[lt + 1]);
+        ++lt;
+      }
+    }
+
+    std::swap(datas[low], datas[lt]);
+
+    quick_sort(low, lt - 1);
+    quick_sort(lt + 1, high);
+  });
+
+  quick_sort(0, datas.size());
+}
+
+void solution_4(Array &datas) {
+  auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
+    if (high - low <= 15) {
+      insertsort(datas, low, high);
+      return;
+    }
+
+    std::swap(datas[low], datas[std::rand() % (high - low + 1) + low]);
+
+    std::int32_t P = datas[low];
+
+    std::int32_t lt = low;
+    std::int32_t gt = high + 1;
+    std::int32_t i = low + 1;
+
+    while (i < gt) {
+      if (datas[i] < P) {
+        std::swap(datas[i], datas[lt + 1]);
+        i++;
+        lt++;
+      } 
+      else if (datas[i] > P) {
+        std::swap(datas[i], datas[gt - 1]);
+        gt--;
+      }
+      else {
+        i++;
+      }
+    }
+
+    std::swap(datas[lt], datas[low]);
+
+    quick_sort(low, lt - 1);
+    quick_sort(lt + 1, high);
+  });
+
+  quick_sort(0, datas.size() - 1);
+}
+
 std::int32_t main (std::int32_t argc, char *argv[]) {
+  std::srand(std::time(NULL));
+
   solution_test({
     { solution_1, "solution_1" },
     { solution_2, "solution_2" },
+    { solution_3, "solution_3" },
+    { solution_4, "solution_4" },
   });
 
   solution_benchmark({
     { solution_1, "solution_1" },
     { solution_2, "solution_2" },
+    { solution_3, "solution_3" },
+    { solution_4, "solution_4" },
   });
 
   return 0;

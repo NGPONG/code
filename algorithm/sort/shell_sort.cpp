@@ -1,31 +1,17 @@
 #include "common.hpp"
 
-
-
 void solution_1(Array &datas) {
-  for (std::int32_t inc = datas.size() / 2; inc > 0; inc /= 2) {
-    for (std::int32_t i = inc; i < datas.size(); i++) {
+  for (std::int32_t gs = datas.size() / 2; gs > 0; gs /= 2) {
+    for (std::int32_t i = gs; i < datas.size(); i++) {
       std::int32_t key = datas[i];
 
       std::int32_t j = i;
-      for (; j >= inc && key < datas[j - inc]; j -= inc) {
-        datas[j] = datas[j - inc];
+      for (; j >= gs && key < datas[j - gs]; j -= gs) {
+        datas[j] = datas[j - gs];
       }
       datas[j] = key;
     }
   }
-
-  // for (std::int32_t inc = datas.size() / 2; inc > 0; inc /= 2) {
-  //   for (std::int32_t i = inc; i < datas.size(); ++i) {
-  //     std::int32_t key = datas[i];
-  //
-  //     std::int32_t j = i;
-  //     for (; j >= inc && key < datas[j - inc]; j -= inc) {
-  //       datas[j] = datas[j - inc];
-  //     }
-  //     datas[j] = key;
-  //   }
-  // }
 }
 
 int main(int argc, char *argv[]) {

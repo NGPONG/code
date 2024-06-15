@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <array>
 #include <chrono>
+#include <thread>
+#include <future>
 #include <cstring>
 #include <ctime>
 #include <functional>
