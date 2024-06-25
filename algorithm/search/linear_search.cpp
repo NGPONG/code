@@ -3,7 +3,6 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 int foo(int *arrary, int key, int n) {
   for (size_t i = 0; i < n; ++i) {
@@ -11,6 +10,7 @@ int foo(int *arrary, int key, int n) {
       return i;
     }
   }
+  return -1;
 }
 
 int main(void) {

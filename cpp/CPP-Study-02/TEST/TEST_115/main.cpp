@@ -1,33 +1,38 @@
+#include <benchmark/benchmark.h>
 #include <iostream>
-#include <memory>
 
-class A {
-public:
-  virtual ~A() = 0;
-};
-
-A::~A() {
-  std::cout << "A destructor" << std::endl;
-}
-
-class B : public A {
-public:
-  virtual ~B() {
-    std::cout << "B destructor" << std::endl;
+static std::int64_t factorial(std::int64_t n) {
+  if (n < 0) {
+    return 0;
+  } else if (n == 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
   }
-};
-
-class B;
-
-
-class B;
-
-int main (int argc, char *argv[]) {
-  A *ap = new B();
-  delete ap;
-
-  A &ar = *(new B());
-  delete &ar;
-
-  return 0;
 }
+static void BM_1(benchmark::State& state) {
+  for (auto _ : state) {
+    benchmark::DoNotOptimize(factorial(20));
+  }
+}
+BENCHMARK(BM_1);
+
+static std::int64_t factorial_tail(std::int64_t n, std::int64_t val) {
+  if (n < 0) {
+    return 0;
+  } else if (n == 0) {
+    return 1;
+  } else if (n == 1) {
+    return val;
+  } else {
+    return factorial_tail(n - 1, n * val);
+  }
+}
+static void BM_2(benchmark::State& state) {
+  for (auto _ : state) {
+    benchmark::DoNotOptimize(factorial_tail(20, 1));
+  }
+}
+BENCHMARK(BM_2);
+
+BENCHMARK_MAIN();

@@ -14,6 +14,7 @@
 //  * 
 //
 
+// 普通选择排序
 void solution_1(Array &datas) {
   for (std::size_t i = 0; i < datas.size(); ++i) {
     std::int32_t max = i;
@@ -28,6 +29,7 @@ void solution_1(Array &datas) {
   }
 }
 
+// 鸡尾酒算法优化
 void solution_2(Array &datas) {
   std::int32_t l = 0, r = datas.size() - 1;
 
@@ -53,6 +55,7 @@ void solution_2(Array &datas) {
   }
 }
 
+// 无预测分支实现 
 void solution_3(Array &datas) {
   for (size_t i = 0; i < datas.size(); i++) {
     std::size_t min = i;
@@ -67,6 +70,7 @@ void solution_3(Array &datas) {
   }
 }
 
+// 稳定的快速排序
 void solution_4(Array &datas) {
   std::int32_t left = 0, right = datas.size() - 1;
 

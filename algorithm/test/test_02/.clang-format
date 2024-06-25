@@ -222,11 +222,11 @@ AllowShortEnumsOnASingleLine: true
 # 是否允许合并仅有单行的短函数；该参数受 AllowShortBlocksOnASingleLine 影响；由于该参数设置的值可能会产生混淆，故不设置它；实际的行为视代码结构而定
 # AllowShortFunctionsOnASingleLine: ??
 
+# 是否允许合并仅有单行的if语句；该参数受 AllowShortBlocksOnASingleLine 影响；由于该参数设置的值可能会产生混淆，故不设置它；实际的行为视代码结构而定
+# AllowShortIfStatementsOnASingleLine: ??
+
 # 是否允许合并仅有单行的lambda语句；该参数受 AllowShortBlocksOnASingleLine 影响；由于该参数设置的值可能会产生混淆，故不设置它；实际的行为视代码结构而定
 # AllowShortLambdasOnASingleLine: ??
-
-# 是否允许合并仅有单行的if语句；
-AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 
 # 是否允许合并仅有单行 loop 语句；该参数受 AllowShortBlocksOnASingleLine 影响
 #
@@ -822,7 +822,7 @@ MacroBlockEnd: '^\NS_MAP_END|\NS_TABLE_.*_END$'
 # 
 # while (true) { }
 # ------------------------------------------------
-MaxEmptyLinesToKeep: 99999
+MaxEmptyLinesToKeep: 4
 
 # 设置命名空间块内部的代码是否需要缩进
 # ------------------------------------------------

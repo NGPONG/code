@@ -14,7 +14,7 @@
 #include <list>
 #include <benchmark/benchmark.h>
 
-#define MAX_TEST_CASE 100
+#define MAX_TEST_CASE 1000
 
 #define RESET "\033[0m"
 #define BLACK "\033[30m"              /* Black */

@@ -45,7 +45,6 @@ void solution_shell_sort(Array &datas) {
       for (; j >= gs && key < datas[j - gs]; j -= gs) {
         datas[j] = datas[j - gs];
       }
-
       datas[j] = key;
     }
   }
@@ -113,24 +112,23 @@ void solution_heap_sort(Array &datas) {
     std::int32_t child_r = i * 2 + 2;
 
     std::int32_t larger = i;
-    if (child_l <= n && datas[larger] < datas[child_l]) {
+    if (child_l <= n && datas[child_l] > datas[larger]) {
       larger = child_l;
     }
-    if (child_r <= n && datas[larger] < datas[child_r]) {
+    if (child_r <= n && datas[child_r] > datas[larger]) {
       larger = child_r;
     }
-
+    
     if (larger != i) {
-      std::swap(datas[larger], datas[i]);
+      std::swap(datas[i], datas[larger]);
       heapify(n, larger);
     }
   });
 
   std::int32_t lst_idx = datas.size() - 1;
-  std::int32_t lst_pat = (lst_idx - 1) / 2;
 
-  for (std::int32_t i = lst_pat; i >= 0; --i) {
-    heapify(lst_idx, i);
+  for (std::int32_t parent = (lst_idx - 1) / 2; parent >= 0; --parent) {
+    heapify(lst_idx, parent);
   }
 
   for (std::int32_t i = lst_idx; i > 0; --i) {
@@ -140,60 +138,55 @@ void solution_heap_sort(Array &datas) {
 }
 
 void solution_quicksort_normal(Array &datas) {
-  auto partition = [&](std::int32_t low, std::int32_t high) {
-    std::int32_t P = datas[low];
-
-    std::int32_t lt = low;
-    std::int32_t i = low + 1;
-
-    while (i <= high) {
-      if (datas[i] <= P) {
-        std::swap(datas[i], datas[lt + 1]);
-        lt++;
-      }
-      i++;
-    }
-    std::swap(datas[low], datas[lt]);
-
-    return lt;
-  };
-
   auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
     if (low >= high) {
       return;
     }
 
-    std::int32_t mid = partition(low, high);
+    std::int32_t p = datas[low];
 
-    quick_sort(low, mid - 1);
-    quick_sort(mid + 1, high);
+    std::int32_t lt = low, i = low + 1;
+    while (i <= high) {
+      if (datas[i] <= p) {
+        std::swap(datas[i], datas[++lt]);
+      }
+      ++i;
+    }
+    std::swap(datas[low], datas[lt]);
+
+    quick_sort(low, lt - 1);
+    quick_sort(lt + 1, high);
   });
 
   quick_sort(0, datas.size() - 1);
 }
 
 void solution_quicksort_nonrecursive(Array &datas) {
-  auto partition = [&](std::int32_t low, std::int32_t high) {
-    std::int32_t P = datas[low];
+  auto partition = make_y_combinator([&](auto partition, std::int32_t low, std::int32_t high) -> std::int32_t {
+    std::int32_t p = datas[low];
 
-    std::int32_t lt = low;
-    std::int32_t i = low + 1;
-
-    while (i <= high) {
-      if (datas[i] <= P) {
-        std::swap(datas[i], datas[lt + 1]);
-        lt++;
+    std::int32_t lt = low, gt = high;
+    while (lt < gt) {
+      while (lt < gt && datas[gt] >= p) {
+        --gt;
       }
-      i++;
+
+      while (lt < gt && datas[lt] <= p) {
+        ++lt;
+      }
+
+      if (lt < gt) {
+        std::swap(datas[lt], datas[gt]);
+      }
     }
-    std::swap(datas[low], datas[lt]);
+    std::swap(datas[lt], datas[low]);
 
     return lt;
-  };
+  });
 
   std::stack<std::int32_t> s;
 
-  if (!datas.empty()) {
+  if (datas.size() > 1) {
     s.push(0);
     s.push(datas.size() - 1);
   }
@@ -218,13 +211,15 @@ void solution_quicksort_nonrecursive(Array &datas) {
 
 void solution_quicksort_2way(Array &datas) {
   auto partition = [&](std::int32_t low, std::int32_t high) {
+    std::swap(datas[low], datas[(low + high) / 2]);
+
     std::int32_t P = datas[low];
 
     std::int32_t lt = low;
     std::int32_t gt = high;
 
     while (lt < gt) {
-      while (lt < gt && datas[gt] >= P)  {
+      while (lt < gt && datas[gt] >= P) {
         --gt;
       }
       while (lt < gt && datas[lt] <= P) {
@@ -253,74 +248,94 @@ void solution_quicksort_2way(Array &datas) {
   quick_sort(0, datas.size() - 1);
 }
 
-void solution_quicksort_3way(Array &datas) {
-  auto partition = [&](std::int32_t low, std::int32_t high) {
-    std::int32_t P = datas[low];
-
-    std::int32_t lt = low;
-    std::int32_t gt = high + 1;
-    std::int32_t i = low + 1;
-
-    while (i < gt) {
-      if (datas[i] < P) {
-        std::swap(datas[i], datas[lt + 1]);
-        lt++;
-        i++;
-      } else if (datas[i] > P) {
-        std::swap(datas[i], datas[gt - 1]);
-        gt--;
-      } else {
-        i++;
-      }
-    }
-    std::swap(datas[lt], datas[low]);
-
-    return lt;
-  };
-
+void solution_quicksort_3way_v1(Array &datas) {
   auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
     if (low >= high) {
       return;
     }
 
-    std::int32_t mid = partition(low, high);
+    std::int32_t p = datas[low];
 
-    quick_sort(low, mid - 1);
-    quick_sort(mid + 1, high);
+    std::int32_t lt = low, gt = high + 1, i = low + 1;
+    while (i < gt) {
+      if (datas[i] < p) {
+        std::swap(datas[i++], datas[lt++]);
+      } else if (datas[i] > p) {
+        std::swap(datas[i], datas[--gt]);
+      } else {
+        i++;
+      }
+    }
+
+    quick_sort(low, lt - 1);
+    quick_sort(gt, high);
+  });
+
+  quick_sort(0, datas.size() - 1);
+}
+
+void solution_quicksort_3way_v2(Array &datas) {
+  auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
+    if (low >= high) {
+      return;
+    }
+
+    std::int32_t mid = (low + high) / 2;
+
+    
+
+    std::int32_t p = datas[low];
+
+    std::int32_t lt = low;
+    std::int32_t gt = high + 1;
+    std::int32_t i = low + 1;
+    
+    while (i < gt) {
+      if (datas[i] < p) {
+        std::swap(datas[i++], datas[lt++]);
+      } else if (datas[i] > p) {
+        std::swap(datas[i], datas[--gt]);
+      } else {
+        i++;
+      }
+    }
+
+    quick_sort(low, lt - 1);
+    quick_sort(gt, high);
   });
 
   quick_sort(0, datas.size() - 1);
 }
 
 void solution_merge_sort(Array &datas) {
-  auto merge_split = make_y_combinator([&](auto merge_sort, std::int32_t L, std::int32_t M, std::int32_t R) -> void {
-    std::int32_t left_size = M - L;
+  auto merge_split = make_y_combinator([&](auto merge_split, std::int32_t low, std::int32_t mid, std::int32_t high) -> void {
+    std::int32_t left_size = mid - low;
     std::int32_t left[left_size];
-    for (std::int32_t i = L; i < M; ++i) {
-      left[i - L] = datas[i];
+    for (std::int32_t i = low; i < mid; ++i) {
+      left[i - low] = datas[i];
     }
 
-    std::int32_t right_size = R - M + 1;
+    std::int32_t right_size = high - mid + 1;
     std::int32_t right[right_size];
-    for (std::int32_t i = M; i <= R; ++i) {
-      right[i - M] = datas[i];
+    for (std::int32_t i = mid; i <= high; ++i) {
+      right[i - mid] = datas[i];
     }
 
-    std::int32_t i = 0, j = 0, k = L;
+    std::int32_t i = 0, j = 0, k = low;
     while (i < left_size && j < right_size) {
       if (left[i] < right[j]) {
-        datas[k++] = left[i++];
+        std::swap(datas[k++], left[i++]);
       } else {
-        datas[k++] = right[j++];
+        std::swap(datas[k++], right[j++]);
       }
     }
-
+    
     while (i < left_size) {
-      datas[k++] = left[i++];
+      std::swap(datas[k++], left[i++]);
     }
 
     while (j < right_size) {
-      datas[k++] = right[j++];
+      std::swap(datas[k++], right[j++]);
     }
   });
 
@@ -337,7 +352,8 @@ void solution_merge_sort(Array &datas) {
     merge_split(low, mid + 1, high);
   });
 
-  merge_sort(0, datas.size() - 1 );
+
+  merge_sort(0, datas.size() - 1);
 }
 
 std::int32_t main(void) {
@@ -346,7 +362,8 @@ std::int32_t main(void) {
     { solution_quicksort_normal,       "solution_quicksort_normal"       },
     { solution_quicksort_nonrecursive, "solution_quicksort_nonrecursive" },
     { solution_quicksort_2way,         "solution_quicksort_2way"         },
-    { solution_quicksort_3way,         "solution_quicksort_3way"         },
+    { solution_quicksort_3way_v1,      "solution_quicksort_3way_v1"      },
+    { solution_quicksort_3way_v2,      "solution_quicksort_3way_v2"      },
     { solution_heap_sort,              "solution_heap_sort"              },
     { solution_counting_sort,          "solution_counting_sort"          },
     { solution_bucket_sort,            "solution_bucket_sort"            },
@@ -361,7 +378,8 @@ std::int32_t main(void) {
     { solution_quicksort_normal,       "solution_quicksort_normal"       },
     { solution_quicksort_nonrecursive, "solution_quicksort_nonrecursive" },
     { solution_quicksort_2way,         "solution_quicksort_2way"         },
-    { solution_quicksort_3way,         "solution_quicksort_3way"         },
+    { solution_quicksort_3way_v1,      "solution_quicksort_3way_v1"      },
+    { solution_quicksort_3way_v2,      "solution_quicksort_3way_v2"      },
     { solution_heap_sort,              "solution_heap_sort"              },
     { solution_counting_sort,          "solution_counting_sort"          },
     { solution_bucket_sort,            "solution_bucket_sort"            },
