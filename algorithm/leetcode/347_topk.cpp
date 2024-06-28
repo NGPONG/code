@@ -1,5 +1,10 @@
 #include "common.hpp"
 
+static constexpr std::int32_t K = 10;
+
+static bool flag1 = true;
+static bool flag2 = true;
+
 // =======================================================================================================================
 
 // 采用快排的思想
@@ -8,11 +13,27 @@
 //
 // 空间复杂度 O(1)，不需要额外空间
 // 由于快速选择只需要递归一边的数组，时间复杂度小于快速排序，期望时间复杂度为 O(n)，最坏情况下的时间复杂度为 O(n^2)
-void solutions_1_1(Array &datas, std::int32_t k) {
+void solutions_1_1(Array datas, std::int32_t k) {
+  auto fix_pivot = make_y_combinator([&](auto fix_pivot, std::int32_t low, std::int32_t high) -> void {
+    std::int32_t mid = (low + high) / 2;
+
+    std::int32_t l = datas[low];
+    std::int32_t m = datas[mid];
+    std::int32_t r = datas[high];
+
+    if ((l <= m && m <= r) || (r <= m && m <= l)) {
+      std::swap(datas[low], datas[mid]);
+    } else if ((l <= r && r <= m) || (m <= r && r <= l)) {
+      std::swap(datas[low], datas[high]);
+    }
+  });
+
   auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
     if (low >= high) {
       return;
     }
+
+    fix_pivot(low, high);
 
     std::int32_t p = datas[low];
 
@@ -30,12 +51,12 @@ void solutions_1_1(Array &datas, std::int32_t k) {
     }
     std::swap(datas[lt], datas[low]);
 
-    if (k == lt) {
-      return;
-    } else if (k < lt) {
-      return quick_sort(low, lt - 1);
-    } else {
+    if (k < lt) {
+      quick_sort(low, lt - 1);
+    } else if (k > lt) {
       quick_sort(lt + 1, high);
+    } else {
+      return;
     }
   });
 
@@ -43,12 +64,12 @@ void solutions_1_1(Array &datas, std::int32_t k) {
 }
 static void BM_solutions_1_1(benchmark::State &state) {
   for (auto _ : state) {
-    solutions_1_1(get_total_random_array(), 20);
+    solutions_1_1(get_total_random_array(), K);
   }
 }
 BENCHMARK(BM_solutions_1_1);
 // 三路快排的优化版本
-void solutions_1_2(Array &datas, std::int32_t k) {
+void solutions_1_2(Array datas, std::int32_t k) {
   auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) {
     if (low >= high) {
       return;
@@ -69,7 +90,7 @@ void solutions_1_2(Array &datas, std::int32_t k) {
 
     if (k < lt) {
       quick_sort(low, lt - 1);
-    } else if (k > lt) {
+    } else if (k > gt) {
       quick_sort(gt, high);
     } else {
       return;
@@ -80,7 +101,7 @@ void solutions_1_2(Array &datas, std::int32_t k) {
 }
 static void BM_solutions_1_2(benchmark::State &state) {
   for (auto _ : state) {
-    solutions_1_2(get_total_random_array(), 20);
+    solutions_1_2(get_total_random_array(), K);
   }
 }
 BENCHMARK(BM_solutions_1_2);
@@ -100,20 +121,20 @@ BENCHMARK(BM_solutions_1_2);
 // 空间复杂度 O(1)，不需要额外空间
 //
 // heapify 的时间复杂度为 O(logK)，由于可能会存在所有数字都需要进行一次 heapify 的情况，故最坏时间复杂度为 O(nlogK)
-void solutions_2(Array &datas, std::int32_t k) {
+void solutions_2(Array datas, std::int32_t k) {
   auto heapify = make_y_combinator([&](auto heapify, std::int32_t n, std::int32_t i) -> void {
     std::int32_t child_l = i * 2 + 1;
     std::int32_t child_r = i * 2 + 2;
 
     std::int32_t larger = i;
-    if (child_l <= n && datas[child_l] > datas[larger]) {
+    if (child_l <= n && datas[larger] < datas[child_l]) {
       larger = child_l;
     }
-    if (child_r <= n && datas[child_r] > datas[larger]) {
+    if (child_r <= n && datas[larger] < datas[child_r]) {
       larger = child_r;
     }
 
-    if (larger != i) {
+    if (i != larger) {
       std::swap(datas[larger], datas[i]);
       heapify(n, larger);
     }
@@ -127,14 +148,14 @@ void solutions_2(Array &datas, std::int32_t k) {
 
   for (std::int32_t i = k; i < datas.size(); ++i) {
     if (datas[i] < datas[0]) {
-      std::swap(datas[i], datas[0]);
+      std::swap(datas[0], datas[i]);
       heapify(lst_idx, 0);
     }
   }
 }
 static void BM_solutions_2(benchmark::State &state) {
   for (auto _ : state) {
-    solutions_2(get_total_random_array(), 20);
+    solutions_2(get_total_random_array(), K);
   }
 }
 BENCHMARK(BM_solutions_2);

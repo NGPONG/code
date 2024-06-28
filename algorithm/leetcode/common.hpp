@@ -14,7 +14,7 @@
 #include <vector>
 #include <benchmark/benchmark.h>
 
-static constexpr std::int32_t MAX_TEST_CASE = 10000;
+#define MAX_TEST_CASE 100000
 
 using Array = std::vector<std::int32_t>;
 

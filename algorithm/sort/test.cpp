@@ -118,7 +118,7 @@ void solution_heap_sort(Array &datas) {
     if (child_r <= n && datas[child_r] > datas[larger]) {
       larger = child_r;
     }
-    
+
     if (larger != i) {
       std::swap(datas[i], datas[larger]);
       heapify(n, larger);
@@ -192,8 +192,10 @@ void solution_quicksort_nonrecursive(Array &datas) {
   }
 
   while (!s.empty()) {
-    std::int32_t high = s.top(); s.pop();
-    std::int32_t low  = s.top(); s.pop();
+    std::int32_t high = s.top();
+    s.pop();
+    std::int32_t low = s.top();
+    s.pop();
 
     std::int32_t mid = partition(low, high);
 
@@ -248,8 +250,8 @@ void solution_quicksort_2way(Array &datas) {
   quick_sort(0, datas.size() - 1);
 }
 
-void solution_quicksort_3way_v1(Array &datas) {
-  auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) -> void {
+void solution_quicksort_3way(Array &datas) {
+  auto quick_sort = make_y_combinator([&](auto quick_sort, std::int32_t low, std::int32_t high) {
     if (low >= high) {
       return;
     }
@@ -328,7 +330,7 @@ std::int32_t main(void) {
     { solution_quicksort_normal,       "solution_quicksort_normal"       },
     { solution_quicksort_nonrecursive, "solution_quicksort_nonrecursive" },
     { solution_quicksort_2way,         "solution_quicksort_2way"         },
-    { solution_quicksort_3way_v1,      "solution_quicksort_3way_v1"      },
+    { solution_quicksort_3way,         "solution_quicksort_3way"         },
     { solution_heap_sort,              "solution_heap_sort"              },
     { solution_counting_sort,          "solution_counting_sort"          },
     { solution_bucket_sort,            "solution_bucket_sort"            },
@@ -343,7 +345,7 @@ std::int32_t main(void) {
     { solution_quicksort_normal,       "solution_quicksort_normal"       },
     { solution_quicksort_nonrecursive, "solution_quicksort_nonrecursive" },
     { solution_quicksort_2way,         "solution_quicksort_2way"         },
-    { solution_quicksort_3way_v1,      "solution_quicksort_3way_v1"      },
+    { solution_quicksort_3way,         "solution_quicksort_3way"         },
     { solution_heap_sort,              "solution_heap_sort"              },
     { solution_counting_sort,          "solution_counting_sort"          },
     { solution_bucket_sort,            "solution_bucket_sort"            },
