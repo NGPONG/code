@@ -1,8 +1,0 @@
-clang
-%c -std=c11
-%cpp -std=c++17
-%c %cpp -D_DEFAULT_SOURCE
-%c %cpp -pthread
--I/usr/lib/llvm-11/include/c++/v1
--I/usr/include/llvm-11/
--I/usr/lib/llvm-11/include

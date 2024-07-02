@@ -3,7 +3,6 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include <Windows.h>
 
 int binary_search(int *arrary, int key, int size) {
   int low = 0;
