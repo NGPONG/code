@@ -53,9 +53,9 @@ ListNode *solutions_2(ListNode *head) {
 }
 
 std::int32_t main(std::int32_t argc, char *argv[]) {
-  ListNode *node = get_desc_list(10);
+  ListNode *node = get_list(10);
 
-  solutions_1(node)->Foreach();
+  std::cout << solutions_1(node) << std::endl;
   // solutions_2(node)->Foreach();
 
   return 0;

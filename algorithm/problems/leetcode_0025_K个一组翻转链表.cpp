@@ -5,7 +5,7 @@
 //
 // 利用栈的思想即可，每次遍历的时候压入栈中，到达第 k 次的时候，将栈中的元素挨个弹出就是一个反转的形态，拼接回即可
 
-std::pair<ListNode *, ListNode *> constuct_newlist(std::stack<ListNode *> &s) {
+std::pair<ListNode *, ListNode *> revert_list(std::stack<ListNode *> &s) {
   ListNode *head = s.top(); s.pop();
 
   ListNode *tail = head;
@@ -27,63 +27,36 @@ ListNode *solutions(ListNode *list, std::int32_t k) {
 
   std::stack<ListNode *> s;
 
-  // 1 2 3 4 5 6 7 8
-  //
-  // 3 2 1 6 5 4 7 8
+  ListNode *top = new ListNode(-1, list);
 
-  ListNode *it = list, *head = list, *tail = nullptr;
-
-  for (std::int32_t idx = 1; it; ++idx) {
-    if (!(idx % k + 1)) {
-      auto [h, t] = constuct_newlist(s);
-      tail->next = it;
+  ListNode *it = list, *wrap = top;
+  for (;;) {
+    for (std::int32_t j = 0; j < k && it; ++j) {
+      s.push(it);
+      it = it->next;
     }
 
-    s.push(it);
+    if (s.size() < k) { // 处理尾部阶段剩余节点数不足k时的情况
+      break;
+    } else {            // 处理正常能够找到k个节点的情况
+      auto [head, tail] = revert_list(s);
+      tail->next = it;
+      wrap->next = head; 
 
-    it = it->next;
+      wrap = tail;
+    }
   }
 
-  return new_list;
+  ListNode *ret = top->next;
+  delete top;
+
+  return ret;
 }
 
 int main(void) {
-  ListNode* node = get_desc_list(10);
+  ListNode* node = get_list(10);
 
-  solutions(node, 3)->Foreach();
-
+  solutions(node, 4);
 
   return EXIT_SUCCESS;
 }
-
-// list<int> link = { 1, 2, 3, 4, 5, 6, 7, 8 };
-// stack<int> cnt;
-// int k = 3;
-//
-// int link_size = link.size();
-// for (int i = 1; i <= link_size; ++i) { // 仅作为计数，所以从 1 开始
-//   // 考虑最后的遍历的次数无法达到 k 的情况
-//   if (link_size - i + 1 < k) {
-//     for (int j = 1; j <= link_size - i + 1; ++j) {
-//       link.push_back(link.front());
-//       link.pop_front();
-//     }
-//
-//     break;
-//   }
-//
-//   cnt.push(link.front()); link.pop_front();
-//
-//   if (i % k == 0) {
-//     for (int j = 1; j <= k; ++j) {
-//       link.push_back(cnt.top());
-//       cnt.pop();
-//     }
-//   }
-// }
-//
-// for (auto val = link.begin(); val != link.end(); ++val) {
-//   std::cout << *val;
-// }
-//
-// std::cout << std::endl;

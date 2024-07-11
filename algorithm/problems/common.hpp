@@ -13,6 +13,7 @@
 #include <map>
 #include <queue>
 #include <random>
+#include <sstream>
 #include <stack>
 #include <thread>
 #include <vector>
@@ -23,38 +24,6 @@
 using Array = std::vector<std::int32_t>;
 
 using pair_i_i = std::pair<std::int32_t, std::int32_t>;
-
-struct ListNode {
-  int val;
-  ListNode *next;
-  ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode *next) : val(x), next(next) {}
-  void Foreach() {
-    auto it = this;
-    while (it) {
-      std::cout << it->val << " ";
-
-      if (!it->next) {
-        std::cout << std::endl;
-      }
-
-      it = it->next;
-    }
-  }
-  void Dump() {
-    auto it = this;
-    while (it) {
-      std::cout << it << " ";
-
-      if (!it->next) {
-        std::cout << std::endl;
-      }
-
-      it = it->next;
-    }
-  }
-};
 
 template <class F>
 struct y_combinator {
@@ -71,9 +40,69 @@ y_combinator<std::decay_t<F>> make_y_combinator(F &&f) {
   return { std::forward<F>(f) };
 }
 
-std::ostream &operator<<(std::ostream &os, const std::vector<std::int32_t> &datas) {
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+struct TreeNode {
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+template<typename T>
+std::ostream &operator<<(std::ostream &os, const std::vector<T> &datas) {
   for (const auto &data : datas) {
     std::cout << data << " ";
+  }
+
+  return os;
+}
+
+template<typename T>
+std::ostream &operator<<(std::ostream &os, const std::list<T> &datas) {
+  for (const auto &data : datas) {
+    std::cout << data << " ";
+  }
+
+  return os;
+}
+
+std::ostream &operator<<(std::ostream &os, TreeNode *root) {
+  auto PrintBT = make_y_combinator([&](auto PrintBT, const std::string &prefix, TreeNode *node, bool isLeft, bool isRoot) -> void {
+    if (node != nullptr) {
+      std::cout << prefix;
+
+      std::cout << (isRoot ? "ROOT:" : (isLeft ? "├── L:" : "└── R:"));
+
+      // print the value of the node
+      std::cout << node->val << std::endl;
+
+      // enter the next tree level - left and right branch
+      PrintBT(prefix + (isLeft ? "│   " : "    "), node->left, true, false);
+      PrintBT(prefix + (isLeft ? "│   " : "    "), node->right, false, false);
+    }
+  });
+
+  PrintBT("", root, false, true);
+
+  return os;
+}
+
+std::ostream &operator<<(std::ostream &os, ListNode *list) {
+  auto it = list;
+  while (it) {
+    std::cout << "[" << static_cast<void *>(it) << "] " << it->val << (it->next ? " -> " : "") << std::endl;
+    ;
+
+    it = it->next;
   }
 
   return os;
@@ -128,13 +157,78 @@ Array &get_total_random_array() {
   return ret;
 }
 
-ListNode *get_desc_list(std::int32_t size = 10, std::int32_t idx = 0) {
-  if (!size) {
-    return nullptr; 
+ListNode *get_list_desc(std::int32_t begin = 10, std::int32_t end = -2) {
+  if (begin < end) {
+    return nullptr;
   } else {
-    ListNode *node = new ListNode(size);
-    node->next = get_desc_list(--size);
+    ListNode *node = new ListNode(begin);
+    node->next     = get_list_desc(--begin, end);
 
     return node;
   }
+}
+
+ListNode *get_list(std::int32_t end = 10, std::int32_t idx = 0) {
+  if (idx > end) {
+    return nullptr;
+  } else {
+    ListNode *node = new ListNode(idx);
+    node->next     = get_list(end, ++idx);
+
+    return node;
+  }
+}
+
+TreeNode *get_binary_tree(std::int32_t size) {
+  std::queue<TreeNode *> s;
+
+  std::int32_t idx = 1;
+
+  TreeNode *root = new TreeNode(idx++);
+  s.push(root);
+
+  while (idx <= 10) {
+    TreeNode *node = s.front();
+    s.pop();
+
+    node->left  = new TreeNode(idx++);
+    node->right = new TreeNode(idx++);
+
+    s.push(node->left);
+    s.push(node->right);
+  }
+
+  return root;
+}
+
+TreeNode *get_binary_tree() {
+  TreeNode *root                       = new TreeNode(1);
+  root->left                           = new TreeNode(2);
+  root->right                          = new TreeNode(3);
+  root->left->left                     = new TreeNode(4);
+  root->left->right                    = new TreeNode(5);
+  root->right->left                    = new TreeNode(6);
+  root->right->right                   = new TreeNode(7);
+  root->left->left->right              = new TreeNode(8);
+  root->right->left->left              = new TreeNode(9);
+  root->right->right->left             = new TreeNode(10);
+  root->right->right->right            = new TreeNode(11);
+  root->left->left->right->left        = new TreeNode(12);
+  root->left->left->right->right       = new TreeNode(13);
+  root->right->left->left->right       = new TreeNode(14);
+  root->left->left->right->right->left = new TreeNode(15);
+
+  // TreeNode *root                   = new TreeNode(1);
+  // root->right                      = new TreeNode(2);
+  // root->right->right               = new TreeNode(3);
+  // root->right->right->right        = new TreeNode(4);
+  // root->right->right->right->right = new TreeNode(5);
+
+  // TreeNode *root     = new TreeNode(3);
+  // root->left         = new TreeNode(9);
+  // root->right        = new TreeNode(20);
+  // root->right->left  = new TreeNode(15);
+  // root->right->right = new TreeNode(7);
+
+  return root;
 }

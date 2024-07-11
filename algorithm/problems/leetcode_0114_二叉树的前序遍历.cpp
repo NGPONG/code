@@ -1,32 +1,40 @@
-#include <iostream>
-#include <stack>
+#include "common.hpp"
 
-using namespace std;
+// 题目：给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
 
-struct tree_node {
-  char elem;
-  struct tree_node *left;
-  struct tree_node *right;
-};
+void solutions_1(TreeNode *root) {
+  if (!root) {
+    return;
+  }
 
-void preorder_traverse(tree_node *root) {
-  stack<tree_node *> s;
-  tree_node *cur = root;
-  while (cur != nullptr || !s.empty()) {
-    while (cur != nullptr) {
-      cout << cur->elem << endl;
-      s.push(cur);
-      cur = cur->left;
+  std::cout << root->val << std::endl;
+  solutions_1(root->left);
+  solutions_1(root->right);
+}
+
+void solutions_2(TreeNode *root) {
+  std::stack<TreeNode *> s;
+
+  while (!s.empty() || root) {
+    while (root) {
+      std::cout << root->val << std::endl;
+      s.push(root);
+      root = root->left;
     }
 
     if (!s.empty()) {
-      cur = s.top(); s.pop();
-      cur = cur->right;
+      root = s.top()->left; s.pop();
     }
   }
 }
 
-int main(void) {
-  
-  return EXIT_SUCCESS;
+std::int32_t main (std::int32_t argc, char *argv[]) {
+  TreeNode *bt = get_binary_tree(10);
+  std::cout << bt << std::endl;
+
+  solutions_1(bt);
+  std::cout << "=====================" << std::endl;
+  solutions_2(bt);
+
+  return 0;
 }

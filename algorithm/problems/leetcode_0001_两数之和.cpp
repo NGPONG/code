@@ -1,25 +1,4 @@
-#include <iostream>
-#include <unordered_map>
-#include <vector>
-
-std::vector<int> random_nums() {
-  std::vector<int> ret;
-  std::unordered_map<int, bool> cont;
-
-  srand((unsigned)time(NULL));
-  for (int i = 0; i < 50000; ++i) {
-    int num = rand() % 50000;
-    if (cont.find(num) != cont.end()) {
-      --i;
-      continue;
-    }
-
-    ret.push_back(num);
-    cont[num] = true;
-  }
-
-  return ret;
-}
+#include "common.hpp"
 
 // 题目: 给定一个无序数组，寻找两数之和等于给定的 target，要求返回两数的下标
 //
@@ -30,34 +9,20 @@ std::vector<int> random_nums() {
 // 中存在 a + b = target 的关系
 std::pair<int, int> two_sum_hash(std::vector<int> &nums, int target) {
   // target = a + b
-  // std::unordered_map<std::int32_t, std::int32_t> hash;
-  // for (std::int32_t i = 0; i < nums.size(); ++i) {
-  //   auto it = hash.find(target - nums[i]);
-  //   if (it != hash.end()) {
-  //     return { it->second, i };
-  //   }
-  //
-  //   hash[nums[i]] = i;
-  // }
+  std::unordered_map<std::int32_t, std::int32_t> hash;
+  for (std::int32_t i = 0; i < nums.size(); ++i) {
+    auto it = hash.find(target - nums[i]);
+    if (it != hash.end()) {
+      return { it->second, i };
+    }
 
-  // std::int32_t left = 0, right = nums.size() - 1;
-  //
-  // while (left < right) {
-  //   for (size_t i = left + 1; i <= right; i++) {
-  //     if (target == nums[left] + nums[i]) {
-  //       return { left, i };
-  //     }
-  //   }
-  //   left++;
-  //
-  //   for (size_t i = right - 1; i >= left; i--) {
-  //     if (target == nums[right] + nums[i]) {
-  //       return { right, i };
-  //     }
-  //   }
-  //   right--;
-  // }
+    hash[nums[i]] = i;
+  }
 
+  return {};
+}
+
+std::pair<int, int> solution_2(std::vector<int> &nums, int target) {
   for (std::int32_t i = 0; i < nums.size(); ++i) {
     std::int32_t x = nums[i];
     for (std::int32_t j = i + 1; j < nums.size(); ++j) {
@@ -72,13 +37,35 @@ std::pair<int, int> two_sum_hash(std::vector<int> &nums, int target) {
   return {};
 }
 
-int main(void) {
-  std::vector<std::int32_t> nums = { 3,2,4, 7, 2, 1, 0, 5, 4, 9, 11, 20, 21, 22, 23 };
+std::pair<int, int> solution_3(std::vector<int> &nums, int target) {
+  std::int32_t left = 0, right = nums.size() - 1;
+
+  while (left < right) {
+    for (size_t i = left + 1; i <= right; i++) {
+      if (target == nums[left] + nums[i]) {
+        return { left, i };
+      }
+    }
+    left++;
+
+    for (size_t i = right - 1; i >= left; i--) {
+      if (target == nums[right] + nums[i]) {
+        return { right, i };
+      }
+    }
+    right--;
+  }
+
+  return {};
+}
+
+int main(int argc, char *argv[]) {
+  std::vector<std::int32_t> nums = { 3, 2, 4, 7, 2, 1, 0, 5, 4, 9, 11, 20, 21, 22, 23 };
 
   auto pair = two_sum_hash(nums, 100);
 
   std::cout << pair.first << std::endl;
   std::cout << pair.second << std::endl;
 
-  return EXIT_SUCCESS;
+  return 0;
 }

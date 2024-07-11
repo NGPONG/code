@@ -1,32 +1,50 @@
-#include <iostream>
-#include <stack>
+#include "common.hpp"
 
-using namespace std;
+// 题目：给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
+//
+// 
 
-struct tree_node {
-  char elem;
-  struct tree_node *left;
-  struct tree_node *right;
-};
+void solutions_1(TreeNode *root) {
+  std::stack<TreeNode *> s;
 
-void midorder_traverse(tree_node *root) {
-  stack<tree_node *> s;
-  tree_node *cur = root;
-  while (cur != nullptr || !s.empty()) {
-    while (cur != nullptr) {
-      s.push(cur);
-      cur = cur->left;
+  while (root || !s.empty()) {
+    // 0x1: 从每个节点的开始，都需要一直扫描到其左子节点的末尾；追加入栈；为方便描述，我们将每一轮的root节点称为 “根节点”；
+    while (root) {
+      s.push(root);
+      root = root->left;
     }
 
     if (!s.empty()) {
-      cur = s.top(); s.pop();
-      cout << cur->elem << endl;
-      cur = cur->right;
+      // 0x2: 提取栈顶元素
+      root = s.top(); s.pop();
+      std::cout << root->val << std::endl;
+      // 0x3: 
+      // 1. 如果有右节点则将右节点作为下一轮的根节点
+      // 2. 如果没有则在下一轮中逐步向上弹出上一轮中根节点的父节点
+      root = root->right;
     }
   }
 }
 
+void solutions_2(TreeNode *root) {
+  if (!root) {
+    return;
+  }
+
+  solutions_2(root->left);
+  std::cout << root->val << std::endl;
+  solutions_2(root->right);
+}
+
 int main(void) {
-  
+  TreeNode *bt = get_binary_tree(10);
+  std::cout << bt << std::endl;
+
+  solutions_1(bt);
+
+  std::cout << "====================" << std::endl;
+
+  solutions_2(bt);
+
   return EXIT_SUCCESS;
 }
