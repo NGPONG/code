@@ -1,4 +1,5 @@
 #include "common.hpp"
+#include <sys/time.h> 
 
 void solutions(std::vector<std::int32_t> nums) {
   for (std::int32_t i = nums.size() - 1; i >= 0; --i) {
@@ -9,6 +10,9 @@ void solutions(std::vector<std::int32_t> nums) {
 std::int32_t main (std::int32_t argc, char *argv[]) {
   std::vector<std::int32_t> nums = { 1, 3, 6, 8, 8, 9, 10, 21, 33 };
   
+  struct timeval te;
+  gettimeofday(&te, NULL);
+
   solutions(nums);
 
   std::cout << nums << std::endl;
